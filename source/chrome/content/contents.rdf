@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:chrome="http://www.mozilla.org/rdf/chrome#">
+         
+  <!-- list all the packages being supplied -->
+  <RDF:Seq about="urn:mozilla:package:root">
+    <RDF:li resource="urn:mozilla:package:localfolder"/>
+  </RDF:Seq>
+
+  <!-- package information -->
+  <RDF:Description about="urn:mozilla:package:localfolder"
+        chrome:displayName="LocalFolder"
+        chrome:author=""
+        chrome:authorURL=""
+        chrome:name="localfolder"
+  </RDF:Description>
+
+	<!-- chargement des overlays -->
+  <RDF:Seq about="urn:mozilla:overlays">
+  	<RDF:li resource="chrome://messenger/content/messenger.xul"/>
+  	<RDF:li resource="chrome://messenger/content/AccountManager.xul"/>
+  	<RDF:li resource="chrome://messenger/content/AccountWizard.xul"/>
+  	<RDF:li resource="chrome://messenger/content/am-main.xul"/>
+  	<RDF:li resource="chrome://messenger/content/messengercompose/messengercompose.xul"/>
+  	<RDF:li resource="chrome://global/content/commonDialog.xul"/>
+  </RDF:Seq>
+
+  
+  <!-- Mozilla et Thunderbird overlay -->
+  
+  <!-- gestionnaire de comptes -->
+  <RDF:Seq about="chrome://messenger/content/AccountManager.xul">
+    <RDF:li>chrome://localfolder/content/accountmanager-overlay.xul</RDF:li>
+  </RDF:Seq>
+  
+  <RDF:Seq about="chrome://global/content/commonDialog.xul">
+    <RDF:li>chrome://localfolder/content/commonDialog-overlay.xul</RDF:li>
+  </RDF:Seq>
+  
+</RDF:RDF>

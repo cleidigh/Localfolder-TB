@@ -1,0 +1,14 @@
+<!-- accountmanager-overlay.xul -->
+<!ENTITY eu.philoux.localfolder.btdossier "Neuer lokaler Ordner">
+<!ENTITY eu.philoux.localfolder.btdossier.racc "o">
+
+<!-- localfolder.xul -->
+<!ENTITY eu.philoux.localfolder.titre "Zusatz zum lokalen Ordner">
+<!ENTITY eu.philoux.localfolder.btValider "OK">
+<!ENTITY eu.philoux.localfolder.btQuitter "Abbrechen">
+<!ENTITY eu.philoux.localfolder.bandeau.titre "Lokale Ordner Einstellungen">
+<!ENTITY eu.philoux.localfolder.libnom "Name:">
+<!ENTITY eu.philoux.localfolder.libchemin "Verzeichnis:">
+<!ENTITY eu.philoux.localfolder.chemin.btlib "Öffnen">
+<!ENTITY eu.philoux.localfolder.chemin.btlibcle "Ö">
+<!ENTITY eu.philoux.localfolder.chemin.browsertitle "Wähle einen Ordner">

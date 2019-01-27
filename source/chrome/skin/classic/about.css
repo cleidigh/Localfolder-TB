@@ -1,0 +1,26 @@
+@import url("chrome://messenger/skin/");
+@import url("chrome://messenger/skin/messengercompose.css");
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+.about-esp{
+	height:10px;
+}
+
+#about-collogo{
+	width:40px;
+}
+
+#about-cadre{
+	background-color: rgb(250,255,245);
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	-moz-border-radius : 4px;
+}
+
+description{
+	font-family:arial;
+	font-size:12px;
+	font-weight:600;
+}

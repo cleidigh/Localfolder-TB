@@ -1,0 +1,11 @@
+<!ENTITY eu.philoux.localfolder.btdossier "新建本地文件夹">
+<!ENTITY eu.philoux.localfolder.btdossier.racc "f">
+<!ENTITY eu.philoux.localfolder.titre "增加本地文件夹">
+<!ENTITY eu.philoux.localfolder.btValider "确定">
+<!ENTITY eu.philoux.localfolder.btQuitter "取消">
+<!ENTITY eu.philoux.localfolder.bandeau.titre "本地文件夹配置">
+<!ENTITY eu.philoux.localfolder.libnom "名称：">
+<!ENTITY eu.philoux.localfolder.libchemin "目录：">
+<!ENTITY eu.philoux.localfolder.chemin.btlib "浏览">
+<!ENTITY eu.philoux.localfolder.chemin.btlibcle "B">
+<!ENTITY eu.philoux.localfolder.chemin.browsertitle "选择一个文件夹">

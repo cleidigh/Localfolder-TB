@@ -1,0 +1,23 @@
+@import url("chrome://messenger/skin/");
+@import url("chrome://messenger/skin/messengercompose.css");
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#localfolder{
+width: 500px;
+height: 180px;
+}
+
+.localfolder-zone{
+margin-left: 20px;
+margin-top: 20px;
+margin-right: 20px;
+}
+
+#localfolder_bandeau{
+height: 30px;
+width: 100%;
+}
+
+#localfolder_bandeau_titre{
+font-weight: bold;
+}

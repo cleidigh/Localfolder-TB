@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://localfolder/skin/localfolder.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://localfolder/locale/localfolder.dtd">
+
+<window id="localfolder"
+			title="&eu.philoux.localfolder.titre;"
+  			xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  			onload="eu.philoux.localfolder.initDlg();">
+
+	<script type="application/x-javascript" src="chrome://localfolder/content/localfolder.js"/>
+	<script type="application/x-javascript" src="chrome://localfolder/content/trace.js"/>
+	
+	<keyset id="keys">
+	  <key keycode="VK_ESCAPE" oncommand="window.close();"/>
+	</keyset>
+	
+	<hbox id="localfolder_bandeau">
+		<description id="localfolder_bandeau_titre">&eu.philoux.localfolder.bandeau.titre;</description>
+	</hbox>
+	<menuseparator/>
+	
+	<vbox flex="1" class="localfolder-zone">
+		<vbox>
+			<hbox flex="1" align="center" style="margin-bottom: 20px">
+				<label value="&eu.philoux.localfolder.libnom;"/>
+				<textbox id="localfoldernom" flex="1"/>
+			</hbox>
+			<label value="&eu.philoux.localfolder.libchemin;"/>
+			<hbox flex="1" style="margin-bottom: 15px">
+				<textbox id="localfolderchemin" readonly="true"  flex="1"/>
+				<button label="&eu.philoux.localfolder.chemin.btlib;" 
+						id="localfoldercheminbtsel"
+						browsertitle="&eu.philoux.localfolder.chemin.browsertitle;"
+            			accesskey="&eu.philoux.localfolder.chemin.btlibcle;" oncommand="eu.philoux.localfolder.SelectChemin()"/>
+			</hbox>
+		</vbox>
+	</vbox>
+	<menuseparator/>
+	<hbox align="right">	
+  	<button id="localfolder.btQuitter" label="&eu.philoux.localfolder.btQuitter;" oncommand="close();"/>
+  	<button id="localfolder.btValider" label="&eu.philoux.localfolder.btValider;" oncommand="eu.philoux.localfolder.btCreeDossierLocal();"/>		
+  </hbox>
+</window>

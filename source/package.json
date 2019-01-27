@@ -1,0 +1,15 @@
+{
+  "title": "localfolder",
+  "name": "localfolder-0.8.10-tb",
+  "version": "0.8.10",
+  "description": "Add additional local folders",
+  "main": "./chrome/content/localfolder.js",
+  "author": "philoux, cleidigh",
+  "engines": {
+    "": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ]
+}
