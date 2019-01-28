@@ -6,10 +6,10 @@ This add-on is the original work of Philoux and with his permission I will be up
 the code for compatibility going forward and possible improvements.
 
 ## Issues & Questions
-Post any issues or questions for Localfolder under [issues]
+Post any issues or questions for Localfolder under [Issues](https://github.com/cleidigh/Localfolder-TB/issues)
 
 ## Changelog
-Localfolder's changes are logged [here](https://github.com/cleidigh/CHANGELOG.md).
+Localfolder's changes are logged [here](CHANGELOG.md).
 
 ## XPI Add-On Package Build instructions
 
@@ -22,6 +22,8 @@ Delete using your favorite compression tool WinZip, 7Zip etc...
 
 ## Troubleshooting
 
+## Credits
+Original Author: [Philoux](https://addons.thunderbird.net/en-US/thunderbird/user/philoux/ "Philoux")
 
 ## License
 
