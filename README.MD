@@ -1,6 +1,6 @@
-# ![Localfolder icon](https://github.com/cleidigh/Localfolder-TB/source/chrome/skins/classic/localfolder-32x32.png "Localfolder")
+# ![Localfolder icon](https://github.com/cleidigh/Localfolder-TB/source/chrome/skin/classic/localfolder-32x32.png "Localfolder") Localfolder
 
-![Localfolder icon](https://github.com/cleidigh/Localfolder-TB/source/chrome/skins/classic/localfolder-32x32.png "Localfolder")
+![Localfolder icon](https://github.com/cleidigh/Localfolder-TB/source/chrome/skin/classic/localfolder-32x32.png "Localfolder")
 
 
 Localfolder is a Thunderbird Add-On to create additional local folders within accounts.
