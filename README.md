@@ -5,6 +5,11 @@ Localfolder is a Thunderbird Add-On to create additional local folders within ac
 This add-on is the original work of Philoux and with his permission I will be updating
 the code for compatibility going forward and possible improvements.
 
+![localfolder_version](https://img.shields.io/badge/version-v0.8.10-orange.png?style=plastic&label=Localfolder)
+![localfolder_tb_version](https://img.shields.io/badge/version-v0.8.10-blue.png?label=Thunderbird%20Add-On)
+![Thunderbird_version](https://img.shields.io/badge/version-v17.0_--_58.*-blue.png?label=Thunderbird)
+![License](https://img.shields.io/badge/version-GPLv2-red.png?label=license)
+#
 ## Issues & Questions
 Post any issues or questions for Localfolder under [Issues](https://github.com/cleidigh/Localfolder-TB/issues)
 
