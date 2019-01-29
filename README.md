@@ -15,13 +15,13 @@ the code for compatibility going forward and possible improvements.
 
 Normal install from Thunderbird Add-On site:
 - Download and install from the add-on menu
-- Within Thunderbird ``Tools\Add-Ons`` search for 'Localfolder' install and reload.
+- Within Thunderbird ``Tools\Add-ons`` search for 'Localfolder' install and reload.
 
 Install XPI directly:
-- Download desired version package from [XPI-folder](xpi)  
-- Within Thunderbird ``Tools\Add-Ons`` click the gear icon and choose ``Install from file..``
+- Download desired version package from the [XPI](xpi) folder.
+- Within Thunderbird ``Tools\Add-ons`` click the gear icon and choose ``Install Add-ons From File..``
 - Choose XPI file, install and reload.
-- 
+
 ## XPI Add-On Package Build instructions
 
 1. Make sure that you have [jpm](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm#Installation) tool installed.
