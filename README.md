@@ -10,12 +10,18 @@ the code for compatibility going forward and possible improvements.
 ![Thunderbird_version](https://img.shields.io/badge/version-v17.0_--_58.*-blue.png?label=Thunderbird)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-red.png)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 #
-## Issues & Questions
-Post any issues or questions for Localfolder under [Issues](https://github.com/cleidigh/Localfolder-TB/issues)
 
-## Changelog
-Localfolder's changes are logged [here](CHANGELOG.md).
+## Localfolder Add-On Installation
 
+Normal install from Thunderbird Add-On site:
+- Download and install from the add-on menu
+- Within Thunderbird ``Tools\Add-Ons`` search for 'Localfolder' install and reload.
+
+Install XPI directly:
+- Download desired version package from [XPI-folder](xpi)  
+- Within Thunderbird ``Tools\Add-Ons`` click the gear icon and choose ``Install from file..``
+- Choose XPI file, install and reload.
+- 
 ## XPI Add-On Package Build instructions
 
 1. Make sure that you have [jpm](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm#Installation) tool installed.
@@ -25,7 +31,11 @@ Localfolder's changes are logged [here](CHANGELOG.md).
 Note : ``jpm xpi`` adds ``bootstrap.js`` to the source directory, you can delete this as a post-build step: 
 Delete using your favorite compression tool WinZip, 7Zip etc...
 
-## Troubleshooting
+## Issues & Questions
+Post any issues or questions for Localfolder under [Issues](https://github.com/cleidigh/Localfolder-TB/issues)
+
+## Changelog
+Localfolder's changes are logged [here](CHANGELOG.md).
 
 ## Credits
 Original Author: [Philoux](https://addons.thunderbird.net/en-US/thunderbird/user/philoux/ "Philoux")
