@@ -1,0 +1,13 @@
+{
+	"manifest_version": 2,
+	"name": "LocalFolder",
+	"version": "0.8.11",
+	"description": "Adds Local Folders",
+	"applications": {
+		"gecko": {
+			"id": "localfolder@philoux.eu"
+		}
+	},
+	"legacy": true		
+	  
+}
