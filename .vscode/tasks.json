@@ -6,7 +6,7 @@
 		{
 			"label": "Build TB Extension",
 			"type": "shell",
-			"command": "jpm xpi --dest-dir ./xpi --addon-dir ./src ",
+			"command": ".\\scripts\\build-60-65-xpi.bat",
 			"group": {
 				"kind": "build",
 				"isDefault": true

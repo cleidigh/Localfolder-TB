@@ -6,27 +6,36 @@ if (!eu.philoux.localfolder) eu.philoux.localfolder={};
 //liste des chaines localfolder.properties
 eu.philoux.localfolder.g_messages_localfolder=null;
 
-//code dernière erreur
+//code derniï¿½re erreur
 eu.philoux.localfolder.g_CodeErreur=0;
-//message dernière erreur
+//message derniï¿½re erreur
 eu.philoux.localfolder.g_MSGERREUR="";
 
 
+// cleidigh - TODO: check for TB 61+
+
+// ChromeUtils.import("resource://gre/modules/Services.jsm");
+
 eu.philoux.localfolder.ChargeMessagesLocalFolder = function(){
 	eu.philoux.localfolder.g_messages_localfolder=Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService);
+	
+	// eu.philoux.localfolder.g_messages_localfolder = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService);
+	
 	eu.philoux.localfolder.g_messages_localfolder=eu.philoux.localfolder.g_messages_localfolder.createBundle("chrome://localfolder/locale/localfolder.properties");
+
+	// eu.philoux.localfolder.g_messages_localfolder = Services.strings.createBundle("chrome://localfolder/locale/localfolder.properties");
 }
 eu.philoux.localfolder.ChargeMessagesLocalFolder();
 
 /**
-*	Retourne une chaîne de message à partir de son identifiant dans le fichie localfolder.properties
+*	Retourne une chaï¿½ne de message ï¿½ partir de son identifiant dans le fichie localfolder.properties
 */
 eu.philoux.localfolder.LocalFolderMessageFromId = function(msgid){
 	return eu.philoux.localfolder.g_messages_localfolder.GetStringFromName(msgid);
 }
 
 /**
-*	Affichage d'un message à partir de l'identifiant dans localfolder.properties
+*	Affichage d'un message ï¿½ partir de l'identifiant dans localfolder.properties
 *	@param msgid identifiant du message
 */
 eu.philoux.localfolder.LocalFolderAfficheMsgId = function(msgid){
@@ -36,9 +45,9 @@ eu.philoux.localfolder.LocalFolderAfficheMsgId = function(msgid){
 }
 
 /**
-*	Affichage d'un message à partir de l'identifiant dans localfolder.properties
+*	Affichage d'un message ï¿½ partir de l'identifiant dans localfolder.properties
 *	@param msgid identifiant du message
-*	@param msg2 message additionnel affiché sur nouvelle ligne (optionnel)
+*	@param msg2 message additionnel affichï¿½ sur nouvelle ligne (optionnel)
 */
 eu.philoux.localfolder.LocalFolderAfficheMsgId2 = function(msgid,msg2){
 	var msg=eu.philoux.localfolder.LocalFolderMessageFromId(msgid);
@@ -48,7 +57,7 @@ eu.philoux.localfolder.LocalFolderAfficheMsgId2 = function(msgid,msg2){
 }
 
 /**
-*	Affichage d'un message à partir de l'identifiant dans localfolder.properties
+*	Affichage d'un message ï¿½ partir de l'identifiant dans localfolder.properties
 *	ajoute code et message erreur globale
 *	@param msgid identifiant du message
 */
@@ -63,7 +72,7 @@ eu.philoux.localfolder.LocalFolderAfficheMsgIdGlobalErr = function(msgid){
 
 
 /**
-*	Génération de traces
+*	Gï¿½nï¿½ration de traces
 */
 eu.philoux.localfolder.gLocalFolderConsole=null;
 eu.philoux.localfolder.LocalFolderInitTrace = function(){

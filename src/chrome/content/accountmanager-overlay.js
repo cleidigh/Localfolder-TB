@@ -1,22 +1,20 @@
 // encapsulation objet
-if (!eu) var eu={};
-if (!eu.philoux) eu.philoux={};
-if (!eu.philoux.localfolder) eu.philoux.localfolder={};
+if (!eu) var eu = {};
+if (!eu.philoux) eu.philoux = {};
+if (!eu.philoux.localfolder) eu.philoux.localfolder = {};
 
 //initialisation du gestionnaire de compte
 //déplace le bouton "Ajouter un dossier local" au dessous "Ajouter un autre compte"
-eu.philoux.localfolder.OnInitLocalFolder = function(){
-	try{
-		var elem=document.getElementById("accountActionsDropdownSep1");
+eu.philoux.localfolder.OnInitLocalFolder = function () {
+	try {
+		var elem = document.getElementById("accountActionsDropdownSep1");
 		//bouton nouveau dossier
-		var bt=document.getElementById("accountActionAddLocalFolder");
-		elem.parentNode.insertBefore(bt,elem);
-		//événement onselect de l'arbre accounttree
-		//		var arbre=document.getElementById("accounttree");
-		//		arbre.addEventListener("select",SelectionArbre,false);
+		var bt = document.getElementById("accountActionAddLocalFolder");
+		elem.parentNode.insertBefore(bt, elem);
+
 	}
-	catch(ex){
-		eu.philoux.localfolder.LocalFolderAfficheMsgId2("ErreurAppelLocalFolder",ex);
+	catch (ex) {
+		eu.philoux.localfolder.LocalFolderAfficheMsgId2("ErreurAppelLocalFolder", ex);
 	}
 }
 
@@ -24,7 +22,7 @@ eu.philoux.localfolder.OnInitLocalFolder = function(){
  * permet de déterminer s'il s'agit d'un dossier local
  */
 
-eu.philoux.localfolder.isLocalFolder = function() {
+eu.philoux.localfolder.isLocalFolder = function () {
 
 	let account = getCurrentAccount();
 	if (account) { // if not, it's a SMTP account
@@ -45,13 +43,12 @@ eu.philoux.localfolder.isLocalFolder = function() {
  * permet la suppression des dossiers locaux autres que celui par défaut
  */
 
-eu.philoux.localfolder.initAccountActionsButtonsLocalFolder = function(menupopup) {
+eu.philoux.localfolder.initAccountActionsButtonsLocalFolder = function (menupopup) {
 
 	// on lance la fonction originale
 	initAccountActionsButtons(menupopup);
 	if (eu.philoux.localfolder.isLocalFolder())
 		document.getElementById("accountActionsDropdownRemove").removeAttribute("disabled");
-
 }
 
 
@@ -60,29 +57,27 @@ eu.philoux.localfolder.initAccountActionsButtonsLocalFolder = function(menupopup
  *	@return si succes retourne true / si erreur retourne false 
  *	implémentation : appelle la fonction originale onRemoveAccount
  */
-eu.philoux.localfolder.onSupprimeCompte = function(e){
-	try{
+eu.philoux.localfolder.onSupprimeCompte = function (e) {
+	try {
 		if (!eu.philoux.localfolder.isLocalFolder()) { // on utilise la fonction par défaut pour les autres comptes
 			onRemoveAccount(e);
 		} else { // pour les dossiers locaux on utilise une fonction personnalisée
 
 			var account = currentAccount;
-
 			var server = account.incomingServer;
 			var type = server.type;
 			var prettyName = server.prettyName;
 
-			var bundle = document.getElementById("bundle_prefs");
-			var confirmRemoveAccount =
-				bundle.getFormattedString("confirmRemoveAccount", [prettyName]);
+			var bundle = Services.strings.createBundle("chrome://localfolder/locale/localfolder.properties");
+			var confirmTitle = bundle.GetStringFromName("ConfirmRemoveTitle");
+			var confirmRemoveAccount = bundle.formatStringFromName("ConfirmRemoveFolder", [prettyName], 1);
+			let review = Services.prompt.confirm(window, confirmTitle, confirmRemoveAccount);
 
-			var confirmTitle = bundle.getString("confirmRemoveAccountTitle");
+			eu.philoux.localfolder.LocalFolderTrace(confirmRemoveAccount +' '+ review);
 
-			var promptService =
-				Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-				.getService(Components.interfaces.nsIPromptService);
-			if (!promptService.confirm(window, confirmTitle, confirmRemoveAccount))
+			if (!review) {
 				return;
+			}
 
 			try {
 				// clear cached data out of the account array
@@ -100,16 +95,19 @@ eu.philoux.localfolder.onSupprimeCompte = function(e){
 			}
 			catch (ex) {
 				dump("failure to remove account: " + ex + "\n");
-				var alertText = bundle.getString("failedRemoveAccount");
+				// cleidigh
+				// var alertText = bundle.GetStringFromName("failedRemoveAccount");
+				// alert('remove failure')
+				var alertText = 'Remove failure'
 				Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
 					.getService(Components.interfaces.nsIPromptService)
 					.alert(window, null, alertText);;
 			}
 		}
 	}
-	catch(ex){
-		eu.philoux.localfolder.LocalFolderAfficheMsgId2("LocalFolderMajErreurEffCompte",ex);
-		return false;	
+	catch (ex) {
+		eu.philoux.localfolder.LocalFolderAfficheMsgId2("LocalFolderMajErreurEffCompte", ex);
+		return false;
 	}
 	return true;
 }
@@ -117,11 +115,11 @@ eu.philoux.localfolder.onSupprimeCompte = function(e){
 /**
  *	clic sur le bouton localfolder.btdossier -> appelle la bo�te d'ajout d'un nouveau dossier
  */
-eu.philoux.localfolder.NewLocalFolder = function(){
-	window.openDialog("chrome://localfolder/content/localfolder.xul","","chrome,modal,center,titlebar,resizable=no");
+eu.philoux.localfolder.NewLocalFolder = function () {
+	window.openDialog("chrome://localfolder/content/localfolder.xul", "", "chrome,modal,center,titlebar,resizable=no");
 	return true;
 }
 
 //positionnement des boutons au d�marrage
-window.addEventListener("load",eu.philoux.localfolder.OnInitLocalFolder,false);
+window.addEventListener("load", eu.philoux.localfolder.OnInitLocalFolder, false);
 
