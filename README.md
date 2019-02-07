@@ -1,13 +1,14 @@
 # ![Localfolder icon](src/chrome/skin/classic/localfolder-32x32.png "Localfolder")  Localfolder
 
 Localfolder is a Thunderbird Add-On to create additional local folders within accounts.
+Updated ! works with TB60 - TB65
 
 This add-on is the original work of Philoux and with his permission I will be updating
 the code for compatibility going forward and possible improvements.
 
-![localfolder_version](https://img.shields.io/badge/version-v0.8.10-darkorange.png?label=Localfolder)
-![localfolder_tb_version](https://img.shields.io/badge/version-v0.8.10-blue.png?label=Thunderbird%20Add-On)
-![Thunderbird_version](https://img.shields.io/badge/version-v17.0_--_58.*-blue.png?label=Thunderbird)
+![localfolder_version](https://img.shields.io/badge/version-v0.8.11-darkorange.png?label=Localfolder)
+![localfolder_tb_version](https://img.shields.io/badge/version-v0.8.11-blue.png?label=Thunderbird%20Add-On)
+![Thunderbird_version](https://img.shields.io/badge/version-v60.0_--_65.*-blue.png?label=Thunderbird)
 [![License: GPL v2](https://img.shields.io/badge/License-MPL,%20GPL%20v2-red.png)](src/LICENSE)
 #
 
