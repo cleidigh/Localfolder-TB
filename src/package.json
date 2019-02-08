@@ -1,10 +1,10 @@
 {
   "title": "localfolder",
-  "name": "localfolder-0.8.12-tb",
-  "version": "0.8.12",
+  "name": "localfolder-0.8.14-tb",
+  "version": "0.8.14",
   "description": "Add additional local folders",
   "main": "./chrome/content/localfolder.js",
-  "author": "philoux, cleidigh",
+  "author": "Philoux, Christopher Leidigh",
   "engines": {
     "": ">=38.0a1"
   },

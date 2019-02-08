@@ -6,8 +6,8 @@ Updated ! works with TB60 - TB65
 This add-on is the original work of Philoux and with his permission I will be updating
 the code for compatibility going forward and possible improvements.
 
-![localfolder_version](https://img.shields.io/badge/version-v0.8.12-darkorange.png?label=Localfolder)
-![localfolder_tb_version](https://img.shields.io/badge/version-v0.8.12-blue.png?label=Thunderbird%20Add-On)
+![localfolder_version](https://img.shields.io/badge/version-v0.8.14-darkorange.png?label=Localfolder)
+![localfolder_tb_version](https://img.shields.io/badge/version-v0.8.14-blue.png?label=Thunderbird%20Add-On)
 ![Thunderbird_version](https://img.shields.io/badge/version-v60.0_--_65.*-blue.png?label=Thunderbird)
 [![License: GPL v2](https://img.shields.io/badge/License-MPL,%20GPL%20v2-red.png)](src/LICENSE)
 #
