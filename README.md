@@ -41,7 +41,3 @@ Localfolder's changes are logged [here](CHANGELOG.md).
 ## Credits
 Original Author: [Philoux](https://addons.thunderbird.net/en-US/thunderbird/user/philoux/ "Philoux")
 
-## License
-
-.
-
