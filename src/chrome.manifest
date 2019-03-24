@@ -6,6 +6,7 @@ locale   localfolder  fr     chrome/locale/fr/
 locale   localfolder  de     chrome/locale/de/
 locale   localfolder  en-US  chrome/locale/en-US/
 locale   localfolder  es-ES  chrome/locale/es-ES/
+locale   localfolder  hu     chrome/locale/hu/
 locale   localfolder  it     chrome/locale/it/
 locale   localfolder  sv-SE  chrome/locale/sv-SE/
 locale   localfolder  zh-CN  chrome/locale/zh-CN/
