@@ -14,14 +14,14 @@ the code for compatibility going forward and possible improvements.
 
 ## LocalFolder Add-on Installation
 
-Normal install from [Thunderbird Add-on site](https://addons.thunderbird.net/):
-- [Download](https://addons.thunderbird.net/addon/localfolder/) and install from the add-on menu
-- Within Thunderbird ``Tools\Add-ons`` search for “LocalFolder” install and restart.
+Normal install (requires Internet access) from [Thunderbird Add-on site](https://addons.thunderbird.net/):
+- Download and install [ATN version](https://addons.thunderbird.net/addon/localfolder/) via the ``Add-ons Manager``.
+- From the [Thunderbird Menu Bar](https://support.mozilla.org/en-US/kb/display-thunderbird-menus-and-toolbar), select ``Tools`` then ``Add-ons`` to open the ``Add-ons Manager``. Choose the ``Extensions`` tab, search for “LocalFolder”, select ``+ Add to Thunderbird`` and follow the prompts to install and then restart.
 
-Install XPI directly:
-- Download desired version package from the [XPI](xpi) folder.
-- Within Thunderbird ``Tools\Add-ons`` click the gear icon and choose ``Install Add-on From File…``
-- Choose XPI file, install and restart.
+Install (with or without Internet access) XPI directly:
+- Download and install [GitHub XPI version](xpi) via the ``Add-ons Manager``.
+- From the [Thunderbird Menu Bar](https://support.mozilla.org/en-US/kb/display-thunderbird-menus-and-toolbar), select ``Tools`` then ``Add-ons`` to open the ``Add-ons Manager``. Choose the ``Extensions`` tab, click the gear icon and choose ``Install Add-on From File…``
+- Choose [XPI file](xpi), install and restart.
 
 ## XPI Add-on Package Build instructions
 
