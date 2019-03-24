@@ -41,4 +41,4 @@ LocalFolders’ changes are logged [here](CHANGELOG.md).
 Original Author: [l'Abbé Christian-Philippe Chanut (philoux)](https://addons.thunderbird.net/user/philoux/ "l'Abbé Christian-Philippe Chanut (philoux)")
 
 ## License
-MPL, GPL v2
+[MPL, GPL v2](src/LICENSE)
