@@ -1,5 +1,5 @@
 <!-- accountmanager-overlay.xul -->
-<!ENTITY eu.philoux.localfolder.btdossier "New Local Folder…">
+<!ENTITY eu.philoux.localfolder.btdossier "Add Local Folder…">
 <!ENTITY eu.philoux.localfolder.btdossier.racc "L">
 
 <!-- localfolder.xul -->
