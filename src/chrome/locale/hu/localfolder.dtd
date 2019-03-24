@@ -1,6 +1,6 @@
 <!-- accountmanager-overlay.xul -->
 <!ENTITY eu.philoux.localfolder.btdossier "Helyi mappa hozzáadása…">
-<!ENTITY eu.philoux.localfolder.btdossier.racc "h">
+<!ENTITY eu.philoux.localfolder.btdossier.racc "H">
 
 <!-- localfolder.xul -->
 <!ENTITY eu.philoux.localfolder.titre "Helyi mappa hozzáadása">
