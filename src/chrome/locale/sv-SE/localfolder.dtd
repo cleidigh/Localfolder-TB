@@ -9,6 +9,6 @@
 <!ENTITY eu.philoux.localfolder.bandeau.titre "Konfiguration av lokal mapp">
 <!ENTITY eu.philoux.localfolder.libnom "Namn:">
 <!ENTITY eu.philoux.localfolder.libchemin "Rotmapp:">
-<!ENTITY eu.philoux.localfolder.chemin.btlib "Bläddra">
+<!ENTITY eu.philoux.localfolder.chemin.btlib "Bläddra…">
 <!ENTITY eu.philoux.localfolder.chemin.btlibcle "B">
 <!ENTITY eu.philoux.localfolder.chemin.browsertitle "Välj en mapp">
