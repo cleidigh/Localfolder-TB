@@ -15,7 +15,7 @@ the code for compatibility going forward and possible improvements.
 ## LocalFolders Add-on Installation
 
 Normal install (requires Internet access) from [Thunderbird Add-on site](https://addons.thunderbird.net/):
-- Download and install [ATN version](https://addons.thunderbird.net/addon/localfolders/) via the ``Add-ons Manager``.
+- Download and install [ATN version](https://addons.thunderbird.net/addon/localfolder/) via the ``Add-ons Manager``.
 - From the [Thunderbird Menu Bar](https://support.mozilla.org/en-US/kb/display-thunderbird-menus-and-toolbar), select ``Tools`` then ``Add-ons`` to open the ``Add-ons Manager``. Choose the ``Extensions`` tab, search for “LocalFolders”, select ``+ Add to Thunderbird`` and follow the prompts to install and then restart.
 
 Install (with or without Internet access) XPI directly:
