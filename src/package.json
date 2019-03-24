@@ -1,6 +1,6 @@
 {
-  "title": "localfolder",
-  "name": "localfolder-0.8.15-tb",
+  "title": "localfolders",
+  "name": "localfolders-0.8.16-beta1-tb",
   "version": "0.8.15",
   "description": "Add additional local folders",
   "main": "./chrome/content/localfolder.js",
