@@ -1,6 +1,6 @@
 <!-- accountmanager-overlay.xul -->
 <!ENTITY eu.philoux.localfolder.btdossier "Neuer lokaler Ordner">
-<!ENTITY eu.philoux.localfolder.btdossier.racc "o">
+<!ENTITY eu.philoux.localfolder.btdossier.racc "l">
 
 <!-- localfolder.xul -->
 <!ENTITY eu.philoux.localfolder.titre "Zusatz zum lokalen Ordner">
