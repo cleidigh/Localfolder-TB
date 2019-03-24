@@ -13,6 +13,7 @@
     <em:translator>Christopher Leidigh (cleidigh) (en-US)</em:translator>
     <em:translator>AlePerez92 (es-ES)</em:translator>
     <em:translator>l'Abbé Christian-Philippe Chanut (philoux) (fr)</em:translator>
+    <em:translator>Óvári (hu)</em:translator>
     <em:translator>Alessandro Maestri (it)</em:translator>
     <em:translator>Marco Minetti (it)</em:translator>
     <em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
@@ -54,6 +55,15 @@
         <em:locale>fr</em:locale>
         <em:name>Dossier local</em:name>
         <em:description>Ajoutez autant de dossiers locaux que nécessaire</em:description>
+      </Description>
+    </em:localized>
+     
+    <!-- Hungarian -->
+    <em:localized>
+      <Description>
+        <em:locale>hu</em:locale>
+        <em:name>Helyi mappa</em:name>
+        <em:description>Adjon hozzá annyi helyi mappát, amennyire szüksége van</em:description>
       </Description>
     </em:localized>
      
