@@ -5,12 +5,16 @@
     <em:type>2</em:type>
     <em:name>LocalFolder</em:name>
     <em:version>0.8.15</em:version>
-    <em:creator>philoux, Christopher</em:creator>
-    <em:author>cleidigh</em:author>
-    <em:translator>Cyriagen (de-DE)</em:translator>
+    <em:creator>l'Abbé Christian-Philippe Chanut (philoux)</em:creator>
+    <em:creator>Christopher Leidigh (cleidigh)</em:creator>
+    <em:author>Christopher Leidigh (cleidigh)</em:author>
+    <em:translator>Cyriagen (de)</em:translator>
+    <em:translator>l'Abbé Christian-Philippe Chanut (philoux) (en-US)</em:translator>
+    <em:translator>Christopher Leidigh (cleidigh) (en-US)</em:translator>
     <em:translator>AlePerez92 (es-ES)</em:translator>
-    <em:translator>l'Abbé Christian-Philippe Chanut (philoux) (fr-FR)</em:translator>
-    <em:translator>Alessandro Maestri - Marco Minetti (it-IT)</em:translator>
+    <em:translator>l'Abbé Christian-Philippe Chanut (philoux) (fr)</em:translator>
+    <em:translator>Alessandro Maestri (it)</em:translator>
+    <em:translator>Marco Minetti (it)</em:translator>
     <em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
     <em:translator>yfdyh000 (zh-CN)</em:translator>
     <em:description>Add as many local folders as you require</em:description>
