@@ -29,7 +29,7 @@ Install (with or without Internet access) XPI directly:
 3. Run ``jpm xpi`` to make the XPI file
 
 Note: ``jpm xpi`` adds ``bootstrap.js`` to the src directory, you can delete this as a post-build step: 
-Delete using your favorite compression tool WinZip, 7Zip etc…
+Delete using your favorite compression tool WinZip, 7Zip, etc.
 
 ## Issues & Questions
 Post any issues or questions for LocalFolders [here](https://github.com/cleidigh/Localfolder-TB/issues).
