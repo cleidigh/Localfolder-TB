@@ -33,7 +33,7 @@ Note: ``jpm xpi`` adds ``bootstrap.js`` to the src directory, you can delete thi
 Delete using your favorite compression tool WinZip, 7Zip etc…
 
 ## Issues & Questions
-Post any issues or questions for LocalFolders under [Issues](https://github.com/cleidigh/Localfolder-TB/issues)
+Post any issues or questions for LocalFolders [here](https://github.com/cleidigh/Localfolder-TB/issues).
 
 ## Changelog
 LocalFolders’ changes are logged [here](CHANGELOG.md).
