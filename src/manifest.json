@@ -3,7 +3,7 @@
 	"name": "LocalFolder",
 	"version": "0.8.15",
 	"description": "Adds Local Folders",
-	"author": "Philoux, Christopher Leidigh",
+	"author": "philoux, Christopher Leidigh",
 	"applications": {
 		"gecko": {
 			"id": "localfolder@philoux.eu"
