@@ -26,7 +26,7 @@ Install (with or without Internet access) XPI directly:
 
 1. Make sure that you have [jpm](https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm#Installation) tool installed
 2. Open a terminal in the ``./src`` directory
-3. Run ``jpm xpi`` to make the xpi
+3. Run ``jpm xpi`` to make the XPI file
 
 Note: ``jpm xpi`` adds ``bootstrap.js`` to the src directory, you can delete this as a post-build step: 
 Delete using your favorite compression tool WinZip, 7Zip etc…
