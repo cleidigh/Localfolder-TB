@@ -1,22 +1,22 @@
-# ![LocalFolder icon](src/chrome/skin/classic/localfolder-32x32.png "LocalFolder")  LocalFolder
+# ![LocalFolders icon](src/chrome/skin/classic/localfolder-32x32.png "LocalFolders")  LocalFolders
 
-LocalFolder is a Thunderbird Add-on to create additional local folders within accounts.
+LocalFolders is a Thunderbird Add-on to create additional local folders within accounts.
 Updated ! works with TB60 - TB65
 
 This add-on is the original work of l'Abbé Christian-Philippe Chanut (philoux) and with his permission I will be updating
 the code for compatibility going forward and possible improvements.
 
-![localFolder_version](https://img.shields.io/badge/version-v0.8.15-darkorange.png?label=LocalFolder)
-![localFolder_tb_version](https://img.shields.io/badge/version-v0.8.15-blue.png?label=Thunderbird%20Add-on)
+![localFolders_version](https://img.shields.io/badge/version-v0.8.15-darkorange.png?label=LocalFolder)
+![localFolders_tb_version](https://img.shields.io/badge/version-v0.8.15-blue.png?label=Thunderbird%20Add-on)
 ![Thunderbird_version](https://img.shields.io/badge/version-v60.0_--_65.*-blue.png?label=Thunderbird)
 [![License: GPL v2](https://img.shields.io/badge/License-MPL,%20GPL%20v2-red.png)](src/LICENSE)
 #
 
-## LocalFolder Add-on Installation
+## LocalFolders Add-on Installation
 
 Normal install (requires Internet access) from [Thunderbird Add-on site](https://addons.thunderbird.net/):
-- Download and install [ATN version](https://addons.thunderbird.net/addon/localfolder/) via the ``Add-ons Manager``.
-- From the [Thunderbird Menu Bar](https://support.mozilla.org/en-US/kb/display-thunderbird-menus-and-toolbar), select ``Tools`` then ``Add-ons`` to open the ``Add-ons Manager``. Choose the ``Extensions`` tab, search for “LocalFolder”, select ``+ Add to Thunderbird`` and follow the prompts to install and then restart.
+- Download and install [ATN version](https://addons.thunderbird.net/addon/localfolders/) via the ``Add-ons Manager``.
+- From the [Thunderbird Menu Bar](https://support.mozilla.org/en-US/kb/display-thunderbird-menus-and-toolbar), select ``Tools`` then ``Add-ons`` to open the ``Add-ons Manager``. Choose the ``Extensions`` tab, search for “LocalFolders”, select ``+ Add to Thunderbird`` and follow the prompts to install and then restart.
 
 Install (with or without Internet access) XPI directly:
 - Download and install [GitHub XPI version](xpi) via the ``Add-ons Manager``.
@@ -30,16 +30,16 @@ Install (with or without Internet access) XPI directly:
 3. Run ``jpm xpi`` to make the xpi
 
 Note: ``jpm xpi`` adds ``bootstrap.js`` to the src directory, you can delete this as a post-build step: 
-Delete using your favorite compression tool WinZip, 7Zip etc...
+Delete using your favorite compression tool WinZip, 7Zip etc…
 
 ## Issues & Questions
-Post any issues or questions for LocalFolder under [Issues](https://github.com/cleidigh/Localfolder-TB/issues)
+Post any issues or questions for LocalFolders under [Issues](https://github.com/cleidigh/Localfolder-TB/issues)
 
 ## Changelog
-LocalFolder’s changes are logged [here](CHANGELOG.md).
+LocalFolders’ changes are logged [here](CHANGELOG.md).
 
 ## Credits
-Original Author: [philoux](https://addons.thunderbird.net/user/philoux/ "philoux")
+Original Author: [l'Abbé Christian-Philippe Chanut (philoux)](https://addons.thunderbird.net/user/philoux/ "l'Abbé Christian-Philippe Chanut (philoux)")
 
 ## License
 
