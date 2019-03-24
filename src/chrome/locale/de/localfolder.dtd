@@ -9,6 +9,6 @@
 <!ENTITY eu.philoux.localfolder.bandeau.titre "Lokale Ordner Einstellungen">
 <!ENTITY eu.philoux.localfolder.libnom "Name:">
 <!ENTITY eu.philoux.localfolder.libchemin "Verzeichnis:">
-<!ENTITY eu.philoux.localfolder.chemin.btlib "Öffnen…">
-<!ENTITY eu.philoux.localfolder.chemin.btlibcle "Ö">
+<!ENTITY eu.philoux.localfolder.chemin.btlib "Durchsuchen…">
+<!ENTITY eu.philoux.localfolder.chemin.btlibcle "D">
 <!ENTITY eu.philoux.localfolder.chemin.browsertitle "Wähle einen Ordner">
