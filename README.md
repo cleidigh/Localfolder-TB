@@ -1,14 +1,14 @@
 # ![LocalFolders icon](src/chrome/skin/classic/localfolder-32x32.png "LocalFolders")  LocalFolders
 
-LocalFolders is a [Thunderbird](https://www.thunderbird.net/) Add-on to create additional local folders within accounts.
-
-This add-on is the original work of l'Abbé Christian-Philippe Chanut (philoux) and with his permission I will be updating
-the code for compatibility going forward and possible improvements.
-
 ![localFolders_version](https://img.shields.io/badge/version-v0.8.15-darkorange.png?label=LocalFolder)
 ![localFolders_tb_version](https://img.shields.io/badge/version-v0.8.15-blue.png?label=Thunderbird%20Add-on)
 ![Thunderbird_version](https://img.shields.io/badge/version-v60.0_--_65.*-blue.png?label=Thunderbird)
 [![License: GPL v2](https://img.shields.io/badge/License-MPL,%20GPL%20v2-red.png)](src/LICENSE)
+
+LocalFolders is a [Thunderbird](https://www.thunderbird.net/) Add-on to create additional local folders within accounts.
+
+This add-on is the original work of l'Abbé Christian-Philippe Chanut (philoux) and with his permission I will be updating
+the code for compatibility going forward and possible improvements.
 
 ## LocalFolders Add-on Installation
 
