@@ -1,4 +1,4 @@
-# ![LocalFolders icon](src/chrome/skin/classic/localfolder-32x32.png "LocalFolders")  LocalFolders
+# ![LocalFolders icon](rep-resources/images/LocalFolders-64px.png "LocalFolders")  LocalFolders
 
 LocalFolders is a Thunderbird Add-on to create additional local folders within accounts.
 
