@@ -5,11 +5,11 @@ LocalFolders is a [Thunderbird](https://www.thunderbird.net/) Add-on to create a
 This add-on is the original work of l'Abbé Christian-Philippe Chanut (philoux). I will be updating
 the code for compatibility including transitioning to the MailExtension standard as well as future improvements.
 
-![localFolders_version](https://img.shields.io/badge/version-v1.1-darkorange.png?label=LocalFolders)
-![localFolders_tb_version](https://img.shields.io/badge/version-v1.1-blue.png?label=Thunderbird%20Add-on)
+![localFolders_version](https://img.shields.io/badge/version-v1.1.0-darkorange.png?label=LocalFolders)
+![localFolders_tb_version](https://img.shields.io/badge/version-v1.1.0-blue.png?label=Thunderbird%20Add-on)
 ![Thunderbird_version](https://img.shields.io/badge/version-v60.0_--_66.*-blue.png?label=Thunderbird)
 [![License: GPL v2](https://img.shields.io/badge/License-MPL,%20GPL%20v2-red.png)](src/LICENSE)
-![Release Status](https://img.shields.io/badge/Release%20Status-v1.1%20In%20Progress-brightgreen.png)
+![Release Status](https://img.shields.io/badge/Release%20Status-v1.1.0%20In%20Progress-brightgreen.png)
 #
 
 ## LocalFolders Add-on Installation
