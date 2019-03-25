@@ -19,7 +19,7 @@
     <em:translator>yfdyh000 (zh-CN)</em:translator>
     <em:description>Add as many local folders as you require</em:description>
     <em:homepageURL>https://github.com/cleidigh/LocalFolder-TB</em:homepageURL>
-    <em:iconURL>chrome://localfolder/skin/localfolder-32x32.png</em:iconURL>
+    <em:iconURL>chrome://localfolder/skin/LocalFolder-64px.png</em:iconURL>
     
     <!-- Target Application - Thunderbird -->
     <em:targetApplication>

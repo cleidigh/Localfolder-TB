@@ -6,9 +6,13 @@
 	"author": "l'Abbé Christian-Philippe Chanut (philoux), Christopher Leidigh",
 	"applications": {
 		"gecko": {
-			"id": "localfolder@philoux.eu"
+			"id": "localfolder@philoux.eu",
+			"strict_min_version": "60.0"
 		}
 	},
-	"legacy": true		
-	  
+	"legacy": true,
+	"icons": {
+		"64": "chrome/skin/classic/LocalFolders-64px.png",
+		"32": "chrome/skin/classic/LocalFolders-32px.png"
+	}
 }
