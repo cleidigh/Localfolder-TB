@@ -1,13 +1,13 @@
 # ![LocalFolders icon](rep-resources/images/LocalFolders-64px.png "LocalFolders")  LocalFolders
 
-LocalFolders is a Thunderbird Add-on to create additional local folders within accounts.
+LocalFolders is a [Thunderbird](https://www.thunderbird.net/) Add-on to create additional local folders within accounts.
 
-This add-on is the original work of l'Abbé Christian-Philippe Chanut (philoux) and with his permission I will be updating
-the code for compatibility going forward and possible improvements.
+This add-on is the original work of l'Abbé Christian-Philippe Chanut (philoux). I will be updating
+the code for compatibility including transitioning to the MailExtension standard as well as future improvements.
 
-![localFolders_version](https://img.shields.io/badge/version-v0.8.15-darkorange.png?label=LocalFolder)
-![localFolders_tb_version](https://img.shields.io/badge/version-v0.8.15-blue.png?label=Thunderbird%20Add-on)
-![Thunderbird_version](https://img.shields.io/badge/version-v60.0_--_65.*-blue.png?label=Thunderbird)
+![localFolders_version](https://img.shields.io/badge/version-v1.1-darkorange.png?label=LocalFolder)
+![localFolders_tb_version](https://img.shields.io/badge/version-v1.1-blue.png?label=Thunderbird%20Add-on)
+![Thunderbird_version](https://img.shields.io/badge/version-v60.0_--_66.*-blue.png?label=Thunderbird)
 [![License: GPL v2](https://img.shields.io/badge/License-MPL,%20GPL%20v2-red.png)](src/LICENSE)
 #
 
@@ -38,7 +38,9 @@ Post any issues or questions for LocalFolders [here](https://github.com/cleidigh
 LocalFolders’ changes are logged [here](CHANGELOG.md).
 
 ## Credits
-Original Author: [l'Abbé Christian-Philippe Chanut (philoux)](https://addons.thunderbird.net/user/philoux/ "l'Abbé Christian-Philippe Chanut (philoux)")
+Original Author: [l'Abbé Christian-Philippe Chanut (philoux)](https://addons.thunderbird.net/user/philoux/ "l'Abbé Christian-Philippe Chanut (philoux)")  
+Contributing Author: [Christopher Leidigh](https://addons.thunderbird.net/user/cleidigh)  
+Folder Icon: [SEM Labs](https://creativecommons.org/licenses/by/3.0/) "(CC 3.0) - Modified by Christopher Leidigh
 
 ## License
 [MPL, GPL v2](src/LICENSE)

@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "LocalFolders",
-	"version": "0.8.16-beta1",
+	"version": "1.1-beta1",
 	"description": "Adds Local Folders",
 	"author": "l'Abbé Christian-Philippe Chanut (philoux), Christopher Leidigh",
 	"applications": {
