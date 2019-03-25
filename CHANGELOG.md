@@ -1,4 +1,4 @@
-# Localfolders Changelog
+# LocalFolders Changelog
 
 ## Versions
 
