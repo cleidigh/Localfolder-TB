@@ -1,0 +1,27 @@
+{
+	"title": "localfolders",
+	"name": "localfolders",
+	"version": "1.1.0-beta1",
+	"description": "Add additional local folders",
+	"main": "./content/overlay.js",
+	"author": "l'Abbé Christian-Philippe Chanut (philoux), Christopher Leidigh",
+	"engines": {
+		"": ">=38.0a1"
+	},
+	"license": "GPLv3",
+	"config": {
+		"source_dir": "./src",
+		"target_dir": "./xpi",
+		"target_suffix": "-tb",
+		"target_extension": ".xpi",
+		"target_include_manifest": "true"
+	},
+	"scripts": {
+		"build-xpi-bat": ".\\scripts\\build-xpi.bat",
+		"build-xpi": "node ./scripts/build-xpi.js"
+	},
+	"keywords": [
+		"jetpack"
+	],
+	"dependencies": {}
+}
