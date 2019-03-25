@@ -9,7 +9,6 @@ the code for compatibility going forward and possible improvements.
 ![localFolders_tb_version](https://img.shields.io/badge/version-v0.8.15-blue.png?label=Thunderbird%20Add-on)
 ![Thunderbird_version](https://img.shields.io/badge/version-v60.0_--_65.*-blue.png?label=Thunderbird)
 [![License: GPL v2](https://img.shields.io/badge/License-MPL,%20GPL%20v2-red.png)](src/LICENSE)
-#
 
 ## LocalFolders Add-on Installation
 
