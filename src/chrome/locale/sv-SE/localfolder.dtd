@@ -6,9 +6,9 @@
 <!ENTITY eu.philoux.localfolder.titre "Lägg till en lokal mapp">
 <!ENTITY eu.philoux.localfolder.btValider "OK">
 <!ENTITY eu.philoux.localfolder.btQuitter "Avbryt">
-<!ENTITY eu.philoux.localfolder.bandeau.titre "Konfiguration av lokal mapp">
-<!ENTITY eu.philoux.localfolder.libnom "Namn:">
-<!ENTITY eu.philoux.localfolder.libchemin "Rotmapp:">
+<!ENTITY eu.philoux.localfolder.bandeau.titre "Kontoinställningar">
+<!ENTITY eu.philoux.localfolder.libnom "Kontonamn:">
+<!ENTITY eu.philoux.localfolder.libchemin "Lokal katalog:">
 <!ENTITY eu.philoux.localfolder.chemin.btlib "Bläddra…">
 <!ENTITY eu.philoux.localfolder.chemin.btlibcle "B">
-<!ENTITY eu.philoux.localfolder.chemin.browsertitle "Välj en mapp">
+<!ENTITY eu.philoux.localfolder.chemin.browsertitle "Välj mapp">
