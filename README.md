@@ -9,6 +9,7 @@ the code for compatibility including transitioning to the MailExtension standard
 ![localFolders_tb_version](https://img.shields.io/badge/version-v1.1-blue.png?label=Thunderbird%20Add-on)
 ![Thunderbird_version](https://img.shields.io/badge/version-v60.0_--_66.*-blue.png?label=Thunderbird)
 [![License: GPL v2](https://img.shields.io/badge/License-MPL,%20GPL%20v2-red.png)](src/LICENSE)
+![Release Status](https://img.shields.io/badge/Release%20Status-v1.1%20In%20Progress-brightgreen.png)
 #
 
 ## LocalFolders Add-on Installation
