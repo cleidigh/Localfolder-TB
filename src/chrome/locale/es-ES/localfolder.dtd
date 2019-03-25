@@ -5,9 +5,9 @@
 <!ENTITY eu.philoux.localfolder.titre "Añadir una carpeta local">
 <!ENTITY eu.philoux.localfolder.btValider "Aceptar">
 <!ENTITY eu.philoux.localfolder.btQuitter "Cancelar">
-<!ENTITY eu.philoux.localfolder.bandeau.titre "Configuración de carpeta local">
-<!ENTITY eu.philoux.localfolder.libnom "Nombre:">
-<!ENTITY eu.philoux.localfolder.libchemin "Directorio:">
+<!ENTITY eu.philoux.localfolder.bandeau.titre "Configuración de la cuenta">
+<!ENTITY eu.philoux.localfolder.libnom "Nombre de la cuenta:">
+<!ENTITY eu.philoux.localfolder.libchemin "Directorio local:">
 <!ENTITY eu.philoux.localfolder.chemin.btlib "Examinar…">
 <!ENTITY eu.philoux.localfolder.chemin.btlibcle "E">
-<!ENTITY eu.philoux.localfolder.chemin.browsertitle "Elegir una carpeta">
+<!ENTITY eu.philoux.localfolder.chemin.browsertitle "Seleccionar carpeta">
