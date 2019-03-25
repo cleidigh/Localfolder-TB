@@ -1,9 +1,9 @@
 {
 	"manifest_version": 2,
-	"name": "LocalFolder",
-	"version": "0.8.15",
+	"name": "LocalFolders",
+	"version": "0.8.16-beta1",
 	"description": "Adds Local Folders",
-	"author": "Philoux, Christopher Leidigh",
+	"author": "l'Abbé Christian-Philippe Chanut (philoux), Christopher Leidigh",
 	"applications": {
 		"gecko": {
 			"id": "localfolder@philoux.eu"

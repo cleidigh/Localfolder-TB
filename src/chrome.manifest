@@ -1,12 +1,15 @@
-content localfolder	chrome/content/
-skin	localfolder	classic/1.0	chrome/skin/classic/
-locale	localfolder	en	chrome/locale/en-US/
-locale	localfolder	fr	chrome/locale/fr-FR/
-locale  localfolder	it	chrome/locale/it-IT/
-locale  localfolder	sv	chrome/locale/sv-SE/
-locale	localfolder	de	chrome/locale/de-DE/
-locale	localfolder	zh	chrome/locale/zh-CN/
-locale	localfolder	es	chrome/locale/es-ES/
+content  localfolder  chrome/content/
+skin     localfolder  classic/1.0	chrome/skin/classic/
+
+# default locale is listed first
+locale   localfolder  fr     chrome/locale/fr/
+locale   localfolder  de     chrome/locale/de/
+locale   localfolder  en-US  chrome/locale/en-US/
+locale   localfolder  es-ES  chrome/locale/es-ES/
+locale   localfolder  hu     chrome/locale/hu/
+locale   localfolder  it     chrome/locale/it/
+locale   localfolder  sv-SE  chrome/locale/sv-SE/
+locale   localfolder  zh-CN  chrome/locale/zh-CN/
 
 overlay	chrome://messenger/content/AccountManager.xul	chrome://localfolder/content/accountmanager-overlay.xul
 overlay	chrome://global/content/commonDialog.xul	chrome://localfolder/content/commonDialog-overlay.xul
