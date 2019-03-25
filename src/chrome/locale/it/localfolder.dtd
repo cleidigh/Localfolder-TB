@@ -6,9 +6,9 @@
 <!ENTITY eu.philoux.localfolder.titre "Cartella locale aggiuntiva">
 <!ENTITY eu.philoux.localfolder.btValider "Ok">
 <!ENTITY eu.philoux.localfolder.btQuitter "Annulla">
-<!ENTITY eu.philoux.localfolder.bandeau.titre "Configurazione cartella locale">
-<!ENTITY eu.philoux.localfolder.libnom "Nome:">
-<!ENTITY eu.philoux.localfolder.libchemin "Cartella:">
+<!ENTITY eu.philoux.localfolder.bandeau.titre "Impostazioni account">
+<!ENTITY eu.philoux.localfolder.libnom "Nome account:">
+<!ENTITY eu.philoux.localfolder.libchemin "Cartella locale:">
 <!ENTITY eu.philoux.localfolder.chemin.btlib "Sfoglia…">
 <!ENTITY eu.philoux.localfolder.chemin.btlibcle "S">
-<!ENTITY eu.philoux.localfolder.chemin.browsertitle "Seleziona una cartella">
+<!ENTITY eu.philoux.localfolder.chemin.browsertitle "Scegli cartella">
