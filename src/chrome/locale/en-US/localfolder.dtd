@@ -6,9 +6,9 @@
 <!ENTITY eu.philoux.localfolder.titre "Add Local Folders Account">
 <!ENTITY eu.philoux.localfolder.btValider "OK">
 <!ENTITY eu.philoux.localfolder.btQuitter "Cancel">
-<!ENTITY eu.philoux.localfolder.bandeau.titre "Local folders configuration">
+<!ENTITY eu.philoux.localfolder.bandeau.titre "Account Settings">
 <!ENTITY eu.philoux.localfolder.libnom "Account Name:">
 <!ENTITY eu.philoux.localfolder.libchemin "Local directory:">
 <!ENTITY eu.philoux.localfolder.chemin.btlib "Browse…">
 <!ENTITY eu.philoux.localfolder.chemin.btlibcle "B">
-<!ENTITY eu.philoux.localfolder.chemin.browsertitle "Select a Folder">
+<!ENTITY eu.philoux.localfolder.chemin.browsertitle "Select folder">
