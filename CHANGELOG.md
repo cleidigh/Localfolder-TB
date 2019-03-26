@@ -3,8 +3,11 @@
 ## Versions
 
 1.1 - Change name to LocalFolders
-- New icon (SEM labs + Christopher)
+- Compatibility with TB60 - TB66
 - Jump to v1.1 to better reflect state
+- New icon (SEM labs + Christopher)
+- Add access key for folder name
+- Read-only folder location removed from  tab order
 - Thanks to Óvári for the following PR improvements
   - Multiple locale corrections, improvements
   - Added Hungarian (hu) locale 
