@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "LocalFolders",
 	"xpi-name": "localfolders",
-	"version": "1.1.0-beta1",
+	"version": "1.1.0",
 	"description": "Adds Local Folders",
 	"author": "l'Abbé Christian-Philippe Chanut (philoux), Christopher Leidigh",
 	"applications": {
