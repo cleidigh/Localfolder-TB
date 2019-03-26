@@ -23,12 +23,12 @@
 	<vbox flex="1" class="localfolder-zone">
 		<vbox>
 			<hbox flex="1" align="center" style="margin-bottom: 20px">
-				<label value="&eu.philoux.localfolder.libnom;"/>
+				<label value="&eu.philoux.localfolder.libnom;" accesskey="&eu.philoux.localfolder.libnom.accesskey;" control="localfoldernom"/>
 				<textbox id="localfoldernom" flex="1"/>
 			</hbox>
 			<label value="&eu.philoux.localfolder.libchemin;"/>
 			<hbox flex="1" style="margin-bottom: 15px">
-				<textbox id="localfolderchemin" readonly="true"  flex="1"/>
+				<textbox id="localfolderchemin" readonly="true"  flex="1" tabindex="-1"/>
 				<button label="&eu.philoux.localfolder.chemin.btlib;" 
 						id="localfoldercheminbtsel"
 						browsertitle="&eu.philoux.localfolder.chemin.browsertitle;"

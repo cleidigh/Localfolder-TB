@@ -8,6 +8,7 @@
 <!ENTITY eu.philoux.localfolder.btQuitter "Annuler">
 <!ENTITY eu.philoux.localfolder.bandeau.titre "Paramétrage du nouveau dossier local">
 <!ENTITY eu.philoux.localfolder.libnom "Nom :">
+<!ENTITY eu.philoux.localfolder.libnom.accesskey "N">
 <!ENTITY eu.philoux.localfolder.libchemin "Emplacement :">
 <!ENTITY eu.philoux.localfolder.chemin.btlib "Parcourir…">
 <!ENTITY eu.philoux.localfolder.chemin.btlibcle "P">

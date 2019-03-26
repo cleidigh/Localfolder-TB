@@ -8,6 +8,7 @@
 <!ENTITY eu.philoux.localfolder.btQuitter "Mégse">
 <!ENTITY eu.philoux.localfolder.bandeau.titre "Helyi mappa beállításai">
 <!ENTITY eu.philoux.localfolder.libnom "Név:">
+<!ENTITY eu.philoux.localfolder.libnom.accesskey "N">
 <!ENTITY eu.philoux.localfolder.libchemin "Helyi könyvtár:">
 <!ENTITY eu.philoux.localfolder.chemin.btlib "Tallózás…">
 <!ENTITY eu.philoux.localfolder.chemin.btlibcle "T">
