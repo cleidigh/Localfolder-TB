@@ -7,6 +7,7 @@
 <!ENTITY eu.philoux.localfolder.btQuitter "Cancelar">
 <!ENTITY eu.philoux.localfolder.bandeau.titre "Configuración de carpeta local">
 <!ENTITY eu.philoux.localfolder.libnom "Nombre:">
+<!ENTITY eu.philoux.localfolder.libnom.accesskey "N">
 <!ENTITY eu.philoux.localfolder.libchemin "Directorio:">
 <!ENTITY eu.philoux.localfolder.chemin.btlib "Examinar…">
 <!ENTITY eu.philoux.localfolder.chemin.btlibcle "E">

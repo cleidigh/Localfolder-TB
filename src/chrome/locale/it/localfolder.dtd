@@ -8,6 +8,7 @@
 <!ENTITY eu.philoux.localfolder.btQuitter "Annulla">
 <!ENTITY eu.philoux.localfolder.bandeau.titre "Configurazione cartella locale">
 <!ENTITY eu.philoux.localfolder.libnom "Nome:">
+<!ENTITY eu.philoux.localfolder.libnom.accesskey "N">
 <!ENTITY eu.philoux.localfolder.libchemin "Cartella:">
 <!ENTITY eu.philoux.localfolder.chemin.btlib "Sfoglia…">
 <!ENTITY eu.philoux.localfolder.chemin.btlibcle "S">
