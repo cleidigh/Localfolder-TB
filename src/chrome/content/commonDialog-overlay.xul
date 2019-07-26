@@ -3,9 +3,9 @@
 
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	
-	<script type="application/x-javascript" src="chrome://global/content/commonDialog.js"/>
-	<script type="application/x-javascript" src="chrome://localfolder/content/commonDialog-overlay.js"/>  
-	<script type="application/x-javascript" src="chrome://localfolder/content/trace.js"/>
+	<script type="application/javascript" src="chrome://global/content/commonDialog.js"/>
+	<script type="application/javascript" src="chrome://localfolder/content/commonDialog-overlay.js"/>  
+	<script type="application/javascript" src="chrome://localfolder/content/trace.js"/>
 		
 	<dialog id="commonDialog"
 	        onload="eu.philoux.localfolder.localfolderInitDlg();"/>
