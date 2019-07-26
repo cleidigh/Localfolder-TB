@@ -1,44 +1,173 @@
 <?xml version="1.0"?>
+
+<?xml-stylesheet type="text/css" href="chrome://messenger/skin/messenger.css"?>
 <?xml-stylesheet href="chrome://localfolder/skin/localfolder.css" type="text/css"?>
 
-<!DOCTYPE window SYSTEM "chrome://localfolder/locale/localfolder.dtd">
+<!DOCTYPE window [ <!ENTITY % localfolderDTD SYSTEM "chrome://localfolder/locale/localfolder.dtd">%localfolderDTD;
+<!ENTITY % accountNoIdentDTD SYSTEM "chrome://messenger/locale/am-serverwithnoidentities.dtd">%accountNoIdentDTD;
+	<!ENTITY % accountServerTopDTD SYSTEM "chrome://messenger/locale/am-server-top.dtd">%accountServerTopDTD;
+		]>
 
-<window id="localfolder"
-			title="&eu.philoux.localfolder.titre;"
-  			xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-  			onload="eu.philoux.localfolder.initDlg();">
-
-	<script type="application/x-javascript" src="chrome://localfolder/content/localfolder.js"/>
-	<script type="application/x-javascript" src="chrome://localfolder/content/trace.js"/>
-	
+		<window id="localfolder" title="&eu.philoux.localfolder.titre;"
+			xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+			xmlns:html="http://www.w3.org/1999/xhtml" onload="eu.philoux.localfolder.initDlg();">
+			<script type="application/x-javascript" src="chrome://localfolder/content/localfolder.js" />
+			<script type="application/x-javascript" src="chrome://localfolder/content/trace.js"/>
 	<keyset id="keys">
-	  <key keycode="VK_ESCAPE" oncommand="window.close();"/>
+		<key keycode="VK_ESCAPE" oncommand="window.close();"/>
 	</keyset>
-	
-	<hbox id="localfolder_bandeau">
-		<description id="localfolder_bandeau_titre">&eu.philoux.localfolder.bandeau.titre;</description>
-	</hbox>
-	<menuseparator/>
-	
-	<vbox flex="1" class="localfolder-zone">
-		<vbox>
-			<hbox flex="1" align="center" style="margin-bottom: 20px">
-				<label value="&eu.philoux.localfolder.libnom;" accesskey="&eu.philoux.localfolder.libnom.accesskey;" control="localfoldernom"/>
-				<textbox id="localfoldernom" flex="1"/>
+
+
+		<vbox class="">
+		<hbox align="center">
+			<label value="&eu.philoux.localfolder.libnom;" accesskey="&eu.philoux.localfolder.libnom.accesskey;" control="localfoldernom" />
+			<textbox wsm_persist="true" size="30" id="localfoldernom" />
+			
+			<hbox flex="1"></hbox>
+			<hbox flex="0" class="localfolder-icon" style="padding-right: 10px">
+				<image src="chrome://localfolder/skin/LocalFolders-64px.png" width="40px" height="40px"
+			  maxwidth="40px" maxheight="40px" onclick="eu.philoux.localfolder.urlLoad('https://github.com/cleidigh/LocalFolder-TB')"/>
 			</hbox>
-			<label value="&eu.philoux.localfolder.libchemin;"/>
-			<hbox flex="1" style="margin-bottom: 15px">
-				<textbox id="localfolderchemin" readonly="true"  flex="1" tabindex="-1"/>
-				<button label="&eu.philoux.localfolder.chemin.btlib;" 
+		</hbox>
+		<separator class="thin"/>
+		<groupbox>
+			<caption label="Directory and Message Storage TB60"/>
+			<hbox class="groupbox-title">
+				<label  class="header">Directory and Message Storage TB68</label>
+			</hbox>
+
+			<vbox align="start">
+				<checkbox wsm_persist="true" id="server.emptyTrashOnExit"
+				label="&emptyTrashOnExit.label;"
+				accesskey="&emptyTrashOnExit.accesskey;"
+				prefattribute="value"
+				prefstring="mail.server.%serverkey%.empty_trash_on_exit"/>
+				<hbox align="center">
+					<label value="&storeType.label;"
+			   accesskey="&storeType.accesskey;"
+			   control="server.storeTypeMenulist"/>
+					<menulist id="server.storeTypeMenulist"
+				  oncommand="clickStoreTypeMenu(this);">
+						<menupopup id="server.storeTypeMenupopup">
+							<menuitem id="server.mboxStore"
+					  value="@mozilla.org/msgstore/berkeleystore;1"
+					  label="&mboxStore2.label;"/>
+							<menuitem id="server.maildirStore"
+					  value="@mozilla.org/msgstore/maildirstore;1"
+					  label="&maildirStore.label;"/>
+						</menupopup>
+					</menulist>
+				</hbox>
+			</vbox>
+			<separator class="thin"/>
+
+			<label value="&localPath.label;" control="server.localPath"/>
+
+			<hbox align="center">
+				
+			   <textbox id="localfolderchemin" readonly="true"  flex="1" tabindex="-1" style="padding-bottom: 8px" size="60"  min-height="1.2ex" class="c1"/>
+		   			  <button label="&eu.philoux.localfolder.chemin.btlib;" 
 						id="localfoldercheminbtsel"
 						browsertitle="&eu.philoux.localfolder.chemin.browsertitle;"
-            			accesskey="&eu.philoux.localfolder.chemin.btlibcle;" oncommand="eu.philoux.localfolder.SelectChemin()"/>
+            			accesskey="&eu.philoux.localfolder.chemin.btlibcle;" oncommand="eu.philoux.localfolder.SelectChemin()" style="margin-bottom: 0px"  flex="0" min-height="1.4ex"/>
+
 			</hbox>
-		</vbox>
+
+			<vbox height="5px"></vbox>
+		</groupbox>
+		<!-- </html:fieldset> -->
+		<!--
+
+			
+	  <html:fieldset id="localfolder_bandeau"><html:legend id="localfolder_bandeau_titre">&eu.philoux.localfolder.bandeau.titre;</html:legend><vbox flex="1" class="localfolder-zone"><vbox><hbox flex="1" class="c3"><vbox style="margin-bottom: 0x" class="c1"><hbox flex="0"  min-height="1.4ex" style="padding-top: 4px; padding-bottom: 16px;"><label value="&eu.philoux.localfolder.libnom;" accesskey="&eu.philoux.localfolder.libnom.accesskey;" control="localfoldernom" style="margin-bottom: 0px; padding-top: 0px" size="30" class="c2"  min-height="1.4ex"/></hbox><hbox flex="0"  min-height="1.4ex"><label value="&eu.philoux.localfolder.libchemin;" style="margin-bottom: 0px; padding-top: 6px" class="c4"  min-height="1.4ex"/></hbox><vbox style="margin-bottom: 0px" class="c2"  min-height="1.4ex"></vbox></vbox><vbox style="margin-bottom: 0px"><textbox id="localfoldernom" flex="1" style="padding-bottom: 8px" min-height="1.2ex"/><vbox height="8px"></vbox><textbox id="localfolderchemin" readonly="true"  flex="1" tabindex="-1" style="padding-bottom: 8px" size="60"  min-height="1.2ex" class="c1"/><vbox height="8px"></vbox><hbox pack="end"><button label="&eu.philoux.localfolder.chemin.btlib;" 
+						id="localfoldercheminbtsel"
+						browsertitle="&eu.philoux.localfolder.chemin.browsertitle;"
+						accesskey="&eu.philoux.localfolder.chemin.btlibcle;" oncommand="eu.philoux.localfolder.SelectChemin()" style="margin-bottom: 0px"  flex="0" min-height="1.4ex"/></hbox></vbox></hbox></vbox></vbox></html:fieldset>
+-->
+		<vbox height="5px"></vbox>
+		<groupbox>
+			<caption label="special folder caption" />
+			<hbox class="groupbox-title">
+			<label  class="header">Add Special Mail Folders</label>
+			</hbox>
+
+			<vbox height="5px"></vbox>
+			<!-- <html:fieldset id="localfolder_specialfolders_set"> -->
+			<!-- <html:legend id="localfolder_bandeau_tSleepitre">Add Mail Folders</html:legend> -->
+			<hbox flex="1" class="c1">
+				<!-- <hbox flex="1" minwidth="30px" class=""> -->
+					<vbox class="c2">
+					<hbox class="folder-row">
+							<hbox class="folder-checkbox">
+								<checkbox id="add_all_folders" oncommand="eu.philoux.localfolder.addAllSpecialFolders()"/>
+							</hbox>
+							<label accesskey="A"  control="add_all_folders" value="All" />
+						</hbox>
+						
+						<label value="" />
+						<label value="" />
+					</vbox>
+				
+				<!-- </hbox> -->
+				
+				<div class="d1"></div>
+				<hbox flex="1" style="padding-left: 20px; padding-right: 10px;">
+					
+					<vbox>
+						<hbox class="folder-row">
+							<hbox class="folder-checkbox"><checkbox id="add_folder_inbox" oncommand="eu.philoux.localfolder.toggleSpecialFolder('inbox')"  SpecialFolder="Inbox"/></hbox>
+							<image class="folder-icon" SpecialFolder="Inbox" />
+							<label accesskey="I"  control="add_folder_inbox" value="Inbox"/>
+						</hbox>
+						<hbox class="folder-row">
+							<hbox class="folder-checkbox"><checkbox id="add_folder_sent" class="folder-checkbox" oncommand="eu.philoux.localfolder.toggleSpecialFolder('Sent')" SpecialFolder="Sent"/></hbox>
+							<image class="folder-icon" SpecialFolder="Sent" />
+							<label accesskey="S" value="Sent" control="add_folder_sent"/>
+						</hbox>
+						<hbox class="folder-row">
+							<hbox class="folder-checkbox"><checkbox id="add_folder_drafts" class="folder-checkbox" SpecialFolder="Drafts"/></hbox>
+							<image class="folder-icon" SpecialFolder="Drafts" />
+							<label accesskey="D" value="Drafts" control="add_folder_drafts"/>
+						</hbox>
+						<hbox class="folder-row">
+							<hbox class="folder-checkbox"><checkbox id="add_folder_templates" class="folder-checkbox" SpecialFolder="Templates"/></hbox>
+							<image class="folder-icon" SpecialFolder="Templates" />
+							<label value="Templates" accesskey="T" control="add_folder_templates"/>
+						</hbox>
+					</vbox>
+				</hbox>
+				<hbox flex="1" style="padding-left: 10px; padding-right: 10px;">
+					<vbox>
+						<hbox class="folder-row">
+							<hbox class="folder-checkbox"><checkbox id="add_folder_archives"  SpecialFolder="Archives" /></hbox>
+							<image class="folder-icon" SpecialFolder="Archives" flex="0" />
+							<label accesskey="V" value="Archives" control="add_folder_archives"/>
+						</hbox>
+						<hbox class="folder-row">
+							<hbox class="folder-checkbox"><checkbox id="add_folder_junk" class="folder-checkbox"  SpecialFolder="Junk"/></hbox>
+							<image class="folder-icon" SpecialFolder="Junk" flex="0"/>
+							<label accesskey="J" value="Junk" control="add_folder_junk"/>
+						</hbox>
+						<hbox class="folder-row">
+							<hbox class="folder-checkbox"><checkbox id="add_folder_trash" class="folder-checkbox"  checked="true" disabled="false" SpecialFolder="Trash"/></hbox>
+							<image class="folder-icon" SpecialFolder="Trash" />
+							<label accesskey="J">Trash</label>
+						</hbox>
+						<hbox class="folder-row">
+							<hbox class="folder-checkbox"><checkbox id="add_folder_outbox" class="folder-checkbox" checked="true" disabled="false" SpecialFolder="Unsent Messages"/></hbox>
+							<image class="folder-icon" SpecialFolder="Outbox" />
+							<label accesskey="O">Outbox</label>
+						</hbox>
+					</vbox>
+				</hbox>
+			</hbox>
+		</groupbox>
+		<!-- </html:fieldset> -->
+		<vbox height="5px"></vbox>
+		<hbox align="right">
+			<button id="localfolder.btQuitter" label="&eu.philoux.localfolder.btQuitter;" oncommand="close();"/>
+			<button id="localfolder.btValider" label="&eu.philoux.localfolder.btValider;" oncommand="eu.philoux.localfolder.btCreeDossierLocal();"/>
+		</hbox>
 	</vbox>
-	<menuseparator/>
-	<hbox align="right">	
-  	<button id="localfolder.btQuitter" label="&eu.philoux.localfolder.btQuitter;" oncommand="close();"/>
-  	<button id="localfolder.btValider" label="&eu.philoux.localfolder.btValider;" oncommand="eu.philoux.localfolder.btCreeDossierLocal();"/>		
-  </hbox>
-</window>
+
+	</window>
