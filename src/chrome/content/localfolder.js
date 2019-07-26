@@ -19,6 +19,7 @@ const JUNK_FOLDER_FLAGS = 0x40000000;
 
 
 eu.philoux.localfolder.specialFolders = {
+    "Inbox": { "directoryName": "Inbox", "flags": SEND_FOLDER_FLAGS },
     "Sent": { "directoryName": "Sent", "flags": SEND_FOLDER_FLAGS },
     "Drafts": { "directoryName": "Drafts", "flags": DRAFTS_FOLDER_FLAGS },
     "Templates": { "directoryName": "Templates", "flags": TEMPLATES_FOLDER_FLAGS },
