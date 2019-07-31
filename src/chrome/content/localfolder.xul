@@ -11,6 +11,8 @@
 		<window id="localfolder" title="&eu.philoux.localfolder.titre;"
 			xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 			xmlns:html="http://www.w3.org/1999/xhtml" onload="eu.philoux.localfolder.initDlg();">
+			<script type="application/javascript" src="chrome://messenger/content/folderPane.js"/>
+
 			<script type="application/x-javascript" src="chrome://localfolder/content/localfolder.js" />
 			<script type="application/x-javascript" src="chrome://localfolder/content/trace.js"/>
 	<keyset id="keys">

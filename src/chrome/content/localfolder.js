@@ -12,6 +12,8 @@ var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 eu.philoux.localfolder.lastFolder = "";
 
 eu.philoux.localfolder.pendingFolders = [];
+eu.philoux.localfolder.currentFolder = {};
+eu.philoux.localfolder.lastFolder.ts = "test variable";
 
 eu.philoux.localfolder.specialFolders = {
     "Inbox": { "directoryName": "Inbox", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Inbox) },
@@ -281,7 +283,7 @@ eu.philoux.localfolder.creeDossierLocal = function (nom, chemin, storeID, emptyT
         // let defaultStoreID = Services.prefs.getCharPref("mail.serverDefaultStoreContractID");
         let c = srv.getBoolValue("canChangeStoreType");
         
-        eu.philoux.localfolder.LocalFolderTrace("CreateLocal 3  folder: "+ chemin + "\neTrash : " + emptyTrashOnExit);
+        eu.philoux.localfolder.LocalFolderTrace("CreateLocal 6  folder: "+ chemin + "\neTrash : " + emptyTrashOnExit);
         eu.philoux.localfolder.LocalFolderTrace("defaultstore: " + defaultStoreID);
         // srv.storeContractId = "@mozilla.org/msgstore/maildirstore;1";
 
@@ -297,16 +299,65 @@ eu.philoux.localfolder.creeDossierLocal = function (nom, chemin, storeID, emptyT
 
         // Services.prompt.alert(window, "progress", "After create account");
 
+        msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
+
+           // srv.rootMsgFolder.recursiveDelete(true, msgWindow);
+        // srv.rootFolder.deleteSubFolders(["Trash"], msgWindow);
+
 		eu.philoux.localfolder.fixupSubfolder(chemin, "Trash", false, storeID);
 		eu.philoux.localfolder.fixupSubfolder(chemin, "Unsent Messages", false, storeID);
+        
+        // srv.rootMsgFolder.getChildNamed("Trash").Delete();
+        // srv.rootFolder.deleteSubFolders(["Trash"], msgWindow);
+
+		Services.prompt.alert(window, "progress  12", "After Trash Delete   ***, Unsent");
+
+		srv.rootMsgFolder.createSubfolder("Drafts1", msgWindow);
+		folderChild = srv.rootMsgFolder.getChildNamed("Drafts1");
+		eu.philoux.localfolder.LocalFolderTrace("created subfolder: "+ folderChild.name );
+
+		// folderChild.flags = (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Drafts);
+		eu.philoux.localfolder.LocalFolderTrace("set flags on subfolder: " );
 		
-		// Services.prompt.alert(window, "progress", "After Trash, Unsent");
-/* 		
-		msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.n sIMsgWindow);
+        eu.philoux.localfolder.currentFolder = folderChild;
+        Services.prompt.alert(window, "progress", "After trash creation");
+        // folderChild.flags = 0;
+        Services.prompt.alert(window, "progress", "After flags reset");
+
+		// eu.philoux.localfolder.fixupSubfolder(chemin, "Drafts", true, "");
+
+        // srv.rootMsgFolder.deleteSubFolders(["Drafts1"], msgWindow);
+        // try {
+        //     folderChild.recursiveDelete(true, msgWindow);
+            
+        // } catch (error) {
+        //     Services.prompt.alert(window, "Error", "After recursive");
+        // }
+        
+        
+        // eu.philoux.localfolder.fixupSubfolder(chemin, "Drafts", false, storeID);
+        // folderChild.flags = 0;
+
+        gFolderTreeController.deleteFolder(folderChild);
+        Services.prompt.alert(window, "progress", "After dFolder");
+        
+        // try {
+            // eu.philoux.localfolder.fixupSubfolder(chemin, "Drafts", true, "");
+            // let array = toXPCOMArray([folderChild], Ci.nsIMutableArray);
+            // folderChild.parent.deleteSubFolders(array, msgWindow);
+
+            
+        // } catch (error) {
+            // Services.prompt.alert(window, "Error", "After delete subfolders");
+        // }
+        
+        
+        /* 		
+		msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].cHopereateInstance(Ci.n sIMsgWindow);
 
 		srv.rootMsgFolder.createSubfolder("Drafts", msgWindow);
 		folderChild = srv.rootMsgFolder.getChildNamed("Drafts");
-		eu.philoux.localfolder.LocalFolderTrace("created subfolder: "+ folderChild.name );
+2		eu.philoux.localfolder.LocalFolderTrace("created subfolder: "+ folderChild.name );
 
 		folderChild.flags = (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Drafts);
 		eu.philoux.localfolder.LocalFolderTrace("set flags on subfolder: " );
@@ -360,6 +411,16 @@ eu.philoux.localfolder.fixupSubfolder = function (parentName, folderName, remove
     // var StoreID = "@mozilla.org/msgstore/maildirstore;1";
 	filespec.initWithPath(parentName);
 	filespec.append(folderName);
+
+    if (removeFileFolder) {
+        eu.philoux.localfolder.LocalFolderTrace(`removing file folder: and MSF 3`);
+
+        filespec.initWithPath(parentName);
+        filespec.append(folderName);
+        filespec.remove(true);
+
+        return;
+    }
 
     eu.philoux.localfolder.LocalFolderTrace(`saving folder: ${rf}`);
 	// if (removeFileFolder) {

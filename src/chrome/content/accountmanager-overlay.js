@@ -145,7 +145,14 @@ eu.philoux.localfolder.onSupprimeCompte = function (e) {
 eu.philoux.localfolder.NewLocalFolder = function () {
 	eu.philoux.localfolder.LocalFolderTrace('open dialogue ' );
 	window.openDialog("chrome://localfolder/content/localfolder.xul", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
+	// eu.philoux.localfolder.LocalFolderTrace('after - test variable ' + eu.philoux.localfolder.lastFolder.ts );
+	// eu.philoux.localfolder.LocalFolderTrace('after dialogue ' +eu.philoux.localfolder.currentFolder);
+	eu.philoux.localfolder.LocalFolderTrace('after dialogue ');
+	// eu.philoux.localfolder.LocalFolderTrace('after dialogue ' +eu.philoux.localfolder.currentFolder.name);
 
+        // gFolderTreeController.deleteFolder(eu.philoux.localfolder.currentFolder);
+        // Services.prompt.alert(window, "progress", "After dFolder");
+		// eu.philoux.localfolder.LocalFolderTrace('after delete folder ' + eu.philoux.localfolder.lastFolder.ts );
 
 	return true;
 }
