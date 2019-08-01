@@ -12,4 +12,4 @@ locale   localfolder  sv-SE  chrome/locale/sv-SE/
 locale   localfolder  zh-CN  chrome/locale/zh-CN/
 
 overlay	chrome://messenger/content/AccountManager.xul	chrome://localfolder/content/accountmanager-overlay.xul
-overlay	chrome://global/content/commonDialog.xul	chrome://localfolder/content/commonDialog-overlay.xul
+#overlay	chrome://global/content/commonDialog.xul	chrome://localfolder/content/commonDialog-overlay.xul

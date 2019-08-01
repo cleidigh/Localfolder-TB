@@ -7,7 +7,6 @@
 
 	<script type="application/javascript" src="chrome://global/content/globalOverlay.js"/>
 	<script type="application/javascript" src="chrome://messenger/content/AccountManager.js"/>
-	<script type="application/javascript" src="chrome://messenger/content/folderPane.js"/>
 	<script type="application/javascript" src="chrome://localfolder/content/accountmanager-overlay.js"/>	
 	<script type="application/javascript" src="chrome://localfolder/content/trace.js"/>
  

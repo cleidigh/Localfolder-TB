@@ -5,6 +5,8 @@
 <!ENTITY eu.philoux.localfolder.titre "Añadir una carpeta local">
 <!ENTITY eu.philoux.localfolder.btValider "Aceptar">
 <!ENTITY eu.philoux.localfolder.btQuitter "Cancelar">
+<!ENTITY eu.philoux.localfolder.directoryAndMessageStore "Directory and Message Store">
+<!ENTITY eu.philoux.localfolder.addMessageFolders "Add Message Folders">
 <!ENTITY eu.philoux.localfolder.bandeau.titre "Configuración de carpeta local">
 <!ENTITY eu.philoux.localfolder.libnom "Nombre:">
 <!ENTITY eu.philoux.localfolder.libnom.accesskey "N">

@@ -1,6 +1,4 @@
-// cleidigh - update for TB 60.*
-// const { folderpane } = ChromeUtils.import("chrome://localfolder/content/folderpane.js");
-
+// cleidigh - update for TB 68.*
 
 // encapsulation objet
 if (!eu) var eu = {};
@@ -12,28 +10,23 @@ var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 eu.philoux.localfolder.lastFolder = "";
 
 eu.philoux.localfolder.pendingFolders = [];
-eu.philoux.localfolder.currentFolder = {};
-eu.philoux.localfolder.lastFolder.ts = "test variable";
 
 eu.philoux.localfolder.specialFolders = {
-    "Inbox": { "directoryName": "Inbox", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Inbox) },
-    "Sent": { "directoryName": "Sent", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.SentMail) },
-    "Trash": { "directoryName": "Trash", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Trash) },
-    "Drafts": { "directoryName": "Drafts", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Drafts) },
-    "Templates": { "directoryName": "Templates", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Templates) },
-    "Archives": { "directoryName": "Archives", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Archive) },
-    "Junk": { "directoryName": "Junk", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Junk) },
-    "Outbox": { "directoryName": "Unsent Messages", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Queue) }
+    "Inbox": { "localizedFolderName": "inboxFolderName", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Inbox) },
+    "Sent": { "localizedFolderName": "sentFolderName", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.SentMail) },
+    "Trash": { "localizedFolderName": "trashFolderName", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Trash) },
+    "Drafts": { "localizedFolderName": "draftsFolderName", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Drafts) },
+    "Templates": { "localizedFolderName": "templatesFolderName", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Templates) },
+    "Archives": { "localizedFolderName": "archivesFolderName", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Archive) },
+    "Junk": { "localizedFolderName": "junkFolderName", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Junk) },
+    "Outbox": { "localizedFolderName": "outboxFolderName", "flags": (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Queue) }
 }
 
 // Extension Information Icons
 
 eu.philoux.localfolder.addAllSpecialFolders = function () {
-    eu.philoux.localfolder.LocalFolderTrace('HadSpecial ');
     const addAllCheckbox = document.getElementById("add_all_folders");
     let addFolderElements = document.querySelectorAll("[id^='add_folder_']");
-
-    eu.philoux.localfolder.LocalFolderTrace('HadSpecial ' + addFolderElements.length);
 
     if (!!addAllCheckbox.checked) {
         // addFolderElements.checked 
@@ -46,15 +39,14 @@ eu.philoux.localfolder.addAllSpecialFolders = function () {
     }
 }
 
-eu.philoux.localfolder.toggleSpecialFolders = function (specialFolder) {
-    eu.philoux.localfolder.LocalFolderTrace('HadSpecial '+ specialFolder);
+eu.philoux.localfolder.toggleSpecialFolder = function (specialFolder) {
+    eu.philoux.localfolder.LocalFolderTrace("Toggle special folder's");
     const addAllCheckbox = document.getElementById("add_all_folders");
     const addFolderElement = document.getElementById(`add_folder_${specialFolder}`);
     
     let addFolderElements = document.querySelectorAll("[id^='add_folder_']");
 
-    eu.philoux.localfolder.LocalFolderTrace('HadSpecial ' + addFolderElements.length);
-
+    eu.philoux.localfolder.LocalFolderTrace(`Add special folder: ${specialFolder}  ${addFolderElement.checked}`);
     if (!!addAllCheckbox.checked && !addFolderElement.checked) {
         addAllCheckbox.checked = false;
     } else if (!addAllCheckbox.checked && addFolderElements.every(e => e.checked)) {
@@ -65,9 +57,11 @@ eu.philoux.localfolder.toggleSpecialFolders = function (specialFolder) {
 
     eu.philoux.localfolder.addSpecialFolders = function (aParentFolder, aParentFolderPath) {
     
-    eu.philoux.localfolder.LocalFolderTrace("Add special folder's");
+    eu.philoux.localfolder.LocalFolderTrace("Add special folders : " + aParentFolderPath);
     let addFolderElements = document.querySelectorAll("[id^='add_folder_']");
 
+    
+    var bundle = Services.strings.createBundle("chrome://messenger/locale/messenger.properties");
     msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
 
     for (let index = 0; index < addFolderElements.length; index++) {
@@ -75,24 +69,45 @@ eu.philoux.localfolder.toggleSpecialFolders = function (specialFolder) {
         if (!!element.checked) {
             // Add special folder
             const l = element.getAttribute("SpecialFolder");
-            // const storeID = aParentFolder.server.storeContractID;
             const storeID =  aParentFolder.server.getCharValue("storeContractID");
 
-            eu.philoux.localfolder.LocalFolderTrace('Add special folder: ' + l + '  ' + storeID);
+            var ll = eu.philoux.localfolder.specialFolders[l].localizedFolderName;
+            eu.philoux.localfolder.LocalFolderTrace('30  Add special folder: ' + l + '  ' + storeID + "   " + ll);
             if (l !== "Trash" && l !== "Unsent Messages") {
-                eu.philoux.localfolder.LocalFolderTrace('AddSubfolder folder/fix 11: ' + l);
-                // let sf = aParentFolder.addSubfolder(l);
                 aParentFolder.createSubfolder(l, msgWindow);
-                aParentFolder.getChildNamed(l).flags = eu.philoux.localfolder.specialFolders[l].flags;
+                // var sf = aParentFolder.addSubfolder(l);
+                // sf.flags  = eu.philoux.localfolder.specialFolders[l].flags;
+
+                eu.philoux.localfolder.LocalFolderTrace("Added subfolder : " + l );
+            	var localizedFolderString = bundle.GetStringFromName(ll);
+                var e = aParentFolder.subFolders;
+                // while (e.hasMoreElements()) {
+                    // eu.philoux.localfolder.LocalFolderTrace("Added folder : " + l + " "+ aParentFolder.numSubFolders + "  " + localizedFolderString);    
+                    // eu.philoux.localfolder.LocalFolderTrace("Sub folder 0 : " + e.getNext().name);
+                // }
+
+                try {
+                    aParentFolder.getChildNamed(localizedFolderString).flags = eu.philoux.localfolder.specialFolders[l].flags;
+                    eu.philoux.localfolder.LocalFolderTrace("child " + localizedFolderString);
+                } catch (error) {
+                    eu.philoux.localfolder.LocalFolderTrace("child not found TryEnglish");
+                    aParentFolder.getChildNamed(l).flags = eu.philoux.localfolder.specialFolders[l].flags;
+                }
+                // for (const folder of aParentFolder.subFolders) {
+
+                    
+                // aParentFolder.getChildNamed(localizedFolderString).flags = eu.philoux.localfolder.specialFolders[l].flags;
+                // aParentFolder.getChildNamed(l).flags = eu.philoux.localfolder.specialFolders[l].flags;
 
                 eu.philoux.localfolder.fixupSubfolder(aParentFolderPath, l, false, storeID);
-                eu.philoux.localfolder.LocalFolderTrace('AddSubfolder folder: After fix');
-        
-            }
+                
+                }
+
+                }
             
         }
-    }
 }
+
 
 eu.philoux.localfolder.urlLoad = function (url) {
     let tabmail = eu.philoux.localfolder.getMail3Pane();
@@ -114,6 +129,21 @@ eu.philoux.localfolder.initDlg = function () {
     eu.philoux.localfolder.LocalFolderTrace("Init dialog");
           
     eu.philoux.localfolder.xulFixup();
+    
+    var bundle = Services.strings.createBundle("chrome://messenger/locale/messenger.properties");
+    
+    let addFolderElements = document.querySelectorAll("[id^='add_folderlabel_']");
+    for (let index = 0; index < addFolderElements.length; index++) {
+        const element = addFolderElements[index];
+        var folder =  element.getAttribute("value");
+        eu.philoux.localfolder.LocalFolderTrace("current name: " + folder + '  ' + eu.philoux.localfolder.specialFolders[folder].localizedFolderName);
+        var localizedFolderString = bundle.GetStringFromName(eu.philoux.localfolder.specialFolders[folder].localizedFolderName);
+        eu.philoux.localfolder.LocalFolderTrace("localized name: " + localizedFolderString);
+        element.setAttribute("value", localizedFolderString);
+
+    }
+
+
     document.getElementById("localfoldernom").focus();
 }
 
@@ -306,86 +336,14 @@ eu.philoux.localfolder.creeDossierLocal = function (nom, chemin, storeID, emptyT
 
 		eu.philoux.localfolder.fixupSubfolder(chemin, "Trash", false, storeID);
 		eu.philoux.localfolder.fixupSubfolder(chemin, "Unsent Messages", false, storeID);
-        
-        // srv.rootMsgFolder.getChildNamed("Trash").Delete();
-        // srv.rootFolder.deleteSubFolders(["Trash"], msgWindow);
 
-		Services.prompt.alert(window, "progress  12", "After Trash Delete   ***, Unsent");
-
-		srv.rootMsgFolder.createSubfolder("Drafts1", msgWindow);
-		folderChild = srv.rootMsgFolder.getChildNamed("Drafts1");
-		eu.philoux.localfolder.LocalFolderTrace("created subfolder: "+ folderChild.name );
-
-		// folderChild.flags = (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Drafts);
-		eu.philoux.localfolder.LocalFolderTrace("set flags on subfolder: " );
-		
-        eu.philoux.localfolder.currentFolder = folderChild;
-        Services.prompt.alert(window, "progress", "After trash creation");
-        // folderChild.flags = 0;
-        Services.prompt.alert(window, "progress", "After flags reset");
-
-		// eu.philoux.localfolder.fixupSubfolder(chemin, "Drafts", true, "");
-
-        // srv.rootMsgFolder.deleteSubFolders(["Drafts1"], msgWindow);
-        // try {
-        //     folderChild.recursiveDelete(true, msgWindow);
-            
-        // } catch (error) {
-        //     Services.prompt.alert(window, "Error", "After recursive");
-        // }
-        
-        
-        // eu.philoux.localfolder.fixupSubfolder(chemin, "Drafts", false, storeID);
-        // folderChild.flags = 0;
-
-        gFolderTreeController.deleteFolder(folderChild);
-        Services.prompt.alert(window, "progress", "After dFolder");
-        
-        // try {
-            // eu.philoux.localfolder.fixupSubfolder(chemin, "Drafts", true, "");
-            // let array = toXPCOMArray([folderChild], Ci.nsIMutableArray);
-            // folderChild.parent.deleteSubFolders(array, msgWindow);
-
-            
-        // } catch (error) {
-            // Services.prompt.alert(window, "Error", "After delete subfolders");
-        // }
-        
-        
-        /* 		
-		msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].cHopereateInstance(Ci.n sIMsgWindow);
-
-		srv.rootMsgFolder.createSubfolder("Drafts", msgWindow);
-		folderChild = srv.rootMsgFolder.getChildNamed("Drafts");
-2		eu.philoux.localfolder.LocalFolderTrace("created subfolder: "+ folderChild.name );
-
-		folderChild.flags = (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Drafts);
-		eu.philoux.localfolder.LocalFolderTrace("set flags on subfolder: " );
-		
-		eu.philoux.localfolder.fixupSubfolder(chemin, "Drafts", false);
-
-
-
-		srv.rootMsgFolder.createSubfolder("Junk", msgWindow);
-		folderChild = srv.rootMsgFolder.getChildNamed("Junk");
-		eu.philoux.localfolder.LocalFolderTrace("created subfolder: "+ folderChild.name );
-
-		folderChild.flags = (Ci.nsMsgFolderFlags.Mail | Ci.nsMsgFolderFlags.Junk);
-		eu.philoux.localfolder.LocalFolderTrace("set flags on subfolder: Junk" );
-		
-		eu.philoux.localfolder.fixupSubfolder(chemin, "Junk", false);
-
-
- */
-		eu.philoux.localfolder.LocalFolderTrace("Created Drafts, msf, empty Drafts, set special flags" );
 
 		eu.philoux.localfolder.pendingFolders.push(chemin);
 
         eu.philoux.localfolder.addSpecialFolders(srv.rootMsgFolder, chemin);
-        eu.philoux.localfolder.LocalFolderTrace("had special subfolder:" );
+        eu.philoux.localfolder.LocalFolderTrace("Add special subfolders" );
 
 		var notifyFlags = Ci.nsIFolderListener.added;
-
 		srv.rootMsgFolder.AddFolderListener(FolderListener, notifyFlags);
 		eu.philoux.localfolder.LocalFolderTrace("Added folder listener");
 
@@ -427,8 +385,9 @@ eu.philoux.localfolder.fixupSubfolder = function (parentName, folderName, remove
     if (storeID !== "@mozilla.org/msgstore/maildirstore;1") {
         eu.philoux.localfolder.LocalFolderTrace(`removing file folder: ${rf}`);
         try {
-    		filespec.remove(true);
             
+    		filespec.remove(true);
+            eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder - removed folder`);
         } catch (error) {
             eu.philoux.localfolder.LocalFolderTrace(`no folder found removing file folder: ${rf}`);
         }
@@ -513,11 +472,3 @@ eu.philoux.localfolder.ValidRepLocal = function (rep) {
     }
     return false;
 }
-
-
-// window.addEventListener("load", function(event) {
-//     eu.philoux.localfolder.LocalFolderTrace("load event before");
-//     eu.philoux.localfolder.initDlg();
-//     eu.philoux.localfolder.LocalFolderTrace("load event after");
-// });
-
