@@ -1,0 +1,9 @@
+
+{
+	"extensionName": {
+		"message": "LocalFolders"
+	},
+	"extensionDescription": {
+		"message": "Fügen Sie beliebig viele lokale Ordner hinzu, einschließlich zugeordneter Verzeichnisse."
+	}
+}

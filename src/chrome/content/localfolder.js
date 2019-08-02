@@ -72,7 +72,7 @@ eu.philoux.localfolder.toggleSpecialFolder = function (specialFolder) {
             const storeID =  aParentFolder.server.getCharValue("storeContractID");
 
             var ll = eu.philoux.localfolder.specialFolders[l].localizedFolderName;
-            eu.philoux.localfolder.LocalFolderTrace('30  Add special folder: ' + l + '  ' + storeID + "   " + ll);
+            eu.philoux.localfolder.LocalFolderTrace('40  Add special folder: ' + l + '  ' + storeID + "   " + ll);
             if (l !== "Trash" && l !== "Unsent Messages") {
                 aParentFolder.createSubfolder(l, msgWindow);
                 // var sf = aParentFolder.addSubfolder(l);
@@ -100,7 +100,7 @@ eu.philoux.localfolder.toggleSpecialFolder = function (specialFolder) {
                 // aParentFolder.getChildNamed(l).flags = eu.philoux.localfolder.specialFolders[l].flags;
 
                 eu.philoux.localfolder.fixupSubfolder(aParentFolderPath, l, false, storeID);
-                
+                // aParentFolder.updateFolder();
                 }
 
                 }
