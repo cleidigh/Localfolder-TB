@@ -2,6 +2,15 @@
 
 ## Versions
 
+2.0.0 Update for TB68, New options
+- Compatibility with TB60 - TB68
+- UI tweaks for 68
+- New options when creating new local folder
+- Empty trash and an exit, message storage type
+- Choose mail folders to create
+- Added Brazilian Portuguese (pt-BR) locale - PR from Anselmo Blanco Dominguez (anselmobd)
+- Added Japanese (ja) Locale
+
 1.1 - Change name to LocalFolders
 - Compatibility with TB60 - TB66
 - Jump to v1.1 to better reflect state
