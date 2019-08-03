@@ -7,7 +7,7 @@
 - UI tweaks for 68
 - New options when creating new local folder
 - Empty trash and an exit, message storage type
-- Choose mail folders to create
+- Choose mail folders to create - Suggested by Óvári, Thanks!
 - Added Brazilian Portuguese (pt-BR) locale - PR from Anselmo Blanco Dominguez (anselmobd)
 - Added Japanese (ja) Locale
 
