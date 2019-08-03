@@ -1,0 +1,9 @@
+
+{
+	"extensionName": {
+		"message": "LocalFolders"
+	},
+	"extensionDescription": {
+		"message": "マップされたディレクトリを含めて、必要な数のローカルフォルダを追加します。"
+	}
+}
