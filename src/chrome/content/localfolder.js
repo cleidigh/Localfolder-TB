@@ -39,14 +39,13 @@ eu.philoux.localfolder.addAllSpecialFolders = function () {
     if (!!addAllCheckbox.checked) {
         for (let index = 0; index < addFolderElements.length; index++) {
             const element = addFolderElements[index];
-            console.debug('element ' + element.getAttribute("label"));
             element.checked = true;
         }
     }
 }
 
 eu.philoux.localfolder.toggleSpecialFolder = function (specialFolder) {
-    eu.philoux.localfolder.LocalFolderTrace("Toggle special folder's");
+    // eu.philoux.localfolder.LocalFolderTrace("Toggle special folder's");
     const addAllCheckbox = document.getElementById("add_all_folders");
     const addFolderElement = document.getElementById(`add_folder_${specialFolder}`);
 
@@ -62,7 +61,7 @@ eu.philoux.localfolder.toggleSpecialFolder = function (specialFolder) {
 
 eu.philoux.localfolder.addSpecialFolders = function (aParentFolder, aParentFolderPath) {
 
-    eu.philoux.localfolder.LocalFolderTrace("Add special folders : " + aParentFolderPath);
+    // eu.philoux.localfolder.LocalFolderTrace("Add special folders : " + aParentFolderPath);
     let addFolderElements = document.querySelectorAll("[id^='add_folder_']");
 
     var bundle = Services.strings.createBundle("chrome://messenger/locale/messenger.properties");
@@ -138,9 +137,9 @@ eu.philoux.localfolder.initDlg = function () {
     for (let index = 0; index < addFolderElements.length; index++) {
         const element = addFolderElements[index];
         var folder = element.getAttribute("value");
-        eu.philoux.localfolder.LocalFolderTrace("current name: " + folder + '  ' + eu.philoux.localfolder.specialFolders[folder].localizedFolderName);
+        // eu.philoux.localfolder.LocalFolderTrace("current name: " + folder + '  ' + eu.philoux.localfolder.specialFolders[folder].localizedFolderName);
         var localizedFolderString = bundle.GetStringFromName(eu.philoux.localfolder.specialFolders[folder].localizedFolderName);
-        eu.philoux.localfolder.LocalFolderTrace("localized name: " + localizedFolderString);
+        // eu.philoux.localfolder.LocalFolderTrace("localized Okay when I did myname: " + localizedFolderString);
         element.setAttribute("value", localizedFolderString);
     }
 
@@ -154,7 +153,6 @@ eu.philoux.localfolder.xulFixup = function () {
 
     // cleidigh - TB68 groupbox needs hbox/label
     if (versionChecker.compare(currentVersion, "61") >= 0) {
-        eu.philoux.localfolder.LocalFolderTrace("68 captions except");
         var captions = document.querySelectorAll("caption");
         for (let i = 0; i < captions.length; i++) {
             captions[i].style.display = "none";
@@ -177,7 +175,7 @@ eu.philoux.localfolder.btCreeDossierLocal = function () {
 
         //vérification des paramétres
         var nom = document.getElementById("localfoldernom").value;
-        eu.philoux.localfolder.LocalFolderTrace("Add  folder: " + nom);
+        // eu.philoux.localfolder.LocalFolderTrace("Add  folder: " + nom);
         if (nom == "") {
             eu.philoux.localfolder.LocalFolderAfficheMsgId("NomPasRenseigne");
             return false;
@@ -374,7 +372,7 @@ eu.philoux.localfolder.fixupSubfolder = function (parentName, folderName, remove
             filespec.remove(true);
             // eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder - removed folder`);
         } catch (error) {
-            eu.philoux.localfolder.LocalFolderTrace(`no folder found removing file folder: ${rf}`);
+            // eu.philoux.localfolder.LocalFolderTrace(`no folder found removing file folder: ${rf}`);
         }
     }
 
@@ -401,9 +399,9 @@ var FolderListener = {
 
             if (aItem.name in eu.philoux.localfolder.specialFolders) {
                 var sf = eu.philoux.localfolder.specialFolders[aItem.name].flags
-                eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} get flags ${aItem.flags}`);
+                // eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} get flags ${aItem.flags}`);
                 aItem.setFlag(sf);
-                eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} set flags (${sf} : ${aItem.flags}`);
+                // eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} set flags (${sf} : ${aItem.flags}`);
             }
 
         }
