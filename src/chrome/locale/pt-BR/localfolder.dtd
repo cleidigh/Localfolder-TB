@@ -6,6 +6,8 @@
 <!ENTITY eu.philoux.localfolder.titre "Adicionar uma Pasta Local">
 <!ENTITY eu.philoux.localfolder.btValider "OK">
 <!ENTITY eu.philoux.localfolder.btQuitter "Cancelar">
+<!ENTITY eu.philoux.localfolder.directoryAndMessageStore "Diretório e Armazenamento de mensagens">
+<!ENTITY eu.philoux.localfolder.addMessageFolders "Adicionar Pastas de Mensagens">
 <!ENTITY eu.philoux.localfolder.bandeau.titre "Configuração de Pasta Local">
 <!ENTITY eu.philoux.localfolder.libnom "Nome:">
 <!ENTITY eu.philoux.localfolder.libnom.accesskey "N">
