@@ -11,6 +11,7 @@ locale   localfolder  it     chrome/locale/it/
 locale   localfolder  pt-BR  chrome/locale/pt-BR/
 locale   localfolder  sv-SE  chrome/locale/sv-SE/
 locale   localfolder  zh-CN  chrome/locale/zh-CN/
+locale   localfolder  ja     chrome/locale/ja/
 
 overlay	chrome://messenger/content/AccountManager.xul	chrome://localfolder/content/accountmanager-overlay.xul
 #overlay	chrome://global/content/commonDialog.xul	chrome://localfolder/content/commonDialog-overlay.xul
