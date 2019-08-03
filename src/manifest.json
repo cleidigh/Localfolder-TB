@@ -15,5 +15,6 @@
 	"icons": {
 		"64": "chrome/skin/classic/LocalFolders-64px.png",
 		"32": "chrome/skin/classic/LocalFolders-32px.png"
-	}
+	},
+	"default_locale": "en_US"
 }
