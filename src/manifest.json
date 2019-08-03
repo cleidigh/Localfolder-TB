@@ -3,7 +3,7 @@
 	"name": "__MSG_extensionName__",
 	"description": "__MSG_extensionDescription__",
 	"xpi-name": "localfolders",
-	"version": "2.0.0-b6",
+	"version": "2.0.0",
 	"author": "l'Abbé Christian-Philippe Chanut (philoux), Christopher Leidigh",
 	"applications": {
 		"gecko": {
