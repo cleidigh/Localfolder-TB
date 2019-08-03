@@ -5,10 +5,10 @@
 
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-	<script type="application/x-javascript" src="chrome://global/content/globalOverlay.js"/>
-	<script type="application/x-javascript" src="chrome://messenger/content/AccountManager.js"/>
-	<script type="application/x-javascript" src="chrome://localfolder/content/accountmanager-overlay.js"/>	
-	<script type="application/x-javascript" src="chrome://localfolder/content/trace.js"/>
+	<script type="application/javascript" src="chrome://global/content/globalOverlay.js"/>
+	<script type="application/javascript" src="chrome://messenger/content/AccountManager.js"/>
+	<script type="application/javascript" src="chrome://localfolder/content/accountmanager-overlay.js"/>	
+	<script type="application/javascript" src="chrome://localfolder/content/trace.js"/>
  
 	<menupopup id="accountActionsDropdown" onpopupshowing="eu.philoux.localfolder.initAccountActionsButtonsLocalFolder(this)">
 		<menuitem id="accountActionAddLocalFolder"

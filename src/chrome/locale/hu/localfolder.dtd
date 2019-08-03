@@ -6,6 +6,8 @@
 <!ENTITY eu.philoux.localfolder.titre "Helyi mappa hozzáadása">
 <!ENTITY eu.philoux.localfolder.btValider "OK">
 <!ENTITY eu.philoux.localfolder.btQuitter "Mégse">
+<!ENTITY eu.philoux.localfolder.directoryAndMessageStore "Könyvtár és Üzenettároló típusa">
+<!ENTITY eu.philoux.localfolder.addMessageFolders "Üzenetmappák hozzáadása">
 <!ENTITY eu.philoux.localfolder.bandeau.titre "Helyi mappa beállításai">
 <!ENTITY eu.philoux.localfolder.libnom "Név:">
 <!ENTITY eu.philoux.localfolder.libnom.accesskey "N">

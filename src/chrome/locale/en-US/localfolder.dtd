@@ -6,7 +6,8 @@
 <!ENTITY eu.philoux.localfolder.titre "Add Local Folder">
 <!ENTITY eu.philoux.localfolder.btValider "OK">
 <!ENTITY eu.philoux.localfolder.btQuitter "Cancel">
-<!ENTITY eu.philoux.localfolder.bandeau.titre "Local folder configuration">
+<!ENTITY eu.philoux.localfolder.directoryAndMessageStore "Directory and Message Store">
+<!ENTITY eu.philoux.localfolder.addMessageFolders "Add Message Folders">
 <!ENTITY eu.philoux.localfolder.libnom "Name:">
 <!ENTITY eu.philoux.localfolder.libnom.accesskey "N">
 <!ENTITY eu.philoux.localfolder.libchemin "Local directory:">

@@ -6,6 +6,8 @@
 <!ENTITY eu.philoux.localfolder.titre "Cartella locale aggiuntiva">
 <!ENTITY eu.philoux.localfolder.btValider "Ok">
 <!ENTITY eu.philoux.localfolder.btQuitter "Annulla">
+<!ENTITY eu.philoux.localfolder.directoryAndMessageStore "Directory e Archivio Messaggi">
+<!ENTITY eu.philoux.localfolder.addMessageFolders "Aggiungi Cartelle di Messaggi">
 <!ENTITY eu.philoux.localfolder.bandeau.titre "Configurazione cartella locale">
 <!ENTITY eu.philoux.localfolder.libnom "Nome:">
 <!ENTITY eu.philoux.localfolder.libnom.accesskey "N">

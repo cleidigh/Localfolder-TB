@@ -1,0 +1,9 @@
+
+{
+	"extensionName": {
+		"message": "LocalFolders"
+	},
+	"extensionDescription": {
+		"message": "根据需要添加任意数量的本地文件夹，包括映射目录。"
+	}
+}

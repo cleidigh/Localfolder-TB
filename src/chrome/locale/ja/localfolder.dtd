@@ -1,0 +1,16 @@
+<!--  accountmanager-overlay.xul  -->
+<!ENTITY eu.philoux.localfolder.btdossier "ローカルフォルダを追加…">
+<!ENTITY eu.philoux.localfolder.btdossier.racc "L">
+
+<!--  localfolder.xul  -->
+<!ENTITY eu.philoux.localfolder.titre "ローカルフォルダを追加">
+<!ENTITY eu.philoux.localfolder.btValider "OK">
+<!ENTITY eu.philoux.localfolder.btQuitter "キャンセル">
+<!ENTITY eu.philoux.localfolder.directoryAndMessageStore "ディレクトリとメッセージストア">
+<!ENTITY eu.philoux.localfolder.addMessageFolders "メッセージフォルダの追加">
+<!ENTITY eu.philoux.localfolder.libnom "Name：">
+<!ENTITY eu.philoux.localfolder.libnom.accesskey "N">
+<!ENTITY eu.philoux.localfolder.libchemin "ローカルディレクトリ：">
+<!ENTITY eu.philoux.localfolder.chemin.btlib "参照…">
+<!ENTITY eu.philoux.localfolder.chemin.btlibcle "B">
+<!ENTITY eu.philoux.localfolder.chemin.browsertitle "フォルダを選択">

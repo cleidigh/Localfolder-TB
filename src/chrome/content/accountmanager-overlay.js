@@ -71,7 +71,9 @@ eu.philoux.localfolder.onSupprimeCompte = function (e) {
 			var bundle = Services.strings.createBundle("chrome://localfolder/locale/localfolder.properties");
 			var confirmTitle = bundle.GetStringFromName("ConfirmRemoveTitle");
 			var confirmRemoveAccount = bundle.formatStringFromName("ConfirmRemoveFolder", [prettyName], 1);
-			let review = Services.prompt.confirm(window, confirmTitle, confirmRemoveAccount);
+
+			var removeData = {value: false};
+			let review = Services.prompt.confirmCheck(window, confirmTitle, confirmRemoveAccount, "Delete All Subfolders and Data", removeData);
 
 			eu.philoux.localfolder.LocalFolderTrace(confirmRemoveAccount +' '+ review);
 
@@ -83,6 +85,8 @@ eu.philoux.localfolder.onSupprimeCompte = function (e) {
 				// clear cached data out of the account array
 				currentAccount = currentPageId = null;
 
+				const f = server.localPath.path;
+
 				var serverId = server.serverURI;
 				Components.classes["@mozilla.org/messenger/account-manager;1"]
 					.getService(Components.interfaces.nsIMsgAccountManager)
@@ -92,6 +96,15 @@ eu.philoux.localfolder.onSupprimeCompte = function (e) {
 					delete accountArray[serverId];
 				}
 				selectServer(null, null);
+
+				var filespec = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsIFile);
+
+				if (removeData.value) {
+					filespec.initWithPath(f);
+					filespec.remove(true);
+					eu.philoux.localfolder.LocalFolderTrace("after o raw");
+				
+				}
 			}
 			catch (ex) {
 				dump("failure to remove account: " + ex + "\n");
@@ -116,7 +129,9 @@ eu.philoux.localfolder.onSupprimeCompte = function (e) {
  *	clic sur le bouton localfolder.btdossier -> appelle la bo�te d'ajout d'un nouveau dossier
  */
 eu.philoux.localfolder.NewLocalFolder = function () {
-	window.openDialog("chrome://localfolder/content/localfolder.xul", "", "chrome,modal,center,titlebar,resizable=no");
+	eu.philoux.localfolder.LocalFolderTrace('open dialog ' );
+	window.openDialog("chrome://localfolder/content/localfolder.xul", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
+
 	return true;
 }
 

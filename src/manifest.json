@@ -1,9 +1,9 @@
 {
 	"manifest_version": 2,
-	"name": "LocalFolders",
+	"name": "__MSG_extensionName__",
+	"description": "__MSG_extensionDescription__",
 	"xpi-name": "localfolders",
-	"version": "1.1.0",
-	"description": "Adds Local Folders",
+	"version": "2.0.0-b6",
 	"author": "l'Abbé Christian-Philippe Chanut (philoux), Christopher Leidigh",
 	"applications": {
 		"gecko": {
@@ -15,5 +15,6 @@
 	"icons": {
 		"64": "chrome/skin/classic/LocalFolders-64px.png",
 		"32": "chrome/skin/classic/LocalFolders-32px.png"
-	}
+	},
+	"default_locale": "en_US"
 }
