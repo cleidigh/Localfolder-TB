@@ -1,0 +1,14 @@
+
+
+Important News:
+- The empty folder issue is fixed.
+
+Add as many local folders as you want to :
+- You can use a network drive/directory
+- You can load a folder from another TB profile (eg. portable TB).
+- Add new local folders from the account creation dialog
+
+New In v2.0.x:
+- Options for empty trash, message storage type
+- Add special mail folders at creation time
+- Updated with Japanese and Brazilian Portuguese locales
