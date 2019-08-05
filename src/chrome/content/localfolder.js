@@ -110,8 +110,14 @@ eu.philoux.localfolder.addSpecialFolders = function (aParentFolder, aParentFolde
 
 
 eu.philoux.localfolder.urlLoad = function (url) {
-    let tabmail = eu.philoux.localfolder.getMail3Pane();
-    tabmail.openTab("chromeTab", { chromePage: url });
+    // let tabmail = eu.philoux.localfolder.getMail3Pane();
+    // tabmail.openTab("chromeTab", { chromePage: url });
+
+    let service = Cc["@mozilla.org/uriloader/external-protocol-service;1"].getService(Ci.nsIExternalProtocolService),
+			    ioservice = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService),
+			    uri = ioservice.newURI(url, null, null);
+			service.loadURI(uri);
+		
 }
 
 eu.philoux.localfolder.getMail3Pane = function () {

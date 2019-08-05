@@ -122,12 +122,9 @@ fieldset {
     max-height: 18px;
     /* padding-bottom: 4px; */
 }
-
+/* 
 .folder-icon {
     list-style-image: url("chrome://messenger/skin/icons/folder.png");
-    /* padding-left: 8px; */
-    /* padding-right: 8px; */
-    /* margin-inline-end: 10px; */
     width: 16px;
     height: 16px;
     max-width: 16px;
@@ -138,18 +135,15 @@ fieldset {
 .folder-icon2 {
     list-style-image: url("chrome://messenger/skin/icons/folder.png");
     -moz-image-region: rect(0 208px 16px 192px);
-    /* padding-left: 8px; */
-    /* padding-right: 8px; */
-    /* margin-inline-end: 10px; */
     max-width: 16px;
     max-height: 16px;
     width: 16px;
     height: 16px;
-}
+} */
 
 
 /* Folders */
-
+/* 
 .folder-icon[SpecialFolder="Archives"] {
     -moz-image-region: rect(0 208px 16px 192px);
 }
@@ -186,7 +180,7 @@ fieldset {
     -moz-image-region: rect(0 176px 16px 160px);
 }
 
-
+ */
 /* #localfolder-button.toolbarbutton-1 { */
 
 
@@ -210,7 +204,7 @@ fieldset {
 
 
 /* list-style-image: url("chrome://localfolder/skin/LocalFolders-20px.png") !important;} */
-
+/* 
 #mzts-button,
 #mail-toolbox>toolbar[brighttext] #mzts-button.toolbarbutton-1 {
     list-style-image: url("chrome://localfolder/skin/LocalFolders-20.png");
@@ -220,3 +214,5 @@ toolbar[iconsize="small"] #mzts-button,
 #mail-toolbox>toolbar[brighttext][iconsize="small"] #mzts-button.toolbarbutton-1 {
     list-style-image: url("chrome://localfolder/skin/LocalFolders-20px.png") !important;
 }
+
+ */
