@@ -2,7 +2,13 @@
 
 ## Versions
 
-2.0.0 Update for TB68, New options
+v2.0.1 : Maintenance tweaks 8-06-2019
+- Fixed non- Windows layout/checkboxes
+- Add tooltiptext for extension homepage
+- Fix icon for extension page
+- Open homepage in external browser
+
+2.0.0 Update for TB68, New options : 8-04-2019
 - Compatibility with TB60 - TB68
 - UI tweaks for 68
 - New options when creating new local folder
