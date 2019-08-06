@@ -78,12 +78,12 @@ eu.philoux.localfolder.addSpecialFolders = function (aParentFolder, aParentFolde
             // eu.philoux.localfolder.LocalFolderTrace('Add special folder: ' + l + '  ' + storeID + "   " + ll);
 
             // Trash and unsent messages folders are added at account creation
-            if (l !== "Trash" && l !== "Unsent Messages") {
+            if (l !== "Trash" && l !== "Outbox") {
                 aParentFolder.createSubfolder(l, msgWindow);
                 // var sf = aParentFolder.addSubfolder(l);
                 // sf.flags  = eu.philoux.localfolder.specialFolders[l].flags;
 
-                eu.philoux.localfolder.LocalFolderTrace("Added subfolder : " + l);
+                // eu.philoux.localfolder.LocalFolderTrace("Added subfolder : " + l);
                 var localizedFolderString = bundle.GetStringFromName(ll);
                 var e = aParentFolder.subFolders;
 
@@ -137,13 +137,31 @@ eu.philoux.localfolder.initDlg = function () {
     eu.philoux.localfolder.xulFixup();
 
     var bundle = Services.strings.createBundle("chrome://messenger/locale/messenger.properties");
+    var bundle2 = Services.strings.createBundle("chrome://chat/locale/twitter.properties");
+
+    var localizedHomepageString = bundle2.GetStringFromName("tooltip.url");
+    localizedHomepageString = `LocalFolders ${localizedHomepageString}`;
+    document.getElementById("localfolder-icon-image").setAttribute("tooltiptext", localizedHomepageString);
+
+    var os = navigator.platform.toLowerCase();
+    const addAllCheckboxLabel = document.getElementById("add_all_folders_label");
+
+    if (os.indexOf("win") === -1) {
+        addAllCheckboxLabel.classList.add("folder-label-nix");
+    }
 
     // Localize folder names
     let addFolderElements = document.querySelectorAll("[id^='add_folderlabel_']");
     for (let index = 0; index < addFolderElements.length; index++) {
         const element = addFolderElements[index];
         var folder = element.getAttribute("value");
-        // eu.philoux.localfolder.LocalFolderTrace("current name: " + folder + '  ' + eu.philoux.localfolder.specialFolders[folder].localizedFolderName);
+
+        if (os.indexOf("win") > -1) {
+            element.previousElementSibling.classList.add("folder-image-win");
+        } else {
+            element.classList.add("folder-label-nix");
+        }
+
         var localizedFolderString = bundle.GetStringFromName(eu.philoux.localfolder.specialFolders[folder].localizedFolderName);
         // eu.philoux.localfolder.LocalFolderTrace("localized Okay when I did myname: " + localizedFolderString);
         element.setAttribute("value", localizedFolderString);
@@ -238,7 +256,7 @@ eu.philoux.localfolder.SelectChemin = function () {
 
         // cleidigh - replace deprecated show with asynchronous open for TB 60.*
         fp.open(function (rv) {
-            eu.philoux.localfolder.LocalFolderTrace("eu.philoux.localfolder.SelectChemin appel eu.philoux.localfolder.ValidRepLocal:" + fp.file.path);
+            // eu.philoux.localfolder.LocalFolderTrace("eu.philoux.localfolder.SelectChemin appel eu.philoux.localfolder.ValidRepLocal:" + fp.file.path);
 
             if (rv !== nsIFilePicker.returnOK) {
                 // user canceled

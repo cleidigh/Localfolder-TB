@@ -12,3 +12,5 @@ New In v2.0.x:
 - Options for empty trash, message storage type
 - Add special mail folders at creation time
 - Updated with Japanese and Brazilian Portuguese locales
+
+

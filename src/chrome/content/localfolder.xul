@@ -29,7 +29,7 @@
 			
 			<hbox flex="1"></hbox>
 			<hbox flex="0" class="localfolder-icon" style="padding-right: 10px">
-				<image src="chrome://localfolder/skin/LocalFolders-64px.png" width="40px" height="40px" tooltiptext="LocalFolders Add-on Homepage"
+				<image id="localfolder-icon-image" src="chrome://localfolder/skin/LocalFolders-64px.png" width="40px" height="40px" tooltiptext="LocalFolders Add-on Homepage"
 			  maxwidth="40px" maxheight="40px" onclick="eu.philoux.localfolder.urlLoad('https://github.com/cleidigh/LocalFolder-TB')"/>
 			</hbox>
 		</hbox>
@@ -90,10 +90,10 @@
 			<hbox flex="1" class="c1">
 					<vbox class="c2">
 					<hbox class="folder-row">
-							<hbox class="folder-checkbox">
+							<hbox >
 								<checkbox id="add_all_folders" oncommand="eu.philoux.localfolder.addAllSpecialFolders()"/>
 							</hbox>
-							<label accesskey="&allFolders.accesskey;"  control="add_all_folders" value="&allFolders.label;" />
+							<label id="add_all_folders_label"  accesskey="&allFolders.accesskey;"  control="add_all_folders" value="&allFolders.label;" />
 						</hbox>
 						
 						<label value="" />
@@ -106,53 +106,53 @@
 					
 					<vbox>
 						<hbox class="folder-row">
-							<hbox class="folder-checkbox"><checkbox id="add_folder_inbox" oncommand="eu.philoux.localfolder.toggleSpecialFolder('inbox')"  SpecialFolder="Inbox"/></hbox>
-							<!-- <image class="folder-icon" SpecialFolder="Inbox2" /> -->
-							<image class="tabmail-tab" type="folder" SpecialFolder="Inbox"  maxwidth="16px" maxheight="16px"/>
-							<label id="add_folderlabel_inbox" accesskey="I"  control="add_folder_inbox" value="Inbox"/>
+							<hbox >
+								<checkbox id="add_folder_inbox" oncommand="eu.philoux.localfolder.toggleSpecialFolder('inbox')"  SpecialFolder="Inbox"/>
+								</hbox>
+							<image class="tabmail-tab" type="folder" SpecialFolder="Inbox"  />
+							<label id="add_folderlabel_inbox" accesskey="I"  control="add_folder_inbox" value="Inbox" />
 						</hbox>
 						<hbox class="folder-row">
-							<hbox class="folder-checkbox"><checkbox id="add_folder_sent" class="folder-checkbox" oncommand="eu.philoux.localfolder.toggleSpecialFolder('sent')" SpecialFolder="Sent"/></hbox>
-							<image class="tabmail-tab" type="folder" SpecialFolder="Sent"  maxwidth="16px" maxheight="16px"/>
-							<label id="add_folderlabel_sent" accesskey="S" value="Sent" control="add_folder_sent"/>
+							<hbox ><checkbox id="add_folder_sent"  oncommand="eu.philoux.localfolder.toggleSpecialFolder('sent')" SpecialFolder="Sent"/></hbox>
+								<image class="tabmail-tab" type="folder" SpecialFolder="Sent"  />
+							<label id="add_folderlabel_sent" accesskey="S" value="Sent" control="add_folder_sent" />
 						</hbox>
 						<hbox class="folder-row">
-							<hbox class="folder-checkbox"><checkbox id="add_folder_drafts" class="folder-checkbox" oncommand="eu.philoux.localfolder.toggleSpecialFolder('drafts')" SpecialFolder="Drafts"/></hbox>
-							<image class="tabmail-tab" type="folder" SpecialFolder="Drafts"  maxwidth="16px" maxheight="16px"/>
-							<label id="add_folderlabel_drafts" accesskey="D" value="Drafts" control="add_folder_drafts"/>
+							<hbox ><checkbox id="add_folder_drafts"  oncommand="eu.philoux.localfolder.toggleSpecialFolder('drafts')" SpecialFolder="Drafts"  height="16px"/></hbox>
+							<image class="tabmail-tab" type="folder" SpecialFolder="Drafts"   />
+							<label id="add_folderlabel_drafts" accesskey="D" value="Drafts" control="add_folder_drafts"  />
+						</hbox>
+						<hbox class="folder-row">
+							<hbox ><checkbox id="add_folder_templates"  oncommand="eu.philoux.localfolder.toggleSpecialFolder('templates')" SpecialFolder="Templates" flex="0" /></hbox>
+							<image class="tabmail-tab" type="folder" SpecialFolder="Templates" />
+							<label id="add_folderlabel_templates" value="Templates" accesskey="T" control="add_folder_templates" />
 						</hbox>
 					</vbox>
 				</hbox>
 				<hbox flex="1" style="padding-left: 10px; padding-right: 10px;">
 					<vbox>
+						
 						<hbox class="folder-row">
-							<hbox class="folder-checkbox"><checkbox id="add_folder_templates" class="folder-checkbox" oncommand="eu.philoux.localfolder.toggleSpecialFolder('templates')" SpecialFolder="Templates"/></hbox>
-							<image class="tabmail-tab" type="folder" SpecialFolder="Templates" maxwidth="16px" maxheight="16px" />
-							<label id="add_folderlabel_templates" value="Templates" accesskey="T" control="add_folder_templates"/>
+							<hbox ><checkbox id="add_folder_archives" oncommand="eu.philoux.localfolder.toggleSpecialFolder('archives')" SpecialFolder="Archives" /></hbox>
+							<image class="tabmail-tab" type="folder" SpecialFolder="Archives"  />
+							<label id="add_folderlabel_archives" accesskey="V" value="Archives" control="add_folder_archives" />
 						</hbox>
 						<hbox class="folder-row">
-							<hbox class="folder-checkbox"><checkbox id="add_folder_archives" oncommand="eu.philoux.localfolder.toggleSpecialFolder('archives')" SpecialFolder="Archives" /></hbox>
-							<image class="tabmail-tab" type="folder" SpecialFolder="Archives" flex="0"  maxwidth="16px" maxheight="16px"/>
-							<label id="add_folderlabel_archives" accesskey="V" value="Archives" control="add_folder_archives"/>
-						</hbox>
-						<hbox class="folder-row">
-							<hbox class="folder-checkbox"><checkbox id="add_folder_junk" class="folder-checkbox" oncommand="eu.philoux.localfolder.toggleSpecialFolder('junk')" SpecialFolder="Junk"/></hbox>
-							<image class="tabmail-tab" type="folder" SpecialFolder="Junk" flex="0" maxwidth="16px" maxheight="16px" />
-							<label id="add_folderlabel_junk" accesskey="J" value="Junk" control="add_folder_junk"/>
+							<hbox ><checkbox id="add_folder_junk"  oncommand="eu.philoux.localfolder.toggleSpecialFolder('junk')" SpecialFolder="Junk"/></hbox>
+							<image class="tabmail-tab" type="folder" SpecialFolder="Junk" />
+							<label id="add_folderlabel_junk" accesskey="J" value="Junk" control="add_folder_junk" />
 						</hbox>
 
-<!-- Cannot currently change default for Trash, Unsent Messages folders 
 						<hbox class="folder-row">
-							<hbox class="folder-checkbox"><checkbox id="add_folder_trash" class="folder-checkbox" oncommand="eu.philoux.localfolder.toggleSpecialFolder('trash')" checked="true" disabled="false" SpecialFolder="Trash"/></hbox>
-							<image class="tabmail-tab" type="folder" SpecialFolder="Trash" flex="0" />
-							<label id="add_folderlabel_trash" accesskey="J">Trash</label>
+							<hbox ><checkbox id="add_folder_trash"   checked="true" disabled="true" oncommand="eu.philoux.localfolder.toggleSpecialFolder('trash')" SpecialFolder="Trash"/></hbox>
+							<image class="tabmail-tab" type="folder" SpecialFolder="Trash"  />
+							<label id="add_folderlabel_trash" value="Trash" />
 						</hbox>
 						<hbox class="folder-row">
-							<hbox class="folder-checkbox"><checkbox id="add_folder_outbox" class="folder-checkbox" checked="true" disabled="false" oncommand="eu.philoux.localfolder.toggleSpecialFolder('outbox')" SpecialFolder="Unsent Messages"/></hbox>
-							<image class="tabmail-tab" type="folder" SpecialFolder="Outbox" flex="0" />
-							<label id="add_folderlabel_outbox" accesskey="O">Outbox</label>
+							<hbox ><checkbox id="add_folder_outbox"  checked="true" disabled="true" oncommand="eu.philoux.localfolder.toggleSpecialFolder('outbox')" SpecialFolder="Outbox"/></hbox>
+							<image class="tabmail-tab" type="folder" SpecialFolder="Outbox"  />
+							<label id="add_folderlabel_outbox" value="Outbox" />
 						</hbox>
--->
 
 						</vbox>
 				</hbox>

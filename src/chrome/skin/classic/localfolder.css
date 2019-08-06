@@ -82,7 +82,6 @@
     border-bottom: 0.5px !important;
     border-bottom-width: 4px !important;
     border-color: black !important;
-    /* background-color: darkorange; */
 }
 
 
@@ -103,116 +102,17 @@ fieldset {
 }
 
 
-/* 
-  caption {
-	margin: 0px 6px 2px;
-	padding: 0px 3px;
-	background-color: #C7D0D9; 
-  }
-   */
-
 .folder-row {
     padding-bottom: 4px;
 }
 
-.folder-checkbox {
-    width: 18px;
-    height: 18px;
-    max-width: 18px;
-    max-height: 18px;
-    /* padding-bottom: 4px; */
+.folder-label-nix {
+    padding-top: 4px;
 }
-/* 
-.folder-icon {
-    list-style-image: url("chrome://messenger/skin/icons/folder.png");
+
+.folder-image-win {
     width: 16px;
     height: 16px;
     max-width: 16px;
     max-height: 16px;
-    margin-top: 2px;
 }
-
-.folder-icon2 {
-    list-style-image: url("chrome://messenger/skin/icons/folder.png");
-    -moz-image-region: rect(0 208px 16px 192px);
-    max-width: 16px;
-    max-height: 16px;
-    width: 16px;
-    height: 16px;
-} */
-
-
-/* Folders */
-/* 
-.folder-icon[SpecialFolder="Archives"] {
-    -moz-image-region: rect(0 208px 16px 192px);
-}
-
-.folder-icon[SpecialFolder="Inbox"] {
-    -moz-image-region: rect(0 48px 16px 32px);
-}
-
-.folder-icon[SpecialFolder="Sent"] {
-    -moz-image-region: rect(0 64px 16px 48px);
-}
-
-.folder-icon[SpecialFolder="Outbox"] {
-    -moz-image-region: rect(0 80px 16px 64px);
-}
-
-.folder-icon[SpecialFolder="Drafts"] {
-    -moz-image-region: rect(0 96px 16px 80px);
-}
-
-.folder-icon[SpecialFolder="Templates"] {
-    -moz-image-region: rect(0 112px 16px 96px);
-}
-
-.folder-icon[SpecialFolder="Junk"] {
-    -moz-image-region: rect(0 128px 16px 112px);
-}
-
-.folder-icon[SpecialFolder="Trash"] {
-    -moz-image-region: rect(0 144px 16px 128px);
-}
-
-.folder-icon[SpecialFolder="Virtual"] {
-    -moz-image-region: rect(0 176px 16px 160px);
-}
-
- */
-/* #localfolder-button.toolbarbutton-1 { */
-
-
-/* list-style-image: url("chrome://localfolder/skin/LocalFolders-32px.png"); */
-
-
-/* list-style-image: url("chrome://localfolder/skin/LocalFolders-20px.png"); */
-
-
-/* }    */
-
-
-/* 
-#localfolder-button,#mail-toolbox > toolbar[brighttext] #localfolder-button.toolbarbutton-1 {
-	list-style-image: url("chrome://localfolder/skin/LocalFolders-20px.png");
-}
-*/
-
-
-/* toolbar[iconsize="small"] #localfolder-button,#mail-toolbox > toolbar[brighttext][iconsize="small"] #localfolder-button.toolbarbutton-1 { */
-
-
-/* list-style-image: url("chrome://localfolder/skin/LocalFolders-20px.png") !important;} */
-/* 
-#mzts-button,
-#mail-toolbox>toolbar[brighttext] #mzts-button.toolbarbutton-1 {
-    list-style-image: url("chrome://localfolder/skin/LocalFolders-20.png");
-}
-
-toolbar[iconsize="small"] #mzts-button,
-#mail-toolbox>toolbar[brighttext][iconsize="small"] #mzts-button.toolbarbutton-1 {
-    list-style-image: url("chrome://localfolder/skin/LocalFolders-20px.png") !important;
-}
-
- */
