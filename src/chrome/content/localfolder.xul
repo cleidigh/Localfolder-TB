@@ -15,7 +15,7 @@
 
 <!ENTITY % messengerDTD SYSTEM "chrome://messenger/locale/messenger.dtd">%messengerDTD;
 		]>
-<window id="localfolder" title="&eu.philoux.localfolder.titre; B2"
+<window id="localfolder" title="&eu.philoux.localfolder.titre; Grey text"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	xmlns:html="http://www.w3.org/1999/xhtml" onload="eu.philoux.localfolder.initDlg();">
 	<script type="application/x-javascript" src="chrome://localfolder/content/localfolder.js" />
@@ -153,12 +153,12 @@
 						</hbox>
 						<hbox class="folder-row">
 							<hbox flex="0" style="padding-right: 9px">
-								<html:input type="checkbox" id="add_folder_trash"   checked="true" disabled="true" onclick="eu.philoux.localfolder.toggleSpecialFolder('trash')" SpecialFolder="Trash"/>
+								<html:input type="checkbox" id="add_folder_trash"   checked="true" disabled="disabled" onclick="eu.philoux.localfolder.toggleSpecialFolder('trash')" SpecialFolder="Trash"/>
 							</hbox>
 							<hbox width="16px" height="16px" flex="0" maxheight="16px">
 								<image class="tabmail-tab" type="folder" SpecialFolder="Trash"  />
 							</hbox>
-							<label id="add_folderlabel_trash" value="Trash"  style="padding-left: -1px" />
+							<label id="add_folderlabel_trash" value="Trash"  style="padding-left: -1px; color: grey;"  />
 						</hbox>
 						<hbox class="folder-row">
 							<hbox flex="0" style="padding-right: 9px">
@@ -167,7 +167,7 @@
 							<hbox width="16px" height="16px" flex="0" maxheight="16px">
 								<image class="tabmail-tab" type="folder" SpecialFolder="Outbox"   style="padding-left: -1px" />
 							</hbox>
-							<label id="add_folderlabel_outbox" value="Outbox" />
+							<label id="add_folderlabel_outbox" value="Outbox"  style="padding-left: -1px; color: grey;"/>
 						</hbox>
 					</vbox>
 				</hbox>
