@@ -5,21 +5,16 @@
 <!DOCTYPE window [ 
 
 <!ENTITY % localfolderDTD SYSTEM "chrome://localfolder/locale/localfolder.dtd">%localfolderDTD;
-
-
 <!ENTITY % accountNoIdentDTD SYSTEM "chrome://messenger/locale/am-serverwithnoidentities.dtd">%accountNoIdentDTD;
-	
-
 <!ENTITY % accountServerTopDTD SYSTEM "chrome://messenger/locale/am-server-top.dtd">%accountServerTopDTD;
-	
-
 <!ENTITY % messengerDTD SYSTEM "chrome://messenger/locale/messenger.dtd">%messengerDTD;
-		]>
-<window id="localfolder" title="&eu.philoux.localfolder.titre; Grey text"
+]>
+
+<window id="localfolder" title="&eu.philoux.localfolder.titre;"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	xmlns:html="http://www.w3.org/1999/xhtml" onload="eu.philoux.localfolder.initDlg();">
-	<script type="application/x-javascript" src="chrome://localfolder/content/localfolder.js" />
-	<script type="application/x-javascript" src="chrome://localfolder/content/trace.js"/>
+	<script type="application/javascript" src="chrome://localfolder/content/localfolder.js" />
+	<script type="application/javascript" src="chrome://localfolder/content/trace.js"/>
 	<keyset id="keys">
 		<key keycode="VK_ESCAPE" oncommand="window.close();"/>
 	</keyset>
@@ -174,38 +169,6 @@
 			</hbox>
 		</groupbox>
 		<vbox height="5px"></vbox>
-<!-- 		<vbox height="80px" style="background-color:cornsilk">
-			<hbox width="16px" height="16px">
-				<image class="tabmail-tab" type="folder" SpecialFolder="Outbox"  />
-			</hbox>
-			<hbox width="16px" height="16px">
-				<image class="tabmail-tab" type="folder" SpecialFolder="Archive"  />
-			</hbox>
-			<hbox >
-				<image class="tabmail-tab" type="folder" SpecialFolder="Junk"  width="16px" height="16px"/>
-				<label value="Junk" />
-			</hbox>
-			<hbox>
-				<hbox flex="0" >
-					<html:input type="checkbox"  checked="true" readonly="true" disabled="disabled" />
-				</hbox>
-				<hbox width="16px" height="16px" flex="0" maxheight="16px" >
-					<image class="tabmail-tab" type="folder" SpecialFolder="Junk"  />
-				</hbox>
-				<label value="Junk 8" />
-			</hbox>
-			<hbox>
-				<hbox flex="0" style="padding-right: 6px">
-					<html:input type="checkbox"  id="ctest1" />
-				</hbox>
-				<hbox width="16px" height="16px" flex="0" maxheight="16px" >
-					<image class="tabmail-tab" type="folder" SpecialFolder="Junk"  />
-				</hbox>
-			<label id="add_folderlabel_j1" accesskey="u" value="Junk 9" control="ctest1"  style="padding-left: 6px"/>
-				<label value="Junk 8" />
-			</hbox>
-		</vbox>
- -->
 
 		<hbox align="right">
 			<button id="localfolder.btQuitter" label="&eu.philoux.localfolder.btQuitter;" oncommand="close();"/>

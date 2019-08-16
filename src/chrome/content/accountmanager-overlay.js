@@ -129,7 +129,6 @@ eu.philoux.localfolder.onSupprimeCompte = function (e) {
  *	clic sur le bouton localfolder.btdossier -> appelle la bo�te d'ajout d'un nouveau dossier
  */
 eu.philoux.localfolder.NewLocalFolder = function () {
-	eu.philoux.localfolder.LocalFolderTrace('open dialog ' );
 	window.openDialog("chrome://localfolder/content/localfolder.xul", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
 
 	return true;

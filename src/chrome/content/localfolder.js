@@ -1,5 +1,4 @@
 // cleidigh - update for TB 68.*
-// Keep debug for subfolder naming issue
 
 // v2.0.0 - add option to change store type, empty trash on exit, creation of mail folders
 
@@ -61,7 +60,7 @@ eu.philoux.localfolder.toggleSpecialFolder = function(specialFolder) {
 
 eu.philoux.localfolder.addSpecialFolders = function(aParentFolder, aParentFolderPath) {
 
-    eu.philoux.localfolder.LocalFolderTrace("Add special folders : " + aParentFolderPath);
+    // eu.philoux.localfolder.LocalFolderTrace("Add special folders : " + aParentFolderPath);
     let addFolderElements = document.querySelectorAll("[id^='add_folder_']");
 
     var bundle = Services.strings.createBundle("chrome://messenger/locale/messenger.properties");
@@ -80,17 +79,10 @@ eu.philoux.localfolder.addSpecialFolders = function(aParentFolder, aParentFolder
             // Trash and unsent messages folders are added at account creation
             if (l !== "Trash" && l !== "Outbox") {
                 aParentFolder.createSubfolder(l, msgWindow);
-                // var sf = aParentFolder.addSubfolder(l);
-                // sf.flags  = eu.philoux.localfolder.specialFolders[l].flags;
 
                 // eu.philoux.localfolder.LocalFolderTrace("Added subfolder : " + l);
                 var localizedFolderString = bundle.GetStringFromName(ll);
                 var e = aParentFolder.subFolders;
-
-                // while (e.hasMoreElements()) {
-                // eu.philoux.localfolder.LocalFolderTrace("Added folder : " + l + " "+ aParentFolder.numSubFolders + "  " + localizedFolderString);    
-                // eu.philoux.localfolder.LocalFolderTrace("Sub folder 0 : " + e.getNext().name);
-                // }
 
                 try {
                     aParentFolder.getChildNamed(localizedFolderString).flags = eu.philoux.localfolder.specialFolders[l].flags;
@@ -116,7 +108,7 @@ eu.philoux.localfolder.urlLoad = function(url) {
     let service = Cc["@mozilla.org/uriloader/external-protocol-service;1"].getService(Ci.nsIExternalProtocolService),
         ioservice = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService),
         uri = ioservice.newURI(url, null, null);
-    service.loadURI(uri);
+        service.loadURI(uri);
 
 }
 
@@ -131,7 +123,6 @@ eu.philoux.localfolder.getMail3Pane = function() {
  *	initialisation boite de création de dossier
  */
 eu.philoux.localfolder.initDlg = function() {
-    // eu.philoux.localfolder.LocalFolderTrace("Init dialog");
 
     // Fix XUL elements that have changed
     eu.philoux.localfolder.xulFixup();
@@ -146,10 +137,6 @@ eu.philoux.localfolder.initDlg = function() {
     var os = navigator.platform.toLowerCase();
     const addAllCheckboxLabel = document.getElementById("add_all_folders_label");
 
-    if (os.indexOf("win") === -1) {
-        // addAllCheckboxLabel.classList.add("folder-label-nix");
-    }
-
     // Localize folder names
     let addFolderElements = document.querySelectorAll("[id^='add_folderlabel_']");
     for (let index = 0; index < addFolderElements.length; index++) {
@@ -158,12 +145,9 @@ eu.philoux.localfolder.initDlg = function() {
 
         if (os.indexOf("win") > -1) {
             element.previousElementSibling.classList.add("folder-image-win");
-        } else {
-            // element.classList.add("folder-label-nix");
         }
 
         var localizedFolderString = bundle.GetStringFromName(eu.philoux.localfolder.specialFolders[folder].localizedFolderName);
-        // eu.philoux.localfolder.LocalFolderTrace("localized Okay when I did myname: " + localizedFolderString);
         element.setAttribute("value", localizedFolderString);
     }
 
@@ -335,12 +319,8 @@ eu.philoux.localfolder.creeDossierLocal = function(nom, chemin, storeID, emptyTr
 
         eu.philoux.localfolder.lastFolder = chemin;
 
-        // Services.prompt.alert(window, "progress", "Before at subfolders");
-
         var account = accountmanager.createAccount();
         account.incomingServer = srv;
-
-        // Services.prompt.alert(window, "progress", "After create account");
 
         msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
 
@@ -379,7 +359,6 @@ eu.philoux.localfolder.fixupSubfolder = function(parentName, folderName, removeF
     filespec.append(folderName);
 
     if (removeFileFolder) {
-        // eu.philoux.localfolder.LocalFolderTrace(`removing file folder: and MSF 3`);
         filespec.initWithPath(parentName);
         filespec.append(folderName);
         filespec.remove(true);
@@ -413,7 +392,15 @@ eu.philoux.localfolder.fixupSubfolder = function(parentName, folderName, removeF
 // Listen for subfolder additions, have to fixup
 var FolderListener = {
     OnItemAdded: function(parentFolder, aItem) {
-        // eu.philoux.localfolder.LocalFolderTrace(`item added 3: ${parentFolder.filePath.path} ${parentFolder.flags}  ${aItem.filePath.path}  ${aItem.flags} ${eu.philoux.localfolder.pendingFolders[0]}`);
+        // eu.philoux.localfolder.LocalFolderTrace(`FolderListener item added : ${parentFolder.filePath.path} ${parentFolder.flags}`);
+        
+        // We seem to get to events first without folder
+        if (!(aItem instanceof Ci.nsIMsgFolder)) {
+            // eu.philoux.localfolder.LocalFolderTrace(`NotFolder  ${aItem.name}   ${parentFolder.name}`);
+			return;
+		}
+        // eu.philoux.localfolder.LocalFolderTrace(`${aItem.name}    ${aItem.flags} ${eu.philoux.localfolder.pendingFolders[0]}`);
+
         var rf = `${aItem.filePath.path}`;
         rf = rf.replace(`\\${aItem.name}`, "");
 
