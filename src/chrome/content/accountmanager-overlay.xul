@@ -14,7 +14,8 @@
 		<menuitem id="accountActionAddLocalFolder"
 			label="&eu.philoux.localfolder.btdossier;" 
 			accesskey="&eu.philoux.localfolder.btdossier.racc;"
-			oncommand="eu.philoux.localfolder.NewLocalFolder();"/>
+			oncommand="eu.philoux.localfolder.NewLocalFolder();"
+			insertbefore="accountActionsDropdownSep1"/>
 		<menuitem id="accountActionsDropdownRemove" 
 			oncommand="eu.philoux.localfolder.onSupprimeCompte(event); event.stopPropagation();"/>
 	</menupopup> 

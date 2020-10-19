@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/messenger.css"?>
 <?xml-stylesheet href="chrome://messenger/skin/folderPane.css" type="text/css"?>
-<?xml-stylesheet href="chrome://skin/localfolder.css" type="text/css"?>
+<?xml-stylesheet href="resource://localfolder/localfolder.css" type="text/css"?>
 <!DOCTYPE window [ 
 
 <!ENTITY % localfolderDTD SYSTEM "chrome://localfolder/locale/localfolder.dtd">%localfolderDTD;
@@ -10,7 +10,7 @@
 <!ENTITY % messengerDTD SYSTEM "chrome://messenger/locale/messenger.dtd">%messengerDTD;
 ]>
 
-<window id="localfolder" title="&eu.philoux.localfolder.titre;"
+<window id="localfolder" title="&eu.philoux.localfolder.titre; 3"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	xmlns:html="http://www.w3.org/1999/xhtml" onload="eu.philoux.localfolder.initDlg();">
 	<script type="application/javascript" src="chrome://localfolder/content/localfolder.js" />
@@ -21,7 +21,7 @@
 	<vbox class="">
 		<hbox align="center">
 			<label value="&eu.philoux.localfolder.libnom;" accesskey="&eu.philoux.localfolder.libnom.accesskey;" control="localfoldernom" />
-			<textbox wsm_persist="true" size="30" id="localfoldernom" />
+			<html:input type="text" wsm_persist="true" size="30" id="localfoldernom" />
 			<hbox flex="1"></hbox>
 			<hbox flex="0" class="localfolder-icon" style="padding-right: 10px">
 				<image id="localfolder-icon-image" src="resource://localfolder/LocalFolders-64px.png" width="40px" height="40px" tooltiptext="LocalFolders Add-on Homepage"
@@ -29,11 +29,8 @@
 			</hbox>
 		</hbox>
 		<separator class="thin"/>
-		<groupbox>
-			<caption label="&eu.philoux.localfolder.directoryAndMessageStore;"/>
-			<hbox class="groupbox-title">
-				<label  class="header">&eu.philoux.localfolder.directoryAndMessageStore;</label>
-			</hbox>
+		<html:fieldset>
+			<html:legend style="font-weight: 500; margin-top: 2px;">&eu.philoux.localfolder.directoryAndMessageStore;</html:legend>
 			<vbox align="start">
 				<checkbox wsm_persist="true" id="server.emptyTrashOnExit"
 				label="&emptyTrashOnExit.label;"
@@ -57,23 +54,20 @@
 				</hbox>
 			</vbox>
 			<separator class="thin"/>
-			<label value="&localPath.label;" control="server.localPath"/>
+			<label value="LocalPath :" control="server.localPath"/>
 			<hbox align="center">
-				<textbox id="localfolderchemin" readonly="true"  flex="1" tabindex="-1" style="padding-bottom: 8px" size="60"  min-height="1.2ex" class="c1"/>
+				<html:input type="text" id="localfolderchemin" readonly="true"  flex="1" tabindex="-1" style="padding-bottom: 8px" size="60"  min-height="1.2ex" class="c1"/>,
 				<button label="&eu.philoux.localfolder.chemin.btlib;" 
 						id="localfoldercheminbtsel"
 						browsertitle="&eu.philoux.localfolder.chemin.browsertitle;"
             			accesskey="&eu.philoux.localfolder.chemin.btlibcle;" oncommand="eu.philoux.localfolder.SelectChemin()" style="margin-bottom: 0px"  flex="0" min-height="1.4ex"/>
 			</hbox>
 			<vbox height="5px"></vbox>
-		</groupbox>
+		</html:fieldset>
 		<vbox height="5px"></vbox>
-		<groupbox>
-			<caption label="&eu.philoux.localfolder.addMessageFolders;" />
-			<hbox class="groupbox-title">
-				<label  class="header">&eu.philoux.localfolder.addMessageFolders;</label>
-			</hbox>
-			<vbox height="5px"></vbox>
+		<html:fieldset>
+			<html:legend style="font-weight: 500; margin-top: 2px;">&eu.philoux.localfolder.addMessageFolders;</html:legend>
+			<vbox height="8px"></vbox>
 			<hbox flex="1" class="c1">
 				<vbox class="c2">
 					<hbox class="folder-row">
@@ -167,11 +161,12 @@
 					</vbox>
 				</hbox>
 			</hbox>
-		</groupbox>
-		<vbox height="5px"></vbox>
+		</html:fieldset>
+		<vbox height="8px"></vbox>
 
 		<hbox align="right">
-			<button id="localfolder.btQuitter" label="&eu.philoux.localfolder.btQuitter;" oncommand="close();"/>
+			<spacer flex="1"/>
+			<button id="localfolder.btQuitter" label="&eu.philoux.localfolder.btQuitter;" oncommand="window.close();"/>
 			<button id="localfolder.btValider" label="&eu.philoux.localfolder.btValider;" oncommand="eu.philoux.localfolder.btCreeDossierLocal();"/>
 		</hbox>
 	</vbox>

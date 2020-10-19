@@ -2,16 +2,49 @@
 	"manifest_version": 2,
 	"name": "__MSG_extensionName__",
 	"description": "__MSG_extensionDescription__",
-	"xpi-name": "localfolders",
-	"version": "2.0.2",
+	"version": "3.0.0-b1",
 	"author": "l'Abbé Christian-Philippe Chanut (philoux), Christopher Leidigh",
 	"applications": {
 		"gecko": {
 			"id": "localfolder@philoux.eu",
-			"strict_min_version": "60.0"
+			"strict_min_version": "68.0",
+			"strict_max_version": "78.*"
 		}
 	},
-	"legacy": true,
+	"experiment_apis": {
+		"WindowListener": {
+			"schema": "api/WindowListener/schema.json",
+			"parent": {
+				"scopes": [
+					"addon_parent"
+				],
+				"paths": [
+					[
+						"WindowListener"
+					]
+				],
+				"script": "api/WindowListener/implementation.js"
+			}
+		}
+	},
+	"background": {
+		"scripts": [
+			"background.js"
+		]
+	},
+	"permissions": [
+		"tabs",
+		"activeTab"
+	],
+	"content_scripts": [
+		{
+			"matches": [
+				"file:///*",
+				"<all_urls>",
+				"about:accountsettings"
+			]
+		}
+	],
 	"icons": {
 		"64": "chrome/skin/classic/LocalFolders-64px.png",
 		"32": "chrome/skin/classic/LocalFolders-32px.png"

@@ -1,5 +1,6 @@
 // encapsulation objet
 if (!eu) var eu = {};
+console.debug('overlay start');
 if (!eu.philoux) eu.philoux = {};
 if (!eu.philoux.localfolder) eu.philoux.localfolder = {};
 
@@ -18,16 +19,47 @@ eu.philoux.localfolder.OnInitLocalFolder = function () {
 	}
 }
 
+
+eu.philoux.localfolder.getSelectedAccount = function (page, account) {
+	let tree = document.getElementById("accounttree");
+
+    let node = tree.view.getItemAtIndex(tree.currentIndex);
+    account = "_account" in node ? node._account : null;
+
+	return account;
+	// onAccountTreeSelect(page, account);
+}
+
+eu.philoux.localfolder.onAccountSelect = function (page, account) {
+	console.debug(page);
+	console.debug(account);
+	let tree = document.getElementById("accounttree");
+
+//   if (!changeView) {
+//     if (tree.view.selection.count < 1) {
+//       return false;
+//     }
+
+    let node = tree.view.getItemAtIndex(tree.currentIndex);
+    account = "_account" in node ? node._account : null;
+
+	return account;
+	// onAccountTreeSelect(page, account);
+}
+
 /**
  * permet de déterminer s'il s'agit d'un dossier local
  */
 
 eu.philoux.localfolder.isLocalFolder = function () {
 
-	let account = getCurrentAccount();
+	// let account = getCurrentAccount();
+	let account = eu.philoux.localfolder.getSelectedAccount();
+	console.debug(account.incomingServer);
 	if (account) { // if not, it's a SMTP account
 		let server = account.incomingServer;
 		if (server.type == "none") { // it's a local folder
+		console.debug('is local server');
 			let am = Components.classes["@mozilla.org/messenger/account-manager;1"]
 				.getService(Components.interfaces.nsIMsgAccountManager);
 			let localfolder = am.localFoldersServer;
@@ -46,9 +78,12 @@ eu.philoux.localfolder.isLocalFolder = function () {
 eu.philoux.localfolder.initAccountActionsButtonsLocalFolder = function (menupopup) {
 
 	// on lance la fonction originale
-	initAccountActionsButtons(menupopup);
-	if (eu.philoux.localfolder.isLocalFolder())
+	console.debug('set up buttons');
+	// initAccountActionsButtons(menupopup);
+	if (eu.philoux.localfolder.isLocalFolder()) {
+		console.debug('EnableRemove');
 		document.getElementById("accountActionsDropdownRemove").removeAttribute("disabled");
+	}
 }
 
 
@@ -57,13 +92,15 @@ eu.philoux.localfolder.initAccountActionsButtonsLocalFolder = function (menupopu
  *	@return si succes retourne true / si erreur retourne false 
  *	implémentation : appelle la fonction originale onRemoveAccount
  */
-eu.philoux.localfolder.onSupprimeCompte = function (e) {
+eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
+	console.debug('start remove');
 	try {
 		if (!eu.philoux.localfolder.isLocalFolder()) { // on utilise la fonction par défaut pour les autres comptes
+			console.debug('not local');
 			onRemoveAccount(e);
 		} else { // pour les dossiers locaux on utilise une fonction personnalisée
-
-			var account = currentAccount;
+			console.debug('remove process ');
+			var account = eu.philoux.localfolder.getSelectedAccount();
 			var server = account.incomingServer;
 			var type = server.type;
 			var prettyName = server.prettyName;
@@ -82,19 +119,24 @@ eu.philoux.localfolder.onSupprimeCompte = function (e) {
 			}
 
 			try {
+				console.debug('try remove');
 				// clear cached data out of the account array
-				currentAccount = currentPageId = null;
+				amWindow.currentAccount = amWindow.currentPageId = null;
 
 				const f = server.localPath.path;
 
 				var serverId = server.serverURI;
-				Components.classes["@mozilla.org/messenger/account-manager;1"]
+				await Components.classes["@mozilla.org/messenger/account-manager;1"]
 					.getService(Components.interfaces.nsIMsgAccountManager)
 					.removeAccount(account);
-
-				if (serverId in accountArray) {
-					delete accountArray[serverId];
+				console.debug('After overture ');
+				console.debug(amWindow.accountArray);
+				
+				if (serverId in amWindow.accountArray) {
+					delete amWindow.accountArray[serverId];
 				}
+				console.debug(amWindow.accountArray);
+
 				selectServer(null, null);
 
 				var filespec = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsIFile);
@@ -129,11 +171,24 @@ eu.philoux.localfolder.onSupprimeCompte = function (e) {
  *	clic sur le bouton localfolder.btdossier -> appelle la bo�te d'ajout d'un nouveau dossier
  */
 eu.philoux.localfolder.NewLocalFolder = function () {
-	window.openDialog("chrome://localfolder/content/localfolder.xul", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
+	console.debug('NewLocalFolder');
+	
+	const versionChecker = Services.vc;
+    const currentVersion = Services.appinfo.platformVersion;
 
+
+	var w = Cc["@mozilla.org/appshell/window-mediator;1"]
+        .getService(Ci.nsIWindowMediator)
+		.getMostRecentWindow("mail:3pane");
+		console.debug(w);
+	if (versionChecker.compare(currentVersion, "78") >= 0) {
+		w.openDialog("chrome://localfolder/content/localfolder.xhtml", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
+	} else {
+		w.openDialog("chrome://localfolder/content/localfolder.xul", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
+	}
 	return true;
 }
 
 //positionnement des boutons au d�marrage
-window.addEventListener("load", eu.philoux.localfolder.OnInitLocalFolder, false);
+// Safewindow.addEventListener("load", eu.philoux.localfolder.OnInitLocalFolder, false);
 
