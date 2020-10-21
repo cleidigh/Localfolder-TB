@@ -7,7 +7,8 @@
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 window.lfver = WL.extension.addonData.version;
 window.extension = WL.extension;
-
+console.debug('Ver');
+console.debug(window.lfver);
 
 Services.scriptloader.loadSubScript("chrome://global/content/globalOverlay.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://messenger/content/AccountManager.js", window, "UTF-8");

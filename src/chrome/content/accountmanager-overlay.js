@@ -7,7 +7,11 @@ if (!eu.philoux.localfolder) eu.philoux.localfolder = {};
 // this makes it work
 window.eu = eu;
 console.debug(window.lfver);
-window.eu.lfver = window.lfver;
+console.debug(window);
+
+eu.lfver = window.lfver;
+console.debug(eu.lfver);
+// window.eu.lfver = window.lfver;
 //initialisation du gestionnaire de compte
 //déplace le bouton "Ajouter un dossier local" au dessous "Ajouter un autre compte"
 eu.philoux.localfolder.OnInitLocalFolder = function () {
@@ -176,6 +180,7 @@ eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
  */
 eu.philoux.localfolder.NewLocalFolder = function () {
 	console.debug('NewLocalFolder');
+	console.debug(eu.lfver);
 	
 	const versionChecker = Services.vc;
     const currentVersion = Services.appinfo.platformVersion;
@@ -185,11 +190,14 @@ eu.philoux.localfolder.NewLocalFolder = function () {
         .getService(Ci.nsIWindowMediator)
 		.getMostRecentWindow("mail:3pane");
 		console.debug(w);
+	w.lfver = eu.lfver;
+
 	if (versionChecker.compare(currentVersion, "78") >= 0) {
 		w.openDialog("chrome://localfolder/content/localfolder.xhtml", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
 	} else {
 		w.openDialog("chrome://localfolder/content/localfolder.xul", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
 	}
+	window.focus();
 	return true;
 }
 
