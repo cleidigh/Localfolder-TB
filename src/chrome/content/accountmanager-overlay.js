@@ -4,6 +4,10 @@ console.debug('overlay start');
 if (!eu.philoux) eu.philoux = {};
 if (!eu.philoux.localfolder) eu.philoux.localfolder = {};
 
+// this makes it work
+window.eu = eu;
+console.debug(window.lfver);
+window.eu.lfver = window.lfver;
 //initialisation du gestionnaire de compte
 //déplace le bouton "Ajouter un dossier local" au dessous "Ajouter un autre compte"
 eu.philoux.localfolder.OnInitLocalFolder = function () {

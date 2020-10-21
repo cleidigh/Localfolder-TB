@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "__MSG_extensionName__",
 	"description": "__MSG_extensionDescription__",
-	"version": "3.0.0-b1",
+	"version": "3.0.0-b2",
 	"author": "l'Abbé Christian-Philippe Chanut (philoux), Christopher Leidigh",
 	"applications": {
 		"gecko": {

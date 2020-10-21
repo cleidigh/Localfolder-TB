@@ -1,4 +1,11 @@
 console.debug('TabMonitor');
+
+// console.debug(window.lfver);
+console.debug('ver');
+// console.debug(window.opener.lfver);
+console.debug(window.lfver);
+console.debug('after v');
+
 var tabmail = document.getElementById("tabmail");
 monitor = {
   onTabClosing: function(tab)
@@ -24,6 +31,8 @@ monitor = {
 		console.debug('no content yet');
 		return;
 	}
+
+	tab.browser.contentWindow.wrappedJSObject.lfver = window.lfver;
 	
 	if (tab.browser.contentDocument.URL !== "about:accountsettings") {
 		return;

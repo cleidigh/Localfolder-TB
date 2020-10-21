@@ -127,8 +127,14 @@ eu.philoux.localfolder.initDlg = function () {
     // Fix XUL elements that have changed
     // eu.philoux.localfolder.xulFixup();
 
-    var LFVersion = window.lfver;
+    var LFVersion = window.opener.lfver;
+    console.debug(LFVersion);
+    console.debug(eu.lfver);
+
+    LFVersion = LFVersion || "3.0.0-b2 68";
+    
     let title = document.getElementById("localfolder").getAttribute("title");
+
     document.getElementById("localfolder").setAttribute("title", `${title} - v${LFVersion}`);
 
     var bundle = Services.strings.createBundle("chrome://messenger/locale/messenger.properties");

@@ -5,6 +5,8 @@
 // Menus - Folder, messages, Tools
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
+window.lfver = WL.extension.addonData.version;
+window.extension = WL.extension;
 
 
 Services.scriptloader.loadSubScript("chrome://global/content/globalOverlay.js", window, "UTF-8");
@@ -23,18 +25,16 @@ function onLoad() {
 			accesskey="&eu.philoux.localfolder.btdossier.racc;"
 			oncommand="eu.philoux.localfolder.NewLocalFolder();"
 			insertbefore="accountActionsDropdownSep1"/>
-		<menuitem id="accountActionsDropdownRemove" 
-			oncommand="eu.philoux.localfolder.onSupprimeCompte(event); event.stopPropagation();"/>
-
 	`, ["chrome://localfolder/locale/localfolder.dtd"]);
 
-	let arm = tab.browser.contentDocument.getElementById("accountActionsDropdownRemove");
+	let am = document.getElementById("accountActionsDropdown");
+	am.setAttribute("onpopupshowing","eu.philoux.localfolder.initAccountActionsButtonsLocalFolder(this);");
+
+	let arm = document.getElementById("accountActionsDropdownRemove");
 	arm.setAttribute("oncommand", "eu.philoux.localfolder.onSupprimeCompte(event,window); event.stopPropagation();");
 	
 	console.debug(document.getElementById("accountActionsDropdown"));
 	
-window.lfver = WL.extension.addonData.version;
-window.extension = WL.extension;
 }
 
 function onUnload() {
