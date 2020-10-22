@@ -106,6 +106,7 @@ eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
 		if (!eu.philoux.localfolder.isLocalFolder()) { // on utilise la fonction par défaut pour les autres comptes
 			console.debug('not local');
 			onRemoveAccount(e);
+			console.debug('after nonlocal removal');
 		} else { // pour les dossiers locaux on utilise une fonction personnalisée
 			console.debug('remove process ');
 			var account = eu.philoux.localfolder.getSelectedAccount();
