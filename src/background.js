@@ -46,7 +46,9 @@ messenger.WindowListener.registerChromeUrl([
 	["locale", "localfolder", "hu", "chrome/locale/hu/"],
 	["locale", "localfolder", "it", "chrome/locale/it/"],
 	["locale", "localfolder", "ja", "chrome/locale/ja/"],
-	["locale", "localfolder", "zh-CN", "chrome/locale/zh-CN/"],
+	["locale", "localfolder", "pt-BR", "chrome/locale/pt-BR/"],
+	["locale", "localfolder", "sv-SE", "chrome/locale/sv-SE/"],
+	["locale", "localfolder", "zh_CN", "chrome/locale/zh_CN/"],
 	
 ]);
 
