@@ -16,9 +16,9 @@ Services.scriptloader.loadSubScript("chrome://localfolder/content/tab-monitor.js
 // Services.scriptloader.loadSubScript("chrome://localfolder/content/accountmanager-overlay.js", window, "UTF-8");
 // Services.scriptloader.loadSubScript("chrome://localfolder/content/trace.js", window, "UTF-8");
 
-console.debug('check global');
-window.eu = eu;
-console.debug(window.eu);
+// console.debug('check global');
+// window.eu = eu;
+// console.debug(window.eu);
 
 function onLoad() {
 	console.debug('account manager OL');

@@ -111,10 +111,15 @@ messenger.WindowListener.registerWindow(
 		// });
 
 		
-messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/messenger.xhtml",
-	"chrome://localfolder/content/messengerOL.js");
+// messenger.WindowListener.registerWindow(
+// 	"chrome://messenger/content/messenger.xhtml",
+// 	"chrome://localfolder/content/messengerOL.js");
 
+messenger.WindowListener.registerTabUrl(
+	"about:accountsettings",
+	"chrome://localfolder/content/tabmanager.js",
+	"tabEventHWithandler"
+	);
 
-messenger.WindowListener.startListening();
+	messenger.WindowListener.startListening();
 
