@@ -52,32 +52,6 @@ messenger.WindowListener.registerChromeUrl([
 	
 ]);
 
-// ["content", "localfolder/skin", "chrome/skin/classic/"],
-
-/* 
-["locale", "localfolder", "ca", "chrome/locale/ca/"],
-["locale", "localfolder", "da", "chrome/locale/da/"],
-["locale", "localfolder", "de", "chrome/locale/de/"],
-["locale", "localfolder", "es-ES", "chrome/locale/es-ES/"],
-["locale", "localfolder", "fr", "chrome/locale/fr/"],
-["locale", "localfolder", "gl-ES", "chrome/locale/gl-ES/"],
-["locale", "localfolder", "hu-HU", "chrome/locale/hu-HU/"],
-["locale", "localfolder", "hu-HG", "chrome/locale/hu-HG/"],
-["locale", "localfolder", "hy-AM", "chrome/locale/hy-AM/"],
-["locale", "localfolder", "it", "chrome/locale/it/"],
-["locale", "localfolder", "ja", "chrome/locale/ja/"],
-["locale", "localfolder", "ko-KR", "chrome/locale/ko-KR/"],
-["locale", "localfolder", "nl", "chrome/locale/nl/"],
-["locale", "localfolder", "pl", "chrome/locale/pl/"],
-["locale", "localfolder", "pt-PT", "chrome/locale/pt-PT/"],
-["locale", "localfolder", "ru", "chrome/locale/ru/"],
-["locale", "localfolder", "sk-SK", "chrome/locale/sk-SK/"],
-["locale", "localfolder", "sl-SI", "chrome/locale/sl-SI/"],
-["locale", "localfolder", "sv-SE", "chrome/locale/sv-SE/"],
-["locale", "localfolder", "zh-CN", "chrome/locale/zh-CN/"],
-["locale", "localfolder", "el", "chrome/locale/el/"],
- */
-// messenger.WindowListener.registerOptionsPage("chrome://localfolder/content/localfolder/localfolderOptions.xhtml");
 
 // Register each overlay script Which controls subsequent fragment loading
 
@@ -89,36 +63,11 @@ messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/AccountManager.xhtml",
 	"chrome://localfolder/content/account-managerOL.js");
 	
-		console.debug('TabListen');
-		  
-		//   browser.tabs.onCreated.addListener(handleCreated);
-		//   browser.tabs.onUpdated.addListener(handleUpdated);
-
-		// messenger.tabs.onCreated.addListener(async (tab) => {
-		// 	console.debug(" Tab CREATED id: "+tab.id+" url: "+tab.url+" status: "+tab.status+" title: "+tab.title);
-		// 	console.debug(tab);
-		//   });
-  
-		//   messenger.tabs.onUpdated.addListener(async (tab) => {
-		// 	//   console.debug(messenger.tabs.Tab(tab.id));
-		// 	console.debug(" Tab updated id: "+tab.id+" url: "+tab.url+" status: "+tab.status+" title: "+tab.title);
-		// 	console.debug(tab);
-
-		//   });
-  
-		// browser.tabs.onCreated.addListener(async (tab) => {
-		// 	console.debug(" Tab CREATED id: "+tab.id+" url: "+tab.url+" status: "+tab.status+" title: "+tab.title);
-		// });
-
-		
-// messenger.WindowListener.registerWindow(
-// 	"chrome://messenger/content/messenger.xhtml",
-// 	"chrome://localfolder/content/messengerOL.js");
 
 messenger.WindowListener.registerTabUrl(
 	"about:accountsettings",
 	"chrome://localfolder/content/tabmanager.js",
-	"tabEventHWithandler"
+	"tabEventHandler"
 	);
 
 	messenger.WindowListener.startListening();

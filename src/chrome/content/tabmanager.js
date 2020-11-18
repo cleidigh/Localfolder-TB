@@ -14,15 +14,12 @@ function onTabEvent(tabEvent, tab) {
 			if (tab.browser.contentDocument.URL === "about:accountsettings") {
 				LFInitialization(tab);
 			}
-
-
 			break;
 
 		default:
 			break;
 	}
 }
-
 
 function LFInitialization(tab) {
 

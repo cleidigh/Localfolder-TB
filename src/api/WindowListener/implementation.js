@@ -79,8 +79,9 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
     const aomStartup = Cc["@mozilla.org/addons/addon-manager-startup;1"].getService(Ci.amIAddonManagerStartup);
     const resProto = Cc["@mozilla.org/network/protocol;1?name=resource"].getService(Ci.nsISubstitutingProtocolHandler);
 
-    // cleidigh - Tab monitor/manager/registration and callbacks
+    // cleidigh - Tab monitor/manager/registration and callbacks globals
 
+    this.tabMonitor = null;
     this.tabMonitorActive = false;
     this.registeredTabURLs = [];
     this.messengerTabmail = null;
@@ -617,8 +618,9 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
   _initTabMonitor() {
     if (this.registeredTabURLs.length > 0 && !this.tabMonitorActive) {
 
-      var monitor = {
+      this.tabmonitor = {
         self: this,
+        
         onTabClosing: function (tab) {
           console.debug('closing ' + tab.url);
           return;
@@ -687,6 +689,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
 
         },
         onTabSwitched: function (tab) { },
+        
         _checkRegisteredTabUrl() {
           console.debug('check register to have ');
         self.registeredTabURLs.forEach(tabUrlEntry => {
@@ -713,7 +716,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
     });
 
 
-      this.messengerTabmail.registerTabMonitor(monitor);
+      this.messengerTabmail.registerTabMonitor(this.tabmonitor);
 
       this.tabMonitorActive = true;
     }
