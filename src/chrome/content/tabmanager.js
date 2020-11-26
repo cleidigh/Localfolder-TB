@@ -55,5 +55,5 @@ function LFInitialization(tab) {
 	Services.scriptloader.loadSubScript("chrome://global/content/globalOverlay.js", tab.browser.contentWindow.wrappedJSObject.MozXULElement, "UTF-8");
 	Services.scriptloader.loadSubScript("chrome://localfolder/content/accountmanager-overlay.js", tab.browser.contentWindow.wrappedJSObject.MozXULElement, "UTF-8");
 	Services.scriptloader.loadSubScript("chrome://localfolder/content/trace.js", tab.browser.contentWindow.wrappedJSObject.MozXULElement, "UTF-8");
-	console.debug('LF initialization done');
+	// console.debug('LF initialization done');
 }

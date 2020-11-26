@@ -265,7 +265,6 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
             // Before registering the window listener, check which windows are already open
             self.openWindows = [];
             for (let window of Services.wm.getEnumerator(null)) {
-              console.debug('WindowOpen ' + window.location.href);
               self.openWindows.push(window);
             }
 
@@ -279,8 +278,6 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                 // Create add-on scope
                 window[self.uniqueRandomID] = {};
 
-                // cleidigh check windows opening
-                console.debug('Window ' + window.location.href);
                 // Special action #1: If this is the main messenger window
                 if (window.location.href == "chrome://messenger/content/messenger.xul" ||
                   window.location.href == "chrome://messenger/content/messenger.xhtml") {
@@ -614,21 +611,29 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
   }
 
   // cleidigh
+  // WIP debugging comments
 
   _initTabMonitor() {
     if (this.registeredTabURLs.length > 0 && !this.tabMonitorActive) {
 
       this.tabmonitor = {
         self: this,
+        selfRegisteredTabURLs: this.registeredTabURLs,
         
         onTabClosing: function (tab) {
           console.debug('closing ' + tab.url);
-          return;
+          console.debug(tab);
+          console.debug('Title: ' + tab.title);
+          console.debug('Browser: ' + tab.browser);
+          console.debug('registered');
+          console.debug(this.selfRegisteredTabURLs);
+          
+          var tabEventUrl = tab.browser.contentDocument.URL;
 
-          let tabMonitorOptions = self._checkRegisteredTabUrl(tab.url);
+          let tabMonitorOptions = this.self._checkRegisteredTabUrl(tab);
 
           if (tabMonitorOptions && tabMonitorOptions.tabEventCallback) {
-            this.messengerWindow[this.uniqueRandomID].onTabEvent('onTabClosing', tab);
+            this.self.messengerWindow[this.self.uniqueRandomID].onTabEvent('onTabClosing', tab);
           } else {
             console.debug(`Tab not monitored: ${tab.url}`);
           }
@@ -637,49 +642,54 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
         },
 
         onTabOpened: function (tab) {
-          console.debug('open ' + tab);
+          console.debug('onTabOpened:');
+          console.debug(tab);
+          console.debug('Title: ' + tab.title);
+          console.debug('Browser: ' + tab.browser);
           // var window = tab.browser.contentWindow.wrappedJSObject;
           // console.debug(window);
-          var tabEventUrl = tab.browser.contentDocument.URL;
+          // var tabEventUrl = tab.browser.contentDocument.URL;
+          // console.debug(tabEventUrl);
 
-          let tabMonitorOptions = this.self._checkRegisteredTabUrl(tabEventUrl);
+          let tabMonitorOptions = this.self._checkRegisteredTabUrl(tab);
           console.debug(tabMonitorOptions);
 
           if (tabMonitorOptions && tabMonitorOptions.tabEventCallback) {
-            this.messengerWindow[this.uniqueRandomID].onTabEvent('onTabOpened', tab);
+            console.debug('call callback');
+            this.self.messengerWindow[this.uniqueRandomID].onTabEvent('onTabOpened', tab);
           } else {
             console.debug(`Tab not monitored: ${tab.url}`);
           }
-
+          console.debug('open finished')
         },
 
-        onTabTitleChanged: function (tab) {
+        onTabTitleChanged: function (tab_in) {
+          let tab = tab_in;
           console.debug('TitleChange ');
-          console.debug('  Title: ' + tab.title);
-          var tabEventUrl = tab.browser.contentDocument.URL;
+          console.debug(tab);
+          console.debug(tab.tabId);
+          console.debug(tab.browser);
+          
+          console.debug('Title: ' + tab.title);
+          console.debug('Browser: ' + tab.browser);
+          
+          if (!tab.browser) {
+            console.debug('no Browser');
+            return;
+          }
+          // var tabEventUrl = tab.browser.contentDocument.URL;
           console.debug(tab.browser.contentDocument.URL);
 
           if (tab.browser.contentWindow && !tab.browser.contentWindow.wrappedJSObject) {
             console.debug('no content yet');
-            return;
+            // return;
           }
 
-          var tabEventUrl = tab.browser.contentDocument.URL;
+          // var tabEventUrl = tab.browser.contentDocument.URL;
 
-          let tabMonitorOptions = this.self._checkRegisteredTabUrl(tabEventUrl);
+          let tabMonitorOptions = this.self._checkRegisteredTabUrl(tab);
           // console.debug(tabMonitorOptions);
 
-          this.self.registeredTabURLs.forEach(tabUrlEntry => {
-            // console.debug(tabUrlEntry);
-            if (tabUrlEntry.tabUrl === tab.browser.contentDocument.URL) {
-              tabMonitorOptions = tabUrlEntry;
-            }
-            if (tabUrlEntry.tabUrl === '*') {
-              tabMonitorOptions = tabUrlEntry;
-            }
-          });
-          
-          // let tabMonitorOptions = this.self._checkRegisteredTabUrl(tab.url);
           
           if (tabMonitorOptions && tabMonitorOptions.tabEventCallback) {
             this.self.messengerWindow[this.self.uniqueRandomID].onTabEvent('onTabTitleChanged', tab);
@@ -690,18 +700,18 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
         },
         onTabSwitched: function (tab) { },
         
-        _checkRegisteredTabUrl() {
-          console.debug('check register to have ');
-        self.registeredTabURLs.forEach(tabUrlEntry => {
-          if (tabUrlEntry.tabUrl === tabUrl) {
-            return tabUrlEntry;
-          }
-          if (tabUrlEntry.tabUrl === '*') {
-            return tabUrlEntry;
-          }
-        });
-        return null;
-      }
+      //   _checkRegisteredTabUrl() {
+      //     console.debug('check register to have ');
+      //   self.registeredTabURLs.forEach(tabUrlEntry => {
+      //     if (tabUrlEntry.tabUrl === tabUrl) {
+      //       return tabUrlEntry;
+      //     }
+      //     if (tabUrlEntry.tabUrl === '*') {
+      //       return tabUrlEntry;
+      //     }
+      //   });
+      //   return null;
+      // }
       }
 
       this.registeredTabURLs.forEach(tabUrlEntry => {
@@ -717,21 +727,41 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
 
 
       this.messengerTabmail.registerTabMonitor(this.tabmonitor);
-
       this.tabMonitorActive = true;
     }
   }
 
-  _checkRegisteredTabUrl(tabUrl) {
+  _unregisterTabMonitor() {
+    if (this.messengerWindow && this.tabmonitor) {
+      this.messengerTabmail.unregisterTabMonitor(this.tabmonitor);
+      this.tabMonitor = null;
+      this.tabMonitorActive = false;
+      console.debug('_unregisterTabMonitor');
+    }
+    
+  }
+
+  // cleidigh
+  // we use the tabURL for event filtering
+  // `*` will pass all events (most importantly openTab which may have any URL )
+
+  _checkRegisteredTabUrl(tab) {
+
+    var tabUrl;
+    if (tab.browser) {
+      tabUrl = tab.browser.contentDocument.URL;
+    } else {
+      tabUrl = '*';
+    }
+
+    var registeredTabURLEntry = null;
     this.registeredTabURLs.forEach(tabUrlEntry => {
       if (tabUrlEntry.tabUrl === tabUrl) {
-        return tabUrlEntry;
-      }
-      if (tabUrlEntry.tabUrl === '*') {
-        return tabUrlEntry;
+        registeredTabURLEntry = tabUrlEntry;
       }
     });
-    return null;
+
+    return registeredTabURLEntry;
   }
 
   onShutdown(isAppShutdown) {
@@ -758,6 +788,11 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
         // if it is app shutdown, it is not just an add-on deactivation
         this._unloadFromWindow(window, !isAppShutdown);
       }
+      // cleidigh
+      // unregister tab monitor
+      this._unregisterTabMonitor();
+
+      
       // Stop listening for new windows.
       ExtensionSupport.unregisterWindowListener("injectListener_" + this.uniqueRandomID);
     }

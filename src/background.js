@@ -1,34 +1,4 @@
 // background.js - this kicks off the WindowListener framework
-
-function handleCreated(tab) {
-	console.log(tab.id);
-	console.log(tab.url);
-  }
-
-  async function handleUpdated(tabId, changes, tab) {
-	  console.debug('HandleUpdated ' + tabId);
-	  console.debug(tab);
-	console.log(changes);
-	let tabInfo = await browser.tabs.get(tabId);
-	console.log(tabInfo);
-	if (changes.title === "Account Settings" && tab.status === "complete") {
-		console.debug('settings loaded');
-		addMenu(tabId);
-	}
-	console.debug('updated done');
-  }
-
-function addMenu(tabId) {
-	console.debug(window.title);
-	console.debug(document.getElementById("accountActionsDropdown"));
-	// browser.tabs.executeScript(tabId, {file: "chrome://localfolder/content/account-managerOL.js"});
-	// browser.tabs.executeScript(tabId, {file: "/chrome/content/account-managerOL.js"});
-	browser.tabs.executeScript(tabId, {code: `console.debug('gobbledygookSwitzerland');`});
-	// browser.tabs.executeScript(tabId, {file: "chrome://content/account-managerOL.js"});
-	// browser.tabs.executeScript(tabId, {file: "chrome://localfolder/account-managerOL.js"});
-	console.debug('after injection');
-
-}
 console.debug('background Start');
 
 messenger.WindowListener.registerDefaultPrefs("defaults/preferences/prefs.js");

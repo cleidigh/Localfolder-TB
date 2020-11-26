@@ -52,7 +52,7 @@ eu.philoux.localfolder.toggleSpecialFolder = function (specialFolder) {
 
     if (!!addAllCheckbox.checked && !addFolderElement.checked) {
         addAllCheckbox.checked = false;
-    } else if (!addAllCheckbox.checked && addFolderElements.every(e => e.checked)) {
+    } else if (!addAllCheckbox.checked && [...addFolderElements].every(e => e.checked)) {
         addAllCheckbox.checked = true;
     }
 
