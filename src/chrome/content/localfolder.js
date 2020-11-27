@@ -127,8 +127,13 @@ eu.philoux.localfolder.initDlg = function () {
     // Fix XUL elements that have changed
     // eu.philoux.localfolder.xulFixup();
 
-    console.debug(window.opener);
-    var LFVersion = window.opener.lfver;
+    var LFVersion;
+    w = eu.philoux.localfolder.getMail3Pane();
+    if (w.lfver) {
+        LFVersion = w.lfver;
+    } else {
+        LFVersion = w.extension.version;
+    }
     console.debug(LFVersion);
     
     let title = document.getElementById("localfolder").getAttribute("title");

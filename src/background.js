@@ -30,8 +30,8 @@ messenger.WindowListener.registerWindow(
 	"chrome://localfolder/content/account-managerOL.js");
 
 messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/AccountManager.xhtml",
-	"chrome://localfolder/content/account-managerOL.js");
+	"chrome://messenger/content/messenger.xhtml",
+	"chrome://localfolder/content/messengerOL2.js");
 	
 
 messenger.WindowListener.registerTabUrl(

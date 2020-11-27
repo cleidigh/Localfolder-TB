@@ -192,6 +192,8 @@ eu.philoux.localfolder.NewLocalFolder = function () {
 		.getMostRecentWindow("mail:3pane");
 		console.debug(w);
 	w.lfver = eu.lfver;
+	console.debug(w.lfver);
+	// console.debug(w.extension.version);
 
 	if (versionChecker.compare(currentVersion, "78") >= 0) {
 		w.openDialog("chrome://localfolder/content/localfolder.xhtml", "", "chrome,modal,centerscreen,titlebar,resizable=yes");

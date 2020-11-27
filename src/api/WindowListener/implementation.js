@@ -2,6 +2,10 @@
  * This file is provided by the addon-developer-support repository at
  * https://github.com/thundernest/addon-developer-support
  *
+* Version: 1.2x-cleidigh
+ * - tab monitor for injecting into content tabs
+ * - first pass book probably needs more shut down support
+ * 
  * Version: 1.20
  * - fix long delay before customize window opens
  * - fix non working removal of palette items
@@ -90,8 +94,6 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
     // cleidigh
 
     let self = this;
-
-
 
     return {
       WindowListener: {
@@ -193,7 +195,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
             "tabEventCallback": tabEventCallback
           }
           self.registeredTabURLs.push(data);
-          
+
         },
 
         registerStartupScript(aPath) {
@@ -353,8 +355,6 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                         for (let i = 0; i < 100 && !loaded; i++) {
                           await sleep(100);
                           let targetWindow = mutation.target.contentWindow.wrappedJSObject;
-                          console.debug('target window');
-                          console.debug(targetWindow.location.href);
                           if (targetWindow && targetWindow.location.href == mutation.target.getAttribute("src") && targetWindow.document.readyState == "complete") {
                             loaded = true;
                             break;
@@ -619,16 +619,14 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
       this.tabmonitor = {
         self: this,
         selfRegisteredTabURLs: this.registeredTabURLs,
-        
+
         onTabClosing: function (tab) {
-          console.debug('closing ' + tab.url);
+          console.debug('onTabClosing');
           console.debug(tab);
           console.debug('Title: ' + tab.title);
           console.debug('Browser: ' + tab.browser);
           console.debug('registered');
           console.debug(this.selfRegisteredTabURLs);
-          
-          var tabEventUrl = tab.browser.contentDocument.URL;
 
           let tabMonitorOptions = this.self._checkRegisteredTabUrl(tab);
 
@@ -637,8 +635,6 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
           } else {
             console.debug(`Tab not monitored: ${tab.url}`);
           }
-
-
         },
 
         onTabOpened: function (tab) {
@@ -646,21 +642,16 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
           console.debug(tab);
           console.debug('Title: ' + tab.title);
           console.debug('Browser: ' + tab.browser);
-          // var window = tab.browser.contentWindow.wrappedJSObject;
-          // console.debug(window);
-          // var tabEventUrl = tab.browser.contentDocument.URL;
-          // console.debug(tabEventUrl);
 
           let tabMonitorOptions = this.self._checkRegisteredTabUrl(tab);
-          console.debug(tabMonitorOptions);
+          // console.debug(tabMonitorOptions);
 
           if (tabMonitorOptions && tabMonitorOptions.tabEventCallback) {
-            console.debug('call callback');
             this.self.messengerWindow[this.uniqueRandomID].onTabEvent('onTabOpened', tab);
           } else {
             console.debug(`Tab not monitored: ${tab.url}`);
           }
-          console.debug('open finished')
+          // console.debug('open finished')
         },
 
         onTabTitleChanged: function (tab_in) {
@@ -669,28 +660,19 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
           console.debug(tab);
           console.debug(tab.tabId);
           console.debug(tab.browser);
-          
+
           console.debug('Title: ' + tab.title);
           console.debug('Browser: ' + tab.browser);
-          
+
           if (!tab.browser) {
             console.debug('no Browser');
             return;
           }
-          // var tabEventUrl = tab.browser.contentDocument.URL;
-          console.debug(tab.browser.contentDocument.URL);
 
-          if (tab.browser.contentWindow && !tab.browser.contentWindow.wrappedJSObject) {
-            console.debug('no content yet');
-            // return;
-          }
-
-          // var tabEventUrl = tab.browser.contentDocument.URL;
 
           let tabMonitorOptions = this.self._checkRegisteredTabUrl(tab);
           // console.debug(tabMonitorOptions);
 
-          
           if (tabMonitorOptions && tabMonitorOptions.tabEventCallback) {
             this.self.messengerWindow[this.self.uniqueRandomID].onTabEvent('onTabTitleChanged', tab);
           } else {
@@ -698,34 +680,35 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
           }
 
         },
+
         onTabSwitched: function (tab) { },
-        
-      //   _checkRegisteredTabUrl() {
-      //     console.debug('check register to have ');
-      //   self.registeredTabURLs.forEach(tabUrlEntry => {
-      //     if (tabUrlEntry.tabUrl === tabUrl) {
-      //       return tabUrlEntry;
-      //     }
-      //     if (tabUrlEntry.tabUrl === '*') {
-      //       return tabUrlEntry;
-      //     }
-      //   });
-      //   return null;
-      // }
+
+        //   _checkRegisteredTabUrl() {
+        //     console.debug('check register to have ');
+        //   self.registeredTabURLs.forEach(tabUrlEntry => {
+        //     if (tabUrlEntry.tabUrl === tabUrl) {
+        //       return tabUrlEntry;
+        //     }
+        //     if (tabUrlEntry.tabUrl === '*') {
+        //       return tabUrlEntry;
+        //     }
+        //   });
+        //   return null;
+        // }
       }
 
       this.registeredTabURLs.forEach(tabUrlEntry => {
-        
-      try {
-        console.debug('Loading ' + tabUrlEntry.tabManager);
-        Services.scriptloader.loadSubScript(tabUrlEntry.tabManager, this.messengerWindow[this.uniqueRandomID], "UTF-8");
-        this.messengerWindow[this.uniqueRandomID].onTabManagerLoad();
-      } catch (e) {
-        console.debug(e);
-      }
-    });
 
+        try {
+          console.debug('Loading ' + tabUrlEntry.tabManager);
+          Services.scriptloader.loadSubScript(tabUrlEntry.tabManager, this.messengerWindow[this.uniqueRandomID], "UTF-8");
+          this.messengerWindow[this.uniqueRandomID].onTabManagerLoad();
+        } catch (e) {
+          console.debug(e);
+        }
+      });
 
+      // register the tab monitor under the global messenger window
       this.messengerTabmail.registerTabMonitor(this.tabmonitor);
       this.tabMonitorActive = true;
     }
@@ -738,7 +721,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
       this.tabMonitorActive = false;
       console.debug('_unregisterTabMonitor');
     }
-    
+
   }
 
   // cleidigh
@@ -792,7 +775,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
       // unregister tab monitor
       this._unregisterTabMonitor();
 
-      
+
       // Stop listening for new windows.
       ExtensionSupport.unregisterWindowListener("injectListener_" + this.uniqueRandomID);
     }

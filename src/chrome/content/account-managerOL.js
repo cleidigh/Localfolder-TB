@@ -17,7 +17,7 @@ Services.scriptloader.loadSubScript("chrome://localfolder/content/trace.js", win
 
 
 function onLoad() {
-	console.debug('account manager OL');
+	console.debug('account-manager OL');
 
 	// FolderPane Menu
 	WL.injectElements(`
