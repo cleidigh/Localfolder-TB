@@ -1,5 +1,5 @@
 // background.js - this kicks off the WindowListener framework
-console.debug('background Start');
+// console.debug('background Start');
 
 messenger.WindowListener.registerDefaultPrefs("defaults/preferences/prefs.js");
 

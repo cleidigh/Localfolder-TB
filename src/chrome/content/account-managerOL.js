@@ -7,8 +7,8 @@
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 window.lfver = WL.extension.addonData.version;
 window.extension = WL.extension;
-console.debug('Ver');
-console.debug(window.lfver);
+// console.debug('Ver');
+// console.debug(window.lfver);
 
 Services.scriptloader.loadSubScript("chrome://global/content/globalOverlay.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://messenger/content/AccountManager.js", window, "UTF-8");
@@ -17,7 +17,7 @@ Services.scriptloader.loadSubScript("chrome://localfolder/content/trace.js", win
 
 
 function onLoad() {
-	console.debug('account-manager OL');
+	// console.debug('account-manager OL');
 
 	// FolderPane Menu
 	WL.injectElements(`
@@ -34,7 +34,6 @@ function onLoad() {
 	let arm = document.getElementById("accountActionsDropdownRemove");
 	arm.setAttribute("oncommand", "eu.philoux.localfolder.onSupprimeCompte(event,window); event.stopPropagation();");
 	
-	console.debug(document.getElementById("accountActionsDropdown"));
 	
 }
 

@@ -1,12 +1,12 @@
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
 function onTabManagerLoad() {
-	console.debug('TabManager: onTabManagerLoad');
+	// console.debug('TabManager: onTabManagerLoad');
 }
 
 function onTabEvent(tabEvent, tab) {
-	console.debug('TabManager: onTabEvent');
-	console.debug(tabEvent);
+	// console.debug('TabManager: onTabEvent');
+	// console.debug(tabEvent);
 
 	switch (tabEvent) {
 		case 'onTabTitleChanged':
@@ -23,18 +23,17 @@ function onTabEvent(tabEvent, tab) {
 
 function LFInitialization(tab) {
 
-	console.debug('LFInitialization start');
+	// console.debug('LFInitialization start');
 	if (tab.browser.contentDocument.getElementById("accountActionAddLocalFolder")) {
-		console.debug('menu added already');
+		// console.debug('menu added already');
 		return;
 	}
 
-	console.debug('check URL');
 	if (tab.browser.contentDocument.URL === "about:accountsettings") {
-		console.debug('inject script URL');
+		// console.debug('inject script URL');
 	}
 
-	console.debug('LF Add menus');
+	// console.debug('LF Add menus');
 
 	let m = tab.browser.contentWindow.wrappedJSObject.MozXULElement.parseXULToFragment(`
 	<menuitem id="accountActionAddLocalFolder"

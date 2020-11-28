@@ -134,7 +134,7 @@ eu.philoux.localfolder.initDlg = function () {
     } else {
         LFVersion = w.extension.version;
     }
-    console.debug(LFVersion);
+    // console.debug(LFVersion);
     
     let title = document.getElementById("localfolder").getAttribute("title");
 

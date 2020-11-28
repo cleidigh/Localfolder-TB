@@ -9,7 +9,7 @@ var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 window.extension = WL.extension;
 
 function onLoad() {
-	console.debug('messenger OL2');
+	// console.debug('messenger OL2');
 }
 
 function onUnload() {
