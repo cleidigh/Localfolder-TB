@@ -1,10 +1,7 @@
 // background.js - this kicks off the WindowListener framework
 // console.debug('background Start');
 
-messenger.WindowListener.registerDefaultPrefs("defaults/preferences/prefs.js");
-
 // Register all necessary content, Resources, and locales
-
 messenger.WindowListener.registerChromeUrl([
 	["content", "localfolder", "chrome/content/"],
 	["resource", "localfolder", "chrome/content/"],
@@ -23,24 +20,9 @@ messenger.WindowListener.registerChromeUrl([
 
 
 // Register each overlay script Which controls subsequent fragment loading
-
-messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/AccountManager.xul",
-	"chrome://localfolder/content/account-managerOL.js");
-
-messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/messenger.xul",
-	"chrome://localfolder/content/messengerOL.js");
-
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/messenger.xhtml",
 	"chrome://localfolder/content/messengerOL.js");
-
-
-messenger.WindowListener.registerTabUrl(
-	"about:accountsettings",
-	"chrome://localfolder/content/tabmanager.js"
-);
 
 messenger.WindowListener.startListening();
 
