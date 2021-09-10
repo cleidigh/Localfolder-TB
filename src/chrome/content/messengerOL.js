@@ -76,6 +76,28 @@ class TabMonitor {
 		}
 	}
 
+	onActivated(tab) {
+		if (!tab.browser) {
+			return;
+		}
+
+		let tabMonitorOptions = this.checkRegisteredTabUrl(tab);
+		if (tabMonitorOptions && tabMonitorOptions.onActivated) {
+			tabMonitorOptions.onActivated(tab);
+		}
+	}	
+
+	onDeactivated(tab) {
+		if (!tab.browser) {
+			return;
+		}
+
+		let tabMonitorOptions = this.checkRegisteredTabUrl(tab);
+		if (tabMonitorOptions && tabMonitorOptions.onDeactivated) {
+			tabMonitorOptions.onDeactivated(tab);
+		}
+	}	
+	
 	registerTabMonitor() {
 		if (this.messengerTabmail && !this.active) {
 			this.messengerTabmail.registerTabMonitor(this);
@@ -84,7 +106,7 @@ class TabMonitor {
 
 		// Check open tabs.
 		for (let tab of this.messengerTabmail.tabInfo) {
-			this.onTabOpened(tab);
+			this.onActivated(tab);
 		}
 	}
 
@@ -95,7 +117,7 @@ class TabMonitor {
 		}
 		// Check open tabs.
 		for (let tab of this.messengerTabmail.tabInfo) {
-			this.onTabClosing(tab);
+			this.onDeactivated(tab);
 		}
 	}
 
@@ -116,13 +138,15 @@ class TabMonitor {
 var tabMonitor = new TabMonitor(window, [
 	{
 		tabUrl: "about:accountsettings",
-		onTabOpened: (tab) => {
+		onActivated: (tab) => {
 			LFInitialization(tab);
 		},
-		// This is also called when the add-on is disabled/uninstalled.
-		onTabClosing: (tab) => {
+		onDeactivated: (tab) => {
 			let m = tab.browser.contentDocument.getElementById("accountActionAddLocalFolder");
 			if (m) m.remove();
+		},
+		onTabTitleChanged: (tab) => {
+			LFInitialization(tab);
 		},
 	},
 ]);
@@ -136,7 +160,7 @@ function LFInitialization(tab) {
 	let m = tab.browser.contentWindow.wrappedJSObject.MozXULElement.parseXULToFragment(`
 	<menuitem id="accountActionAddLocalFolder"
 		label="&eu.philoux.localfolder.btdossier;" 
-		oncommand="window.eu.philoux.localfolder.NewLocalFolder();"		
+		oncommand="eu.philoux.localfolder.NewLocalFolder();"		
 		accesskey="&eu.philoux.localfolder.btdossier.racc;" />
 `, ["chrome://localfolder/locale/localfolder.dtd"]);
 
@@ -150,8 +174,8 @@ function LFInitialization(tab) {
 	arm.setAttribute("oncommand", "eu.philoux.localfolder.onSupprimeCompte(event,window); event.stopPropagation();");
 
 	// inject Scripts into account manager content window within tab
-	Services.scriptloader.loadSubScript("chrome://localfolder/content/accountmanager-overlay.js", window, "UTF-8");
-	Services.scriptloader.loadSubScript("chrome://localfolder/content/trace.js", window, "UTF-8");
+	Services.scriptloader.loadSubScript("chrome://localfolder/content/accountmanager-overlay.js", tab.browser.contentWindow.wrappedJSObject, "UTF-8");
+	Services.scriptloader.loadSubScript("chrome://localfolder/content/trace.js", tab.browser.contentWindow.wrappedJSObject, "UTF-8");
 }
 
 function onLoad() {
