@@ -19,7 +19,6 @@ messenger.WindowListener.registerChromeUrl([
 	["locale", "localfolder", "zh", "chrome/locale/zh-CN/"],
 	["locale", "localfolder", "pt-BR", "chrome/locale/pt-BR/"],
 	["locale", "localfolder", "sv-SE", "chrome/locale/sv-SE/"],
-	
 ]);
 
 
@@ -30,15 +29,18 @@ messenger.WindowListener.registerWindow(
 	"chrome://localfolder/content/account-managerOL.js");
 
 messenger.WindowListener.registerWindow(
+	"chrome://messenger/content/messenger.xul",
+	"chrome://localfolder/content/messengerOL.js");
+
+messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/messenger.xhtml",
-	"chrome://localfolder/content/messengerOL2.js");
-	
+	"chrome://localfolder/content/messengerOL.js");
+
 
 messenger.WindowListener.registerTabUrl(
 	"about:accountsettings",
-	"chrome://localfolder/content/tabmanager.js",
-	"tabEventHandler"
-	);
+	"chrome://localfolder/content/tabmanager.js"
+);
 
-	messenger.WindowListener.startListening();
+messenger.WindowListener.startListening();
 

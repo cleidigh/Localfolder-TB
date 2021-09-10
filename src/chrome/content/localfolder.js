@@ -124,17 +124,9 @@ eu.philoux.localfolder.getMail3Pane = function () {
  */
 eu.philoux.localfolder.initDlg = function () {
 
-    // Fix XUL elements that have changed
-    // eu.philoux.localfolder.xulFixup();
-
-    var LFVersion;
-    w = eu.philoux.localfolder.getMail3Pane();
-    if (w.lfver) {
-        LFVersion = w.lfver;
-    } else {
-        LFVersion = w.extension.version;
-    }
-    // console.debug(LFVersion);
+    win = eu.philoux.localfolder.getMail3Pane();
+    
+    var LFVersion = win.localfolders.extension.addonData.version;
     
     let title = document.getElementById("localfolder").getAttribute("title");
 
