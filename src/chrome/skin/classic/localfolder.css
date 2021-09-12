@@ -4,8 +4,8 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 #localfolder {
     width: 550px;
-    height: 200px;
-    margin: 5px;
+    height: 220px;
+    margin: 8px;
 }
 
 .localfolder-zone {
@@ -33,6 +33,7 @@
 .c2 {
     min-width: 30px;
     margin-right: 15px;
+    height: 20px;
     /* background-color: aliceblue; */
 }
 
@@ -88,7 +89,7 @@
 /* ::::: groupbox ::::: */
 
 fieldset {
-    margin: 5px;
+    margin: 8px;
     border: 2px solid;
     -moz-border-top-colors: #757575 #ECEFF2;
     -moz-border-right-colors: #ECEFF2 #757575;
@@ -97,6 +98,11 @@ fieldset {
     padding: 5px;
 }
 
+legend {
+    font-weight: 100 !important;
+    color: aqua !important;
+    
+}
 .groupbox-body {
     padding: inherit;
 }

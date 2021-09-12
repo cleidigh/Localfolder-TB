@@ -31,7 +31,7 @@ eu.philoux.localfolder.specialFolders = {
 
 // Extension Information Icons
 
-eu.philoux.localfolder.addAllSpecialFolders = function() {
+eu.philoux.localfolder.addAllSpecialFolders = function () {
     const addAllCheckbox = document.getElementById("add_all_folders");
     let addFolderElements = document.querySelectorAll("[id^='add_folder_']");
 
@@ -43,7 +43,7 @@ eu.philoux.localfolder.addAllSpecialFolders = function() {
     }
 }
 
-eu.philoux.localfolder.toggleSpecialFolder = function(specialFolder) {
+eu.philoux.localfolder.toggleSpecialFolder = function (specialFolder) {
     // eu.philoux.localfolder.LocalFolderTrace("Toggle special folder's");
     const addAllCheckbox = document.getElementById("add_all_folders");
     const addFolderElement = document.getElementById(`add_folder_${specialFolder}`);
@@ -52,13 +52,13 @@ eu.philoux.localfolder.toggleSpecialFolder = function(specialFolder) {
 
     if (!!addAllCheckbox.checked && !addFolderElement.checked) {
         addAllCheckbox.checked = false;
-    } else if (!addAllCheckbox.checked && addFolderElements.every(e => e.checked)) {
+    } else if (!addAllCheckbox.checked && [...addFolderElements].every(e => e.checked)) {
         addAllCheckbox.checked = true;
     }
 
 }
 
-eu.philoux.localfolder.addSpecialFolders = function(aParentFolder, aParentFolderPath) {
+eu.philoux.localfolder.addSpecialFolders = function (aParentFolder, aParentFolderPath) {
 
     // eu.philoux.localfolder.LocalFolderTrace("Add special folders : " + aParentFolderPath);
     let addFolderElements = document.querySelectorAll("[id^='add_folder_']");
@@ -101,18 +101,18 @@ eu.philoux.localfolder.addSpecialFolders = function(aParentFolder, aParentFolder
 }
 
 
-eu.philoux.localfolder.urlLoad = function(url) {
+eu.philoux.localfolder.urlLoad = function (url) {
     // let tabmail = eu.philoux.localfolder.getMail3Pane();
     // tabmail.openTab("chromeTab", { chromePage: url });
 
     let service = Cc["@mozilla.org/uriloader/external-protocol-service;1"].getService(Ci.nsIExternalProtocolService),
         ioservice = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService),
         uri = ioservice.newURI(url, null, null);
-        service.loadURI(uri);
+    service.loadURI(uri);
 
 }
 
-eu.philoux.localfolder.getMail3Pane = function() {
+eu.philoux.localfolder.getMail3Pane = function () {
     var w = Cc["@mozilla.org/appshell/window-mediator;1"]
         .getService(Ci.nsIWindowMediator)
         .getMostRecentWindow("mail:3pane");
@@ -122,15 +122,21 @@ eu.philoux.localfolder.getMail3Pane = function() {
 /**
  *	initialisation boite de création de dossier
  */
-eu.philoux.localfolder.initDlg = function() {
+eu.philoux.localfolder.initDlg = function () {
 
-    // Fix XUL elements that have changed
-    eu.philoux.localfolder.xulFixup();
+    win = eu.philoux.localfolder.getMail3Pane();
+    
+    var LFVersion = win.localfolders.extension.addonData.version;
+    
+    let title = document.getElementById("localfolder").getAttribute("title");
+
+    document.getElementById("localfolder").setAttribute("title", `${title} - v${LFVersion}`);
 
     var bundle = Services.strings.createBundle("chrome://messenger/locale/messenger.properties");
     var bundle2 = Services.strings.createBundle("chrome://chat/locale/twitter.properties");
 
-    var localizedHomepageString = bundle2.GetStringFromName("tooltip.url");
+    // var localizedHomepageString = bundle2.GetStringFromName("tooltip.url");
+    var localizedHomepageString = "tooltip";
     localizedHomepageString = `LocalFolders ${localizedHomepageString}`;
     document.getElementById("localfolder-icon-image").setAttribute("tooltiptext", localizedHomepageString);
 
@@ -154,7 +160,7 @@ eu.philoux.localfolder.initDlg = function() {
     document.getElementById("localfoldernom").focus();
 }
 
-eu.philoux.localfolder.xulFixup = function() {
+eu.philoux.localfolder.xulFixup = function () {
 
     const versionChecker = Services.vc;
     const currentVersion = Services.appinfo.platformVersion;
@@ -178,7 +184,7 @@ eu.philoux.localfolder.xulFixup = function() {
  *	création du dossier local (bouton valider)
  *	@return	true si ok, false si erreur
  */
-eu.philoux.localfolder.btCreeDossierLocal = function() {
+eu.philoux.localfolder.btCreeDossierLocal = function () {
     try {
 
         //vérification des paramétres
@@ -194,7 +200,12 @@ eu.philoux.localfolder.btCreeDossierLocal = function() {
 
         for (var i = 0; i < serveurs.length; i++) // introduce with TB 20
         {
-            var srv = serveurs.queryElementAt(i, Ci.nsIMsgIncomingServer); // introduce with TB 20
+            var srv;
+            try {
+                srv = serveurs.queryElementAt(i, Ci.nsIMsgIncomingServer); // introduce with TB 20
+            } catch {
+                srv = serveurs[i];
+            }
             if (nom == srv.prettyName) {
                 eu.philoux.localfolder.LocalFolderAfficheMsgId("DossierExisteDeja");
                 return false;
@@ -228,7 +239,7 @@ eu.philoux.localfolder.btCreeDossierLocal = function() {
  *	@return	true si ok, false si erreur
  *
  */
-eu.philoux.localfolder.SelectChemin = function() {
+eu.philoux.localfolder.SelectChemin = function () {
     try {
 
         var nsIFilePicker = Ci.nsIFilePicker;
@@ -239,7 +250,7 @@ eu.philoux.localfolder.SelectChemin = function() {
         fp.displayDirectory = courant;
 
         // cleidigh - replace deprecated show with asynchronous open for TB 60.*
-        fp.open(function(rv) {
+        fp.open(function (rv) {
             // eu.philoux.localfolder.LocalFolderTrace("eu.philoux.localfolder.SelectChemin appel eu.philoux.localfolder.ValidRepLocal:" + fp.file.path);
 
             if (rv !== nsIFilePicker.returnOK) {
@@ -269,8 +280,14 @@ eu.philoux.localfolder.SelectChemin = function() {
 
             for (var i = 0; i < serveurs.length; i++) // introduce with TB 20
             {
-                var srv = serveurs.queryElementAt(i, Ci.nsIMsgIncomingServer); // introduce with TB 20
-                var chemin = srv.localPath.nativePath;
+                var srv;
+                try {
+                    srv = serveurs.queryElementAt(i, Ci.nsIMsgIncomingServer); // introduce with TB 20
+                } catch {
+                    srv = serveurs[i];
+                }
+
+                var chemin = srv.localPath.path;
                 if (fp.file.path.toLowerCase() == chemin.toLowerCase()) {
                     eu.philoux.localfolder.LocalFolderAfficheMsgId("RepertoireDejaUtilise");
                     return false;
@@ -301,7 +318,7 @@ eu.philoux.localfolder.SelectChemin = function() {
  *	implémentation : l'appel à cette fonction suppose que l'appelant a vérifier que le compte n'existe pas déjà
  *	nom et chemin pas déjà utilisés
  */
-eu.philoux.localfolder.creeDossierLocal = function(nom, chemin, storeID, emptyTrashOnExit) {
+eu.philoux.localfolder.creeDossierLocal = function (nom, chemin, storeID, emptyTrashOnExit) {
 
     try {
         var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
@@ -349,7 +366,7 @@ eu.philoux.localfolder.creeDossierLocal = function(nom, chemin, storeID, emptyTr
 }
 
 
-eu.philoux.localfolder.fixupSubfolder = function(parentName, folderName, removeFileFolder, storeID) {
+eu.philoux.localfolder.fixupSubfolder = function (parentName, folderName, removeFileFolder, storeID) {
 
     // eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder: ${folderName} - remove file folder: ${removeFileFolder}  storeType: ${storeID}`);
     var filespec = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
@@ -391,14 +408,14 @@ eu.philoux.localfolder.fixupSubfolder = function(parentName, folderName, removeF
 
 // Listen for subfolder additions, have to fixup
 var FolderListener = {
-    OnItemAdded: function(parentFolder, aItem) {
+    OnItemAdded: function (parentFolder, aItem) {
         // eu.philoux.localfolder.LocalFolderTrace(`FolderListener item added : ${parentFolder.filePath.path} ${parentFolder.flags}`);
-        
+
         // We seem to get to events first without folder
         if (!(aItem instanceof Ci.nsIMsgFolder)) {
             // eu.philoux.localfolder.LocalFolderTrace(`NotFolder  ${aItem.name}   ${parentFolder.name}`);
-			return;
-		}
+            return;
+        }
         // eu.philoux.localfolder.LocalFolderTrace(`${aItem.name}    ${aItem.flags} ${eu.philoux.localfolder.pendingFolders[0]}`);
 
         var rf = `${aItem.filePath.path}`;
@@ -410,7 +427,7 @@ var FolderListener = {
 
             if (aItem.name in eu.philoux.localfolder.specialFolders) {
                 var sf = eu.philoux.localfolder.specialFolders[aItem.name].flags
-                    // eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} get flags ${aItem.flags}`);
+                // eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} get flags ${aItem.flags}`);
                 aItem.setFlag(sf);
                 // eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} set flags (${sf} : ${aItem.flags}`);
             }
@@ -418,13 +435,13 @@ var FolderListener = {
         }
     },
 
-    OnItemRemoved() {},
-    OnItemPropertyChanged() {},
-    OnItemIntPropertyChanged() {},
-    OnItemBoolPropertyChanged() {},
-    OnItemUnicharPropertyChanged() {},
-    OnItemPropertyFlagChanged() {},
-    OnItemEvent() {},
+    OnItemRemoved() { },
+    OnItemPropertyChanged() { },
+    OnItemIntPropertyChanged() { },
+    OnItemBoolPropertyChanged() { },
+    OnItemUnicharPropertyChanged() { },
+    OnItemPropertyFlagChanged() { },
+    OnItemEvent() { },
 };
 
 
@@ -436,7 +453,7 @@ var FolderListener = {
  *	implémentation : true si vide ou contient un ou plus ficher .msf
  *	
  */
-eu.philoux.localfolder.ValidRepLocal = function(rep) {
+eu.philoux.localfolder.ValidRepLocal = function (rep) {
     try {
         var bValid = true;
         var item = null;

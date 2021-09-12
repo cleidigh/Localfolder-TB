@@ -3,8 +3,8 @@
 <!ENTITY eu.philoux.localfolder.titre "增加本地文件夹">
 <!ENTITY eu.philoux.localfolder.btValider "确定">
 <!ENTITY eu.philoux.localfolder.btQuitter "取消">
-<!ENTITY eu.philoux.localfolder.directoryAndMessageStore “目录和邮件存储”>
-<!ENTITY eu.philoux.localfolder.addMessageFolders “添加邮件文件夹”>
+<!ENTITY eu.philoux.localfolder.directoryAndMessageStore "目录和邮件存储">
+<!ENTITY eu.philoux.localfolder.addMessageFolders "添加邮件文件夹">
 <!ENTITY eu.philoux.localfolder.bandeau.titre "本地文件夹配置">
 <!ENTITY eu.philoux.localfolder.libnom "名称：">
 <!ENTITY eu.philoux.localfolder.libnom.accesskey "名">
