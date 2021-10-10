@@ -26,28 +26,15 @@ eu.philoux.localfolder.OnInitLocalFolder = function () {
 
 
 eu.philoux.localfolder.getSelectedAccount = function (page, account) {
-	let tree = document.getElementById("accounttree");
-
-    let node = tree.view.getItemAtIndex(tree.currentIndex);
-    account = "_account" in node ? node._account : null;
-
-	return account;
-	// onAccountTreeSelect(page, account);
+    // Bug 1724842 changed the list implementation.
+	// Simply use currentAccount.
+	return currentAccount;
 }
 
 eu.philoux.localfolder.onAccountSelect = function (page, account) {
-	let tree = document.getElementById("accounttree");
-
-//   if (!changeView) {
-//     if (tree.view.selection.count < 1) {
-//       return false;
-//     }
-
-    let node = tree.view.getItemAtIndex(tree.currentIndex);
-    account = "_account" in node ? node._account : null;
-
-	return account;
-	// onAccountTreeSelect(page, account);
+    // Bug 1724842 changed the list implementation.
+	// Simply use currentAccount.
+	return currentAccount;
 }
 
 /**
