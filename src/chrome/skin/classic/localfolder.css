@@ -6,7 +6,7 @@
     width: 550px;
     height: 220px;
     margin: 8px;
-    background-color: whitesmoke;
+    background-color: #f5f5f5;
 }
 
 .localfolder-zone {
@@ -104,7 +104,7 @@ fieldset {
 legend {
     font-weight: 100 !important;
     color: aqua !important;
-    background-color: whitesmoke;
+    background-color: #ffffff;
 }
 .groupbox-body {
     padding: inherit;
