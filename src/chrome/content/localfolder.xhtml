@@ -2,11 +2,11 @@
 
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/messenger.css"?>
 
-<?xml-stylesheet type="text/css" href="chrome://global/skin/in-content/common.css"?>
+<!-- <?xml-stylesheet type="text/css" href="chrome://global/skin/in-content/common.css"?> -->
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/icons.css"?>
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/colors.css"?>
 
-<?xml-stylesheet type="text/css" href="chrome://messenger/skin/themeableDialog.css"?>
+<!-- <?xml-stylesheet type="text/css" href="chrome://messenger/skin/themeableDialog.css"?> -->
 <?xml-stylesheet href="resource://localfolder/folderPane.css" type="text/css"?>
 <?xml-stylesheet href="resource://localfolder/localfolder.css" type="text/css"?>
 <!DOCTYPE window [ 
@@ -65,12 +65,12 @@
 			
 			<vbox align="start" style="padding-left: 8px">
 			<label value="&localPath1.label;" control="server.localPath"/>
-			<hbox align="center" height="28px" flex="0">
-				<html:input type="text" id="localfolderchemin" readonly="true"   tabindex="-1" style="padding-top: 6px; max-height: 24px;" size="60" class="c1"/>,
+			<hbox align="top" height="34px" flex="0">
+				<html:input type="text" id="localfolderchemin" readonly="true"   tabindex="-1" style="margin-top: 0px; height: 26px;" size="60" class="c1"/>,
 				<button label="&eu.philoux.localfolder.chemin.btlib;" 
 						id="localfoldercheminbtsel"
 						browsertitle="&eu.philoux.localfolder.chemin.browsertitle;"
-            			accesskey="&eu.philoux.localfolder.chemin.btlibcle;" oncommand="eu.philoux.localfolder.SelectChemin()" style="margin-bottom: 0px"  flex="0" max-height="26px"/>
+            			accesskey="&eu.philoux.localfolder.chemin.btlibcle;" oncommand="eu.philoux.localfolder.SelectChemin()" style="margin-bottom: 12px"  flex="0" max-height="26px"/>
 			</hbox>
 			</vbox>
 			<vbox height="5px"></vbox>
@@ -84,7 +84,7 @@
 				<vbox class="c2" style="padding-left: 8px">
 					<hbox class="folder-row">
 						<hbox >
-							<html:input type="checkbox" id="add_all_folders" onclick="eu.philoux.localfolder.addAllSpecialFolders()"/>
+							<checkbox id="add_all_folders" onclick="eu.philoux.localfolder.addAllSpecialFolders()"/>
 						</hbox>
 						<label id="add_all_folders_label"  accesskey="&allFolders.accesskey;"  control="add_all_folders" value="&allFolders.label;" />
 					</hbox>
@@ -96,7 +96,7 @@
 					<vbox>
 						<hbox class="folder-row">
 								<hbox flex="0" style="padding-right: 9px">
-								<html:input type="checkbox" id="add_folder_inbox" onclick="eu.philoux.localfolder.toggleSpecialFolder('inbox')"  SpecialFolder="Inbox"/>
+								<checkbox id="add_folder_inbox" onclick="eu.philoux.localfolder.toggleSpecialFolder('inbox')"  SpecialFolder="Inbox"/>
 							</hbox>
 							<hbox width="20px" height="20px" flex="0" maxheight="20px">
 							<image class="tabmail-tab" type="folder" SpecialFolder="Inbox"  style="padding-left: -1px"  />
