@@ -1,22 +1,17 @@
 <?xml version="1.0"?>
-
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/messenger.css"?>
-
 <?xml-stylesheet type="text/css" href="chrome://global/skin/in-content/common.css"?>
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/icons.css"?>
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/colors.css"?>
-
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/themeableDialog.css"?>
 <?xml-stylesheet href="resource://localfolder/folderPane.css" type="text/css"?>
 <?xml-stylesheet href="resource://localfolder/localfolder.css" type="text/css"?>
-<!DOCTYPE window [ 
-
+<!DOCTYPE window [
 <!ENTITY % localfolderDTD SYSTEM "chrome://localfolder/locale/localfolder.dtd">%localfolderDTD;
 <!ENTITY % accountNoIdentDTD SYSTEM "chrome://messenger/locale/am-serverwithnoidentities.dtd">%accountNoIdentDTD;
 <!ENTITY % accountServerTopDTD SYSTEM "chrome://messenger/locale/am-server-top.dtd">%accountServerTopDTD;
 <!ENTITY % messengerDTD SYSTEM "chrome://messenger/locale/messenger.dtd">%messengerDTD;
 ]>
-
 <window id="localfolder" title="&eu.philoux.localfolder.titre;" 
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	xmlns:html="http://www.w3.org/1999/xhtml" onload="eu.philoux.localfolder.initDlg();">
@@ -31,8 +26,6 @@
 			<html:input type="text" wsm_persist="true" size="30" id="localfoldernom" style="height: 24px" />
 			<hbox flex="1"></hbox>
 			<hbox flex="0" class="localfolder-icon" style="padding-right: 10px">
-
-				
 				<image id="localfolder-icon-image" src="resource://localfolder/LocalFolders-64px.png" width="40px" height="40px" tooltiptext="LocalFolders Add-on Homepage" 
 			  maxwidth="40px" maxheight="40px" onclick="eu.philoux.localfolder.urlLoad('https://github.com/cleidigh/LocalFolder-TB')"/>
 			</hbox>
@@ -64,19 +57,19 @@
 			</vbox>
 			<spacer height="5px" />
 			<vbox align="start" style="padding-left: 8px">
-			<label value="&localPath1.label;" control="server.localPath"/>
-			<spacer height="2px" />
-			<hbox height="32px">
-			<hbox align="bottom" height="28px" flex="1" style="background-color: whitesmoke" >
-				<html:input type="text" id="localfolderchemin" readonly="true"   tabindex="-1" style="padding-top: 2px; padding-bottom: 0px; margin-top: 0px; height: 24px; padding-right: 6px;" size="58" class="o"/>,
-				</hbox>
-				<hbox style="background-color: whitesmoke" >
-				<button label="&eu.philoux.localfolder.chemin.btlib;" 
+				<label value="&localPath1.label;" control="server.localPath"/>
+				<spacer height="2px" />
+				<hbox height="32px">
+					<hbox align="bottom" height="28px" flex="1" >
+						<html:input type="text" id="localfolderchemin" readonly="true"   tabindex="-1" style="padding-top: 2px; padding-bottom: 0px; margin-top: 0px; height: 24px; padding-right: 6px;" size="58" class="o"/>,
+					</hbox>
+					<hbox>
+						<button label="&eu.philoux.localfolder.chemin.btlib;" 
 						id="localfoldercheminbtsel"
 						browsertitle="&eu.philoux.localfolder.chemin.browsertitle;"
             			accesskey="&eu.philoux.localfolder.chemin.btlibcle;" oncommand="eu.philoux.localfolder.SelectChemin()" style="margin-top: -3px; padding-top: 0px; margin-bottom: 0px; height: 22px;"  flex="0" max-height="22px"/>
-			</hbox>
-			</hbox>
+					</hbox>
+				</hbox>
 			</vbox>
 			<vbox height="5px"></vbox>
 		</html:fieldset>
@@ -84,7 +77,6 @@
 		<html:fieldset style="border: 1.5px solid #d0d0d0">
 			<html:legend style="font-weight: 500; margin-top: 2px; background-color: #f7f7f7">&eu.philoux.localfolder.addMessageFolders;</html:legend>
 			<vbox height="8px"></vbox>
-			
 			<hbox flex="1" class="c1" >
 				<vbox class="c2" style="padding-left: 8px">
 					<hbox class="folder-row">
@@ -100,11 +92,11 @@
 				<hbox flex="1" style="padding-left: 20px; padding-right: 10px;">
 					<vbox>
 						<hbox class="folder-row">
-								<hbox flex="0" style="padding-right: 9px">
+							<hbox flex="0" style="padding-right: 9px">
 								<html:input type="checkbox" id="add_folder_inbox" onclick="eu.philoux.localfolder.toggleSpecialFolder('inbox')"  SpecialFolder="Inbox"/>
 							</hbox>
 							<hbox width="20px" height="20px" flex="0" maxheight="20px">
-							<image class="tabmail-tab" type="folder" SpecialFolder="Inbox"  style="padding-left: -1px"  />
+								<image class="tabmail-tab" type="folder" SpecialFolder="Inbox"  style="padding-left: -1px"  />
 							</hbox>
 							<label id="add_folderlabel_inbox" accesskey="I"  control="add_folder_inbox" value="Inbox" />
 						</hbox>
@@ -113,7 +105,7 @@
 								<html:input type="checkbox" id="add_folder_drafts"  onclick="eu.philoux.localfolder.toggleSpecialFolder('drafts')" SpecialFolder="Drafts"  height="20px"/>
 							</hbox>
 							<hbox width="20px" height="20px" flex="0" maxheight="20px">
-							<image class="tabmail-tab" type="folder" SpecialFolder="Drafts"   style="padding-left: -1px"  />
+								<image class="tabmail-tab" type="folder" SpecialFolder="Drafts"   style="padding-left: -1px"  />
 							</hbox>
 							<label id="add_folderlabel_drafts" accesskey="D" value="Drafts" control="add_folder_drafts"  />
 						</hbox>
@@ -122,7 +114,7 @@
 								<html:input type="checkbox" id="add_folder_templates"  onclick="eu.philoux.localfolder.toggleSpecialFolder('templates')" SpecialFolder="Templates" flex="0" />
 							</hbox>
 							<hbox width="20px" height="20px" flex="0" maxheight="20px">
-							<image class="tabmail-tab" type="folder" SpecialFolder="Templates"  style="padding-left: -1px" />
+								<image class="tabmail-tab" type="folder" SpecialFolder="Templates"  style="padding-left: -1px" />
 							</hbox>
 							<label id="add_folderlabel_templates" value="Templates" accesskey="T" control="add_folder_templates" />
 						</hbox>
@@ -131,7 +123,7 @@
 								<html:input type="checkbox" id="add_folder_sent"  onclick="eu.philoux.localfolder.toggleSpecialFolder('sent')" SpecialFolder="Sent"/>
 							</hbox>
 							<hbox width="20px" height="20px" flex="0" maxheight="20px">
-							<image class="tabmail-tab" type="folder" SpecialFolder="Sent"  style="padding-left: -1px"  />
+								<image class="tabmail-tab" type="folder" SpecialFolder="Sent"  style="padding-left: -1px"  />
 							</hbox>
 							<label id="add_folderlabel_sent" accesskey="S" value="Sent" control="add_folder_sent" />
 						</hbox>
@@ -178,10 +170,8 @@
 					</vbox>
 				</hbox>
 			</hbox>
-			
 		</html:fieldset>
 		<vbox height="8px"></vbox>
-
 		<hbox align="right">
 			<spacer flex="1"/>
 			<button id="localfolder.btQuitter" label="&eu.philoux.localfolder.btQuitter;" oncommand="window.close();"/>
