@@ -2,11 +2,11 @@
 
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/messenger.css"?>
 
-<!-- <?xml-stylesheet type="text/css" href="chrome://global/skin/in-content/common.css"?> -->
+<?xml-stylesheet type="text/css" href="chrome://global/skin/in-content/common.css"?>
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/icons.css"?>
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/colors.css"?>
 
-<!-- <?xml-stylesheet type="text/css" href="chrome://messenger/skin/themeableDialog.css"?> -->
+<?xml-stylesheet type="text/css" href="chrome://messenger/skin/themeableDialog.css"?>
 <?xml-stylesheet href="resource://localfolder/folderPane.css" type="text/css"?>
 <?xml-stylesheet href="resource://localfolder/localfolder.css" type="text/css"?>
 <!DOCTYPE window [ 
@@ -28,7 +28,7 @@
 	<vbox class="">
 		<hbox align="center" >
 			<label value="&eu.philoux.localfolder.libnom;" accesskey="&eu.philoux.localfolder.libnom.accesskey;" control="localfoldernom" />
-			<html:input type="text" wsm_persist="true" size="30" id="localfoldernom" style="height: 28px" />
+			<html:input type="text" wsm_persist="true" size="30" id="localfoldernom" style="height: 24px" />
 			<hbox flex="1"></hbox>
 			<hbox flex="0" class="localfolder-icon" style="padding-right: 10px">
 
@@ -62,15 +62,20 @@
 					</menulist>
 				</hbox>
 			</vbox>
-			
+			<spacer height="5px" />
 			<vbox align="start" style="padding-left: 8px">
 			<label value="&localPath1.label;" control="server.localPath"/>
-			<hbox align="top" height="34px" flex="0">
-				<html:input type="text" id="localfolderchemin" readonly="true"   tabindex="-1" style="margin-top: 0px; height: 26px;" size="60" class="c1"/>,
+			<spacer height="2px" />
+			<hbox height="32px">
+			<hbox align="bottom" height="28px" flex="1" style="background-color: whitesmoke" >
+				<html:input type="text" id="localfolderchemin" readonly="true"   tabindex="-1" style="padding-top: 2px; padding-bottom: 0px; margin-top: 0px; height: 24px; padding-right: 6px;" size="58" class="o"/>,
+				</hbox>
+				<hbox style="background-color: whitesmoke" >
 				<button label="&eu.philoux.localfolder.chemin.btlib;" 
 						id="localfoldercheminbtsel"
 						browsertitle="&eu.philoux.localfolder.chemin.browsertitle;"
-            			accesskey="&eu.philoux.localfolder.chemin.btlibcle;" oncommand="eu.philoux.localfolder.SelectChemin()" style="margin-bottom: 12px"  flex="0" max-height="26px"/>
+            			accesskey="&eu.philoux.localfolder.chemin.btlibcle;" oncommand="eu.philoux.localfolder.SelectChemin()" style="margin-top: -3px; padding-top: 0px; margin-bottom: 0px; height: 22px;"  flex="0" max-height="22px"/>
+			</hbox>
 			</hbox>
 			</vbox>
 			<vbox height="5px"></vbox>
@@ -96,7 +101,7 @@
 					<vbox>
 						<hbox class="folder-row">
 								<hbox flex="0" style="padding-right: 9px">
-								<checkbox id="add_folder_inbox" onclick="eu.philoux.localfolder.toggleSpecialFolder('inbox')"  SpecialFolder="Inbox"/>
+								<html:input type="checkbox" id="add_folder_inbox" onclick="eu.philoux.localfolder.toggleSpecialFolder('inbox')"  SpecialFolder="Inbox"/>
 							</hbox>
 							<hbox width="20px" height="20px" flex="0" maxheight="20px">
 							<image class="tabmail-tab" type="folder" SpecialFolder="Inbox"  style="padding-left: -1px"  />
