@@ -14,6 +14,14 @@ eu.philoux.localfolder.lastFolder = "";
 
 eu.philoux.localfolder.pendingFolders = [];
 
+eu.philoux.localfolder.getThunderbirdVersion = function () {
+    let parts = Services.appinfo.version.split(".");
+    return {
+        major: parseInt(parts[0]),
+        minor: parseInt(parts[1]),
+        revision: parts.length > 2 ? parseInt(parts[2]) : 0,
+    }
+}
 
 // We have to manage special folder flags and localized folder names
 // There appears to be some quirks with localized names showing up as English
@@ -124,6 +132,13 @@ eu.philoux.localfolder.getMail3Pane = function () {
  */
 eu.philoux.localfolder.initDlg = function () {
 
+    let tbmajversion = this.getThunderbirdVersion().major;
+    console.log(tbmajversion)
+    if (tbmajversion >= 102) {
+        document.getElementById("localfolder").setAttribute("iconstyle","new")
+    } else {
+        document.getElementById("localfolder").setAttribute("iconstyle","classic")
+    }
     win = eu.philoux.localfolder.getMail3Pane();
     
     var LFVersion = win.localfolders.extension.addonData.version;
