@@ -2,11 +2,31 @@
 @import url("chrome://messenger/skin/icons");
 @import url("chrome://messenger/skin/messengercompose.css");
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+:root {
+    --menulist-background-color: var(--in-content-button-background) 
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --menulist-background-color: #393942;
+        --menulist-hover-background-color: #444447;
+        --checkbox-unchecked-bgcolor: Field;
+    }
+}
+
+menulist {
+    background-color: var(--menulist-background-color)
+}
+
+menulist:hover {
+    background-color: var(--menulist-hover-background-color) !important
+}
+
 #localfolder {
     width: 550px;
     height: 220px;
     margin: 8px;
-    background-color: #f5f5f5;
 }
 
 .localfolder-zone {
@@ -26,51 +46,32 @@
 }
 
 .c1 {
-    /* min-width: 30px; */
     margin-right: 15px; 
-    /* background-color: greenyellow; */
 }
 
 .c2 {
     min-width: 30px;
     margin-right: 15px;
     height: 20px;
-    /* background-color: aliceblue; */
-}
-
-.c3 {
-    /* background-color: aqua; */
-}
-
-.c4 {
-    /* background-color: darkorange; */
 }
 
 .d1 {
-    /* border-style: solid; */
-    /* border-right:  0.5px !important; */
-    /* border-color: black !important; */
     background-color: #858B97;
     width: 1px;
     height: 100%;
-    /* margin-left: 15px; */
-    /* margin-right: 15px; */
 }
 
 .ext-chrome {
-    /* background-color: antiquewhite; */
     width: 80px;
     height: 100%;
 }
 
 .localfolder-icon {
-    /* background-color: darkorange; */
     padding-top: 8px;
     padding-left: 6px;
 }
 
 .ext-info-icon {
-    /* background-color: darkorange; */
     padding-top: 8px;
     padding-bottom: 4px;
     padding-left: 6px;
@@ -92,13 +93,6 @@
 fieldset {
     margin: 8px;
     border: 2px solid black !important;
-  
-  /*  -moz-border-top-colors: #505050 #ECEFF2;
-    -moz-border-right-colors: #ECEFF2 #505050;
-    -moz-border-bottom-colors: #ECEFF2 #505050;
-    -moz-border-left-colors: #101010 #ECEFF2;
-    padding: 15px;
-    */
 }
 
 legend {
