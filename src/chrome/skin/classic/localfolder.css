@@ -2,25 +2,48 @@
 @import url("chrome://messenger/skin/icons");
 @import url("chrome://messenger/skin/messengercompose.css");
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+/* We have to override some root and dark media color vars without contrast */
 
 :root {
-    --menulist-background-color: var(--in-content-button-background) 
+    --dialog-bgcolor: Field;
+    --dialog-text-color: FieldText;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --menulist-background-color: #393942;
-        --menulist-hover-background-color: #444447;
-        --checkbox-unchecked-bgcolor: Field;
+        --dialog-bgcolor: rgb(35, 34, 43);
+        --dialog-text-color: #f7f7f7;
+        --checkbox-unchecked-bgcolor: rgb(50, 49, 57);
+        --toolbarbutton-hover-background: #393842;
+        --toolbarbutton-active-background: #505054;
+        --in-content-item-selected: rgb(69, 161, 255);
     }
 }
 
-menulist {
-    background-color: var(--menulist-background-color)
-}
+@media (-moz-toolbar-prefers-color-scheme: dark) {
+    :root {
+        --dialog-bgcolor: rgb(35, 34, 43);
+        --dialog-text-color: #f7f7f7;
+        --checkbox-unchecked-bgcolor: rgb(50, 49, 57);
+        --toolbarbutton-hover-background: #393842;
+        --toolbarbutton-active-background: #505054;
+        --popup-item-hover: rgb(69, 161, 255);
+        --box-text-color: white 
+    }
 
-menulist:hover {
-    background-color: var(--menulist-hover-background-color) !important
+    html|legend {
+        font-weight: 100 !important;
+        background-color: var(--dialog-bgcolor);
+        color: var(--dialog-text-color);
+    }
+
+    #localfolder {
+        background-color: var(--dialog-bgcolor);
+        color: var(--dialog-text-color);
+    }
+
 }
 
 #localfolder {
@@ -46,7 +69,7 @@ menulist:hover {
 }
 
 .c1 {
-    margin-right: 15px; 
+    margin-right: 15px;
 }
 
 .c2 {
@@ -95,11 +118,6 @@ fieldset {
     border: 2px solid black !important;
 }
 
-legend {
-    font-weight: 100 !important;
-    color: aqua !important;
-    background-color: #ffffff;
-}
 .groupbox-body {
     padding: inherit;
 }
