@@ -7,7 +7,8 @@
 
   --primary-fill: color-mix(in srgb, var(--primary) 20%, transparent);
   --primary-stroke: var(--primary);
-
+  
+  --folder-transparency: 30%;
   --folder-color-inbox: var(--color-blue-50);
   --folder-color-draft: var(--color-purple-40);
   --folder-color-sent: var(--color-green-70);
@@ -41,6 +42,24 @@
   }
 }
 
+@media (-moz-toolbar-prefers-color-scheme: dark) {
+
+  :root {
+    --folder-transparency: 80%;
+    --color-white-90: #f2f2f2;
+    --folder-color-inbox: var(--color-white-90);
+    --folder-color-draft: var(--color-white-90);
+    --folder-color-sent: var(--color-white-90);
+    --folder-color-archive: var(--color-white-90);
+    --folder-color-spam: var(--color-white-90);
+    --folder-color-trash: var(--color-white-90);
+    --folder-color-template: var(--color-white-90);
+    --folder-color-outbox: var(--color-white-90);
+    
+    
+  }
+}
+
 :root {
 	-moz-context-properties: fill, fill-opacity, stroke;
 }
@@ -55,7 +74,7 @@
 	--folder-pane-spam:  url("chrome://messenger/skin/icons/junk.svg");
 	--folder-pane-trash:  url("chrome://messenger/skin/icons/delete.svg");
 
-	-moz-context-properties: null;
+	-moz-context-propertiesX: null;
 }
 /* ::::: Tabmail ::::: */
 .tabmail-tab2,
@@ -126,7 +145,7 @@ treechildren::-moz-tree-cell-text(modeHeader) {
 .tabmail-tab[type="folder"][SpecialFolder="Inbox"],
 treechildren::-moz-tree-image(folderNameCol, specialFolder-Inbox) {
   list-style-image: var(--folder-pane-inbox);
-  fill: color-mix(in srgb, var(--folder-color-inbox) 20%, transparent);
+  fill: color-mix(in srgb, var(--folder-color-inbox) var(--folder-transparency), transparent);
   stroke: var(--folder-color-inbox);
 }
 
@@ -134,7 +153,7 @@ treechildren::-moz-tree-image(folderNameCol, specialFolder-Inbox) {
 .tabmail-tab[type="folder"][SpecialFolder="Sent"],
 treechildren::-moz-tree-image(folderNameCol, specialFolder-Sent) {
   list-style-image: var(--folder-pane-sent);
-  fill: color-mix(in srgb, var(--folder-color-sent) 20%, transparent);
+  fill: color-mix(in srgb, var(--folder-color-sent) var(--folder-transparency), transparent);
   stroke: var(--folder-color-sent);
 }
 
@@ -142,7 +161,7 @@ treechildren::-moz-tree-image(folderNameCol, specialFolder-Sent) {
 .tabmail-tab[type="folder"][SpecialFolder="Outbox"],
 treechildren::-moz-tree-image(folderNameCol, specialFolder-Outbox) {
   list-style-image: var(--folder-pane-outbox);
-  fill: color-mix(in srgb, var(--folder-color-outbox) 20%, transparent);
+  fill: color-mix(in srgb, var(--folder-color-outbox) var(--folder-transparency), transparent);
   stroke: var(--folder-color-outbox);
 }
 
@@ -150,7 +169,7 @@ treechildren::-moz-tree-image(folderNameCol, specialFolder-Outbox) {
 .tabmail-tab[type="folder"][SpecialFolder="Drafts"],
 treechildren::-moz-tree-image(folderNameCol, specialFolder-Drafts) {
   list-style-image: var(--folder-pane-draft);
-  fill: color-mix(in srgb, var(--folder-color-draft) 20%, transparent);
+  fill: color-mix(in srgb, var(--folder-color-draft) var(--folder-transparency), transparent);
   stroke: var(--folder-color-draft);
 }
 
@@ -158,7 +177,7 @@ treechildren::-moz-tree-image(folderNameCol, specialFolder-Drafts) {
 .tabmail-tab[type="folder"][SpecialFolder="Trash"],
 treechildren::-moz-tree-image(folderNameCol, specialFolder-Trash) {
   list-style-image: var(--folder-pane-trash);
-  fill: color-mix(in srgb, var(--folder-color-trash) 20%, transparent);
+  fill: color-mix(in srgb, var(--folder-color-trash) var(--folder-transparency), transparent);
   stroke: var(--folder-color-trash);
 }
 
@@ -166,7 +185,7 @@ treechildren::-moz-tree-image(folderNameCol, specialFolder-Trash) {
 .tabmail-tab[type="folder"][SpecialFolder="Archive"],
 treechildren::-moz-tree-image(folderNameCol, specialFolder-Archive) {
   list-style-image: var(--folder-pane-archive);
-  fill: color-mix(in srgb, var(--folder-color-archive) 20%, transparent);
+  fill: color-mix(in srgb, var(--folder-color-archive) var(--folder-transparency), transparent);
   stroke: var(--folder-color-archive);
 }
 
@@ -174,7 +193,7 @@ treechildren::-moz-tree-image(folderNameCol, specialFolder-Archive) {
 .tabmail-tab[type="folder"][SpecialFolder="Templates"],
 treechildren::-moz-tree-image(folderNameCol, specialFolder-Templates) {
   list-style-image: var(--folder-pane-template);
-  fill: color-mix(in srgb, var(--folder-color-template) 20%, transparent);
+  fill: color-mix(in srgb, var(--folder-color-template) var(--folder-transparency), transparent);
   stroke: var(--folder-color-template);
 }
 
@@ -182,7 +201,7 @@ treechildren::-moz-tree-image(folderNameCol, specialFolder-Templates) {
 .tabmail-tab[type="folder"][SpecialFolder="Junk"],
 treechildren::-moz-tree-image(folderNameCol, specialFolder-Junk) {
   list-style-image: var(--folder-pane-spam);
-  fill: color-mix(in srgb, var(--folder-color-spam) 20%, transparent);
+  fill: color-mix(in srgb, var(--folder-color-spam) var(--folder-transparency), transparent);
   stroke: var(--folder-color-spam);
 }
 

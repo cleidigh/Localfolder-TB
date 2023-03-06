@@ -32,7 +32,7 @@
 		</hbox>
 		<separator class="thin"/>
 		<html:fieldset style="border: 1.5px solid #d0d0d0">
-			<html:legend style="font-weight: 500; margin-top: 2px; background-color: #f7f7f7;">&eu.philoux.localfolder.directoryAndMessageStore;</html:legend>
+			<html:legend style="font-weight: 500; margin-top: 2px;">&eu.philoux.localfolder.directoryAndMessageStore;</html:legend>
 			<vbox align="start" style="padding-left: 8px">
 				<checkbox wsm_persist="true" id="server.emptyTrashOnExit"
 				label="&emptyTrashOnExit.label;"
@@ -43,7 +43,7 @@
 					<label value="&storeType.label;"
 			   accesskey="&storeType.accesskey;"
 			   control="server.storeTypeMenulist"/>
-					<menulist id="server.storeTypeMenulist">
+					<menulist id="server.storeTypeMenulist" style="background-colorX: #3a3a3a;">
 						<menupopup id="server.storeTypeMenupopup">
 							<menuitem id="server.mboxStore"
 					  value="@mozilla.org/msgstore/berkeleystore;1"
@@ -75,11 +75,11 @@
 		</html:fieldset>
 		<vbox height="5px"></vbox>
 		<html:fieldset style="border: 1.5px solid #d0d0d0">
-			<html:legend style="font-weight: 500; margin-top: 2px; background-color: #f7f7f7">&eu.philoux.localfolder.addMessageFolders;</html:legend>
+			<html:legend style="font-weight: 500; margin-top: 2px;">&eu.philoux.localfolder.addMessageFolders;</html:legend>
 			<vbox height="8px"></vbox>
 			<hbox flex="1" class="c1" >
 				<vbox class="c2" style="padding-left: 8px">
-					<hbox class="folder-row">
+					<hbox class="folder-row" align="center">
 						<hbox >
 							<checkbox id="add_all_folders" onclick="eu.philoux.localfolder.addAllSpecialFolders()"/>
 						</hbox>
