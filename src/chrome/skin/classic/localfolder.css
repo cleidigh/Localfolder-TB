@@ -7,7 +7,7 @@
 /* We have to override some root and dark media color vars without contrast */
 
 :root {
-    --dialog-bgcolor: Field;
+    --dialog-bgcolor: yellow;
     --dialog-text-color: FieldText;
 }
 
@@ -40,16 +40,18 @@
     }
 
     #localfolder {
-        background-color: var(--dialog-bgcolor);
+        /* background-color: var(--dialog-bgcolor); */
+        background-color: aquamarine !important;
         color: var(--dialog-text-color);
     }
 
 }
 
-#localfolder {
-    width: 550px;
+#localfolder-maindiv {
+    width: 650px;
     height: 220px;
     margin: 8px;
+    background-color: aquamarine;
 }
 
 .localfolder-zone {

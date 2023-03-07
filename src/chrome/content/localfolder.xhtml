@@ -14,13 +14,14 @@
 ]>
 <window id="localfolder" title="&eu.philoux.localfolder.titre;" 
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-	xmlns:html="http://www.w3.org/1999/xhtml" onload="eu.philoux.localfolder.initDlg();">
+	xmlns:html="http://www.w3.org/1999/xhtml" onload="eu.philoux.localfolder.initDlg();" style="width: 950px; height: 500px">
 	<script type="application/javascript" src="chrome://localfolder/content/localfolder.js" />
 	<script type="application/javascript" src="chrome://localfolder/content/trace.js"/>
 	<keyset id="keys">
 		<key keycode="VK_ESCAPE" oncommand="window.close();"/>
 	</keyset>
-	<vbox class="">
+	<html:div id="localfolder-maindiv">
+	<vbox class="" >
 		<hbox align="center" >
 			<label value="&eu.philoux.localfolder.libnom;" accesskey="&eu.philoux.localfolder.libnom.accesskey;" control="localfoldernom" />
 			<html:input type="text" wsm_persist="true" size="30" id="localfoldernom" style="height: 24px" />
@@ -178,4 +179,5 @@
 			<button id="localfolder.btValider" label="&eu.philoux.localfolder.btValider;" oncommand="eu.philoux.localfolder.btCreeDossierLocal();"/>
 		</hbox>
 	</vbox>
+	</html:div>
 </window>
