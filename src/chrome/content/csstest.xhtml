@@ -12,7 +12,7 @@
 <!ENTITY % accountServerTopDTD SYSTEM "chrome://messenger/locale/am-server-top.dtd">%accountServerTopDTD;
 <!ENTITY % messengerDTD SYSTEM "chrome://messenger/locale/messenger.dtd">%messengerDTD;
 ]>
-<window id="localfolder" title="&eu.philoux.localfolder.titre;" 
+<window id="localfolder" title="csstest.xhtml" 
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	xmlns:html="http://www.w3.org/1999/xhtml" onload="eu.philoux.localfolder.initDlg();" styleX="width: 950px; height: 500px">
 	<script type="application/javascript" src="chrome://localfolder/content/localfolder.js" />
@@ -20,8 +20,8 @@
 	<keyset id="keys">
 		<key keycode="VK_ESCAPE" oncommand="window.close();"/>
 	</keyset>
-	<html:div id="localfolder-maindiv" class="lfdiv" styleX="width: 650px; height: 220px">
-	<vbox class="" >
+	<html:div id="localfolder-maindiv2" class="lfdiv2" styleX="width: 650px; height: 460px">
+	<vbox class="lfdiv2" >
 		<hbox align="center" >
 			<label value="&eu.philoux.localfolder.libnom;" accesskey="&eu.philoux.localfolder.libnom.accesskey;" control="localfoldernom" />
 			<html:input type="text" wsm_persist="true" size="30" id="localfoldernom" style="height: 24px" />
