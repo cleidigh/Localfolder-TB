@@ -149,7 +149,7 @@ eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
 /**
  *	clic sur le bouton localfolder.btdossier -> appelle la bo�te d'ajout d'un nouveau dossier
  */
-eu.philoux.localfolder.NewLocalFolder = function () {
+eu.philoux.localfolder.NewLocalFolder = async function () {
 	// console.debug('NewLocalFolder');
 	
 	const versionChecker = Services.vc;
@@ -162,8 +162,11 @@ eu.philoux.localfolder.NewLocalFolder = function () {
 
 		w.lfver = eu.lfver;
 	// console.debug(w.lfver);
-	// console.debug(w.extension.version);
+	console.debug(w.lfver);
 
+	var rv = await w.localfolders.notifyTools.notifyBackground({ command: "notifyToolsEcho", options: {ping: "hello"} });
+
+	console.log(rv)
 	if (versionChecker.compare(currentVersion, "78") >= 0) {
 		w.openDialog("chrome://localfolder/content/localfolder.xhtml", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
 	} else {

@@ -178,9 +178,24 @@ function LFInitialization(tab) {
 	Services.scriptloader.loadSubScript("chrome://localfolder/content/trace.js", tab.browser.contentWindow.wrappedJSObject, "UTF-8");
 }
 
-function onLoad() {
+async function onLoad() {
 	window.localfolders = {};
 	window.localfolders.extension = WL.extension;
+
+	// Setup notifyTools in our namespace
+
+var ADDON_ID = "localfolder@philoux.eu";
+
+var { ExtensionParent } = ChromeUtils.import("resource://gre/modules/ExtensionParent.jsm");
+
+// Get our extension object.
+let extObj = ExtensionParent.GlobalManager.getExtension(ADDON_ID);
+
+// Load notifyTools into our custom namespace, to prevent clashes with other add-ons.
+Services.scriptloader.loadSubScript(extObj.rootURI.resolve("chrome/content/notifyTools.js"), window.localfolders, "UTF-8");
+console.log("onload")
+
+
 	tabMonitor.registerTabMonitor();
 }
 

@@ -49,25 +49,26 @@
 
 
 #localfolder {
-    width: 530px;
+    width: 560px;
     height: 400px;
-    margin: 8px;
+    margin: 8px !important;
     background-color: var(--dialog-bgcolor) !important;
 }
 
 #localfolder-maindiv {
     width: 950px;
     height: 450px;
-    margin: 8px;
-    background-color: aquamarine !important;
+    margin: 0px;
+    /* background-color: aquamarine !important; */
 }
 
 
 .lfdiv {
-    width: 650px;
-    height: 720px;
-    margin: 8px;
-    background-color: yellow;
+    width: 500px;
+    height: 420px;
+    margin: 0px;
+    padding-right: 20px;
+    /* background-color:azure; */
 }
 
 .localfolder-zone {
@@ -134,6 +135,7 @@
 fieldset {
     margin: 8px;
     border: 2px solid black !important;
+    padding-right: 6px I !important;
 }
 
 .groupbox-body {

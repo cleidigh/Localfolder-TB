@@ -27,3 +27,16 @@ messenger.WindowListener.registerWindow(
 
 messenger.WindowListener.startListening();
 
+// notifyTools Listener
+
+
+
+messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
+	let rv;
+  console.log("xxx")
+	switch (info.command) {
+		case "notifyToolsEcho":
+			console.log("Ping: ", info.options);
+			return rv;
+	}
+});

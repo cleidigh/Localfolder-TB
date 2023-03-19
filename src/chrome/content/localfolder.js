@@ -140,7 +140,7 @@ eu.philoux.localfolder.initDlg = function () {
         document.getElementById("localfolder").setAttribute("iconstyle","classic")
     }
     win = eu.philoux.localfolder.getMail3Pane();
-    
+
     var LFVersion = win.localfolders.extension.addonData.version;
     
     let title = document.getElementById("localfolder").getAttribute("title");

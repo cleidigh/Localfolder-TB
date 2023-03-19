@@ -2,7 +2,7 @@
 <!-- <?xml-stylesheet type="text/css" href="chrome://messenger/skin/messenger.css"?> -->
 <!-- <?xml-stylesheet type="text/css" href="chrome://global/skin/in-content/common.css"?> -->
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/icons.css"?>
-<!-- <?xml-stylesheet type="text/css" href="chrome://messenger/skin/colors.css"?> -->
+<?xml-stylesheet type="text/css" href="chrome://messenger/skin/colors.css"?>
 <!-- <?xml-stylesheet type="text/css" href="chrome://messenger/skin/themeableDialog.css"?> -->
 <?xml-stylesheet href="resource://localfolder/folderPane.css" type="text/css"?>
 <?xml-stylesheet href="resource://localfolder/localfolder.css" type="text/css"?>
@@ -20,8 +20,8 @@
 	<keyset id="keys">
 		<key keycode="VK_ESCAPE" oncommand="window.close();"/>
 	</keyset>
-	<html:div id="localfolder-maindiv" class="lfdiv" styleX="width: 650px; height: 220px">
-	<vbox class="" >
+	<!-- <html:div id="localfolder-maindiv" class="lfdiv" styleX="width: 650px; height: 220px"> -->
+	<vbox class="lfdiv" >
 		<hbox align="center" >
 			<label value="&eu.philoux.localfolder.libnom;" accesskey="&eu.philoux.localfolder.libnom.accesskey;" control="localfoldernom" />
 			<html:input type="text" wsm_persist="true" size="30" id="localfoldernom" style="height: 24px" />
@@ -32,7 +32,7 @@
 			</hbox>
 		</hbox>
 		<separator class="thin"/>
-		<html:fieldset style="border: 1.5px solid #d0d0d0">
+		<html:fieldset style="border: 1.5px solid #d0d0d0; padding-right: 8px;">
 			<html:legend style="font-weight: 500; margin-top: 2px;">&eu.philoux.localfolder.directoryAndMessageStore;</html:legend>
 			<vbox align="start" style="padding-left: 8px">
 				<checkbox wsm_persist="true" id="server.emptyTrashOnExit"
@@ -62,7 +62,7 @@
 				<spacer height="2px" />
 				<hbox height="32px">
 					<hbox align="bottom" height="28px" flex="1" >
-						<html:input type="text" id="localfolderchemin" readonly="true"   tabindex="-1" style="padding-top: 2px; padding-bottom: 0px; margin-top: 0px; height: 24px; padding-right: 6px;" size="58" class="o"/>,
+						<html:input type="text" id="localfolderchemin" readonly="true"   tabindex="-1" style="padding-top: 2px; padding-bottom: 0px; margin-top: 0px; height: 24px; padding-right: 6px;" size="63" class="o"/>,
 					</hbox>
 					<hbox>
 						<button label="&eu.philoux.localfolder.chemin.btlib;" 
@@ -179,5 +179,5 @@
 			<button id="localfolder.btValider" label="&eu.philoux.localfolder.btValider;" oncommand="eu.philoux.localfolder.btCreeDossierLocal();"/>
 		</hbox>
 	</vbox>
-	</html:div>
+	<!-- </html:div> -->
 </window>
