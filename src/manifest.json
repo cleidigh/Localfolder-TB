@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "__MSG_extensionName__",
 	"description": "__MSG_extensionDescription__",
-	"version": "4.0.0b1",
+	"version": "4.0.0b2",
 	"author": "l'Abbé Christian-Philippe Chanut (philoux), Christopher Leidigh",
 	"applications": {
 		"gecko": {
@@ -14,7 +14,9 @@
 	"browser_action": {
 		"default_area": "maintoolbar",
 		"default_title":"LocalFolders",
-		"default_icon": "chrome/skin/classic/LocalFolders-32px.png"
+		"default_icon": "chrome/skin/classic/LocalFolders-32px.png",
+		"default_popup": "chrome/content/test.html"
+		
 	  },
 	"experiment_apis": {
 		"WindowListener": {
