@@ -49,9 +49,10 @@
 
 
 #localfolder {
-    width: 560px;
-    height: 400px;
-    margin: 8px !important;
+    width2: 560px;
+    height: 370px;
+    margin: 12px !important;
+    padding-right: 20px !important;
     background-color: var(--dialog-bgcolor) !important;
 }
 
@@ -64,9 +65,9 @@
 
 
 .lfdiv {
-    width: 500px;
+    width2: 500px;
     height: 420px;
-    margin: 0px;
+    margin-right: 10px;
     padding-right: 20px;
     /* background-color:azure; */
 }
@@ -133,9 +134,9 @@
 /* ::::: groupbox ::::: */
 
 fieldset {
-    margin: 8px;
+    margin2: 20px;
     border: 2px solid black !important;
-    padding-right: 6px I !important;
+    padding-right2: 6px I !important;
 }
 
 .groupbox-body {
