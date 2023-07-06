@@ -50,9 +50,9 @@
 
 #localfolder {
     width2: 560px;
-    height: 370px;
-    margin: 12px !important;
-    padding-right: 20px !important;
+    height2: 370px;
+    margin3: 14px !important;
+    padding-right2: 20px !important;
     background-color: var(--dialog-bgcolor) !important;
 }
 
@@ -66,9 +66,9 @@
 
 .lfdiv {
     width2: 500px;
-    height: 420px;
-    margin-right: 10px;
-    padding-right: 20px;
+    height2: 420px;
+    margin: 14px;
+    padding-right2: 20px;
     /* background-color:azure; */
 }
 

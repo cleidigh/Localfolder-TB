@@ -21,7 +21,7 @@
 		<key keycode="VK_ESCAPE" oncommand="window.close();"/>
 	</keyset>
 	<!-- <html:div id="localfolder-maindiv" class="lfdiv" styleX="width: 650px; height: 220px"> -->
-	<vbox class="lfdiv" >
+	<vbox class="lfdiv" style= " background-color: yellow">
 		<hbox align="center" >
 			<label value="&eu.philoux.localfolder.libnom;" accesskey="&eu.philoux.localfolder.libnom.accesskey;" control="localfoldernom" />
 			<html:input type="text" wsm_persist="true" size="30" id="localfoldernom" style="height: 16px" />
@@ -32,7 +32,7 @@
 			</hbox>
 		</hbox>
 		<separator class="thin"/>
-		<html:fieldset style="border: 1.5px solid #d0d0d0; padding-right: 8px;">
+		<html:fieldset style="border: 1.5px solid #d0d0d0; padding-right: 8px; background-color: light-blue">
 			<html:legend style="font-weight: 500; margin-top: 2px;">&eu.philoux.localfolder.directoryAndMessageStore;</html:legend>
 			<vbox align="start" style="padding-left: 8px">
 				<checkbox wsm_persist="true" id="server.emptyTrashOnExit"
@@ -173,7 +173,9 @@
 				</hbox>
 			</hbox>
 		</html:fieldset>
-		<vbox height="8px"></vbox>
+		<!-- <vbox height="24px"></vbox> -->
+				<html:div style="height: 15px"></html:div>
+
 		<hbox align="right">
 			<spacer flex="1"/>
 			<button id="localfolder.btQuitter" label="&eu.philoux.localfolder.btQuitter;" oncommand="window.close();"/>
