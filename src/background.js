@@ -33,10 +33,8 @@ messenger.WindowListener.startListening();
 
 messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 	let rv;
-  console.log("xxx")
 	switch (info.command) {
 		case "notifyToolsEcho":
-			console.log("Ping: ", info.options);
 			return rv;
 	}
 });

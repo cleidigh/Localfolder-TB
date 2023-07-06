@@ -133,7 +133,6 @@ eu.philoux.localfolder.getMail3Pane = function () {
 eu.philoux.localfolder.initDlg = function () {
 
     let tbmajversion = this.getThunderbirdVersion().major;
-    console.log(tbmajversion)
     if (tbmajversion >= 102) {
         document.getElementById("localfolder").setAttribute("iconstyle","new")
     } else {
