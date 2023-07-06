@@ -85,7 +85,7 @@ class TabMonitor {
 		if (tabMonitorOptions && tabMonitorOptions.onActivated) {
 			tabMonitorOptions.onActivated(tab);
 		}
-	}	
+	}
 
 	onDeactivated(tab) {
 		if (!tab.browser) {
@@ -96,8 +96,8 @@ class TabMonitor {
 		if (tabMonitorOptions && tabMonitorOptions.onDeactivated) {
 			tabMonitorOptions.onDeactivated(tab);
 		}
-	}	
-	
+	}
+
 	registerTabMonitor() {
 		if (this.messengerTabmail && !this.active) {
 			this.messengerTabmail.registerTabMonitor(this);
@@ -184,21 +184,21 @@ async function onLoad() {
 
 	// Setup notifyTools in our namespace
 
-var ADDON_ID = "localfolder@philoux.eu";
+	var ADDON_ID = "localfolder@philoux.eu";
 
-var { ExtensionParent } = ChromeUtils.import("resource://gre/modules/ExtensionParent.jsm");
+	var { ExtensionParent } = ChromeUtils.import("resource://gre/modules/ExtensionParent.jsm");
 
-// Get our extension object.
-let extObj = ExtensionParent.GlobalManager.getExtension(ADDON_ID);
+	// Get our extension object.
+	let extObj = ExtensionParent.GlobalManager.getExtension(ADDON_ID);
 
-// Load notifyTools into our custom namespace, to prevent clashes with other add-ons.
-Services.scriptloader.loadSubScript(extObj.rootURI.resolve("chrome/content/notifyTools.js"), window.localfolders, "UTF-8");
-console.log("onload")
-
+	// Load notifyTools into our custom namespace, to prevent clashes with other add-ons.
+	Services.scriptloader.loadSubScript(extObj.rootURI.resolve("chrome/content/notifyTools.js"), window.localfolders, "UTF-8");
 
 	tabMonitor.registerTabMonitor();
 
-	
+
+	// No button for now
+	/*
 	let ctxMenu =
 		`<menupopup>
 			<menuitem id="ptng-button-print3" label="New Local Folder" />
@@ -322,8 +322,8 @@ function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttC
 		}
 	};
 }
+*/
 
-
-function onUnload() {
-	tabMonitor.unregisterTabMonitor();
-}
+	function onUnload() {
+		tabMonitor.unregisterTabMonitor();
+	}
