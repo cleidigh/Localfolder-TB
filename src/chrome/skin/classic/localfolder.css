@@ -40,8 +40,7 @@
     }
 
     #localfolder {
-        /* background-color: var(--dialog-bgcolor); */
-        background-color: aquamarine !important;
+        background-color: var(--dialog-bgcolor);
         color: var(--dialog-text-color);
     }
 
@@ -49,27 +48,11 @@
 
 
 #localfolder {
-    width2: 560px;
-    height2: 370px;
-    margin3: 14px !important;
-    padding-right2: 20px !important;
     background-color: var(--dialog-bgcolor) !important;
 }
 
-#localfolder-maindiv {
-    width: 950px;
-    height: 450px;
-    margin: 0px;
-    /* background-color: aquamarine !important; */
-}
-
-
 .lfdiv {
-    width2: 500px;
-    height2: 420px;
     margin: 14px;
-    padding-right2: 20px;
-    /* background-color:azure; */
 }
 
 .localfolder-zone {
