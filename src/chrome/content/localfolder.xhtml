@@ -1,9 +1,6 @@
 <?xml version="1.0"?>
-<!-- <?xml-stylesheet type="text/css" href="chrome://messenger/skin/messenger.css"?> -->
-<!-- <?xml-stylesheet type="text/css" href="chrome://global/skin/in-content/common.css"?> -->
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/icons.css"?>
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/colors.css"?>
-<!-- <?xml-stylesheet type="text/css" href="chrome://messenger/skin/themeableDialog.css"?> -->
 <?xml-stylesheet href="resource://localfolder/folderPane.css" type="text/css"?>
 <?xml-stylesheet href="resource://localfolder/localfolder.css" type="text/css"?>
 <!DOCTYPE window [
@@ -20,21 +17,20 @@
 	<keyset id="keys">
 		<key keycode="VK_ESCAPE" oncommand="window.close();"/>
 	</keyset>
-	<!-- <html:div id="localfolder-maindiv" class="lfdiv" styleX="width: 650px; height: 220px"> -->
-	<vbox class="lfdiv" style= " background-color2: yellow">
+	<vbox class="lfdiv">
 		<hbox align="center" >
 			<label value="&eu.philoux.localfolder.libnom;" accesskey="&eu.philoux.localfolder.libnom.accesskey;" control="localfoldernom" />
 			<hbox height="22px">
-			<html:input type="text" wsm_persist="true" size="30" id="localfoldernom" style="height: 18px" />
+				<html:input type="text" wsm_persist="true" size="30" id="localfoldernom" style="height: 18px" />
 			</hbox>
 			<hbox flex="1"></hbox>
-			<hbox flex="0" class="localfolder-icon" pack="end" style="padding-right: 4px; height: 48px; width: 48px; background-color2: yellow ">
-				<image id="localfolder-icon-image" src="resource://localfolder/LocalFolders-64px.png" width2="40px" height2="40px" tooltiptext="LocalFolders Add-on Homepage" 
-			  maxwidth="40px" maxheight2="20px" onclick="eu.philoux.localfolder.urlLoad('https://github.com/cleidigh/LocalFolder-TB')"/>
+			<hbox flex="0" class="localfolder-icon" pack="end" style="padding-right: 4px; height: 48px; width: 48px;">
+				<image id="localfolder-icon-image" src="resource://localfolder/LocalFolders-64px.png" tooltiptext="LocalFolders Add-on Homepage" 
+			  maxwidth="40px" onclick="eu.philoux.localfolder.urlLoad('https://github.com/cleidigh/LocalFolder-TB')"/>
 			</hbox>
 		</hbox>
 		<separator class="thin"/>
-		<html:fieldset style="border: 1.5px solid #d0d0d0; padding-right: 8px; background-color: light-blue">
+		<html:fieldset style="border: 1.5px solid #d0d0d0; padding-right: 8px;">
 			<html:legend style="font-weight: 500; margin-top: 2px;">&eu.philoux.localfolder.directoryAndMessageStore;</html:legend>
 			<vbox align="start" style="padding-left: 8px">
 				<checkbox wsm_persist="true" id="server.emptyTrashOnExit"
@@ -62,7 +58,6 @@
 			<vbox align="start" style="padding-left: 8px">
 				<label value="&localPath1.label;" control="server.localPath"/>
 				<html:div style="height: 2px"></html:div>
-
 				<hbox height="32px">
 					<hbox align="bottom" height="18px" flex="1" >
 						<html:input type="text" id="localfolderchemin" readonly="true"   tabindex="-1" style="padding-top: 0px; padding-bottom: 0px; margin-top: 0px; height: 18px; padding-right: 6px;" size="61" class="o"/>,
@@ -175,14 +170,10 @@
 				</hbox>
 			</hbox>
 		</html:fieldset>
-		<!-- <vbox height="24px"></vbox> -->
-				<html:div style="height: 15px"></html:div>
-
+		<html:div style="height: 15px"></html:div>
 		<hbox align="right">
-			<spacer flex="1"/>
 			<button id="localfolder.btQuitter" label="&eu.philoux.localfolder.btQuitter;" oncommand="window.close();"/>
 			<button id="localfolder.btValider" label="&eu.philoux.localfolder.btValider;" oncommand="eu.philoux.localfolder.btCreeDossierLocal();"/>
 		</hbox>
 	</vbox>
-	<!-- </html:div> -->
 </window>
