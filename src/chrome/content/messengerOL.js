@@ -321,8 +321,9 @@ function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttC
 			mainButtFunc();
 		}
 	};
-}
 */
+}
+
 
 	function onUnload() {
 		tabMonitor.unregisterTabMonitor();
