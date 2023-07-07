@@ -2,6 +2,10 @@
 
 ## Versions
 
+4.0.0 Update for TB115, Supernova : 7-07-2023
+- TB115 support 
+- Options UI tweaks
+
 v2.0.1 : Maintenance tweaks 8-06-2019
 - Fixed non- Windows layout/checkboxes
 - Add tooltiptext for extension homepage
