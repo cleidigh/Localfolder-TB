@@ -20,8 +20,8 @@
 	<vbox class="lfdiv">
 		<hbox align="center" >
 			<label value="&eu.philoux.localfolder.libnom;" accesskey="&eu.philoux.localfolder.libnom.accesskey;" control="localfoldernom" />
-			<hbox height="22px">
-				<html:input type="text" wsm_persist="true" size="30" id="localfoldernom" style="height: 18px" />
+			<hbox height="12px" flex="0">
+				<html:input type="text" wsm_persist="true" size="30" id="localfoldernom" style="height: 12px" />
 			</hbox>
 			<hbox flex="1"></hbox>
 			<hbox flex="0" class="localfolder-icon" pack="end" style="padding-right: 4px; height: 48px; width: 48px;">
@@ -55,18 +55,18 @@
 				</hbox>
 			</vbox>
 			<html:div style="height: 5px"></html:div>
-			<vbox align="start" style="padding-left: 8px">
-				<label value="&localPath1.label;" control="server.localPath"/>
-				<html:div style="height: 2px"></html:div>
-				<hbox height="32px">
-					<hbox align="bottom" height="18px" flex="1" >
-						<html:input type="text" id="localfolderchemin" readonly="true"   tabindex="-1" style="padding-top: 0px; padding-bottom: 0px; margin-top: 0px; height: 18px; padding-right: 6px;" size="61" class="o"/>,
+			<vbox align="start" style="padding-left: 8px" >
+				<label value="&localPath1.label;" control="server.localPath" height="18px" style="padding-bottom: 6px;"/>
+				<!-- <html:div style="height: 2px"></html:div> -->
+				<hbox height="32px" style="background-color2: yellow;" flex="0">
+					<hbox align="bottom" height="12px" flex="0" style="background-color2: green;">
+						<html:input type="text" id="localfolderchemin" readonly="true"   tabindex="-1" style="padding-top: -3px; padding-left: 10px; margin-left: 10px; height: 12px; padding-right: 8px;" size="61" class="o"/>,
 					</hbox>
 					<hbox>
 						<button label="&eu.philoux.localfolder.chemin.btlib;" 
 						id="localfoldercheminbtsel"
 						browsertitle="&eu.philoux.localfolder.chemin.browsertitle;"
-            			accesskey="&eu.philoux.localfolder.chemin.btlibcle;" oncommand="eu.philoux.localfolder.SelectChemin()" style="margin-top: -3px; padding-top: 0px; margin-bottom: 0px; height: 22px; max-height: 30px;"  flex="0" max-height="22px"/>
+            			accesskey="&eu.philoux.localfolder.chemin.btlibcle;" oncommand="eu.philoux.localfolder.SelectChemin()" style="margin-top: 0px; padding-top: 0px; margin-bottom: 0px; height: 22px; max-height: 30px;"  flex="0" max-height="22px"/>
 					</hbox>
 				</hbox>
 			</vbox>
