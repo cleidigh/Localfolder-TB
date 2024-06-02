@@ -8,7 +8,7 @@ if (!eu) var eu = {};
 if (!eu.philoux) eu.philoux = {};
 if (!eu.philoux.localfolder) eu.philoux.localfolder = {};
 
-var Services = globalThis.Services || 
+var Services = globalThis.Services ||
     ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
 
 
@@ -136,14 +136,14 @@ eu.philoux.localfolder.initDlg = function () {
 
     let tbmajversion = this.getThunderbirdVersion().major;
     if (tbmajversion >= 102) {
-        document.getElementById("localfolder").setAttribute("iconstyle","new")
+        document.getElementById("localfolder").setAttribute("iconstyle", "new")
     } else {
-        document.getElementById("localfolder").setAttribute("iconstyle","classic")
+        document.getElementById("localfolder").setAttribute("iconstyle", "classic")
     }
     win = eu.philoux.localfolder.getMail3Pane();
 
     var LFVersion = win.localfolders.extension.addonData.version;
-    
+
     let title = document.getElementById("localfolder").getAttribute("title");
 
     document.getElementById("localfolder").setAttribute("title", `${title} - v${LFVersion}`);
@@ -258,11 +258,16 @@ eu.philoux.localfolder.btCreeDossierLocal = function () {
 eu.philoux.localfolder.SelectChemin = function () {
     try {
 
+        let winCtx = window;
+        const tbVersion = this.getThunderbirdVersion();
+        if (tbVersion.major >= 120) {
+            winCtx = window.browsingContext;
+        }
         var nsIFilePicker = Ci.nsIFilePicker;
         var fp = Cc["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
         var courant = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
         var selection = document.getElementById("localfolderchemin");
-        fp.init(window, document.getElementById("localfoldercheminbtsel").getAttribute("localfolderchemin.browsertitle"), nsIFilePicker.modeGetFolder);
+        fp.init(winCtx, document.getElementById("localfoldercheminbtsel").getAttribute("localfolderchemin.browsertitle"), nsIFilePicker.modeGetFolder);
         fp.displayDirectory = courant;
 
         // cleidigh - replace deprecated show with asynchronous open for TB 60.*
