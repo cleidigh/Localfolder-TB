@@ -1,9 +1,6 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/css" href="chrome://messenger/skin/messenger.css"?>
-<?xml-stylesheet type="text/css" href="chrome://global/skin/in-content/common.css"?>
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/icons.css"?>
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/colors.css"?>
-<?xml-stylesheet type="text/css" href="chrome://messenger/skin/themeableDialog.css"?>
 <?xml-stylesheet href="resource://localfolder/folderPane.css" type="text/css"?>
 <?xml-stylesheet href="resource://localfolder/localfolder.css" type="text/css"?>
 <!DOCTYPE window [
@@ -14,24 +11,26 @@
 ]>
 <window id="localfolder" title="&eu.philoux.localfolder.titre;" 
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-	xmlns:html="http://www.w3.org/1999/xhtml" onload="eu.philoux.localfolder.initDlg();">
+	xmlns:html="http://www.w3.org/1999/xhtml" onload="eu.philoux.localfolder.initDlg();" styleX="width: 950px; height: 500px">
 	<script type="application/javascript" src="chrome://localfolder/content/localfolder.js" />
 	<script type="application/javascript" src="chrome://localfolder/content/trace.js"/>
 	<keyset id="keys">
 		<key keycode="VK_ESCAPE" oncommand="window.close();"/>
 	</keyset>
-	<vbox class="">
+	<vbox class="lfdiv">
 		<hbox align="center" >
 			<label value="&eu.philoux.localfolder.libnom;" accesskey="&eu.philoux.localfolder.libnom.accesskey;" control="localfoldernom" />
-			<html:input type="text" wsm_persist="true" size="30" id="localfoldernom" style="height: 24px" />
+			<hbox height="22px">
+				<html:input type="text" wsm_persist="true" size="30" id="localfoldernom" style="height: 18px" />
+			</hbox>
 			<hbox flex="1"></hbox>
-			<hbox flex="0" class="localfolder-icon" style="padding-right: 10px">
-				<image id="localfolder-icon-image" src="resource://localfolder/LocalFolders-64px.png" width="40px" height="40px" tooltiptext="LocalFolders Add-on Homepage" 
-			  maxwidth="40px" maxheight="40px" onclick="eu.philoux.localfolder.urlLoad('https://github.com/cleidigh/LocalFolder-TB')"/>
+			<hbox flex="0" class="localfolder-icon" pack="end" style="padding-right: 4px; height: 48px; width: 48px;">
+				<image id="localfolder-icon-image" src="resource://localfolder/LocalFolders-64px.png" tooltiptext="LocalFolders Add-on Homepage" 
+			  maxwidth="40px" onclick="eu.philoux.localfolder.urlLoad('https://github.com/cleidigh/LocalFolder-TB')"/>
 			</hbox>
 		</hbox>
 		<separator class="thin"/>
-		<html:fieldset style="border: 1.5px solid #d0d0d0">
+		<html:fieldset style="border: 1.5px solid #d0d0d0; padding-right: 8px;">
 			<html:legend style="font-weight: 500; margin-top: 2px;">&eu.philoux.localfolder.directoryAndMessageStore;</html:legend>
 			<vbox align="start" style="padding-left: 8px">
 				<checkbox wsm_persist="true" id="server.emptyTrashOnExit"
@@ -55,13 +54,13 @@
 					</menulist>
 				</hbox>
 			</vbox>
-			<spacer height="5px" />
+			<html:div style="height: 5px"></html:div>
 			<vbox align="start" style="padding-left: 8px">
 				<label value="&localPath1.label;" control="server.localPath"/>
-				<spacer height="2px" />
+				<html:div style="height: 2px"></html:div>
 				<hbox height="32px">
-					<hbox align="bottom" height="28px" flex="1" >
-						<html:input type="text" id="localfolderchemin" readonly="true"   tabindex="-1" style="padding-top: 2px; padding-bottom: 0px; margin-top: 0px; height: 24px; padding-right: 6px;" size="58" class="o"/>,
+					<hbox align="bottom" height="18px" flex="1" >
+						<html:input type="text" id="localfolderchemin" readonly="true"   tabindex="-1" style="padding-top: 0px; padding-bottom: 0px; margin-top: 0px; height: 18px; padding-right: 6px;" size="61" class="o"/>,
 					</hbox>
 					<hbox>
 						<button label="&eu.philoux.localfolder.chemin.btlib;" 
@@ -74,7 +73,7 @@
 			<vbox height="5px"></vbox>
 		</html:fieldset>
 		<vbox height="5px"></vbox>
-		<html:fieldset style="border: 1.5px solid #d0d0d0">
+		<html:fieldset style="border: 1.5px solid #d0d0d0; padding-right: 8px">
 			<html:legend style="font-weight: 500; margin-top: 2px;">&eu.philoux.localfolder.addMessageFolders;</html:legend>
 			<vbox height="8px"></vbox>
 			<hbox flex="1" class="c1" >
@@ -171,9 +170,8 @@
 				</hbox>
 			</hbox>
 		</html:fieldset>
-		<vbox height="8px"></vbox>
-		<hbox align="right">
-			<spacer flex="1"/>
+		<html:div style="height: 15px"></html:div>
+		<hbox align="right" pack="end">
 			<button id="localfolder.btQuitter" label="&eu.philoux.localfolder.btQuitter;" oncommand="window.close();"/>
 			<button id="localfolder.btValider" label="&eu.philoux.localfolder.btValider;" oncommand="eu.philoux.localfolder.btCreeDossierLocal();"/>
 		</hbox>

@@ -7,7 +7,7 @@
 /* We have to override some root and dark media color vars without contrast */
 
 :root {
-    --dialog-bgcolor: Field;
+    --dialog-bgcolor: rgb(240,240,240);
     --dialog-text-color: FieldText;
 }
 
@@ -46,10 +46,13 @@
 
 }
 
+
 #localfolder {
-    width: 550px;
-    height: 220px;
-    margin: 8px;
+    background-color: var(--dialog-bgcolor) !important;
+}
+
+.lfdiv {
+    margin: 14px;
 }
 
 .localfolder-zone {
@@ -114,8 +117,9 @@
 /* ::::: groupbox ::::: */
 
 fieldset {
-    margin: 8px;
+    margin2: 20px;
     border: 2px solid black !important;
+    padding-right2: 6px I !important;
 }
 
 .groupbox-body {

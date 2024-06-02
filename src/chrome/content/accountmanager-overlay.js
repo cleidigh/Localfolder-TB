@@ -26,13 +26,13 @@ eu.philoux.localfolder.OnInitLocalFolder = function () {
 
 
 eu.philoux.localfolder.getSelectedAccount = function (page, account) {
-    // Bug 1724842 changed the list implementation.
+	// Bug 1724842 changed the list implementation.
 	// Simply use currentAccount.
 	return currentAccount;
 }
 
 eu.philoux.localfolder.onAccountSelect = function (page, account) {
-    // Bug 1724842 changed the list implementation.
+	// Bug 1724842 changed the list implementation.
 	// Simply use currentAccount.
 	return currentAccount;
 }
@@ -92,10 +92,10 @@ eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
 			var confirmTitle = bundle.GetStringFromName("ConfirmRemoveTitle");
 			var confirmRemoveAccount = bundle.formatStringFromName("ConfirmRemoveFolder", [prettyName], 1);
 
-			var removeData = {value: false};
+			var removeData = { value: false };
 			let review = Services.prompt.confirmCheck(window, confirmTitle, confirmRemoveAccount, "Delete All Subfolders and Data", removeData);
 
-			eu.philoux.localfolder.LocalFolderTrace(confirmRemoveAccount +' '+ review);
+			eu.philoux.localfolder.LocalFolderTrace(confirmRemoveAccount + ' ' + review);
 
 			if (!review) {
 				return;
@@ -111,7 +111,7 @@ eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
 				await Components.classes["@mozilla.org/messenger/account-manager;1"]
 					.getService(Components.interfaces.nsIMsgAccountManager)
 					.removeAccount(account);
-				
+
 				if (serverId in amWindow.accountArray) {
 					delete amWindow.accountArray[serverId];
 				}
@@ -124,7 +124,7 @@ eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
 					filespec.initWithPath(f);
 					filespec.remove(true);
 					eu.philoux.localfolder.LocalFolderTrace("after o raw");
-				
+
 				}
 			}
 			catch (ex) {
@@ -149,20 +149,20 @@ eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
 /**
  *	clic sur le bouton localfolder.btdossier -> appelle la bo�te d'ajout d'un nouveau dossier
  */
-eu.philoux.localfolder.NewLocalFolder = function () {
+eu.philoux.localfolder.NewLocalFolder = async function () {
 	// console.debug('NewLocalFolder');
-	
+
 	const versionChecker = Services.vc;
-    const currentVersion = Services.appinfo.platformVersion;
+	const currentVersion = Services.appinfo.platformVersion;
 
 
 	var w = Cc["@mozilla.org/appshell/window-mediator;1"]
-        .getService(Ci.nsIWindowMediator)
+		.getService(Ci.nsIWindowMediator)
 		.getMostRecentWindow("mail:3pane");
 
-		w.lfver = eu.lfver;
-	// console.debug(w.lfver);
-	// console.debug(w.extension.version);
+	w.lfver = eu.lfver;
+
+	var rv = await w.localfolders.notifyTools.notifyBackground({ command: "notifyToolsEcho", options: { ping: "hello" } });
 
 	if (versionChecker.compare(currentVersion, "78") >= 0) {
 		w.openDialog("chrome://localfolder/content/localfolder.xhtml", "", "chrome,modal,centerscreen,titlebar,resizable=yes");

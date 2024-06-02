@@ -27,3 +27,14 @@ messenger.WindowListener.registerWindow(
 
 messenger.WindowListener.startListening();
 
+// notifyTools Listener
+
+
+
+messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
+	let rv;
+	switch (info.command) {
+		case "notifyToolsEcho":
+			return rv;
+	}
+});

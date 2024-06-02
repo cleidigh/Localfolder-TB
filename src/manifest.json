@@ -2,13 +2,13 @@
 	"manifest_version": 2,
 	"name": "__MSG_extensionName__",
 	"description": "__MSG_extensionDescription__",
-	"version": "3.3.1",
+	"version": "4.0.0",
 	"author": "l'Abbé Christian-Philippe Chanut (philoux), Christopher Leidigh",
 	"applications": {
 		"gecko": {
 			"id": "localfolder@philoux.eu",
 			"strict_min_version": "91.0",
-			"strict_max_version": "105.*"
+			"strict_max_version": "115.*"
 		}
 	},
 	"experiment_apis": {
@@ -25,7 +25,17 @@
 				],
 				"script": "api/WindowListener/implementation.js"
 			}
-		}
+		},
+		
+		"NotifyTools": {
+            "schema": "api/NotifyTools/schema.json",
+            "parent": {
+              "scopes": ["addon_parent"],
+              "paths": [["NotifyTools"]],
+              "script": "api/NotifyTools/implementation.js",
+              "events": ["startup"]
+            }
+          }
 	},
 	"background": {
 		"scripts": [
