@@ -8,7 +8,9 @@ if (!eu) var eu = {};
 if (!eu.philoux) eu.philoux = {};
 if (!eu.philoux.localfolder) eu.philoux.localfolder = {};
 
-var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
+var Services = globalThis.Services || 
+    ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
+
 
 eu.philoux.localfolder.lastFolder = "";
 
