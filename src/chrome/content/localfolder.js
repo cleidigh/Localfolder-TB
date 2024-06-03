@@ -200,7 +200,7 @@ eu.philoux.localfolder.xulFixup = function () {
  *	création du dossier local (bouton valider)
  *	@return	true si ok, false si erreur
  */
-eu.philoux.localfolder.btCreeDossierLocal = function () {
+eu.philoux.localfolder.btCreeDossierLocal = async function () {
     try {
 
         //vérification des paramétres
@@ -234,6 +234,18 @@ eu.philoux.localfolder.btCreeDossierLocal = function () {
             return false;
         }
 
+        // new folder contents check
+
+        var folderContents = await IOUtils.getChildren(dossier);
+        if(folderContents.length > 0) {
+            let msg = "Folder not empty:\n\nIt contains:\n";
+            console.log(folderContents)
+            if (folderContents.includes("Drafts")){
+                msg+= "Drafts"
+            }
+            Services.prompt.alert(window, "", msg);
+            return false;
+        }
         // cleidigh - handle storage type, empty trash
         var storeID = document.getElementById("server.storeTypeMenulist").value;
         var emptyTrashOnExit = document.getElementById("server.emptyTrashOnExit").checked;
