@@ -40,8 +40,10 @@ eu.philoux.localfolder.LocalFolderMessageFromId = function(msgid){
 */
 eu.philoux.localfolder.LocalFolderAfficheMsgId = function(msgid){
 	var msg=eu.philoux.localfolder.LocalFolderMessageFromId(msgid);
-	var promptService=Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
- 	promptService.alert(window, "", msg);
+	//var promptService=Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
+ 	//promptService.alert(window, "", msg);
+ 	Services.prompt.alert(window, "", msg);
+
 }
 
 /**
@@ -52,8 +54,8 @@ eu.philoux.localfolder.LocalFolderAfficheMsgId = function(msgid){
 eu.philoux.localfolder.LocalFolderAfficheMsgId2 = function(msgid,msg2){
 	var msg=eu.philoux.localfolder.LocalFolderMessageFromId(msgid);
 	if (null!=msg2) msg+="\n"+msg2;
-	var promptService=Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
- 	promptService.alert(window, "", msg);
+	//var promptService=Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
+ 	Services.prompt.alert(window, "", msg);
 }
 
 /**
@@ -65,8 +67,8 @@ eu.philoux.localfolder.LocalFolderAfficheMsgIdGlobalErr = function(msgid){
 	var msg=eu.philoux.localfolder.LocalFolderMessageFromId(msgid);
 	msg+="\nCode:"+eu.philoux.localfolder.g_CodeErreur;
 	msg+="\nMessage:"+eu.philoux.localfolder.g_MSGERREUR;
-	var promptService=Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
- 	promptService.alert(window, "", msg);
+	//var promptService=Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
+ 	Services.prompt.alert(window, "", msg);
 }
 
 
