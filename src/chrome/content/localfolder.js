@@ -15,6 +15,7 @@ var Services = globalThis.Services ||
 eu.philoux.localfolder.lastFolder = "";
 
 eu.philoux.localfolder.pendingFolders = [];
+eu.philoux.localfolder.existingSpecialFolders = [];
 
 eu.philoux.localfolder.getThunderbirdVersion = function () {
     let parts = Services.appinfo.version.split(".");
@@ -87,7 +88,9 @@ eu.philoux.localfolder.addSpecialFolders = function (aParentFolder, aParentFolde
             // eu.philoux.localfolder.LocalFolderTrace('Add special folder: ' + l + '  ' + storeID + "   " + ll);
 
             // Trash and unsent messages folders are added at account creation
-            if (l !== "Trash" && l !== "Outbox") {
+            if (l !== "Trash" && l !== "Outbox" && !eu.philoux.localfolder.existingSpecialFolders.includes(l)) {
+                //if (l !== "Trash" && l !== "Outbox" && l !== "Archives") {
+
                 aParentFolder.createSubfolder(l, msgWindow);
 
                 // eu.philoux.localfolder.LocalFolderTrace("Added subfolder : " + l);
@@ -103,6 +106,7 @@ eu.philoux.localfolder.addSpecialFolders = function (aParentFolder, aParentFolde
                 }
 
                 eu.philoux.localfolder.fixupSubfolder(aParentFolderPath, l, false, storeID);
+
             }
 
         }
@@ -110,6 +114,60 @@ eu.philoux.localfolder.addSpecialFolders = function (aParentFolder, aParentFolde
     }
 }
 
+eu.philoux.localfolder.rebuildSummary = async function (folder) {
+
+    if (folder.locked) {
+      folder.throwAlertMsg("operationFailedFolderBusy", window.msgWindow);
+      return;
+    }
+    if (folder.supportsOffline) {
+      // Remove the offline store, if any.
+      await IOUtils.remove(folder.filePath.path, { recursive: true }).catch(
+        console.error
+      );
+    }
+
+    // Send a notification that we are triggering a database rebuild.
+    MailServices.mfn.notifyFolderReindexTriggered(folder);
+
+    folder.msgDatabase.summaryValid = false;
+
+    const msgDB = folder.msgDatabase;
+    msgDB.summaryValid = false;
+    try {
+      folder.closeAndBackupFolderDB("");
+    } catch (e) {
+      // In a failure, proceed anyway since we're dealing with problems
+      folder.ForceDBClosed();
+    }
+
+    // we can use this for parseFolder
+    var dbDone;
+    // @implements {nsIUrlListener}
+    let urlListener = {
+      OnStartRunningUrl(url) {
+        dbDone = false;
+      },
+      OnStopRunningUrl(url, status) {
+        dbDone = true;
+      }
+    };
+
+    var msgLocalFolder = folder.QueryInterface(Ci.nsIMsgLocalMailFolder);
+    msgLocalFolder.parseFolder(window.msgWindow, urlListener);
+    while (!dbDone) {
+      await new Promise(r => window.setTimeout(r, 100));
+    }
+
+    // things we do to get folder to be included in global  search
+    // toggling global search inclusion works, but throws
+    // async tracker errors
+    // we won't do these automatically for now
+
+    //this._toggleGlobalSearchEnable(folder);
+    //await this._touchCopyFolderMsg(folder);
+    return;
+  }
 
 eu.philoux.localfolder.urlLoad = function (url) {
     // let tabmail = eu.philoux.localfolder.getMail3Pane();
@@ -239,12 +297,27 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
         var folderContents = await IOUtils.getChildren(dossier);
         if(folderContents.length > 0) {
             let msg = "Folder not empty:\n\nIt contains:\n";
+            folderContents = folderContents.map(path => PathUtils.filename(path));
             console.log(folderContents)
+            let specialFolderNames = Object.keys(eu.philoux.localfolder.specialFolders);
+            console.log(specialFolderNames)
+
+            eu.philoux.localfolder.existingSpecialFolders = folderContents.filter(fname => {
+            console.log(fname)
+
+                if (specialFolderNames.includes(fname)) {
+                    return true;
+                }
+            });
+
+            console.log(eu.philoux.localfolder.existingSpecialFolders)
+            
+
             if (folderContents.includes("Drafts")){
                 msg+= "Drafts"
             }
-            Services.prompt.alert(window, "", msg);
-            return false;
+            //Services.prompt.alert(window, "", msg);
+            //return false;
         }
         // cleidigh - handle storage type, empty trash
         var storeID = document.getElementById("server.storeTypeMenulist").value;
