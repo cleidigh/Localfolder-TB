@@ -164,8 +164,10 @@ eu.philoux.localfolder.NewLocalFolder = async function () {
 
 	var rv = await w.localfolders.notifyTools.notifyBackground({ command: "notifyToolsEcho", options: { ping: "hello" } });
 
-	if (versionChecker.compare(currentVersion, "78") >= 0) {
+	if (versionChecker.compare(currentVersion, "116") >= 0) {
 		w.openDialog("chrome://localfolder/content/localfolder.xhtml", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
+	} else if (versionChecker.compare(currentVersion, "78") >= 0) {
+			w.openDialog("chrome://localfolder/content/localfolder78-115.xhtml", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
 	} else {
 		w.openDialog("chrome://localfolder/content/localfolder.xul", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
 	}
