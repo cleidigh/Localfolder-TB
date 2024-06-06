@@ -296,10 +296,11 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
 
         var folderContents = await IOUtils.getChildren(dossier);
         if(folderContents.length > 0) {
-            let msg = "Folder not empty:\n\nIt contains:\n";
+            let msg = "Directory not empty, It contains these Special Folders:\n";
             folderContents = folderContents.map(path => PathUtils.filename(path));
             console.log(folderContents)
             let specialFolderNames = Object.keys(eu.philoux.localfolder.specialFolders);
+            specialFolderNames += "Unsent Messages"
             console.log(specialFolderNames)
 
             eu.philoux.localfolder.existingSpecialFolders = folderContents.filter(fname => {
@@ -311,12 +312,11 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
             });
 
             console.log(eu.philoux.localfolder.existingSpecialFolders)
-            
-
-            if (folderContents.includes("Drafts")){
-                msg+= "Drafts"
-            }
-            //Services.prompt.alert(window, "", msg);
+            eu.philoux.localfolder.existingSpecialFolders.forEach(spFolder => {
+                msg+= `   ${spFolder}\n`
+            });
+            msg += "\nThese will be retained as well as other mbox folders.\nNOTE: Trash and Unsent Messages will be deleted.\n\nRestart Thunderbird to import and index folders."
+            Services.prompt.alert(window, "", msg);
             //return false;
         }
         // cleidigh - handle storage type, empty trash
