@@ -315,7 +315,7 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
             eu.philoux.localfolder.existingSpecialFolders.forEach(spFolder => {
                 msg+= `   ${spFolder}\n`
             });
-            msg += "\nThese will be retained as well as other mbox folders.\nNOTE: Trash and Unsent Messages will be deleted.\n\nRestart Thunderbird to import and index folders."
+            msg += "\nThese will be retained as well as other mbox folders.\n\nNOTE: Trash and Unsent Messages will be deleted.\n\nRestart Thunderbird to import and index folders."
             Services.prompt.alert(window, "", msg);
             //return false;
         }
