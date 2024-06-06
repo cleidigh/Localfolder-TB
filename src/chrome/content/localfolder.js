@@ -10,6 +10,7 @@ if (!eu.philoux.localfolder) eu.philoux.localfolder = {};
 
 var Services = globalThis.Services ||
     ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
+var { MailServices } = ChromeUtils.import("resource:///modules/MailServices.jsm");
 
 
 eu.philoux.localfolder.lastFolder = "";
@@ -117,14 +118,14 @@ eu.philoux.localfolder.addSpecialFolders = function (aParentFolder, aParentFolde
 eu.philoux.localfolder.rebuildSummary = async function (folder) {
 
     if (folder.locked) {
-      folder.throwAlertMsg("operationFailedFolderBusy", window.msgWindow);
-      return;
+        folder.throwAlertMsg("operationFailedFolderBusy", window.msgWindow);
+        return;
     }
     if (folder.supportsOffline) {
-      // Remove the offline store, if any.
-      await IOUtils.remove(folder.filePath.path, { recursive: true }).catch(
-        console.error
-      );
+        // Remove the offline store, if any.
+        await IOUtils.remove(folder.filePath.path, { recursive: true }).catch(
+            console.error
+        );
     }
 
     // Send a notification that we are triggering a database rebuild.
@@ -135,28 +136,29 @@ eu.philoux.localfolder.rebuildSummary = async function (folder) {
     const msgDB = folder.msgDatabase;
     msgDB.summaryValid = false;
     try {
-      folder.closeAndBackupFolderDB("");
+        folder.closeAndBackupFolderDB("");
     } catch (e) {
-      // In a failure, proceed anyway since we're dealing with problems
-      folder.ForceDBClosed();
+        // In a failure, proceed anyway since we're dealing with problems
+        folder.ForceDBClosed();
     }
 
     // we can use this for parseFolder
     var dbDone;
     // @implements {nsIUrlListener}
     let urlListener = {
-      OnStartRunningUrl(url) {
-        dbDone = false;
-      },
-      OnStopRunningUrl(url, status) {
-        dbDone = true;
-      }
+        OnStartRunningUrl(url) {
+            dbDone = false;
+        },
+        OnStopRunningUrl(url, status) {
+            dbDone = true;
+        }
     };
+
 
     var msgLocalFolder = folder.QueryInterface(Ci.nsIMsgLocalMailFolder);
     msgLocalFolder.parseFolder(window.msgWindow, urlListener);
     while (!dbDone) {
-      await new Promise(r => window.setTimeout(r, 100));
+        await new Promise(r => window.setTimeout(r, 100));
     }
 
     // things we do to get folder to be included in global  search
@@ -167,7 +169,7 @@ eu.philoux.localfolder.rebuildSummary = async function (folder) {
     //this._toggleGlobalSearchEnable(folder);
     //await this._touchCopyFolderMsg(folder);
     return;
-  }
+}
 
 eu.philoux.localfolder.urlLoad = function (url) {
     // let tabmail = eu.philoux.localfolder.getMail3Pane();
@@ -295,7 +297,7 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
         // new folder contents check
 
         var folderContents = await IOUtils.getChildren(dossier);
-        if(folderContents.length > 0) {
+        if (folderContents.length > 0) {
             let msg = "Directory not empty, It contains these Special Folders:\n";
             folderContents = folderContents.map(path => PathUtils.filename(path));
             console.log(folderContents)
@@ -304,7 +306,7 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
             console.log(specialFolderNames)
 
             eu.philoux.localfolder.existingSpecialFolders = folderContents.filter(fname => {
-            console.log(fname)
+                console.log(fname)
 
                 if (specialFolderNames.includes(fname)) {
                     return true;
@@ -313,7 +315,7 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
 
             console.log(eu.philoux.localfolder.existingSpecialFolders)
             eu.philoux.localfolder.existingSpecialFolders.forEach(spFolder => {
-                msg+= `   ${spFolder}\n`
+                msg += `   ${spFolder}\n`
             });
             msg += "\nThese will be retained as well as other mbox folders.\n\nNOTE: Trash and Unsent Messages will be deleted.\n\nRestart Thunderbird to import and index folders."
             Services.prompt.alert(window, "", msg);
@@ -324,7 +326,7 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
         var emptyTrashOnExit = document.getElementById("server.emptyTrashOnExit").checked;
 
         //création du dossier local
-        eu.philoux.localfolder.creeDossierLocal(nom, dossier, storeID, emptyTrashOnExit);
+        await eu.philoux.localfolder.creeDossierLocal(nom, dossier, storeID, emptyTrashOnExit);
     } catch (ex) {
         eu.philoux.localfolder.LocalFolderAfficheMsgId2("ErreurCreationDossier", ex);
         window.close();
@@ -424,7 +426,7 @@ eu.philoux.localfolder.SelectChemin = function () {
  *	implémentation : l'appel à cette fonction suppose que l'appelant a vérifier que le compte n'existe pas déjà
  *	nom et chemin pas déjà utilisés
  */
-eu.philoux.localfolder.creeDossierLocal = function (nom, chemin, storeID, emptyTrashOnExit) {
+eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, emptyTrashOnExit) {
 
     try {
         var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
@@ -461,6 +463,10 @@ eu.philoux.localfolder.creeDossierLocal = function (nom, chemin, storeID, emptyT
         var notifyFlags = Ci.nsIFolderListener.added;
         srv.rootMsgFolder.AddFolderListener(FolderListener, notifyFlags);
         // eu.philoux.localfolder.LocalFolderTrace("Added folder listener");
+
+        //await new Promise(r => window.setTimeout(r, 100));
+
+        //await eu.philoux.localfolder.rebuildSummary(srv.rootMsgFolder)
 
         return account;
     } catch (ex) {
