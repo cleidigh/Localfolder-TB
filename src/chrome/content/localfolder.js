@@ -468,6 +468,19 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
 
         //await eu.philoux.localfolder.rebuildSummary(srv.rootMsgFolder)
 
+/*
+    s.msgDatabase.summaryValid = false;
+
+var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
+s = accountmanager.allServers[7]
+rf = s.rootMsgFolder
+rf.addSubfolder("tmbox")
+
+rf.createStorageIfMissing(null)
+rf.notifyFolderAdded(sf)
+
+*/
+
         return account;
     } catch (ex) {
         eu.philoux.localfolder.LocalFolderAfficheMsgId2("ErreurCreationDossier", ex);
