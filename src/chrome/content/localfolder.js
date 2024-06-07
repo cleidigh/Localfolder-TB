@@ -468,18 +468,27 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
 
         //await eu.philoux.localfolder.rebuildSummary(srv.rootMsgFolder)
 
-/*
-    s.msgDatabase.summaryValid = false;
 
-var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
-s = accountmanager.allServers[7]
-rf = s.rootMsgFolder
-rf.addSubfolder("tmbox")
+        //var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
+        //s = accountmanager.allServers[7]
 
-rf.createStorageIfMissing(null)
-rf.notifyFolderAdded(sf)
+        eu.philoux.localfolder.existingSpecialFolders.forEach(folder => {
+            if (folder == "Trash" || folder == "Unsent Messages") {
+                return;
+            }
+            let fullFolderPath = PathUtils.join(chemin, folder);
+            console.log(fullFolderPath)
+            srv.rootMsgFolder.addSubfolder(folder);
+            let newFolder = srv.rootMsgFolder.getChildNamed(folder);
+            newFolder.createStorageIfMissing(null);
+            srv.rootMsgFolder.notifyFolderAdded(newFolder);
+        });
 
-*/
+        //        rf.addSubfolder("tmbox")
+
+        //        rf.createStorageIfMissing(null)
+        //        rf.notifyFolderAdded(sf)
+
 
         return account;
     } catch (ex) {
