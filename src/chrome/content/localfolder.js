@@ -298,42 +298,40 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
         // new folder contents check
 
         var folderContents = await IOUtils.getChildren(dossier);
-        eu.philoux.localfolder.existingMboxFolders = folderContents.filter(async filePath => {
-            let fileStats = await IOUtils.stat(filePath);
-            let fileName = PathUtils.filename(filePath);
+
+        for (const folderItem of folderContents) {
+            console.log(folderItem)
+            let folderItemStat = await IOUtils.stat(folderItem);
+            if (folderItemStat.type != "regular") {
+                continue;
+            }
+            let fileName = PathUtils.filename(folderItem);
 
             console.log(fileName)
             console.log(fileName.includes("."))
-            let mb = await eu.philoux.localfolder.isMboxFile(filePath);
+            let mb = await eu.philoux.localfolder.isMboxFile(folderItem);
             console.log(mb)
 
 
             if (!fileName.includes(".")) {
-                if (fileStats.size == 0 || (await eu.philoux.localfolder.isMboxFile(filePath))) {
-                    return true;
+                if (folderItemStat.size == 0 || (await eu.philoux.localfolder.isMboxFile(folderItem))) {
+                    eu.philoux.localfolder.existingMboxFolders.push(fileName);
                 }
             }
-            return false;
-        });
+        }
 
         console.log(eu.philoux.localfolder.existingMboxFolders)
 
-        return false;
+        folderContentsNames = folderContents.map(path => PathUtils.filename(path));
 
-    //}).map(filePath => PathUtils.filename(filePath));
-        
-        console.log(eu.philoux.localfolder.existingMboxFolders)
-
-        folderContents = folderContents.map(path => PathUtils.filename(path));
-
-        if (folderContents.length > 0) {
+        if (folderContentsNames.length > 0) {
             let msg = "Directory not empty, It contains these Special Folders:\n";
             console.log(folderContents)
             let specialFolderNames = Object.keys(eu.philoux.localfolder.specialFolders);
             specialFolderNames += "Unsent Messages"
             console.log(specialFolderNames)
 
-            eu.philoux.localfolder.existingSpecialFolders = folderContents.filter(fname => {
+            eu.philoux.localfolder.existingSpecialFolders = folderContentsNames.filter(fname => {
                 console.log(fname)
 
                 if (specialFolderNames.includes(fname)) {
@@ -650,7 +648,7 @@ eu.philoux.localfolder.isMboxFile = async function (filePath) {
     console.log("check", filePath)
 
     if ((await IOUtils.stat(filePath)).size == 0) {
-      return true;
+        return true;
     }
 
     let fromRegx = /^(From (?:.*?)(?:\r|\n|\r\n))[\x21-\x7E]+:/gm;
@@ -660,9 +658,9 @@ eu.philoux.localfolder.isMboxFile = async function (filePath) {
     // convert to faster String for regex etc
     let strBuffer = rawBytes.reduce(function (str, b) {
         return str + String.fromCharCode(b);
-      }, "");
+    }, "");
     let rv = fromRegx.test(strBuffer);
     console.log("rv", rv)
 
     return rv;
-  }
+}
