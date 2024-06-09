@@ -17,6 +17,7 @@ eu.philoux.localfolder.lastFolder = "";
 
 eu.philoux.localfolder.pendingFolders = [];
 eu.philoux.localfolder.existingSpecialFolders = [];
+eu.philoux.localfolder.existingMboxFolders = [];
 
 eu.philoux.localfolder.getThunderbirdVersion = function () {
     let parts = Services.appinfo.version.split(".");
@@ -297,9 +298,36 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
         // new folder contents check
 
         var folderContents = await IOUtils.getChildren(dossier);
+        eu.philoux.localfolder.existingMboxFolders = folderContents.filter(async filePath => {
+            let fileStats = await IOUtils.stat(filePath);
+            let fileName = PathUtils.filename(filePath);
+
+            console.log(fileName)
+            console.log(fileName.includes("."))
+            let mb = await eu.philoux.localfolder.isMboxFile(filePath);
+            console.log(mb)
+
+
+            if (!fileName.includes(".")) {
+                if (fileStats.size == 0 || (await eu.philoux.localfolder.isMboxFile(filePath))) {
+                    return true;
+                }
+            }
+            return false;
+        });
+
+        console.log(eu.philoux.localfolder.existingMboxFolders)
+
+        return false;
+
+    //}).map(filePath => PathUtils.filename(filePath));
+        
+        console.log(eu.philoux.localfolder.existingMboxFolders)
+
+        folderContents = folderContents.map(path => PathUtils.filename(path));
+
         if (folderContents.length > 0) {
             let msg = "Directory not empty, It contains these Special Folders:\n";
-            folderContents = folderContents.map(path => PathUtils.filename(path));
             console.log(folderContents)
             let specialFolderNames = Object.keys(eu.philoux.localfolder.specialFolders);
             specialFolderNames += "Unsent Messages"
@@ -472,7 +500,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         //var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
         //s = accountmanager.allServers[7]
 
-        eu.philoux.localfolder.existingSpecialFolders.forEach(folder => {
+        eu.philoux.localfolder.existingMboxFolders.forEach(folder => {
             if (folder == "Trash" || folder == "Unsent Messages") {
                 return;
             }
@@ -617,3 +645,24 @@ eu.philoux.localfolder.ValidRepLocal = function (rep) {
     }
     return false;
 }
+
+eu.philoux.localfolder.isMboxFile = async function (filePath) {
+    console.log("check", filePath)
+
+    if ((await IOUtils.stat(filePath)).size == 0) {
+      return true;
+    }
+
+    let fromRegx = /^(From (?:.*?)(?:\r|\n|\r\n))[\x21-\x7E]+:/gm;
+
+    // Read chunk as uint8
+    var rawBytes = await IOUtils.read(filePath, { offset: 0, maxBytes: 500 });
+    // convert to faster String for regex etc
+    let strBuffer = rawBytes.reduce(function (str, b) {
+        return str + String.fromCharCode(b);
+      }, "");
+    let rv = fromRegx.test(strBuffer);
+    console.log("rv", rv)
+
+    return rv;
+  }
