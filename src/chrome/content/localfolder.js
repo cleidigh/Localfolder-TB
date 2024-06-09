@@ -300,18 +300,11 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
         var folderContents = await IOUtils.getChildren(dossier);
 
         for (const folderItem of folderContents) {
-            console.log(folderItem)
             let folderItemStat = await IOUtils.stat(folderItem);
             if (folderItemStat.type != "regular") {
                 continue;
             }
             let fileName = PathUtils.filename(folderItem);
-
-            console.log(fileName)
-            console.log(fileName.includes("."))
-            let mb = await eu.philoux.localfolder.isMboxFile(folderItem);
-            console.log(mb)
-
 
             if (!fileName.includes(".")) {
                 if (folderItemStat.size == 0 || (await eu.philoux.localfolder.isMboxFile(folderItem))) {
@@ -320,32 +313,24 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
             }
         }
 
-        console.log(eu.philoux.localfolder.existingMboxFolders)
-
         folderContentsNames = folderContents.map(path => PathUtils.filename(path));
 
         if (folderContentsNames.length > 0) {
-            let msg = "Directory not empty, It contains these Special Folders:\n";
-            console.log(folderContents)
+            let msg = "Directory not empty, It contains these Special Folders:\n\n";
             let specialFolderNames = Object.keys(eu.philoux.localfolder.specialFolders);
             specialFolderNames += "Unsent Messages"
-            console.log(specialFolderNames)
 
             eu.philoux.localfolder.existingSpecialFolders = folderContentsNames.filter(fname => {
-                console.log(fname)
-
                 if (specialFolderNames.includes(fname)) {
                     return true;
                 }
             });
 
-            console.log(eu.philoux.localfolder.existingSpecialFolders)
             eu.philoux.localfolder.existingSpecialFolders.forEach(spFolder => {
                 msg += `   ${spFolder}\n`
             });
-            msg += "\nThese will be retained as well as other mbox folders.\n\nNOTE: Trash and Unsent Messages will be deleted.\n\nRestart Thunderbird to import and index folders."
+            msg += "\nThese will be retained as well as any other mbox folders.\n\nNOTE: Trash and Unsent Messages will be deleted."
             Services.prompt.alert(window, "", msg);
-            //return false;
         }
         // cleidigh - handle storage type, empty trash
         var storeID = document.getElementById("server.storeTypeMenulist").value;
@@ -490,31 +475,15 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         srv.rootMsgFolder.AddFolderListener(FolderListener, notifyFlags);
         // eu.philoux.localfolder.LocalFolderTrace("Added folder listener");
 
-        //await new Promise(r => window.setTimeout(r, 100));
-
-        //await eu.philoux.localfolder.rebuildSummary(srv.rootMsgFolder)
-
-
-        //var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
-        //s = accountmanager.allServers[7]
-
         eu.philoux.localfolder.existingMboxFolders.forEach(folder => {
             if (folder == "Trash" || folder == "Unsent Messages") {
                 return;
             }
-            let fullFolderPath = PathUtils.join(chemin, folder);
-            console.log(fullFolderPath)
             srv.rootMsgFolder.addSubfolder(folder);
             let newFolder = srv.rootMsgFolder.getChildNamed(folder);
             newFolder.createStorageIfMissing(null);
             srv.rootMsgFolder.notifyFolderAdded(newFolder);
         });
-
-        //        rf.addSubfolder("tmbox")
-
-        //        rf.createStorageIfMissing(null)
-        //        rf.notifyFolderAdded(sf)
-
 
         return account;
     } catch (ex) {
@@ -645,7 +614,6 @@ eu.philoux.localfolder.ValidRepLocal = function (rep) {
 }
 
 eu.philoux.localfolder.isMboxFile = async function (filePath) {
-    console.log("check", filePath)
 
     if ((await IOUtils.stat(filePath)).size == 0) {
         return true;
@@ -660,7 +628,5 @@ eu.philoux.localfolder.isMboxFile = async function (filePath) {
         return str + String.fromCharCode(b);
     }, "");
     let rv = fromRegx.test(strBuffer);
-    console.log("rv", rv)
-
     return rv;
 }
