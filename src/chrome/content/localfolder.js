@@ -316,7 +316,8 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
         folderContentsNames = folderContents.map(path => PathUtils.filename(path));
 
         if (folderContentsNames.length > 0) {
-            let msg = "Directory not empty, It contains these Special Folders:\n\n";
+            let msg = eu.philoux.localfolder.LocalFolderMessageFromId("confirmDirNotEmpty");
+            //let msg = "Directory not empty, It contains these Special Folders:\n\n";
             let specialFolderNames = Object.keys(eu.philoux.localfolder.specialFolders);
             specialFolderNames += "Unsent Messages"
 
