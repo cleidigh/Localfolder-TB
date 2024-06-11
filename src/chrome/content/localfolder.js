@@ -330,7 +330,10 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
                 msg += `   ${spFolder}\n`
             });
             msg += "\nThese will be retained as well as any other mbox folders.\n\nNOTE: Trash and Unsent Messages will be deleted."
-            Services.prompt.alert(window, "", msg);
+            let result = Services.prompt.confirm(window, "", msg);
+            if (!result) {
+                return false;
+            }
         }
         // cleidigh - handle storage type, empty trash
         var storeID = document.getElementById("server.storeTypeMenulist").value;
@@ -479,7 +482,9 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
             if (folder == "Trash" || folder == "Unsent Messages") {
                 return;
             }
+            console.log("add",folder)
             srv.rootMsgFolder.addSubfolder(folder);
+            
             let newFolder = srv.rootMsgFolder.getChildNamed(folder);
             newFolder.createStorageIfMissing(null);
             srv.rootMsgFolder.notifyFolderAdded(newFolder);
