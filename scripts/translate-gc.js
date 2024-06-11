@@ -424,7 +424,7 @@ var options = {
  	outputLocaleDir: "./src/chrome/locale",
  	outputLocaleDirSuffix: "",
  	append: true,
- 	outputFormat: 2,
+ 	outputFormat: 1,
  };
 
 //  files from base locale 
