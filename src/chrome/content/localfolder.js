@@ -116,6 +116,38 @@ eu.philoux.localfolder.addSpecialFolders = function (aParentFolder, aParentFolde
     }
 }
 
+eu.philoux.localfolder.addExistingMboxFolders = function (rootMsgFolder) {
+
+    eu.philoux.localfolder.existingMboxFolders.forEach(folder => {
+        if (folder == "Trash" || folder == "Unsent Messages") {
+            return;
+        }
+        console.log("add", folder)
+        rootMsgFolder.addSubfolder(folder);
+        var newFolder;
+        var bundle = Services.strings.createBundle("chrome://messenger/locale/messenger.properties");
+
+        if (eu.philoux.localfolder.existingSpecialFolders.includes(folder)) {
+            var localizedFolder = eu.philoux.localfolder.specialFolders[folder].localizedFolderName;
+            var localizedFolderString = bundle.GetStringFromName(localizedFolder);
+
+            try {
+                newFolder = rootMsgFolder.getChildNamed(localizedFolderString);
+                console.log("add local", localizedFolderString)
+
+            } catch (ex) {
+                newFolder = rootMsgFolder.getChildNamed(folder);
+            }
+        } else {
+            newFolder = rootMsgFolder.getChildNamed(folder);
+        }
+
+        newFolder.createStorageIfMissing(null);
+        rootMsgFolder.notifyFolderAdded(newFolder);
+    });
+
+}
+
 eu.philoux.localfolder.rebuildSummary = async function (folder) {
 
     if (folder.locked) {
@@ -330,7 +362,9 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
             eu.philoux.localfolder.existingSpecialFolders.forEach(spFolder => {
                 msg += `   ${spFolder}\n`
             });
-            msg += "\nThese will be retained as well as any other mbox folders.\n\nNOTE: Trash and Unsent Messages will be deleted."
+            //msg += "\nThese will be retained as well as any other mbox folders.\n\nNOTE: Trash and Unsent Messages will be deleted."
+            msg += eu.philoux.localfolder.LocalFolderMessageFromId("confirmRetained");
+
             let result = Services.prompt.confirm(window, "", msg);
             if (!result) {
                 return false;
@@ -479,18 +513,8 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         srv.rootMsgFolder.AddFolderListener(FolderListener, notifyFlags);
         // eu.philoux.localfolder.LocalFolderTrace("Added folder listener");
 
-        eu.philoux.localfolder.existingMboxFolders.forEach(folder => {
-            if (folder == "Trash" || folder == "Unsent Messages") {
-                return;
-            }
-            console.log("add",folder)
-            srv.rootMsgFolder.addSubfolder(folder);
-            
-            let newFolder = srv.rootMsgFolder.getChildNamed(folder);
-            newFolder.createStorageIfMissing(null);
-            srv.rootMsgFolder.notifyFolderAdded(newFolder);
-        });
-
+        eu.philoux.localfolder.addExistingMboxFolders(srv.rootMsgFolder);
+        
         return account;
     } catch (ex) {
         eu.philoux.localfolder.LocalFolderAfficheMsgId2("ErreurCreationDossier", ex);
