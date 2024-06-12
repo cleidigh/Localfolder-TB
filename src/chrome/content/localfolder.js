@@ -71,7 +71,7 @@ eu.philoux.localfolder.toggleSpecialFolder = function (specialFolder) {
 
 }
 
-eu.philoux.localfolder.addSpecialFolders = function (aParentFolder, aParentFolderPath) {
+eu.philoux.localfolder.addSpecialFolders = async function (aParentFolder, aParentFolderPath) {
 
     // eu.philoux.localfolder.LocalFolderTrace("Add special folders : " + aParentFolderPath);
     let addFolderElements = document.querySelectorAll("[id^='add_folder_']");
@@ -87,11 +87,13 @@ eu.philoux.localfolder.addSpecialFolders = function (aParentFolder, aParentFolde
             const storeID = aParentFolder.server.getCharValue("storeContractID");
 
             var ll = eu.philoux.localfolder.specialFolders[l].localizedFolderName;
-            // eu.philoux.localfolder.LocalFolderTrace('Add special folder: ' + l + '  ' + storeID + "   " + ll);
+            eu.philoux.localfolder.LocalFolderTrace('Add special folder: ' + l + '  ' + storeID + "   " + ll);
 
+            console.log(eu.philoux.localfolder.existingSpecialFolders)
             // Trash and unsent messages folders are added at account creation
             if (l !== "Trash" && l !== "Outbox" && !eu.philoux.localfolder.existingSpecialFolders.includes(l)) {
                 //if (l !== "Trash" && l !== "Outbox" && l !== "Archives") {
+                eu.philoux.localfolder.LocalFolderTrace(`add sp ${folder}`);
 
                 aParentFolder.createSubfolder(l, msgWindow);
 
@@ -107,7 +109,7 @@ eu.philoux.localfolder.addSpecialFolders = function (aParentFolder, aParentFolde
                     aParentFolder.getChildNamed(l).flags = eu.philoux.localfolder.specialFolders[l].flags;
                 }
 
-                eu.philoux.localfolder.fixupSubfolder(aParentFolderPath, l, false, storeID);
+                await eu.philoux.localfolder.fixupSubfolder(aParentFolderPath, l, false, storeID);
 
             }
 
@@ -117,12 +119,16 @@ eu.philoux.localfolder.addSpecialFolders = function (aParentFolder, aParentFolde
 }
 
 eu.philoux.localfolder.addExistingMboxFolders = function (rootMsgFolder) {
+    eu.philoux.localfolder.LocalFolderTrace(`add existing ${eu.philoux.localfolder.existingMboxFolders}`);
 
+    //eu.philoux.localfolder.existingMboxFolders.push("Drafts")
     eu.philoux.localfolder.existingMboxFolders.forEach(folder => {
         if (folder == "Trash" || folder == "Unsent Messages") {
             return;
         }
-        console.log("add", folder)
+
+        eu.philoux.localfolder.LocalFolderTrace(`add ex ${folder}`);
+
         rootMsgFolder.addSubfolder(folder);
         var newFolder;
         var bundle = Services.strings.createBundle("chrome://messenger/locale/messenger.properties");
@@ -143,6 +149,7 @@ eu.philoux.localfolder.addExistingMboxFolders = function (rootMsgFolder) {
         }
 
         newFolder.createStorageIfMissing(null);
+        eu.philoux.localfolder.rebuildSummary(newFolder)
         rootMsgFolder.notifyFolderAdded(newFolder);
     });
 
@@ -332,11 +339,13 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
         var folderContents = await IOUtils.getChildren(dossier);
 
         for (const folderItem of folderContents) {
+            let fileName = PathUtils.filename(folderItem);
             let folderItemStat = await IOUtils.stat(folderItem);
-            if (folderItemStat.type != "regular") {
+            if (folderItemStat.type == "directory") {
+                eu.philoux.localfolder.existingMboxFolders.push(fileName);
+
                 continue;
             }
-            let fileName = PathUtils.filename(folderItem);
 
             if (!fileName.includes(".")) {
                 if (folderItemStat.size == 0 || (await eu.philoux.localfolder.isMboxFile(folderItem))) {
@@ -489,7 +498,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         srv.setCharValue("storeContractID", storeID);
         srv.emptyTrashOnExit = emptyTrashOnExit;
 
-        // eu.philoux.localfolder.LocalFolderTrace("CreateLocal  folder: " + chemin + "\neTrash : " + emptyTrashOnExit);
+        eu.philoux.localfolder.LocalFolderTrace("CreateLocal  folder: " + chemin + "\neTrash : " + emptyTrashOnExit);
 
         eu.philoux.localfolder.lastFolder = chemin;
 
@@ -498,15 +507,21 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
 
         msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
 
+        if (await IOUtils.exists(PathUtils.join(chemin, "Trash"))) {
+            await IOUtils.remove(PathUtils.join(chemin, "Trash", {remo}));
+        }
+        if (await IOUtils.exists(PathUtils.join(chemin, "Unsent Messages"))) {
+            await IOUtils.remove(PathUtils.join(chemin, "Unsent Messages"));
+        }
         // Fix trash and unsent messages subfolders created by createAccount
         // the not usable until empty folders and file are created/deleted based on storage type
-        eu.philoux.localfolder.fixupSubfolder(chemin, "Trash", false, storeID);
-        eu.philoux.localfolder.fixupSubfolder(chemin, "Unsent Messages", false, storeID);
+        await eu.philoux.localfolder.fixupSubfolder(chemin, "Trash", false, storeID);
+        await eu.philoux.localfolder.fixupSubfolder(chemin, "Unsent Messages", false, storeID);
 
         // keep track of new folders for subfolder fixes
         eu.philoux.localfolder.pendingFolders.push(chemin);
 
-        eu.philoux.localfolder.addSpecialFolders(srv.rootMsgFolder, chemin);
+        await eu.philoux.localfolder.addSpecialFolders(srv.rootMsgFolder, chemin);
         // eu.philoux.localfolder.LocalFolderTrace("Add special subfolders");
 
         var notifyFlags = Ci.nsIFolderListener.added;
@@ -514,7 +529,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         // eu.philoux.localfolder.LocalFolderTrace("Added folder listener");
 
         eu.philoux.localfolder.addExistingMboxFolders(srv.rootMsgFolder);
-        
+
         return account;
     } catch (ex) {
         eu.philoux.localfolder.LocalFolderAfficheMsgId2("ErreurCreationDossier", ex);
@@ -525,7 +540,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
 }
 
 
-eu.philoux.localfolder.fixupSubfolder = function (parentName, folderName, removeFileFolder, storeID) {
+eu.philoux.localfolder.fixupSubfolder = async function (parentName, folderName, removeFileFolder, storeID) {
 
     // eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder: ${folderName} - remove file folder: ${removeFileFolder}  storeType: ${storeID}`);
     var filespec = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
@@ -535,6 +550,12 @@ eu.philoux.localfolder.fixupSubfolder = function (parentName, folderName, remove
     filespec.append(folderName);
 
     if (removeFileFolder) {
+        let fullPath = PathUtils.join(parentName, folderName);
+        if (await IOUtils.exists(fullPath)) {
+            await IOUtils.remove(fullPath);
+            return;
+        }
+        return;
         filespec.initWithPath(parentName);
         filespec.append(folderName);
         filespec.remove(true);
@@ -546,28 +567,28 @@ eu.philoux.localfolder.fixupSubfolder = function (parentName, folderName, remove
     // maildir - create directory
 
     if (storeID !== "@mozilla.org/msgstore/maildirstore;1") {
-        // eu.philoux.localfolder.LocalFolderTrace(`removing file folder: ${rf}`);
+        eu.philoux.localfolder.LocalFolderTrace(`removing file folder: ${rf}`);
         try {
             filespec.remove(true);
-            // eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder - removed folder`);
+            eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder - removed folder`);
         } catch (error) {
-            // eu.philoux.localfolder.LocalFolderTrace(`no folder found removing file folder: ${rf}`);
+            eu.philoux.localfolder.LocalFolderTrace(`no folder found removing file folder: ${rf}`);
         }
     }
 
     if (storeID === "@mozilla.org/msgstore/maildirstore;1") {
         filespec.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
-        // eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder done - CREATED DIRECTORY`);
+        eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder done - CREATED DIRECTORY`);
 
     } else {
         filespec.create(Ci.nsIFile.NORMAL_FILE_TYPE, 0644);
-        // eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder done - create file`);
+        eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder done - create file`);
     }
 }
 
 // Listen for subfolder additions, have to fixup
 var FolderListener = {
-    OnItemAdded: function (parentFolder, aItem) {
+    OnItemAdded: async function (parentFolder, aItem) {
         // eu.philoux.localfolder.LocalFolderTrace(`FolderListener item added : ${parentFolder.filePath.path} ${parentFolder.flags}`);
 
         // We seem to get to events first without folder
@@ -582,13 +603,13 @@ var FolderListener = {
 
         if (eu.philoux.localfolder.pendingFolders.includes(`${rf}`) && (aItem.flags & 0x000004)) {
             var filespec = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
-            eu.philoux.localfolder.fixupSubfolder(eu.philoux.localfolder.pendingFolders[0], aItem.name, false, aItem.server.getCharValue("storeContractID"));
+           await eu.philoux.localfolder.fixupSubfolder(eu.philoux.localfolder.pendingFolders[0], aItem.name, false, aItem.server.getCharValue("storeContractID"));
 
             if (aItem.name in eu.philoux.localfolder.specialFolders) {
                 var sf = eu.philoux.localfolder.specialFolders[aItem.name].flags
-                // eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} get flags ${aItem.flags}`);
+                eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} get flags ${aItem.flags}`);
                 aItem.setFlag(sf);
-                // eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} set flags (${sf} : ${aItem.flags}`);
+                eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} set flags (${sf} : ${aItem.flags}`);
             }
 
         }
