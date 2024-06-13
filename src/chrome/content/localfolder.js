@@ -502,17 +502,15 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
 
         eu.philoux.localfolder.lastFolder = chemin;
 
+        let result = await IOUtils.remove(PathUtils.join(chemin, "Trash", { ignoreAbsent: true, recursive: true }));
+        await IOUtils.remove(PathUtils.join(chemin, "Unsent Messages", { ignoreAbsent: true, recursive: true }));
+
         var account = accountmanager.createAccount();
         account.incomingServer = srv;
 
         msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
 
-        if (await IOUtils.exists(PathUtils.join(chemin, "Trash"))) {
-            await IOUtils.remove(PathUtils.join(chemin, "Trash", {remo}));
-        }
-        if (await IOUtils.exists(PathUtils.join(chemin, "Unsent Messages"))) {
-            await IOUtils.remove(PathUtils.join(chemin, "Unsent Messages"));
-        }
+        
         // Fix trash and unsent messages subfolders created by createAccount
         // the not usable until empty folders and file are created/deleted based on storage type
         await eu.philoux.localfolder.fixupSubfolder(chemin, "Trash", false, storeID);
@@ -603,7 +601,7 @@ var FolderListener = {
 
         if (eu.philoux.localfolder.pendingFolders.includes(`${rf}`) && (aItem.flags & 0x000004)) {
             var filespec = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
-           await eu.philoux.localfolder.fixupSubfolder(eu.philoux.localfolder.pendingFolders[0], aItem.name, false, aItem.server.getCharValue("storeContractID"));
+            await eu.philoux.localfolder.fixupSubfolder(eu.philoux.localfolder.pendingFolders[0], aItem.name, false, aItem.server.getCharValue("storeContractID"));
 
             if (aItem.name in eu.philoux.localfolder.specialFolders) {
                 var sf = eu.philoux.localfolder.specialFolders[aItem.name].flags
