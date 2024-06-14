@@ -118,16 +118,19 @@ eu.philoux.localfolder.addSpecialFolders = async function (aParentFolder, aParen
     }
 }
 
-eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder) {
-    eu.philoux.localfolder.LocalFolderTrace(`add existing ${eu.philoux.localfolder.existingFolders}`);
+eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder, storeID) {
+    //eu.philoux.localfolder.LocalFolderTrace(`add existing ${eu.philoux.localfolder.existingFolders}`);
 
-    //eu.philoux.localfolder.existingMboxFolders.push("Drafts")
     eu.philoux.localfolder.existingFolders.forEach(folder => {
         if (folder == "Trash" || folder == "Unsent Messages") {
             return;
         }
 
-        eu.philoux.localfolder.LocalFolderTrace(`add ex ${folder}`);
+        // This is the magic sequence to add an existing folder
+        // addSubfolder imports the folder to the database including 
+        // a recursive search below so we need only add the top folders 
+        // we have to create storage and all folders will be indexed
+        // however, maildir requires a rebuildSummary 
 
         rootMsgFolder.addSubfolder(folder);
         eu.philoux.localfolder.LocalFolderTrace(`added${folder}`)
@@ -140,8 +143,6 @@ eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder) {
 
             try {
                 newFolder = rootMsgFolder.getChildNamed(localizedFolderString);
-                console.log("add local", localizedFolderString)
-
             } catch (ex) {
                 newFolder = rootMsgFolder.getChildNamed(folder);
             }
@@ -149,8 +150,11 @@ eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder) {
             newFolder = rootMsgFolder.getChildNamed(folder);
         }
 
+        // This is synchronous for LocalFolders so no listener required
         newFolder.createStorageIfMissing(null);
-        eu.philoux.localfolder.rebuildSummary(newFolder)
+        if (storeID == "@mozilla.org/msgstore/maildirstore;1") {
+            eu.philoux.localfolder.rebuildSummary(newFolder)
+        }
         rootMsgFolder.notifyFolderAdded(newFolder);
     });
 
@@ -340,6 +344,7 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
         var emptyTrashOnExit = document.getElementById("server.emptyTrashOnExit").checked;
 
         // new folder contents check
+        // we need to track existing special and user folders
 
         var folderContents = await IOUtils.getChildren(dossier);
 
@@ -364,7 +369,6 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
 
         if (folderContentsNames.length > 0) {
             let msg = eu.philoux.localfolder.LocalFolderMessageFromId("confirmDirNotEmpty");
-            //let msg = "Directory not empty, It contains these Special Folders:\n\n";
             let specialFolderNames = Object.keys(eu.philoux.localfolder.specialFolders);
             specialFolderNames += "Unsent Messages"
 
@@ -377,7 +381,6 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
             eu.philoux.localfolder.existingSpecialFolders.forEach(spFolder => {
                 msg += `   ${spFolder}\n`
             });
-            //msg += "\nThese will be retained as well as any other mbox folders.\n\nNOTE: Trash and Unsent Messages will be deleted."
             msg += eu.philoux.localfolder.LocalFolderMessageFromId("confirmRetained");
 
             let result = Services.prompt.confirm(window, "", msg);
@@ -501,11 +504,12 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         srv.setCharValue("storeContractID", storeID);
         srv.emptyTrashOnExit = emptyTrashOnExit;
 
-        eu.philoux.localfolder.LocalFolderTrace("CreateLocal  folder: " + chemin + "\neTrash : " + emptyTrashOnExit);
+        //eu.philoux.localfolder.LocalFolderTrace("CreateLocal  folder: " + chemin + "\neTrash : " + emptyTrashOnExit);
 
         eu.philoux.localfolder.lastFolder = chemin;
 
-        let result = await IOUtils.remove(PathUtils.join(chemin, "Trash"), { ignoreAbsent: true, recursive: true });
+        // maildir will not setup without Trash & Unsent Messages being removed, mbox op is non issue
+        await IOUtils.remove(PathUtils.join(chemin, "Trash"), { ignoreAbsent: true, recursive: true });
         await IOUtils.remove(PathUtils.join(chemin, "Unsent Messages"), { ignoreAbsent: true, recursive: true });
 
         var account = accountmanager.createAccount();
@@ -529,7 +533,8 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         srv.rootMsgFolder.AddFolderListener(FolderListener, notifyFlags);
         // eu.philoux.localfolder.LocalFolderTrace("Added folder listener");
 
-        eu.philoux.localfolder.addExistingFolders(srv.rootMsgFolder);
+        // "import"/index all existing folders
+        eu.philoux.localfolder.addExistingFolders(srv.rootMsgFolder, storeID);
 
         return account;
     } catch (ex) {
