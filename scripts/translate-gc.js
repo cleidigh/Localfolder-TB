@@ -16,8 +16,7 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "confirmDirNotEmpty", text: "Directory not empty, It contains these Special Folders:\n\n" },
-	{ key: "confirmRetained.label", text: "\nThese will be retained as well as any other mbox folders.\n\nNOTE: Trash and Unsent Messages will be deleted." },
+	{ key: "deleteData", text: "Delete All Subfolders and Data"},
 
 
 

@@ -87,13 +87,10 @@ eu.philoux.localfolder.addSpecialFolders = async function (aParentFolder, aParen
             const storeID = aParentFolder.server.getCharValue("storeContractID");
 
             var ll = eu.philoux.localfolder.specialFolders[l].localizedFolderName;
-            eu.philoux.localfolder.LocalFolderTrace('Add special folder: ' + l + '  ' + storeID + "   " + ll);
+            //eu.philoux.localfolder.LocalFolderTrace('Add special folder: ' + l + '  ' + storeID + "   " + ll);
 
-            console.log(eu.philoux.localfolder.existingSpecialFolders)
             // Trash and unsent messages folders are added at account creation
             if (l !== "Trash" && l !== "Outbox" && !eu.philoux.localfolder.existingSpecialFolders.includes(l)) {
-                //if (l !== "Trash" && l !== "Outbox" && l !== "Archives") {
-                eu.philoux.localfolder.LocalFolderTrace(`add sp ${l}`);
 
                 aParentFolder.createSubfolder(l, msgWindow);
 
@@ -133,7 +130,7 @@ eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder, storeID) {
         // however, maildir requires a rebuildSummary 
 
         rootMsgFolder.addSubfolder(folder);
-        eu.philoux.localfolder.LocalFolderTrace(`added${folder}`)
+        //eu.philoux.localfolder.LocalFolderTrace(`added existing ${folder}`)
         var newFolder;
         var bundle = Services.strings.createBundle("chrome://messenger/locale/messenger.properties");
 
@@ -561,11 +558,6 @@ eu.philoux.localfolder.fixupSubfolder = async function (parentName, folderName, 
             await IOUtils.remove(fullPath);
             return;
         }
-        return;
-        filespec.initWithPath(parentName);
-        filespec.append(folderName);
-        filespec.remove(true);
-        return;
     }
 
     // We need to tweak subfolders differently for storage type
@@ -573,22 +565,22 @@ eu.philoux.localfolder.fixupSubfolder = async function (parentName, folderName, 
     // maildir - create directory
 
     if (storeID !== "@mozilla.org/msgstore/maildirstore;1") {
-        eu.philoux.localfolder.LocalFolderTrace(`removing file folder: ${rf}`);
+        //eu.philoux.localfolder.LocalFolderTrace(`removing file folder: ${rf}`);
         try {
             filespec.remove(true);
-            eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder - removed folder`);
+            //eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder - removed folder`);
         } catch (error) {
-            eu.philoux.localfolder.LocalFolderTrace(`no folder found removing file folder: ${rf}`);
+            //eu.philoux.localfolder.LocalFolderTrace(`no folder found removing file folder: ${rf}`);
         }
     }
 
     if (storeID === "@mozilla.org/msgstore/maildirstore;1") {
         filespec.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
-        eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder done - CREATED DIRECTORY`);
+        //eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder done - CREATED DIRECTORY`);
 
     } else {
         filespec.create(Ci.nsIFile.NORMAL_FILE_TYPE, 0644);
-        eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder done - create file`);
+        //eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder done - create file`);
     }
 }
 

@@ -91,11 +91,9 @@ eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
 			var bundle = Services.strings.createBundle("chrome://localfolder/locale/localfolder.properties");
 			var confirmTitle = bundle.GetStringFromName("ConfirmRemoveTitle");
 			var confirmRemoveAccount = bundle.formatStringFromName("ConfirmRemoveFolder", [prettyName], 1);
-
+			var deleteData = bundle.GetStringFromName("deleteData");
 			var removeData = { value: false };
-			let review = Services.prompt.confirmCheck(window, confirmTitle, confirmRemoveAccount, "Delete All Subfolders and Data", removeData);
-
-			eu.philoux.localfolder.LocalFolderTrace(confirmRemoveAccount + ' ' + review);
+			let review = Services.prompt.confirmCheck(window, confirmTitle, confirmRemoveAccount, deleteData, removeData);
 
 			if (!review) {
 				return;
@@ -123,7 +121,6 @@ eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
 				if (removeData.value) {
 					filespec.initWithPath(f);
 					filespec.remove(true);
-					eu.philoux.localfolder.LocalFolderTrace("after o raw");
 
 				}
 			}
