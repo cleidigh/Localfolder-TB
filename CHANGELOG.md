@@ -2,6 +2,12 @@
 
 ## Versions
 
+4.1.0 Update for TB115, TB128 : 6-14-2024
+- TB128 support
+- NEW: Existing special and user folders retained
+- NEW: Folders automatically added and indexed, no restart required
+- Added missing translations
+
 4.0.0 Update for TB115, Supernova : 7-07-2023
 - TB115 support 
 - Options UI tweaks
