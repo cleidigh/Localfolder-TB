@@ -9,6 +9,8 @@ window.eu = eu;
 
 eu.lfver = window.lfver;
 
+console.log("accm")
+
 //initialisation du gestionnaire de compte
 //déplace le bouton "Ajouter un dossier local" au dessous "Ajouter un autre compte"
 eu.philoux.localfolder.OnInitLocalFolder = function () {
