@@ -4,9 +4,6 @@
 // onLoad() installs each overlay xul fragment
 // Menus - Folder, messages, Tools
 
-var Services = globalThis.Services || 
-    ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
-
 
 class TabMonitor {
 	constructor(window, tabCallbacks) {
