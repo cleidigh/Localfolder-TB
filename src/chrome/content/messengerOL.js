@@ -152,6 +152,7 @@ var tabMonitor = new TabMonitor(window, [
 
 
 function LFInitialization(tab) {
+	console.log("lfinit")
 	if (tab.browser.contentDocument.getElementById("accountActionAddLocalFolder")) {
 		return;
 	}
@@ -164,14 +165,16 @@ function LFInitialization(tab) {
 `, ["chrome://localfolder/locale/localfolder.dtd"]);
 
 
-	let am = tab.browser.contentDocument.getElementById("accountActionsDropdown");
+	let am = tab.browser.contentDocument.getElementById("accountAddPopup");
+	console.log(am)
 	am.setAttribute("onpopupshowing", "eu.philoux.localfolder.initAccountActionsButtonsLocalFolder(this);");
-	am.insertBefore(m, tab.browser.contentDocument.getElementById("accountActionsDropdownSep1"));
-
+	//am.insertBefore(m, tab.browser.contentDocument.getElementById("accountActionsDropdownSep1"));
+	am.append(m)
+	/*
 	// handle local folder removal
 	let arm = tab.browser.contentDocument.getElementById("accountActionsDropdownRemove");
 	arm.setAttribute("oncommand", "eu.philoux.localfolder.onSupprimeCompte(event,window); event.stopPropagation();");
-
+*/
 	// inject Scripts into account manager content window within tab
 	Services.scriptloader.loadSubScript("chrome://localfolder/content/accountmanager-overlay.js", tab.browser.contentWindow.wrappedJSObject, "UTF-8");
 	Services.scriptloader.loadSubScript("chrome://localfolder/content/trace.js", tab.browser.contentWindow.wrappedJSObject, "UTF-8");
@@ -264,7 +267,7 @@ function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttC
 		}
 
 		if (!tbExtButton) {
-			console("Exception: Extension button not found on toolbar")
+			console.log("Exception: Extension button not found on toolbar")
 			return;
 		}
 		// get parent div for listener

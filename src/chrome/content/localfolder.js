@@ -8,8 +8,7 @@ if (!eu) var eu = {};
 if (!eu.philoux) eu.philoux = {};
 if (!eu.philoux.localfolder) eu.philoux.localfolder = {};
 
-var { MailServices } = ChromeUtils.import("resource:///modules/MailServices.sys.mjs");
-
+var { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs");
 
 
 eu.philoux.localfolder.lastFolder = "";
