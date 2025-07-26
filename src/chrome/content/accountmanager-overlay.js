@@ -70,7 +70,8 @@ eu.philoux.localfolder.initAccountActionsButtonsLocalFolder = function (menupopu
 	// on lance la fonction originale
 	// initAccountActionsButtons(menupopup);
 	if (eu.philoux.localfolder.isLocalFolder()) {
-		document.getElementById("accountActionsDropdownRemove").removeAttribute("disabled");
+		// TBD
+		//document.getElementById("accountActionsDropdownRemove").removeAttribute("disabled");
 	}
 }
 

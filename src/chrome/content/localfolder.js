@@ -322,6 +322,7 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
             } catch {
                 srv = serveurs[i];
             }
+            console.log(srv)
             if (nom == srv.prettyName) {
                 eu.philoux.localfolder.LocalFolderAfficheMsgId("DossierExisteDeja");
                 return false;
@@ -402,6 +403,7 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
  *
  */
 eu.philoux.localfolder.SelectChemin = function () {
+    console.log("sc")
     try {
 
         let winCtx = window;
@@ -454,8 +456,12 @@ eu.philoux.localfolder.SelectChemin = function () {
                     srv = serveurs[i];
                 }
 
+                console.log(srv)
+
                 var chemin = srv.localPath.path;
                 if (fp.file.path.toLowerCase() == chemin.toLowerCase()) {
+                console.log(srv)
+
                     eu.philoux.localfolder.LocalFolderAfficheMsgId("RepertoireDejaUtilise");
                     return false;
                 }
