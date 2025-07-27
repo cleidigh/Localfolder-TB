@@ -178,3 +178,13 @@ eu.philoux.localfolder.NewLocalFolder = async function () {
 //positionnement des boutons au d�marrage
 // Safewindow.addEventListener("load", eu.philoux.localfolder.OnInitLocalFolder, false);
 
+var w = Cc["@mozilla.org/appshell/window-mediator;1"]
+		.getService(Ci.nsIWindowMediator)
+		.getMostRecentWindow("mail:3pane");
+
+var listener_id = w.localfolders.notifyTools.addListener(expMenuDispatcher);
+
+async function expMenuDispatcher(data) {
+    console.log(data)
+		await eu.philoux.localfolder.NewLocalFolder();
+}

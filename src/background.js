@@ -38,3 +38,13 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			return rv;
 	}
 });
+
+// button menus
+
+browser.menus.create({id: "addLF", contexts: ["browser_action_menu"], title: "Add Local Folder", onclick: addLocalFolder});
+
+function addLocalFolder() {
+	console.log("88")
+            rv = messenger.NotifyTools.notifyExperiment({ command: "CMD_addLocalFolder" });
+		
+}

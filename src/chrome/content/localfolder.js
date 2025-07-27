@@ -10,6 +10,7 @@ if (!eu.philoux.localfolder) eu.philoux.localfolder = {};
 
 var { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs");
 
+console.log(window)
 
 eu.philoux.localfolder.lastFolder = "";
 
@@ -683,3 +684,4 @@ eu.philoux.localfolder.isMboxFile = async function (filePath) {
     let rv = fromRegx.test(strBuffer);
     return rv;
 }
+
