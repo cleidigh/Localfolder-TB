@@ -164,12 +164,20 @@ function LFInitialization(tab) {
 		accesskey="&eu.philoux.localfolder.btdossier.racc;" />
 `, ["chrome://localfolder/locale/localfolder.dtd"]);
 
+let rm = tab.browser.contentWindow.wrappedJSObject.MozXULElement.parseXULToFragment(`
+	<menuitem id="accountActionRemoveLocalFolder"
+		label="Remove ocalFolder" 
+		oncommand="eu.philoux.localfolder.onSupprimeCompte(event,window); event.stopPropagation();" />
+`, ["chrome://localfolder/locale/localfolder.dtd"]);
+
 
 	let am = tab.browser.contentDocument.getElementById("accountAddPopup");
 	console.log(am)
 	am.setAttribute("onpopupshowing", "eu.philoux.localfolder.initAccountActionsButtonsLocalFolder(this);");
 	//am.insertBefore(m, tab.browser.contentDocument.getElementById("accountActionsDropdownSep1"));
 	am.append(m)
+	am.append(rm)
+
 	/*
 	// handle local folder removal
 	let arm = tab.browser.contentDocument.getElementById("accountActionsDropdownRemove");

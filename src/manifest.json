@@ -10,7 +10,11 @@
 			"strict_min_version": "128.0",
 			"strict_max_version": "142.*"
 		}
-	},
+	},"browser_action": {
+    "default_icon": "chrome/skin/classic/LocalFolders-32px.png",
+    "default_title": "LocalFolderss",
+		"allowed_spaces": ["settings"]
+  },
 	"experiment_apis": {
 		"WindowListener": {
 			"schema": "api/WindowListener/schema.json",

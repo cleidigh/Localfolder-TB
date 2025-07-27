@@ -82,7 +82,7 @@ eu.philoux.localfolder.addSpecialFolders = async function (aParentFolder, aParen
         if (!!element.checked) {
             // Add special folder
             const l = element.getAttribute("SpecialFolder");
-            const storeID = aParentFolder.server.getCharValue("storeContractID");
+            const storeID = aParentFolder.server.getStringValue("storeContractID");
 
             var ll = eu.philoux.localfolder.specialFolders[l].localizedFolderName;
             //eu.philoux.localfolder.LocalFolderTrace('Add special folder: ' + l + '  ' + storeID + "   " + ll);
@@ -502,7 +502,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         srv.localPath = filespec;
 
         let defaultStoreID = Services.prefs.getCharPref("mail.serverDefaultStoreContractID");
-        srv.setCharValue("storeContractID", storeID);
+        srv.setStringValue("storeContractID", storeID);
         srv.emptyTrashOnExit = emptyTrashOnExit;
 
         //eu.philoux.localfolder.LocalFolderTrace("CreateLocal  folder: " + chemin + "\neTrash : " + emptyTrashOnExit);
@@ -605,7 +605,7 @@ var FolderListener = {
 
         if (eu.philoux.localfolder.pendingFolders.includes(`${rf}`) && (aItem.flags & 0x000004)) {
             var filespec = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
-            await eu.philoux.localfolder.fixupSubfolder(eu.philoux.localfolder.pendingFolders[0], aItem.name, false, aItem.server.getCharValue("storeContractID"));
+            await eu.philoux.localfolder.fixupSubfolder(eu.philoux.localfolder.pendingFolders[0], aItem.name, false, aItem.server.getStringValue("storeContractID"));
 
             if (aItem.name in eu.philoux.localfolder.specialFolders) {
                 var sf = eu.philoux.localfolder.specialFolders[aItem.name].flags
