@@ -51,7 +51,8 @@
 	"background": {
 		"scripts": [
 			"background.js"
-		]
+		], 
+		"type": "module"
 	},
 	"icons": {
 		"64": "chrome/skin/classic/LocalFolders-64px.png",
