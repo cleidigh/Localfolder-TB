@@ -81,10 +81,12 @@ eu.philoux.localfolder.initAccountActionsButtonsLocalFolder = function (menupopu
  *	@return si succes retourne true / si erreur retourne false 
  *	implémentation : appelle la fonction originale onRemoveAccount
  */
-eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
+//eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
+eu.philoux.localfolder.onSupprimeCompte = async function () {
+
 	try {
 		if (!eu.philoux.localfolder.isLocalFolder()) { // on utilise la fonction par défaut pour les autres comptes
-			onRemoveAccount(e);
+			return;
 		} else { // pour les dossiers locaux on utilise une fonction personnalisée
 			var account = eu.philoux.localfolder.getSelectedAccount();
 			var server = account.incomingServer;
@@ -182,9 +184,18 @@ var w = Cc["@mozilla.org/appshell/window-mediator;1"]
 		.getService(Ci.nsIWindowMediator)
 		.getMostRecentWindow("mail:3pane");
 
+    console.log("add listener")
+
 var listener_id = w.localfolders.notifyTools.addListener(expMenuDispatcher);
 
 async function expMenuDispatcher(data) {
     console.log(data)
-		await eu.philoux.localfolder.NewLocalFolder();
+		if (data.command == "CMD_addLocalFolder") {
+		return await eu.philoux.localfolder.NewLocalFolder();
+		} else if (data.command == "CMD_emoveLocalFolder") {
+    console.log("remove")
+
+			return await eu.philoux.localfolder.onSupprimeCompte();
+		}
+		return null;
 }
