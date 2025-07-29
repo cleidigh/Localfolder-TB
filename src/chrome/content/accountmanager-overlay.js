@@ -192,10 +192,14 @@ async function expMenuDispatcher(data) {
     console.log(data)
 		if (data.command == "CMD_addLocalFolder") {
 		return await eu.philoux.localfolder.NewLocalFolder();
-		} else if (data.command == "CMD_emoveLocalFolder") {
+		} else if (data.command == "CMD_removeLocalFolder") {
     console.log("remove")
 
 			return await eu.philoux.localfolder.onSupprimeCompte();
 		}
-		return null;
+		return false;
+}
+
+function onUnload() {
+	console.log("unload")
 }
