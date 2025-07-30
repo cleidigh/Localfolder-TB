@@ -83,6 +83,7 @@ eu.philoux.localfolder.initAccountActionsButtonsLocalFolder = function (menupopu
  */
 //eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
 eu.philoux.localfolder.onSupprimeCompte = async function () {
+		console.log("remove acc")
 
 	try {
 		if (!eu.philoux.localfolder.isLocalFolder()) { // on utilise la fonction par défaut pour les autres comptes
@@ -169,7 +170,7 @@ eu.philoux.localfolder.NewLocalFolder = async function () {
 	if (versionChecker.compare(currentVersion, "116") >= 0) {
 		w.openDialog("chrome://localfolder/content/localfolder.xhtml", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
 	} else if (versionChecker.compare(currentVersion, "78") >= 0) {
-			w.openDialog("chrome://localfolder/content/localfolder78-115.xhtml", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
+		w.openDialog("chrome://localfolder/content/localfolder78-115.xhtml", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
 	} else {
 		w.openDialog("chrome://localfolder/content/localfolder.xul", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
 	}
@@ -181,25 +182,40 @@ eu.philoux.localfolder.NewLocalFolder = async function () {
 // Safewindow.addEventListener("load", eu.philoux.localfolder.OnInitLocalFolder, false);
 
 var w = Cc["@mozilla.org/appshell/window-mediator;1"]
-		.getService(Ci.nsIWindowMediator)
-		.getMostRecentWindow("mail:3pane");
+	.getService(Ci.nsIWindowMediator)
+	.getMostRecentWindow("mail:3pane");
 
-    console.log("add listener")
 
-var listener_id = w.localfolders.notifyTools.addListener(expMenuDispatcher);
+//var listener_id = w.localfolders.notifyTools.addListener(expMenuDispatcher);
+
+	console.log(w.localfolders)
+
+if (!w.localfolders.listener_id) {
+console.log("add listener")
+	w.localfolders.listener_id = w.localfolders.notifyTools.addListener(expMenuDispatcher);
+}
+	console.log(w.localfolders)
 
 async function expMenuDispatcher(data) {
-    console.log(data)
-		if (data.command == "CMD_addLocalFolder") {
+	console.log(data)
+	if (data.command == "CMD_addLocalFolder") {
 		return await eu.philoux.localfolder.NewLocalFolder();
-		} else if (data.command == "CMD_removeLocalFolder") {
-    console.log("remove")
+	} else if (data.command == "CMD_removeLocalFolder") {
+		console.log("remove")
 
-			return await eu.philoux.localfolder.onSupprimeCompte();
-		}
-		return false;
+		return await eu.philoux.localfolder.onSupprimeCompte();
+	}
+		console.log("ret false ")
+
+	return false;
 }
 
 function onUnload() {
 	console.log("unload")
+	w.localfolders.notifyTools.removeAllListeners();
+if (w.localfolders.listener_id) {
+	w.localfolders.listener_id = null;
+}
+	console.log(w.localfolders)
+
 }

@@ -164,12 +164,13 @@ function LFInitialization(tab) {
 		accesskey="&eu.philoux.localfolder.btdossier.racc;" />
 `, ["chrome://localfolder/locale/localfolder.dtd"]);
 
-let rm = tab.browser.contentWindow.wrappedJSObject.MozXULElement.parseXULToFragment(`
+	let rm = tab.browser.contentWindow.wrappedJSObject.MozXULElement.parseXULToFragment(`
 	<menuitem id="accountActionRemoveLocalFolder"
 		label="Remove ocalFolder" 
 		oncommand="eu.philoux.localfolder.onSupprimeCompte(event,window); event.stopPropagation();" />
 `, ["chrome://localfolder/locale/localfolder.dtd"]);
 
+	/*
 
 	let am = tab.browser.contentDocument.getElementById("accountAddPopup");
 	console.log(am)
@@ -178,12 +179,12 @@ let rm = tab.browser.contentWindow.wrappedJSObject.MozXULElement.parseXULToFragm
 	am.append(m)
 	am.append(rm)
 
-	/*
 	// handle local folder removal
 	let arm = tab.browser.contentDocument.getElementById("accountActionsDropdownRemove");
 	arm.setAttribute("oncommand", "eu.philoux.localfolder.onSupprimeCompte(event,window); event.stopPropagation();");
 */
 	// inject Scripts into account manager content window within tab
+	console.log("load")
 	Services.scriptloader.loadSubScript("chrome://localfolder/content/accountmanager-overlay.js", tab.browser.contentWindow.wrappedJSObject, "UTF-8");
 	Services.scriptloader.loadSubScript("chrome://localfolder/content/trace.js", tab.browser.contentWindow.wrappedJSObject, "UTF-8");
 }
@@ -335,6 +336,11 @@ function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttC
 }
 
 
-	function onUnload() {
-		tabMonitor.unregisterTabMonitor();
+function onUnload() {
+	console.log("mol unload")
+	window.localfolders.notifyTools.removeAllListeners();
+	if (window.localfolders.listener_id) {
+		w.localfolders.listener_id = null;
 	}
+	tabMonitor.unregisterTabMonitor();
+}

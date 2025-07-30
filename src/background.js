@@ -47,9 +47,9 @@ await browser.menus.create({id: "removeLF", contexts: ["browser_action_menu"], t
 
 
 async function addLocalFolder() {
-	rv = await messenger.NotifyTools.notifyExperiment({ command: "CMD_addLocalFolder" });
+	let rv = await messenger.NotifyTools.notifyExperiment({ command: "CMD_addLocalFolder" });
 }
 
 async function removeLocalFolder() {
-	rv = await messenger.NotifyTools.notifyExperiment({ command: "CMD_removeLocalFolder" });
+	let rv = await messenger.NotifyTools.notifyExperiment({ command: "CMD_removeLocalFolder" });
 }
