@@ -184,9 +184,11 @@ function LFInitialization(tab) {
 	arm.setAttribute("oncommand", "eu.philoux.localfolder.onSupprimeCompte(event,window); event.stopPropagation();");
 */
 	// inject Scripts into account manager content window within tab
-	console.log("load")
+	console.log("load", tab.browser.contentWindow.wrappedJSObject)
 	Services.scriptloader.loadSubScript("chrome://localfolder/content/accountmanager-overlay.js", tab.browser.contentWindow.wrappedJSObject, "UTF-8");
 	Services.scriptloader.loadSubScript("chrome://localfolder/content/trace.js", tab.browser.contentWindow.wrappedJSObject, "UTF-8");
+	console.log("af", tab.browser.contentWindow.wrappedJSObject)
+
 }
 
 async function onLoad() {

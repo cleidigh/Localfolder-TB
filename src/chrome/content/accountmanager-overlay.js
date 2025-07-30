@@ -158,6 +158,8 @@ eu.philoux.localfolder.NewLocalFolder = async function () {
 	const versionChecker = Services.vc;
 	const currentVersion = Services.appinfo.platformVersion;
 
+	if (w) {
+	}
 
 	var w = Cc["@mozilla.org/appshell/window-mediator;1"]
 		.getService(Ci.nsIWindowMediator)
