@@ -14,7 +14,7 @@
 	"browser_action": {
 		"type":"menu",
     "default_icon": "chrome/skin/classic/LocalFolders-32px.png",
-    "default_title": "LocalFolderss",
+    "default_title": "LocalFolders",
 		"allowed_spaces": ["settings"]
   },
 	"permissions" : [

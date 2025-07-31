@@ -170,14 +170,18 @@ function LFInitialization(tab) {
 		oncommand="eu.philoux.localfolder.onSupprimeCompte(event,window); event.stopPropagation();" />
 `, ["chrome://localfolder/locale/localfolder.dtd"]);
 
+	
 	/*
 
 	let am = tab.browser.contentDocument.getElementById("accountAddPopup");
 	console.log(am)
+	if (!am) {
+		return
+	}
 	am.setAttribute("onpopupshowing", "eu.philoux.localfolder.initAccountActionsButtonsLocalFolder(this);");
 	//am.insertBefore(m, tab.browser.contentDocument.getElementById("accountActionsDropdownSep1"));
 	am.append(m)
-	am.append(rm)
+	//am.append(rm)
 
 	// handle local folder removal
 	let arm = tab.browser.contentDocument.getElementById("accountActionsDropdownRemove");
