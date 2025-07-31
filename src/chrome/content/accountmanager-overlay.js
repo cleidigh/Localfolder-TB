@@ -9,6 +9,11 @@ window.eu = eu;
 
 eu.lfver = window.lfver;
 
+var w = Cc["@mozilla.org/appshell/window-mediator;1"]
+	.getService(Ci.nsIWindowMediator)
+	.getMostRecentWindow("mail:3pane");
+
+
 console.log("accm")
 
 //initialisation du gestionnaire de compte
@@ -83,8 +88,8 @@ eu.philoux.localfolder.initAccountActionsButtonsLocalFolder = function (menupopu
  */
 //eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
 eu.philoux.localfolder.onSupprimeCompte = async function () {
-		console.log("remove acc")
-
+		console.log("remove acc", window)
+	var amWindow = window
 	try {
 		if (!eu.philoux.localfolder.isLocalFolder()) { // on utilise la fonction par défaut pour les autres comptes
 			return;
@@ -99,8 +104,12 @@ eu.philoux.localfolder.onSupprimeCompte = async function () {
 			var confirmRemoveAccount = bundle.formatStringFromName("ConfirmRemoveFolder", [prettyName], 1);
 			var deleteData = bundle.GetStringFromName("deleteData");
 			var removeData = { value: false };
-			let review = Services.prompt.confirmCheck(window, confirmTitle, confirmRemoveAccount, deleteData, removeData);
 
+			try {
+			var review = Services.prompt.confirmCheck(window, confirmTitle, confirmRemoveAccount, deleteData, removeData);
+			} catch (ex) {
+				return;
+			}
 			if (!review) {
 				return;
 			}
@@ -131,6 +140,7 @@ eu.philoux.localfolder.onSupprimeCompte = async function () {
 				}
 			}
 			catch (ex) {
+				console.log(ex)
 				dump("failure to remove account: " + ex + "\n");
 				// cleidigh
 				// var alertText = bundle.GetStringFromName("failedRemoveAccount");
@@ -183,18 +193,17 @@ eu.philoux.localfolder.NewLocalFolder = async function () {
 //positionnement des boutons au d�marrage
 // Safewindow.addEventListener("load", eu.philoux.localfolder.OnInitLocalFolder, false);
 
-var w = Cc["@mozilla.org/appshell/window-mediator;1"]
-	.getService(Ci.nsIWindowMediator)
-	.getMostRecentWindow("mail:3pane");
 
 
 //var listener_id = w.localfolders.notifyTools.addListener(expMenuDispatcher);
 
 	console.log(w.localfolders)
 
-if (!w.localfolders.listener_id) {
+if (!w.localfolders.listener_id && !w.localfolders.AmoRunning) {
 console.log("add listener")
 	w.localfolders.listener_id = w.localfolders.notifyTools.addListener(expMenuDispatcher);
+w.localfolders.AmoRunning = true;
+
 }
 	console.log(w.localfolders)
 
@@ -214,6 +223,8 @@ async function expMenuDispatcher(data) {
 
 function onUnload() {
 	console.log("unload")
+w.localfolders.AmoRunning = false;
+
 	w.localfolders.notifyTools.removeAllListeners();
 if (w.localfolders.listener_id) {
 	w.localfolders.listener_id = null;

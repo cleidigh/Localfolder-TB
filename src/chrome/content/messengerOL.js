@@ -342,7 +342,7 @@ function onUnload() {
 	console.log("mol unload")
 	window.localfolders.notifyTools.removeAllListeners();
 	if (window.localfolders.listener_id) {
-		w.localfolders.listener_id = null;
+		window.localfolders.listener_id = null;
 	}
 	tabMonitor.unregisterTabMonitor();
 }
