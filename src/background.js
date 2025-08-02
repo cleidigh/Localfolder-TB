@@ -41,8 +41,8 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 
 // button menus
 
-await browser.menus.create({id: "addLF", contexts: ["browser_action_menu"], title: "Add Local Folder", onclick: addLocalFolder});
-await browser.menus.create({id: "removeLF", contexts: ["browser_action_menu"], title: "Remove Local Folder", onclick: removeLocalFolder});
+await browser.menus.create({id: "addLF", contexts: ["browser_action_menu"], title: browser.i18n.getMessage("addLocalFolder"), onclick: addLocalFolder});
+await browser.menus.create({id: "removeLF", contexts: ["browser_action_menu"], title: browser.i18n.getMessage("removeLocalFolder"), onclick: removeLocalFolder});
 
 
 
