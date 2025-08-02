@@ -16,7 +16,9 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "deleteData", text: "Delete All Subfolders and Data"},
+	{ key: "addLocalFolder", text: "Add Local Folder"},
+	{ key: "removeLocalFolder", text: "Remove Local Folder"},
+
 
 
 
@@ -442,10 +444,10 @@ var options = {
 // let inputFiles = ["overlay.properties"];
 // let inputFiles = ["settings.dtd", "overlay.dtd", "overlay.properties"];
 
-let inputFiles = ["localfolder.properties"];
+//let inputFiles = ["localfolder.properties"];
 //let inputFiles = ["printingtoolsng.dtd"];
 
-//let inputFiles = ["messages.json"];
+let inputFiles = ["messages.json"];
 // let inputFiles = ["autobackup.dtd", "autobackup.properties", "mboximport.dtd", "mboximport.properties", "profilewizard.dtd", "profilewizard.properties"];
 //let inputFiles = ["mboximport.properties"];
 // var supportedLocales = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
@@ -468,7 +470,7 @@ var localeFolders = ['ja', 'de', 'en-US', 'es-ES', 'fr', 'hu',
 //translateHelpPage();
 //translatePage();
 // translateAll("printingtoolsng.properties", translationArray, options);
-translateAll(inputFiles, translationArray, options);
+translateAll(inputFiles, translationArray, optionsM);
 //translateAll("mboximport.dtd", translationArray, options);
 //loadTranslationArray(inputFiles, options);
 // let inputFiles = ["settings.dtd"];
