@@ -490,16 +490,27 @@ eu.philoux.localfolder.SelectChemin = function () {
 eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, emptyTrashOnExit) {
 
     try {
-        var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
-        var srv = accountmanager.createIncomingServer("nobody", nom, "none");
+        //var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
+        
+//        var srv = accountmanager.createIncomingServer("nobody", nom, "none");
+        let tempNom = nom.replaceAll(" ","_");
+
+        var srv = MailServices.accounts.createIncomingServer("nobody", tempNom, "none");
+
         var filespec = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
         filespec.initWithPath(chemin);
-        srv.prettyName = nom;
+        
+        //srv.hostName = nom;
+        //srv.prettyName = nom;
         srv.localPath = filespec;
 
         let defaultStoreID = Services.prefs.getCharPref("mail.serverDefaultStoreContractID");
         srv.setStringValue("storeContractID", storeID);
         srv.emptyTrashOnExit = emptyTrashOnExit;
+
+        srv.setStringValue("hostName",nom)
+        //srv.hostName = nom;
+        srv.prettyName = nom;
 
         //eu.philoux.localfolder.LocalFolderTrace("CreateLocal  folder: " + chemin + "\neTrash : " + emptyTrashOnExit);
 
@@ -509,7 +520,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         await IOUtils.remove(PathUtils.join(chemin, "Trash"), { ignoreAbsent: true, recursive: true });
         await IOUtils.remove(PathUtils.join(chemin, "Unsent Messages"), { ignoreAbsent: true, recursive: true });
 
-        var account = accountmanager.createAccount();
+        var account = MailServices.accounts.createAccount();
         account.incomingServer = srv;
 
         msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
