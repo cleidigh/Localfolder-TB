@@ -5,5 +5,14 @@
 	},
 	"extensionDescription": {
 		"message": "Ajoutez autant de dossiers locaux que vous voulez."
+	},
+
+	"addLocalFolder": {
+		"message": "Ajouter un dossier local"
+	},
+
+	"removeLocalFolder": {
+		"message": "Supprimer le dossier local"
 	}
+
 }

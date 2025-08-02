@@ -5,5 +5,14 @@
 	},
 	"extensionDescription": {
 		"message": "Adicione quantas Pastas Locais desejar, incluindo diretórios mapeados."
+	},
+
+	"addLocalFolder": {
+		"message": "Adicionar pasta local"
+	},
+
+	"removeLocalFolder": {
+		"message": "Remover pasta local"
 	}
+
 }
