@@ -508,7 +508,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         srv.setStringValue("storeContractID", storeID);
         srv.emptyTrashOnExit = emptyTrashOnExit;
 
-        srv.setStringValue("hostName",nom)
+        //srv.setStringValue("hostName",nom)
         //srv.hostName = nom;
         srv.prettyName = nom;
 
