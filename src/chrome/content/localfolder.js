@@ -491,7 +491,8 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
 
     try {
         var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
-        var srv = accountmanager.createIncomingServer("nobody", nom, "none");
+        let tempNom = nom.replace(' ', '0')
+        var srv = accountmanager.createIncomingServer("nobody", tempNom, "none");
         var filespec = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
         filespec.initWithPath(chemin);
         srv.prettyName = nom;
