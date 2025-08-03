@@ -55,7 +55,7 @@ async function removeLocalFolder() {
 // monitor non account settings tabs to disable button
 
 await browser.tabs.onActivated.addListener(tabListener);
-//await browser.tabs.onUpdated.addListener(tabListener2);
+await browser.tabs.onUpdated.addListener(tabListener2);
 
 
 async function tabListener(activeInfo) {
@@ -65,3 +65,10 @@ async function tabListener(activeInfo) {
 	}
 }
 
+async function tabListener2(tabId, changeInfo, tab) {
+	if (tab.url == "about:accountsettings") {
+		await browser.browserAction.enable(tabId)
+	} else{
+		await browser.browserAction.disable(tabId)
+	}
+}
