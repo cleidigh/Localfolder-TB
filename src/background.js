@@ -44,8 +44,6 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 await browser.menus.create({id: "addLF", contexts: ["browser_action_menu"], title: browser.i18n.getMessage("addLocalFolder"), onclick: addLocalFolder});
 await browser.menus.create({id: "removeLF", contexts: ["browser_action_menu"], title: browser.i18n.getMessage("removeLocalFolder"), onclick: removeLocalFolder});
 
-
-
 async function addLocalFolder() {
 	let rv = await messenger.NotifyTools.notifyExperiment({ command: "CMD_addLocalFolder" });
 }
@@ -62,7 +60,6 @@ await browser.tabs.onActivated.addListener(tabListener);
 
 async function tabListener(activeInfo) {
 	let tab = await browser.tabs.get(activeInfo.tabId);
-	console.log(tab)
 	if (tab.title != "Loading" && tab.url != "about:accountsettings") {
 		await browser.browserAction.disable(activeInfo.tabId)
 	}

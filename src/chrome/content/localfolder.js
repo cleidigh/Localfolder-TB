@@ -491,7 +491,12 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
 
     try {
         var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
-        let tempNom = nom.replace(' ', '0')
+        // while account/hostnames can have spaces, the api
+        // throughs errors when spaces are used. You can add 
+        // spaces in the ui, but how is unknown. So we just 
+        // use the prettyName.
+
+        let tempNom = nom.replace(' ', '0');
         var srv = accountmanager.createIncomingServer("nobody", tempNom, "none");
         var filespec = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
         filespec.initWithPath(chemin);
