@@ -14,24 +14,6 @@ var w = Cc["@mozilla.org/appshell/window-mediator;1"]
 	.getMostRecentWindow("mail:3pane");
 
 
-console.log("accm")
-
-//initialisation du gestionnaire de compte
-//déplace le bouton "Ajouter un dossier local" au dessous "Ajouter un autre compte"
-eu.philoux.localfolder.OnInitLocalFolder = function () {
-	try {
-		var elem = document.getElementById("accountActionsDropdownSep1");
-		//bouton nouveau dossier
-		var bt = document.getElementById("accountActionAddLocalFolder");
-		elem.parentNode.insertBefore(bt, elem);
-
-	}
-	catch (ex) {
-		eu.philoux.localfolder.LocalFolderAfficheMsgId2("ErreurAppelLocalFolder", ex);
-	}
-}
-
-
 eu.philoux.localfolder.getSelectedAccount = function (page, account) {
 	// Bug 1724842 changed the list implementation.
 	// Simply use currentAccount.
@@ -67,29 +49,13 @@ eu.philoux.localfolder.isLocalFolder = function () {
 }
 
 /**
- * permet la suppression des dossiers locaux autres que celui par défaut
- */
-
-eu.philoux.localfolder.initAccountActionsButtonsLocalFolder = function (menupopup) {
-
-	// on lance la fonction originale
-	// initAccountActionsButtons(menupopup);
-	if (eu.philoux.localfolder.isLocalFolder()) {
-		// TBD
-		//document.getElementById("accountActionsDropdownRemove").removeAttribute("disabled");
-	}
-}
-
-
-/**
  *	gére le bouton de suppression de compte original
  *	@return si succes retourne true / si erreur retourne false 
  *	implémentation : appelle la fonction originale onRemoveAccount
  */
 //eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
 eu.philoux.localfolder.onSupprimeCompte = async function () {
-		console.log("remove acc", window)
-	var amWindow = window
+	var amWindow = window;
 	try {
 		if (!eu.philoux.localfolder.isLocalFolder()) { // on utilise la fonction par défaut pour les autres comptes
 			return;
@@ -190,33 +156,18 @@ eu.philoux.localfolder.NewLocalFolder = async function () {
 	return true;
 }
 
-//positionnement des boutons au d�marrage
-// Safewindow.addEventListener("load", eu.philoux.localfolder.OnInitLocalFolder, false);
-
-
-
-//var listener_id = w.localfolders.notifyTools.addListener(expMenuDispatcher);
-
-	console.log(w.localfolders)
-
 if (!w.localfolders.listener_id && !w.localfolders.AmoRunning) {
-console.log("add listener")
 	w.localfolders.listener_id = w.localfolders.notifyTools.addListener(expMenuDispatcher);
 w.localfolders.AmoRunning = true;
 
 }
-	console.log(w.localfolders)
 
 async function expMenuDispatcher(data) {
-	console.log(data)
 	if (data.command == "CMD_addLocalFolder") {
 		return await eu.philoux.localfolder.NewLocalFolder();
 	} else if (data.command == "CMD_removeLocalFolder") {
-		console.log("remove")
-
 		return await eu.philoux.localfolder.onSupprimeCompte();
 	}
-		console.log("ret false ")
 
 	return false;
 }
