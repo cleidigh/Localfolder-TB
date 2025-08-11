@@ -2,6 +2,7 @@
 
 // v2.0.0 - add option to change store type, empty trash on exit, creation of mail folders
 
+console.log("lf startup")
 
 // encapsulation objet
 if (!eu) var eu = {};
@@ -233,6 +234,8 @@ eu.philoux.localfolder.getMail3Pane = function () {
  */
 eu.philoux.localfolder.initDlg = function () {
 
+console.log("lf dlg")
+
     let tbmajversion = this.getThunderbirdVersion().major;
     if (tbmajversion >= 102) {
         document.getElementById("localfolder").setAttribute("iconstyle", "new")
@@ -300,6 +303,8 @@ eu.philoux.localfolder.xulFixup = function () {
  *	@return	true si ok, false si erreur
  */
 eu.philoux.localfolder.btCreeDossierLocal = async function () {
+console.log("lf cre1")
+
     try {
 
         //vérification des paramétres
@@ -486,6 +491,7 @@ eu.philoux.localfolder.SelectChemin = function () {
  *	nom et chemin pas déjà utilisés
  */
 eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, emptyTrashOnExit) {
+console.log("lf creeD")
 
     try {
         //var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
@@ -528,6 +534,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         //Services.prefs.savePrefFile(null);
         MailServices.accounts.reactivateAccounts();
         
+        console.log("lf srv", srv)
 
         msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
 
@@ -544,14 +551,21 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         // eu.philoux.localfolder.LocalFolderTrace("Add special subfolders");
 
         var notifyFlags = Ci.nsIFolderListener.added;
-        srv.rootMsgFolder.AddFolderListener(FolderListener, notifyFlags);
+        //srv.rootMsgFolder.AddFolderListener(FolderListener, notifyFlags);
+
+        let mainWindow = eu.philoux.localfolder.getMail3Pane();
+        console.log(mainWindow.localfolders)
+
         // eu.philoux.localfolder.LocalFolderTrace("Added folder listener");
 
         // "import"/index all existing folders
         eu.philoux.localfolder.addExistingFolders(srv.rootMsgFolder, storeID);
 
+        srv.rootMsgFolder.AddFolderListener(mainWindow.localfolders.tmpFolderListener, notifyFlags);
+
         return account;
     } catch (ex) {
+        console.log(ex)
         eu.philoux.localfolder.LocalFolderAfficheMsgId2("ErreurCreationDossier", ex);
         return false;
     }
@@ -562,7 +576,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
 
 eu.philoux.localfolder.fixupSubfolder = async function (parentName, folderName, removeFileFolder, storeID) {
 
-    // eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder: ${folderName} - remove file folder: ${removeFileFolder}  storeType: ${storeID}`);
+    eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder: ${folderName} - remove file folder: ${removeFileFolder}  storeType: ${storeID}`);
     var filespec = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
     var rf = `${parentName}\\${folderName}`
 
@@ -603,15 +617,19 @@ eu.philoux.localfolder.fixupSubfolder = async function (parentName, folderName, 
 
 // Listen for subfolder additions, have to fixup
 var FolderListener = {
+    onFolderAdded: async function (parentFolder, aItem) {
+        eu.philoux.localfolder.LocalFolderTrace(`LF FolderListener item added : ${parentFolder.filePath.path} ${parentFolder.flags} ${aItem.name}`);
+
+    },
     OnItemAdded: async function (parentFolder, aItem) {
-        // eu.philoux.localfolder.LocalFolderTrace(`FolderListener item added : ${parentFolder.filePath.path} ${parentFolder.flags}`);
+        eu.philoux.localfolder.LocalFolderTrace(`FolderListener item added : ${parentFolder.filePath.path} ${parentFolder.flags}`);
 
         // We seem to get to events first without folder
         if (!(aItem instanceof Ci.nsIMsgFolder)) {
             // eu.philoux.localfolder.LocalFolderTrace(`NotFolder  ${aItem.name}   ${parentFolder.name}`);
             return;
         }
-        // eu.philoux.localfolder.LocalFolderTrace(`${aItem.name}    ${aItem.flags} ${eu.philoux.localfolder.pendingFolders[0]}`);
+        eu.philoux.localfolder.LocalFolderTrace(`name ${aItem.name}    ${aItem.flags} ${eu.philoux.localfolder.pendingFolders[0]}`);
 
         var rf = `${aItem.filePath.path}`;
         rf = rf.replace(`\\${aItem.name}`, "");
@@ -637,6 +655,10 @@ var FolderListener = {
     OnItemUnicharPropertyChanged() { },
     OnItemPropertyFlagChanged() { },
     OnItemEvent() { },
+    OnFolderEvent() {
+        console.log("evt")
+     },
+    
 };
 
 
