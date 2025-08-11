@@ -488,14 +488,18 @@ eu.philoux.localfolder.SelectChemin = function () {
 eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, emptyTrashOnExit) {
 
     try {
-        var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
+        //var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
         // while account/hostnames can have spaces, the api
         // throughs errors when spaces are used. You can add 
         // spaces in the ui, but how is unknown. So we just 
         // use the prettyName.
 
         let tempNom = nom.replace(' ', '0');
-        var srv = accountmanager.createIncomingServer("nobody", tempNom, "none");
+        //var srv = accountmanager.createIncomingServer("nobody", tempNom, "none");
+        var srv = MailServices.accounts.createIncomingServer("nobody", tempNom, "none");
+
+        srv = srv.QueryInterface(Ci.nsIMsgIncomingServer);
+
         var filespec = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
         filespec.initWithPath(chemin);
         srv.prettyName = nom;
@@ -504,7 +508,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         let defaultStoreID = Services.prefs.getCharPref("mail.serverDefaultStoreContractID");
         srv.setStringValue("storeContractID", storeID);
         srv.emptyTrashOnExit = emptyTrashOnExit;
-
+        
         //eu.philoux.localfolder.LocalFolderTrace("CreateLocal  folder: " + chemin + "\neTrash : " + emptyTrashOnExit);
 
         eu.philoux.localfolder.lastFolder = chemin;
@@ -513,8 +517,17 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         await IOUtils.remove(PathUtils.join(chemin, "Trash"), { ignoreAbsent: true, recursive: true });
         await IOUtils.remove(PathUtils.join(chemin, "Unsent Messages"), { ignoreAbsent: true, recursive: true });
 
-        var account = accountmanager.createAccount();
+        srv.valid = false;
+
+        var account = MailServices.accounts.createAccount();
         account.incomingServer = srv;
+        srv.valid = true;
+        account.incomingServer = account.incomingServer;
+
+        MailServices.accounts.saveAccountInfo();
+        //Services.prefs.savePrefFile(null);
+        MailServices.accounts.reactivateAccounts();
+        
 
         msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
 
