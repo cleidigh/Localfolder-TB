@@ -202,6 +202,23 @@ async function onLoad() {
 			console.log("tmpfl folderadd", parentFolder.name, aItem.name)
 			console.log(parentFolder.filePath.path)
 			console.log(aItem.filePath.path)
+			await new Promise(resolve => window.setTimeout(resolve, 500));
+			
+			let children = await IOUtils.getChildren(PathUtils.parent(aItem.filePath.path));
+			console.log(children)
+			//let tc = aItem.filePath.path.replaceAll('\\','\\\\');
+			let tc = aItem.filePath.path;
+
+
+			if (children.includes(tc)) {
+				console.log("inc c")
+				await IOUtils.remove(aItem.filePath.path);
+      let r = await IOUtils.write(aItem.filePath.path, new Uint8Array(), { mode: "overwrite" });
+
+				let fs = await IOUtils.stat(aItem.filePath.path)
+				console.log(fs)
+			}
+				console.log("done")
 
 		},
 		OnItemAdded: async function (parentFolder, aItem) {
