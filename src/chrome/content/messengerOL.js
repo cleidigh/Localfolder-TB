@@ -163,20 +163,6 @@ function LFInitialization(tab) {
 	Services.scriptloader.loadSubScript("chrome://localfolder/content/trace.js", tab.browser.contentWindow.wrappedJSObject, "UTF-8");
 }
 
-var fl = {
-	onFolderAdded: async function (parentFolder, aItem) {
-		console.log("88")
-	},
-	onMessageAdded() { },
-	onFolderRemoved() { },
-	onMessageRemoved() { },
-	onFolderPropertyChanged() { },
-	onFolderIntPropertyChanged() { },
-	onFolderBoolPropertyChanged() { },
-	onFolderPropertyFlagChanged() { },
-	onFolderEvent() { },
-}
-
 async function onLoad() {
 	window.localfolders = {};
 	window.localfolders.extension = WL.extension;
@@ -200,63 +186,26 @@ async function onLoad() {
 	window.localfolders.tmpFolderListener = {
 		onFolderAdded: async function (parentFolder, aItem) {
 			console.log("tmpfl folderadd", parentFolder.name, aItem.name)
-			console.log(parentFolder.filePath.path)
-			console.log(aItem.filePath.path)
 			await new Promise(resolve => window.setTimeout(resolve, 500));
-			
+
+			let storeID = aItem.server.getStringValue("storeContractID");
+			console.log(storeID)
+
 			let children = await IOUtils.getChildren(PathUtils.parent(aItem.filePath.path));
-			console.log(children)
-			//let tc = aItem.filePath.path.replaceAll('\\','\\\\');
-			let tc = aItem.filePath.path;
 
-
-			if (children.includes(tc)) {
-				console.log("inc c")
-				await IOUtils.remove(aItem.filePath.path);
-      let r = await IOUtils.write(aItem.filePath.path, new Uint8Array(), { mode: "overwrite" });
-
-				let fs = await IOUtils.stat(aItem.filePath.path)
-				console.log(fs)
-			}
-				console.log("done")
-
-		},
-		OnItemAdded: async function (parentFolder, aItem) {
-			// eu.philoux.localfolder.LocalFolderTrace(`FolderListener item added : ${parentFolder.filePath.path} ${parentFolder.flags}`);
-			console.log("tmpfl b", aItem.name)
-			return
-
-			// We seem to get to events first without folder
-			if (!(aItem instanceof Ci.nsIMsgFolder)) {
-				// eu.philoux.localfolder.LocalFolderTrace(`NotFolder  ${aItem.name}   ${parentFolder.name}`);
-				return;
-			}
-			eu.philoux.localfolder.LocalFolderTrace(`${aItem.name}    ${aItem.flags} ${eu.philoux.localfolder.pendingFolders[0]}`);
-
-			var rf = `${aItem.filePath.path}`;
-			rf = rf.replace(`\\${aItem.name}`, "");
-
-			if (eu.philoux.localfolder.pendingFolders.includes(`${rf}`) && (aItem.flags & 0x000004)) {
-				var filespec = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
-				await eu.philoux.localfolder.fixupSubfolder(eu.philoux.localfolder.pendingFolders[0], aItem.name, false, aItem.server.getStringValue("storeContractID"));
-
-				if (aItem.name in eu.philoux.localfolder.specialFolders) {
-					var sf = eu.philoux.localfolder.specialFolders[aItem.name].flags
-					eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} get flags ${aItem.flags}`);
-					aItem.setFlag(sf);
-					eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} set flags (${sf} : ${aItem.flags}`);
+			if (storeID == "@mozilla.org/msgstore/berkeleystore;1") {
+				if (children.includes(aItem.filePath.path)) {
+					console.log("mbox create missing mbox, rmv dir", aItem.name)
+					await IOUtils.remove(aItem.filePath.path);
+					await IOUtils.write(aItem.filePath.path, new Uint8Array(), { mode: "overwrite" });
 				}
-
+			} else {
+				if (!children.includes(aItem.filePath.path)) {
+					console.log("maildir create missing", aItem.name)
+					await IOUtils.makeDirectory(aItem.filePath.path);
+				}
 			}
 		},
-
-		OnItemRemoved() { },
-		OnItemPropertyChanged() { },
-		OnItemIntPropertyChanged() { },
-		OnItemBoolPropertyChanged() { },
-		OnItemUnicharPropertyChanged() { },
-		OnItemPropertyFlagChanged() { },
-		OnItemEvent() { },
 
 		onMessageAdded() { },
 		onFolderRemoved() { },
@@ -269,15 +218,6 @@ async function onLoad() {
 
 	};
 
-
-	// Just avoid initialising the pane. We won't be using it. The folder
-	// listener is still required, because it does other things too.
-	/*
-	MailServices.mailSession.AddFolderListener(
-		fl,
-		Ci.nsIFolderListener.added
-	);
-*/
 }
 
 function onUnload() {

@@ -2,7 +2,6 @@
 
 // v2.0.0 - add option to change store type, empty trash on exit, creation of mail folders
 
-console.log("lf startup")
 
 // encapsulation objet
 if (!eu) var eu = {};
@@ -105,11 +104,8 @@ eu.philoux.localfolder.addSpecialFolders = async function (aParentFolder, aParen
                 }
 
                 await eu.philoux.localfolder.fixupSubfolder(aParentFolderPath, l, false, storeID);
-
             }
-
         }
-
     }
 }
 
@@ -147,8 +143,9 @@ eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder, storeID) {
 
         // This is synchronous for LocalFolders so no listener required
         newFolder.createStorageIfMissing(null);
+        // so far this appears to not be required anymore 
         if (storeID == "@mozilla.org/msgstore/maildirstore;1") {
-            eu.philoux.localfolder.rebuildSummary(newFolder)
+            //eu.philoux.localfolder.rebuildSummary(newFolder)
         }
         rootMsgFolder.notifyFolderAdded(newFolder);
     });
@@ -233,8 +230,6 @@ eu.philoux.localfolder.getMail3Pane = function () {
  *	initialisation boite de création de dossier
  */
 eu.philoux.localfolder.initDlg = function () {
-
-console.log("lf dlg")
 
     let tbmajversion = this.getThunderbirdVersion().major;
     if (tbmajversion >= 102) {
@@ -491,7 +486,6 @@ eu.philoux.localfolder.SelectChemin = function () {
  *	nom et chemin pas déjà utilisés
  */
 eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, emptyTrashOnExit) {
-console.log("lf creeD")
 
     try {
         //var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
@@ -501,7 +495,6 @@ console.log("lf creeD")
         // use the prettyName.
 
         let tempNom = nom.replace(' ', '0');
-        //var srv = accountmanager.createIncomingServer("nobody", tempNom, "none");
         var srv = MailServices.accounts.createIncomingServer("nobody", tempNom, "none");
 
         srv = srv.QueryInterface(Ci.nsIMsgIncomingServer);
@@ -529,13 +522,7 @@ console.log("lf creeD")
         account.incomingServer = srv;
         srv.valid = true;
         account.incomingServer = account.incomingServer;
-
-        MailServices.accounts.saveAccountInfo();
-        //Services.prefs.savePrefFile(null);
-        MailServices.accounts.reactivateAccounts();
         
-        console.log("lf srv", srv)
-
         msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
 
 
@@ -554,14 +541,13 @@ console.log("lf creeD")
         //srv.rootMsgFolder.AddFolderListener(FolderListener, notifyFlags);
 
         let mainWindow = eu.philoux.localfolder.getMail3Pane();
-        console.log(mainWindow.localfolders)
 
         // eu.philoux.localfolder.LocalFolderTrace("Added folder listener");
 
         // "import"/index all existing folders
         eu.philoux.localfolder.addExistingFolders(srv.rootMsgFolder, storeID);
 
-        //srv.rootMsgFolder.AddFolderListener(mainWindow.localfolders.tmpFolderListener, notifyFlags);
+        srv.rootMsgFolder.AddFolderListener(mainWindow.localfolders.tmpFolderListener, notifyFlags);
 
         return account;
     } catch (ex) {
