@@ -561,7 +561,7 @@ console.log("lf creeD")
         // "import"/index all existing folders
         eu.philoux.localfolder.addExistingFolders(srv.rootMsgFolder, storeID);
 
-        srv.rootMsgFolder.AddFolderListener(mainWindow.localfolders.tmpFolderListener, notifyFlags);
+        //srv.rootMsgFolder.AddFolderListener(mainWindow.localfolders.tmpFolderListener, notifyFlags);
 
         return account;
     } catch (ex) {
