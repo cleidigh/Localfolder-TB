@@ -537,7 +537,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         await eu.philoux.localfolder.addSpecialFolders(srv.rootMsgFolder, chemin);
         // eu.philoux.localfolder.LocalFolderTrace("Add special subfolders");
 
-        //var notifyFlags = Ci.nsIFolderListener.added;
+        var notifyFlags = Ci.nsIFolderListener.added;
         //srv.rootMsgFolder.AddFolderListener(FolderListener, notifyFlags);
 
         let mainWindow = eu.philoux.localfolder.getMail3Pane();
