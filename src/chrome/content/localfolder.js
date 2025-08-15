@@ -538,7 +538,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         // eu.philoux.localfolder.LocalFolderTrace("Add special subfolders");
 
         var notifyFlags = Ci.nsIFolderListener.added;
-        //srv.rootMsgFolder.AddFolderListener(FolderListener, notifyFlags);
+        srv.rootMsgFolder.AddFolderListener(FolderListener, notifyFlags);
 
         let mainWindow = eu.philoux.localfolder.getMail3Pane();
 
@@ -606,9 +606,7 @@ var FolderListener = {
     onFolderAdded: async function (parentFolder, aItem) {
         eu.philoux.localfolder.LocalFolderTrace(`LF FolderListener item added : ${parentFolder.filePath.path} ${parentFolder.flags} ${aItem.name}`);
 
-    },
-    OnItemAdded: async function (parentFolder, aItem) {
-        eu.philoux.localfolder.LocalFolderTrace(`FolderListener item added : ${parentFolder.filePath.path} ${parentFolder.flags}`);
+        eu.philoux.localfolder.LocalFolderTrace(`2 FolderListener item added : ${parentFolder.filePath.path} ${parentFolder.flags}`);
 
         // We seem to get to events first without folder
         if (!(aItem instanceof Ci.nsIMsgFolder)) {
