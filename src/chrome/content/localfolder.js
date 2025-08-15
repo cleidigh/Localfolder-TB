@@ -562,7 +562,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
 
 eu.philoux.localfolder.fixupSubfolder = async function (parentName, folderName, removeFileFolder, storeID) {
 
-    eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder: ${folderName} - remove file folder: ${removeFileFolder}  storeType: ${storeID}`);
+    //eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder: ${folderName} - remove file folder: ${removeFileFolder}  storeType: ${storeID}`);
     var filespec = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
     var rf = `${parentName}\\${folderName}`
 
@@ -604,9 +604,7 @@ eu.philoux.localfolder.fixupSubfolder = async function (parentName, folderName, 
 // Listen for subfolder additions, have to fixup
 var FolderListener = {
     onFolderAdded: async function (parentFolder, aItem) {
-        eu.philoux.localfolder.LocalFolderTrace(`LF FolderListener item added : ${parentFolder.filePath.path} ${parentFolder.flags} ${aItem.name}`);
-
-        eu.philoux.localfolder.LocalFolderTrace(`2 FolderListener item added : ${parentFolder.filePath.path} ${parentFolder.flags}`);
+        //eu.philoux.localfolder.LocalFolderTrace(`LF FolderListener item added : ${parentFolder.filePath.path} ${parentFolder.flags} ${aItem.name}`);
 
         // We seem to get to events first without folder
         if (!(aItem instanceof Ci.nsIMsgFolder)) {
