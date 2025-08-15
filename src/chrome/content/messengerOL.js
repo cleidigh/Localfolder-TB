@@ -185,23 +185,20 @@ async function onLoad() {
 
 	window.localfolders.tmpFolderListener = {
 		onFolderAdded: async function (parentFolder, aItem) {
-			console.log("tmpfl folderadd", parentFolder.name, aItem.name)
 			await new Promise(resolve => window.setTimeout(resolve, 500));
 
-			let storeID = aItem.server.getStringValue("storeContractID");
-			console.log(storeID)
-
+			let storeID = aItem.server.getStringValue("storeContractID");		
 			let children = await IOUtils.getChildren(PathUtils.parent(aItem.filePath.path));
 
 			if (storeID == "@mozilla.org/msgstore/berkeleystore;1") {
 				if (children.includes(aItem.filePath.path)) {
-					console.log("mbox create missing mbox, rmv dir", aItem.name)
+					//console.log("mbox create missing mbox, rmv dir", aItem.name)
 					await IOUtils.remove(aItem.filePath.path);
 					await IOUtils.write(aItem.filePath.path, new Uint8Array(), { mode: "overwrite" });
 				}
 			} else {
 				if (!children.includes(aItem.filePath.path)) {
-					console.log("maildir create missing", aItem.name)
+					//console.log("maildir create missing", aItem.name)
 					await IOUtils.makeDirectory(aItem.filePath.path);
 				}
 			}
@@ -215,7 +212,6 @@ async function onLoad() {
 		onFolderBoolPropertyChanged() { },
 		onFolderPropertyFlagChanged() { },
 		onFolderEvent() { },
-
 	};
 
 }
