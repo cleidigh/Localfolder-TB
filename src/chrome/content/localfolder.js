@@ -298,7 +298,6 @@ eu.philoux.localfolder.xulFixup = function () {
  *	@return	true si ok, false si erreur
  */
 eu.philoux.localfolder.btCreeDossierLocal = async function () {
-console.log("lf cre1")
 
     try {
 
