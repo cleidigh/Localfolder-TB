@@ -88,20 +88,20 @@
 					<label value="" />
 				</vbox>
 				<div class="d1"></div>
-				<hbox flex="1" style="padding-left: 20px; padding-right: 10px;">
+				<hbox flex="1" style="padding-left: 20px; padding-right: 10px; padding-top: 4px">
 					<vbox>
 						<hbox class="folder-row">
-							<hbox flex="0" style="padding-right: 9px">
-								<html:input type="checkbox" id="add_folder_inbox" onclick="eu.philoux.localfolder.toggleSpecialFolder('inbox')"  SpecialFolder="Inbox"/>
+							<hbox flex="0" style="padding-right: 5px; height: 16px">
+								<checkbox id="add_folder_inbox" height2="20" onclick="eu.philoux.localfolder.toggleSpecialFolder('inbox')"  SpecialFolder="Inbox"/>
 							</hbox>
-							<hbox width="20px" height="20px" flex="0" maxheight="20px">
-								<image class="tabmail-tab" type="folder" SpecialFolder="Inbox"  style="padding-left: -1px"  />
+							<hbox width="20px" height="20px" flex="0" maxheight="20px" >
+								<image class="tabmail-tab" type="folder" SpecialFolder="Inbox" />
 							</hbox>
 							<label id="add_folderlabel_inbox" accesskey="I"  control="add_folder_inbox" value="Inbox" />
 						</hbox>
 						<hbox class="folder-row">
-							<hbox flex="0" style="padding-right: 9px">
-								<html:input type="checkbox" id="add_folder_drafts"  onclick="eu.philoux.localfolder.toggleSpecialFolder('drafts')" SpecialFolder="Drafts"  height="20px"/>
+							<hbox flex="0" style="padding-right: 5px; height: 16px">
+								<checkbox id="add_folder_drafts"  onclick="eu.philoux.localfolder.toggleSpecialFolder('drafts')" SpecialFolder="Drafts"  height="20px"/>
 							</hbox>
 							<hbox width="20px" height="20px" flex="0" maxheight="20px">
 								<image class="tabmail-tab" type="folder" SpecialFolder="Drafts"   style="padding-left: -1px"  />
@@ -109,8 +109,8 @@
 							<label id="add_folderlabel_drafts" accesskey="D" value="Drafts" control="add_folder_drafts"  />
 						</hbox>
 						<hbox class="folder-row">
-							<hbox flex="0" style="padding-right: 9px">
-								<html:input type="checkbox" id="add_folder_templates"  onclick="eu.philoux.localfolder.toggleSpecialFolder('templates')" SpecialFolder="Templates" flex="0" />
+							<hbox flex="0" style="padding-right: 5px; height: 16px">
+								<checkbox id="add_folder_templates"  onclick="eu.philoux.localfolder.toggleSpecialFolder('templates')" SpecialFolder="Templates" flex="0" />
 							</hbox>
 							<hbox width="20px" height="20px" flex="0" maxheight="20px">
 								<image class="tabmail-tab" type="folder" SpecialFolder="Templates"  style="padding-left: -1px" />
@@ -118,8 +118,8 @@
 							<label id="add_folderlabel_templates" value="Templates" accesskey="T" control="add_folder_templates" />
 						</hbox>
 						<hbox class="folder-row">
-							<hbox flex="0" style="padding-right: 9px">
-								<html:input type="checkbox" id="add_folder_sent"  onclick="eu.philoux.localfolder.toggleSpecialFolder('sent')" SpecialFolder="Sent"/>
+							<hbox flex="0" style="padding-right: 5px; height: 16px">
+								<checkbox id="add_folder_sent"  onclick="eu.philoux.localfolder.toggleSpecialFolder('sent')" SpecialFolder="Sent"/>
 							</hbox>
 							<hbox width="20px" height="20px" flex="0" maxheight="20px">
 								<image class="tabmail-tab" type="folder" SpecialFolder="Sent"  style="padding-left: -1px"  />
@@ -131,8 +131,8 @@
 				<hbox flex="1" style="padding-left: 10px; padding-right: 10px;">
 					<vbox>
 						<hbox class="folder-row">
-							<hbox flex="0" style="padding-right: 9px">
-								<html:input type="checkbox" id="add_folder_archives" onclick="eu.philoux.localfolder.toggleSpecialFolder('archives')" SpecialFolder="Archives" />
+							<hbox flex="0" style="padding-right: 5px; height: 16px">
+								<checkbox id="add_folder_archives" onclick="eu.philoux.localfolder.toggleSpecialFolder('archives')" SpecialFolder="Archives" />
 							</hbox>
 							<hbox width="20px" height="20px" flex="0" maxheight="20px">
 								<image class="tabmail-tab" type="folder" SpecialFolder="Archive"   style="padding-left: -1px" />
@@ -140,8 +140,8 @@
 							<label id="add_folderlabel_archives" accesskey="V" value="Archives" control="add_folder_archives" style="padding-left: -1px" />
 						</hbox>
 						<hbox class="folder-row">
-							<hbox flex="0" style="padding-right: 9px">
-								<html:input type="checkbox" id="add_folder_junk"  onclick="eu.philoux.localfolder.toggleSpecialFolder('junk')" SpecialFolder="Junk"/>
+							<hbox flex="0" style="padding-right: 5px; height: 16px">
+								<checkbox id="add_folder_junk"  onclick="eu.philoux.localfolder.toggleSpecialFolder('junk')" SpecialFolder="Junk"/>
 							</hbox>
 							<hbox width="20px" height="20px" flex="0" maxheight="20px">
 								<image class="tabmail-tab" type="folder" SpecialFolder="Junk"  style="padding-left: -1px" />
@@ -149,8 +149,8 @@
 							<label id="add_folderlabel_junk" accesskey="J" value="Junk" control="add_folder_junk" style="padding-left: -1px" />
 						</hbox>
 						<hbox class="folder-row">
-							<hbox flex="0" style="padding-right: 9px">
-								<html:input type="checkbox" id="add_folder_trash"   checked="true" disabled="disabled" onclick="eu.philoux.localfolder.toggleSpecialFolder('trash')" SpecialFolder="Trash"/>
+							<hbox flex="0" style="padding-right: 5px; height: 16px">
+								<checkbox id="add_folder_trash"   checked="true" disabled="true" onclick="eu.philoux.localfolder.toggleSpecialFolder('trash')" SpecialFolder="Trash"/>
 							</hbox>
 							<hbox width="20px" height="20px" flex="0" maxheight="20px">
 								<image class="tabmail-tab" type="folder" SpecialFolder="Trash"  />
@@ -158,8 +158,8 @@
 							<label id="add_folderlabel_trash" value="Trash"  style="padding-left: -1px; color: grey;"  />
 						</hbox>
 						<hbox class="folder-row">
-							<hbox flex="0" style="padding-right: 9px">
-								<html:input type="checkbox" id="add_folder_outbox"  checked="true" disabled="true" onclick="eu.philoux.localfolder.toggleSpecialFolder('outbox')" SpecialFolder="Outbox"/>
+							<hbox flex="0" style="padding-right: 5px; height: 16px">
+								<checkbox id="add_folder_outbox"  checked="true" disabled="true" onclick="eu.philoux.localfolder.toggleSpecialFolder('outbox')" SpecialFolder="Outbox"/>
 							</hbox>
 							<hbox width="20px" height="20px" flex="0" maxheight="20px">
 								<image class="tabmail-tab" type="folder" SpecialFolder="Outbox"   style="padding-left: -1px" />
