@@ -2,6 +2,9 @@
 
 ## Versions
 
+4.2.1 Update for v142 - August 25, 2025
+- v142 compatibility 
+
 4.1.0 Update for TB115, TB128 : 6-14-2024
 - TB128 support
 - NEW: Existing special and user folders retained
