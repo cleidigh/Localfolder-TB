@@ -5,5 +5,14 @@
 	},
 	"extensionDescription": {
 		"message": "マップされたディレクトリを含めて、必要な数のローカルフォルダを追加します。"
+	},
+
+	"addLocalFolder": {
+		"message": "ローカルフォルダを追加"
+	},
+
+	"removeLocalFolder": {
+		"message": "ローカルフォルダを削除"
 	}
+
 }

@@ -5,5 +5,14 @@
 	},
 	"extensionDescription": {
 		"message": "Add as many local folders as you require including mapped directories."
+	},
+
+	"addLocalFolder": {
+		"message": "Add Local Folder"
+	},
+
+	"removeLocalFolder": {
+		"message": "Remove Local Folder"
 	}
+
 }

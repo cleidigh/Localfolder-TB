@@ -9,20 +9,9 @@ window.eu = eu;
 
 eu.lfver = window.lfver;
 
-//initialisation du gestionnaire de compte
-//déplace le bouton "Ajouter un dossier local" au dessous "Ajouter un autre compte"
-eu.philoux.localfolder.OnInitLocalFolder = function () {
-	try {
-		var elem = document.getElementById("accountActionsDropdownSep1");
-		//bouton nouveau dossier
-		var bt = document.getElementById("accountActionAddLocalFolder");
-		elem.parentNode.insertBefore(bt, elem);
-
-	}
-	catch (ex) {
-		eu.philoux.localfolder.LocalFolderAfficheMsgId2("ErreurAppelLocalFolder", ex);
-	}
-}
+var w = Cc["@mozilla.org/appshell/window-mediator;1"]
+	.getService(Ci.nsIWindowMediator)
+	.getMostRecentWindow("mail:3pane");
 
 
 eu.philoux.localfolder.getSelectedAccount = function (page, account) {
@@ -60,28 +49,16 @@ eu.philoux.localfolder.isLocalFolder = function () {
 }
 
 /**
- * permet la suppression des dossiers locaux autres que celui par défaut
- */
-
-eu.philoux.localfolder.initAccountActionsButtonsLocalFolder = function (menupopup) {
-
-	// on lance la fonction originale
-	// initAccountActionsButtons(menupopup);
-	if (eu.philoux.localfolder.isLocalFolder()) {
-		document.getElementById("accountActionsDropdownRemove").removeAttribute("disabled");
-	}
-}
-
-
-/**
  *	gére le bouton de suppression de compte original
  *	@return si succes retourne true / si erreur retourne false 
  *	implémentation : appelle la fonction originale onRemoveAccount
  */
-eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
+//eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
+eu.philoux.localfolder.onSupprimeCompte = async function () {
+	var amWindow = window;
 	try {
 		if (!eu.philoux.localfolder.isLocalFolder()) { // on utilise la fonction par défaut pour les autres comptes
-			onRemoveAccount(e);
+			return;
 		} else { // pour les dossiers locaux on utilise une fonction personnalisée
 			var account = eu.philoux.localfolder.getSelectedAccount();
 			var server = account.incomingServer;
@@ -91,12 +68,14 @@ eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
 			var bundle = Services.strings.createBundle("chrome://localfolder/locale/localfolder.properties");
 			var confirmTitle = bundle.GetStringFromName("ConfirmRemoveTitle");
 			var confirmRemoveAccount = bundle.formatStringFromName("ConfirmRemoveFolder", [prettyName], 1);
-
+			var deleteData = bundle.GetStringFromName("deleteData");
 			var removeData = { value: false };
-			let review = Services.prompt.confirmCheck(window, confirmTitle, confirmRemoveAccount, "Delete All Subfolders and Data", removeData);
 
-			eu.philoux.localfolder.LocalFolderTrace(confirmRemoveAccount + ' ' + review);
-
+			try {
+			var review = Services.prompt.confirmCheck(window, confirmTitle, confirmRemoveAccount, deleteData, removeData);
+			} catch (ex) {
+				return;
+			}
 			if (!review) {
 				return;
 			}
@@ -123,11 +102,11 @@ eu.philoux.localfolder.onSupprimeCompte = async function (e, amWindow) {
 				if (removeData.value) {
 					filespec.initWithPath(f);
 					filespec.remove(true);
-					eu.philoux.localfolder.LocalFolderTrace("after o raw");
 
 				}
 			}
 			catch (ex) {
+				console.log(ex)
 				dump("failure to remove account: " + ex + "\n");
 				// cleidigh
 				// var alertText = bundle.GetStringFromName("failedRemoveAccount");
@@ -155,6 +134,8 @@ eu.philoux.localfolder.NewLocalFolder = async function () {
 	const versionChecker = Services.vc;
 	const currentVersion = Services.appinfo.platformVersion;
 
+	if (w) {
+	}
 
 	var w = Cc["@mozilla.org/appshell/window-mediator;1"]
 		.getService(Ci.nsIWindowMediator)
@@ -164,8 +145,10 @@ eu.philoux.localfolder.NewLocalFolder = async function () {
 
 	var rv = await w.localfolders.notifyTools.notifyBackground({ command: "notifyToolsEcho", options: { ping: "hello" } });
 
-	if (versionChecker.compare(currentVersion, "78") >= 0) {
+	if (versionChecker.compare(currentVersion, "116") >= 0) {
 		w.openDialog("chrome://localfolder/content/localfolder.xhtml", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
+	} else if (versionChecker.compare(currentVersion, "78") >= 0) {
+		w.openDialog("chrome://localfolder/content/localfolder78-115.xhtml", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
 	} else {
 		w.openDialog("chrome://localfolder/content/localfolder.xul", "", "chrome,modal,centerscreen,titlebar,resizable=yes");
 	}
@@ -173,6 +156,30 @@ eu.philoux.localfolder.NewLocalFolder = async function () {
 	return true;
 }
 
-//positionnement des boutons au d�marrage
-// Safewindow.addEventListener("load", eu.philoux.localfolder.OnInitLocalFolder, false);
+if (!w.localfolders.listener_id && !w.localfolders.AmoRunning) {
+	w.localfolders.listener_id = w.localfolders.notifyTools.addListener(expMenuDispatcher);
+w.localfolders.AmoRunning = true;
 
+}
+
+async function expMenuDispatcher(data) {
+	if (data.command == "CMD_addLocalFolder") {
+		return await eu.philoux.localfolder.NewLocalFolder();
+	} else if (data.command == "CMD_removeLocalFolder") {
+		return await eu.philoux.localfolder.onSupprimeCompte();
+	}
+
+	return false;
+}
+
+function onUnload() {
+	console.log("unload")
+w.localfolders.AmoRunning = false;
+
+	w.localfolders.notifyTools.removeAllListeners();
+if (w.localfolders.listener_id) {
+	w.localfolders.listener_id = null;
+}
+	console.log(w.localfolders)
+
+}

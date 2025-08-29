@@ -5,5 +5,14 @@
 	},
 	"extensionDescription": {
 		"message": "Voeg zo veel mogelijk mappen toe als nodig, inclusief toegewezen mappen."
+	},
+
+	"addLocalFolder": {
+		"message": "Lokale map toevoegen"
+	},
+
+	"removeLocalFolder": {
+		"message": "Lokale map verwijderen"
 	}
+
 }

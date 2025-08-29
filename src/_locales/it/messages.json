@@ -5,5 +5,14 @@
 	},
 	"extensionDescription": {
 		"message": "Aggiungi tutte le cartelle locali necessarie, comprese le directory mappate."
+	},
+
+	"addLocalFolder": {
+		"message": "Aggiungi cartella locale"
+	},
+
+	"removeLocalFolder": {
+		"message": "Rimuovi cartella locale"
 	}
+
 }

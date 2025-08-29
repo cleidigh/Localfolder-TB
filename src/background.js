@@ -38,3 +38,37 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			return rv;
 	}
 });
+
+// button menus
+
+await browser.menus.create({id: "addLF", contexts: ["browser_action_menu"], title: browser.i18n.getMessage("addLocalFolder"), onclick: addLocalFolder});
+await browser.menus.create({id: "removeLF", contexts: ["browser_action_menu"], title: browser.i18n.getMessage("removeLocalFolder"), onclick: removeLocalFolder});
+
+async function addLocalFolder() {
+	let rv = await messenger.NotifyTools.notifyExperiment({ command: "CMD_addLocalFolder" });
+}
+
+async function removeLocalFolder() {
+	let rv = await messenger.NotifyTools.notifyExperiment({ command: "CMD_removeLocalFolder" });
+}
+
+// monitor non account settings tabs to disable button
+
+await browser.tabs.onActivated.addListener(tabListener);
+await browser.tabs.onUpdated.addListener(tabListener2);
+
+
+async function tabListener(activeInfo) {
+	let tab = await browser.tabs.get(activeInfo.tabId);
+	if (tab.title != "Loading" && tab.url != "about:accountsettings") {
+		await browser.browserAction.disable(activeInfo.tabId)
+	}
+}
+
+async function tabListener2(tabId, changeInfo, tab) {
+	if (tab.url == "about:accountsettings") {
+		await browser.browserAction.enable(tabId)
+	} else{
+		await browser.browserAction.disable(tabId)
+	}
+}

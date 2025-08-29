@@ -15,14 +15,16 @@ const translate = new Translate({ projectId, key });
 
 // console.debug( translate );
 var translationArray = [
-	// { key: "dateFormatRefTooltipText", text: "Date Format Reference" },
-	// { key: "extFilenameFormatRefTooltipText", text: "Extended Filename Format Reference" },
-	{ key: "ColumnsWizard.CustCol.Move", text: "Move" },
-	{ key: "ColumnsWizard.Info.Credits", text: "Credits" },
-	{ key: "ColumnsWizard.Info.Authors", text: "Authors" },
-	{ key: "ColumnsWizard.Info.ReleaseNotes", text: "Release Notes" },
-	{ key: "ColumnsWizard.Advanced.DebuggingOptions", text: "Debugging Options" },
-]
+	// { key: "", text: "" },
+	{ key: "addLocalFolder", text: "Add Local Folder"},
+	{ key: "removeLocalFolder", text: "Remove Local Folder"},
+
+
+
+
+	
+];
+
 
 // const localeDir = "../src/chrome/locale";
 const localeDir = "./src/chrome/locale";
@@ -73,7 +75,7 @@ async function translateAllLocales(iFile, sourceArray, locales, format, options)
 		var shortLocale = locale.split('-')[0];
 
 		if (shortLocale === referenceLocaleId) {
-			continue;
+			//continue;
 		}
 
 		console.debug('Locale ' + locale + ' ' + locales);
@@ -136,7 +138,10 @@ async function translateAllLocales(iFile, sourceArray, locales, format, options)
 					entry = `<!ENTITY ${sourceArray[i].key} "${s}">`;
 					break;
 				case 3:
-					entry = `\t"${sourceArray[i].key}": {\n\t\t"message": "${s}"\n\t},\n`;
+					entry = `\t"${sourceArray[i].key}": {\n\t\t"message": "${s}"\n\t}`;
+					if (i < sourceArray.length - 1) {
+						entry += ",\n";
+					}
 					break;
 				default:
 					break;
@@ -154,14 +159,30 @@ async function translateAllLocales(iFile, sourceArray, locales, format, options)
 		lt = lt.join('\n');
 
 		if (options.outputFormat === 3) {
-			lt = `{\n${lt}\n}`;
+			lt = `\n${lt}\n`;
 		}
 
+		lt = lt.replace(/<nl>/g, "\\n");
 		console.debug('TranslationMessages ' + lt.length);
 		console.debug(lt);
 		// let outputFileName = iFile.replace('.', '-') + ".json";
 		let outputFileName = iFile;
-		fs.outputFileSync(`${options.outputLocaleDir}/${targetLocale}/${outputFileName}`, lt);
+
+		if (options.append && options.outputFormat === 3) {
+			var source = fs.readFileSync(`${options.outputLocaleDir}/${targetLocale}/${options.outputLocaleDirSuffix}${outputFileName}`, { encoding: 'utf8' });
+			source = source.substr(0, source.lastIndexOf('}') - 1) + ",\n" + lt + "\n}";
+			console.debug(source);
+			fs.outputFileSync(`${options.outputLocaleDir}/${targetLocale}/${outputFileName}`, source);
+		}
+		else if (options.append) {
+			console.debug('AppendingMessages');
+			lt = "\n" + lt;
+			fs.appendFileSync(`${options.outputLocaleDir}/${targetLocale}/${options.outputLocaleDirSuffix}${outputFileName}`, lt);
+			
+		} else {
+			fs.outputFileSync(`${options.outputLocaleDir}/${targetLocale}/${outputFileName}`, lt);
+			
+		}
 	}
 }
 
@@ -173,22 +194,24 @@ function sleep(ms) {
 // console.debug(translate);
 
 async function translateHelpPage() {
-	var localeFolders = _getAllFilesOrFolders(localeDir, true);
+	//var localeFolders = _getAllFilesOrFolders(localeDir, true);
 	
-	var supportedLocales = ['ca', 'da', 'de', 'en-US', 'es-ES', 'fr', 'gl-ES', 'hu-HU', 'hy-AM',
-		'it', 'ja', 'ko-KR', 'nl', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'zh-CN', 'el'];
+	// var supportedLocales = ['ca', 'da', 'de', 'en-US', 'es-ES', 'fr', 'gl-ES', 'hu-HU', 'hy-AM'];
 
+	//var supportedLocales = ['it', 'ja', 'ko-KR', 'nl', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'zh-CN', 'el'];
+
+	var supportedLocales = ['de-DE']
 	//  const supportedLocales2 = ['pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE' ];
-	// supportedLocales = ['da',  'de'];
-	// var supportedLocales = ['ca', 'gl-ES', 'hu-HU', 'hy-AM',
+	// supportedLocales = ['es-ES'];
+	// supportedLocales = ['el', 'gl-ES', 'hu-HU', 'hy-AM',
 	// 'sk-SK', 'sl-SI', 'sv-SE', 'el'];
 
 
-	localeFolders = supportedLocales;
+	//localeFolders = supportedLocales;
 	// console.debug(localeFolders);
-	var helpLocaleDir = "./src/chrome/content/mboximport/help/locale";
-	var helpPage = "./src/chrome/content/mboximport/help/locale/en-US/importexport-help.html";
-	var helpBase = "importexport-help";
+	var helpLocaleDir = "./src/chrome/content/help/locale";
+	var helpPage = "./src/chrome/content/help/locale/en-US/printingtoolsng-help.html";
+	var helpBase = "printingtoolsng-help";
 	var source = fs.readFileSync(helpPage, { encoding: 'utf8' });
 
 	for (let i = 0; i < localeFolders.length; i++) {
@@ -387,19 +410,33 @@ function loadTranslationArray(inputFiles, options) {
 	});
 }
 
-// var options = {
-// 	inputLocaleDir: `./src/_locales/en-US`,
-// 	outputLocaleDir: "./src/_locales",
-// 	append: true,
-// 	outputFormat: 3,
-// };
-
-var options = {
-	inputLocaleDir: `./src/chrome/locale/en-US/mboximport`,
-	outputLocaleDir: "./src/chrome/locale",
+// manifest files
+var optionsM = {
+	inputLocaleDir: `./src/_locales/en-US`,
+	outputLocaleDir: "./src/_locales",
+	outputLocaleDirSuffix: "",
 	append: true,
+	outputFormat: 3,
+};
+
+//  files from array
+var options = {
+ 	inputLocaleDir: `./src/chrome/locale/en-US/`,
+ 	outputLocaleDir: "./src/chrome/locale",
+ 	outputLocaleDirSuffix: "",
+ 	append: true,
+ 	outputFormat: 1,
+ };
+
+//  files from base locale 
+ var options2 = {
+	inputLocaleDir: `./src/chrome/locale/en-US/`,
+	outputLocaleDir: "./src/chrome/locale",
+	outputLocaleDirSuffix: "",
+	append: false,
 	outputFormat: 0,
 };
+
 
 // let inputFiles = ["settings.dtd", "settings.properties", "overlay.dtd", "overlay.properties"];
 // let inputFiles = ["settings.dtd", "settings.properties"];
@@ -407,27 +444,37 @@ var options = {
 // let inputFiles = ["overlay.properties"];
 // let inputFiles = ["settings.dtd", "overlay.dtd", "overlay.properties"];
 
+//let inputFiles = ["localfolder.properties"];
+//let inputFiles = ["printingtoolsng.dtd"];
 
-// let inputFiles = ["messages.json"];
+let inputFiles = ["messages.json"];
 // let inputFiles = ["autobackup.dtd", "autobackup.properties", "mboximport.dtd", "mboximport.properties", "profilewizard.dtd", "profilewizard.properties"];
-let inputFiles = ["mboximport.properties"];
+//let inputFiles = ["mboximport.properties"];
 // var supportedLocales = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
 // 						'el', 'pl', 'da', 'pt-PT'];
 
-var localeFolders = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
-'el', 'pl', 'da', 'pt-PT'];
+// printingtools
+//var localeFolders = ['ja', 'ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
+//'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
-// var localeFolders = ['ca', 'gl-ES', 'hu-HU', 'hy-AM',
-// 	'sk-SK', 'sl-SI', 'sv-SE'];
+// help
+var localeFolders = ['ja', 'de', 'en_US', 'es_ES', 'fr', 'hu',
+'it', 'nl', 'pt_BR', 'sv_SE', 'zh_CN'];
 
-// localeFolders = ['el'];
+//localeFolders = ['ca', 'da', 'el', 'en-US', 'es-ES', 'fi', 'gl-ES', 'hu',
+//'hy-AM', 'it', 'ko', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk', 'sl', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
+// these locales are manualy managed
+// de, ja, fr
 
-// localeFolders = ['ru', 'hu-HU', 'hy-AM', 'ko-KR', 'pl', 'da', 'pt-PT'];
-localeFile = "settings.json";
-// t();
-translateHelpPage();
-// translatePage();
-// translateAll(options);
-// loadTranslationArray(inputFiles, options);
+//translateHelpPage();
+//translatePage();
+// translateAll("printingtoolsng.properties", translationArray, options);
+translateAll(inputFiles, translationArray, optionsM);
+//translateAll("mboximport.dtd", translationArray, options);
+//loadTranslationArray(inputFiles, options);
 // let inputFiles = ["settings.dtd"];
+
+/*
+node .\scripts\translate-gc.js
+*/

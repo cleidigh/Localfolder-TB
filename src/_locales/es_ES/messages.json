@@ -5,5 +5,14 @@
 	},
 	"extensionDescription": {
 		"message": "Agregue tantas carpetas locales como necesite, incluidos los directorios asignados."
+	},
+
+	"addLocalFolder": {
+		"message": "Agregar carpeta local"
+	},
+
+	"removeLocalFolder": {
+		"message": "Eliminar carpeta local"
 	}
+
 }

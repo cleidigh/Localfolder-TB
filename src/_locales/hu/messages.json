@@ -5,5 +5,14 @@
 	},
 	"extensionDescription": {
 		"message": "Adjon hozzá annyi helyi mappát, amennyire szüksége van, beleértve a leképezett könyvtárakat."
+	},
+
+	"addLocalFolder": {
+		"message": "Helyi mappa hozzáadása"
+	},
+
+	"removeLocalFolder": {
+		"message": "Helyi mappa eltávolítása"
 	}
+
 }

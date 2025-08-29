@@ -5,5 +5,14 @@
 	},
 	"extensionDescription": {
 		"message": "Fügen Sie beliebig viele lokale Ordner hinzu, einschließlich zugeordneter Verzeichnisse."
+	},
+
+	"addLocalFolder": {
+		"message": "Lokalen Ordner hinzufügen"
+	},
+
+	"removeLocalFolder": {
+		"message": "Lokalen Ordner entfernen"
 	}
+
 }
