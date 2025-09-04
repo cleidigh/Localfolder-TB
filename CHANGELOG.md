@@ -2,8 +2,8 @@
 
 ## Versions
 
-4.2.2 Update for v143-v144 - September 4, 2025
-- v1423-v144 compatibility 
+4.2.2 Update for v140-v144 - September 4, 2025
+- v140-v144 compatibility 
 - Fix svg icon colors
 - Change html too xul checkbox 
 
