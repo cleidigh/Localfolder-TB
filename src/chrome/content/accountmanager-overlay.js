@@ -72,7 +72,7 @@ eu.philoux.localfolder.onSupprimeCompte = async function () {
 			var removeData = { value: false };
 
 			try {
-			var review = Services.prompt.confirmCheck(window, confirmTitle, confirmRemoveAccount, deleteData, removeData);
+				var review = Services.prompt.confirmCheck(window, confirmTitle, confirmRemoveAccount, deleteData, removeData);
 			} catch (ex) {
 				return;
 			}
@@ -158,7 +158,7 @@ eu.philoux.localfolder.NewLocalFolder = async function () {
 
 if (!w.localfolders.listener_id && !w.localfolders.AmoRunning) {
 	w.localfolders.listener_id = w.localfolders.notifyTools.addListener(expMenuDispatcher);
-w.localfolders.AmoRunning = true;
+	w.localfolders.AmoRunning = true;
 
 }
 
@@ -173,13 +173,11 @@ async function expMenuDispatcher(data) {
 }
 
 function onUnload() {
-	console.log("unload")
-w.localfolders.AmoRunning = false;
+	w.localfolders.AmoRunning = false;
 
 	w.localfolders.notifyTools.removeAllListeners();
-if (w.localfolders.listener_id) {
-	w.localfolders.listener_id = null;
-}
-	console.log(w.localfolders)
+	if (w.localfolders.listener_id) {
+		w.localfolders.listener_id = null;
+	}
 
 }
