@@ -8,6 +8,14 @@ if (!eu) var eu = {};
 if (!eu.philoux) eu.philoux = {};
 if (!eu.philoux.localfolder) eu.philoux.localfolder = {};
 
+var { ExtensionParent } = ChromeUtils.importESModule(
+	"resource://gre/modules/ExtensionParent.sys.mjs"
+);
+
+var localfoldersExtension = ExtensionParent.GlobalManager.getExtension(
+	"localfolder@philoux.eu"
+);
+
 var { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs");
 
 eu.philoux.localfolder.lastFolder = "";
@@ -92,7 +100,7 @@ eu.philoux.localfolder.addSpecialFolders = async function (aParentFolder, aParen
                 aParentFolder.createSubfolder(l, msgWindow);
 
                 // eu.philoux.localfolder.LocalFolderTrace("Added subfolder : " + l);
-                var localizedFolderString = bundle.GetStringFromName(ll);
+                var localizedFolderString = eu.philoux.localfolder.localizeMsg(ll);
                 var e = aParentFolder.subFolders;
 
                 try {
@@ -130,6 +138,7 @@ eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder, storeID) {
 
         if (eu.philoux.localfolder.existingSpecialFolders.includes(folder)) {
             var localizedFolder = eu.philoux.localfolder.specialFolders[folder].localizedFolderName;
+            console.log(localizedFolder)
             var localizedFolderString = bundle.GetStringFromName(localizedFolder);
 
             try {
@@ -226,6 +235,10 @@ eu.philoux.localfolder.getMail3Pane = function () {
     return w;
 }
 
+eu.philoux.localfolder.localizeMsg = function (msgName) {
+		return localfoldersExtension.localeData.localizeMessage(msgName);
+}
+
 /**
  *	initialisation boite de création de dossier
  */
@@ -245,9 +258,6 @@ eu.philoux.localfolder.initDlg = function () {
 
     document.getElementById("localfolder").setAttribute("title", `${title} - v${LFVersion}`);
 
-    var bundle = Services.strings.createBundle("chrome://messenger/locale/messenger.properties");
-    var bundle2 = Services.strings.createBundle("chrome://chat/locale/twitter.properties");
-
     // var localizedHomepageString = bundle2.GetStringFromName("tooltip.url");
     var localizedHomepageString = "tooltip";
     localizedHomepageString = `LocalFolders ${localizedHomepageString}`;
@@ -266,7 +276,9 @@ eu.philoux.localfolder.initDlg = function () {
             element.previousElementSibling.classList.add("folder-image-win");
         }
 
-        var localizedFolderString = bundle.GetStringFromName(eu.philoux.localfolder.specialFolders[folder].localizedFolderName);
+        console.log(eu.philoux.localfolder.specialFolders[folder].localizedFolderName)
+
+        var localizedFolderString = eu.philoux.localfolder.localizeMsg(eu.philoux.localfolder.specialFolders[folder].localizedFolderName);
         element.setAttribute("value", localizedFolderString);
     }
 
