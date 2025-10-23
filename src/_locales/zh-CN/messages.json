@@ -1,18 +1,38 @@
-
 {
-	"extensionName": {
-		"message": "LocalFolders"
-	},
-	"extensionDescription": {
-		"message": "根据需要添加任意数量的本地文件夹，包括映射目录。"
-	},
-
-	"addLocalFolder": {
-		"message": "添加本地文件夹"
-	},
-
-	"removeLocalFolder": {
-		"message": "删除本地文件夹"
-	}
-
+    "addLocalFolder": {
+        "message": "添加本地文件夹"
+    },
+    "archivesFolderName": {
+        "message": "归档"
+    },
+    "draftsFolderName": {
+        "message": "草稿"
+    },
+    "extensionDescription": {
+        "message": "根据需要添加任意数量的本地文件夹，包括映射目录。"
+    },
+    "extensionName": {
+        "message": "LocalFolders"
+    },
+    "inboxFolderName": {
+        "message": "收件箱"
+    },
+    "junkFolderName": {
+        "message": "垃圾"
+    },
+    "outboxFolderName": {
+        "message": "发件箱"
+    },
+    "removeLocalFolder": {
+        "message": "删除本地文件夹"
+    },
+    "sentFolderName": {
+        "message": "已发送消息"
+    },
+    "templatesFolderName": {
+        "message": "模板"
+    },
+    "trashFolderName": {
+        "message": "废件箱"
+    }
 }

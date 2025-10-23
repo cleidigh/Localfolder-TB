@@ -1,18 +1,38 @@
-
 {
-	"extensionName": {
-		"message": "LocalFolders"
-	},
-	"extensionDescription": {
-		"message": "Adicione quantas Pastas Locais desejar, incluindo diretórios mapeados."
-	},
-
-	"addLocalFolder": {
-		"message": "Adicionar pasta local"
-	},
-
-	"removeLocalFolder": {
-		"message": "Remover pasta local"
-	}
-
+    "addLocalFolder": {
+        "message": "Adicionar pasta local"
+    },
+    "archivesFolderName": {
+        "message": "Arquivamento"
+    },
+    "draftsFolderName": {
+        "message": "Rascunhos"
+    },
+    "extensionDescription": {
+        "message": "Adicione quantas Pastas Locais desejar, incluindo diretórios mapeados."
+    },
+    "extensionName": {
+        "message": "LocalFolders"
+    },
+    "inboxFolderName": {
+        "message": "Entrada"
+    },
+    "junkFolderName": {
+        "message": "Spam"
+    },
+    "outboxFolderName": {
+        "message": "Saída"
+    },
+    "removeLocalFolder": {
+        "message": "Remover pasta local"
+    },
+    "sentFolderName": {
+        "message": "Enviadas"
+    },
+    "templatesFolderName": {
+        "message": "Modelos"
+    },
+    "trashFolderName": {
+        "message": "Lixeira"
+    }
 }

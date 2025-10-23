@@ -1,18 +1,38 @@
-
 {
-	"extensionName": {
-		"message": "LocalFolders"
-	},
-	"extensionDescription": {
-		"message": "マップされたディレクトリを含めて、必要な数のローカルフォルダを追加します。"
-	},
-
-	"addLocalFolder": {
-		"message": "ローカルフォルダを追加"
-	},
-
-	"removeLocalFolder": {
-		"message": "ローカルフォルダを削除"
-	}
-
+    "addLocalFolder": {
+        "message": "ローカルフォルダを追加"
+    },
+    "archivesFolderName": {
+        "message": "アーカイブ"
+    },
+    "draftsFolderName": {
+        "message": "下書き"
+    },
+    "extensionDescription": {
+        "message": "マップされたディレクトリを含めて、必要な数のローカルフォルダを追加します。"
+    },
+    "extensionName": {
+        "message": "LocalFolders"
+    },
+    "inboxFolderName": {
+        "message": "受信トレイ"
+    },
+    "junkFolderName": {
+        "message": "迷惑メール"
+    },
+    "outboxFolderName": {
+        "message": "送信トレイ"
+    },
+    "removeLocalFolder": {
+        "message": "ローカルフォルダを削除"
+    },
+    "sentFolderName": {
+        "message": "送信済みトレイ"
+    },
+    "templatesFolderName": {
+        "message": "テンプレート"
+    },
+    "trashFolderName": {
+        "message": "ごみ箱"
+    }
 }

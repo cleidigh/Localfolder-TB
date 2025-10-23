@@ -1,18 +1,38 @@
-
 {
-	"extensionName": {
-		"message": "Lokala mappar (LocalFolders)"
-	},
-	"extensionDescription": {
-		"message": "Lägg till så många lokala mappar som krävs"
-	},
-
-	"addLocalFolder": {
-		"message": "Lägg till lokal mapp"
-	},
-
-	"removeLocalFolder": {
-		"message": "Ta bort lokal mapp"
-	}
-
+    "addLocalFolder": {
+        "message": "Lägg till lokal mapp"
+    },
+    "archivesFolderName": {
+        "message": "Arkiv"
+    },
+    "draftsFolderName": {
+        "message": "Utkast"
+    },
+    "extensionDescription": {
+        "message": "Lägg till så många lokala mappar som krävs"
+    },
+    "extensionName": {
+        "message": "Lokala mappar (LocalFolders)"
+    },
+    "inboxFolderName": {
+        "message": "Inkorgen"
+    },
+    "junkFolderName": {
+        "message": "Skräp"
+    },
+    "outboxFolderName": {
+        "message": "Utkorgen"
+    },
+    "removeLocalFolder": {
+        "message": "Ta bort lokal mapp"
+    },
+    "sentFolderName": {
+        "message": "Skickat"
+    },
+    "templatesFolderName": {
+        "message": "Mallar"
+    },
+    "trashFolderName": {
+        "message": "Papperskorgen"
+    }
 }

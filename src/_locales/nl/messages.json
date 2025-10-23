@@ -1,18 +1,38 @@
-
 {
-	"extensionName": {
-		"message": "LocalFolders"
-	},
-	"extensionDescription": {
-		"message": "Voeg zo veel mogelijk mappen toe als nodig, inclusief toegewezen mappen."
-	},
-
-	"addLocalFolder": {
-		"message": "Lokale map toevoegen"
-	},
-
-	"removeLocalFolder": {
-		"message": "Lokale map verwijderen"
-	}
-
+    "addLocalFolder": {
+        "message": "Lokale map toevoegen"
+    },
+    "archivesFolderName": {
+        "message": "Archieven"
+    },
+    "draftsFolderName": {
+        "message": "Concepten"
+    },
+    "extensionDescription": {
+        "message": "Voeg zo veel mogelijk mappen toe als nodig, inclusief toegewezen mappen."
+    },
+    "extensionName": {
+        "message": "LocalFolders"
+    },
+    "inboxFolderName": {
+        "message": "Postvak IN"
+    },
+    "junkFolderName": {
+        "message": "Ongewenst"
+    },
+    "outboxFolderName": {
+        "message": "Postvak UIT"
+    },
+    "removeLocalFolder": {
+        "message": "Lokale map verwijderen"
+    },
+    "sentFolderName": {
+        "message": "Verzonden"
+    },
+    "templatesFolderName": {
+        "message": "Sjablonen"
+    },
+    "trashFolderName": {
+        "message": "Prullenbak"
+    }
 }

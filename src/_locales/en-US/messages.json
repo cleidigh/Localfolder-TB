@@ -1,18 +1,38 @@
-
 {
-	"extensionName": {
-		"message": "LocalFolders"
-	},
-	"extensionDescription": {
-		"message": "Add as many local folders as you require including mapped directories."
-	},
-
-	"addLocalFolder": {
-		"message": "Add Local Folder"
-	},
-
-	"removeLocalFolder": {
-		"message": "Remove Local Folder"
-	}
-
+    "addLocalFolder": {
+        "message": "Add Local Folder"
+    },
+    "archivesFolderName": {
+        "message": "Archives"
+    },
+    "draftsFolderName": {
+        "message": "Drafts"
+    },
+    "extensionDescription": {
+        "message": "Add as many local folders as you require including mapped directories."
+    },
+    "extensionName": {
+        "message": "LocalFolders"
+    },
+    "inboxFolderName": {
+        "message": "Inbox"
+    },
+    "junkFolderName": {
+        "message": "Junk"
+    },
+    "outboxFolderName": {
+        "message": "Outbox"
+    },
+    "removeLocalFolder": {
+        "message": "Remove Local Folder"
+    },
+    "sentFolderName": {
+        "message": "Sent"
+    },
+    "templatesFolderName": {
+        "message": "Templates"
+    },
+    "trashFolderName": {
+        "message": "Trash"
+    }
 }

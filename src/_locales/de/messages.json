@@ -1,18 +1,38 @@
-
 {
-	"extensionName": {
-		"message": "LocalFolders"
-	},
-	"extensionDescription": {
-		"message": "Fügen Sie beliebig viele lokale Ordner hinzu, einschließlich zugeordneter Verzeichnisse."
-	},
-
-	"addLocalFolder": {
-		"message": "Lokalen Ordner hinzufügen"
-	},
-
-	"removeLocalFolder": {
-		"message": "Lokalen Ordner entfernen"
-	}
-
+    "addLocalFolder": {
+        "message": "Lokalen Ordner hinzufügen"
+    },
+    "archivesFolderName": {
+        "message": "Archiv"
+    },
+    "draftsFolderName": {
+        "message": "Entwürfe"
+    },
+    "extensionDescription": {
+        "message": "Fügen Sie beliebig viele lokale Ordner hinzu, einschließlich zugeordneter Verzeichnisse."
+    },
+    "extensionName": {
+        "message": "LocalFolders"
+    },
+    "inboxFolderName": {
+        "message": "Posteingang"
+    },
+    "junkFolderName": {
+        "message": "Junk"
+    },
+    "outboxFolderName": {
+        "message": "Postausgang"
+    },
+    "removeLocalFolder": {
+        "message": "Lokalen Ordner entfernen"
+    },
+    "sentFolderName": {
+        "message": "Gesendet"
+    },
+    "templatesFolderName": {
+        "message": "Vorlagen"
+    },
+    "trashFolderName": {
+        "message": "Papierkorb"
+    }
 }
