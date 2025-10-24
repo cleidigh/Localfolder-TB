@@ -338,6 +338,43 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
             return false;
         }
 
+        // test
+
+        var bValid = true;
+        var rep = {};
+        rep.path = dossier;
+
+        try {
+            console.log("LocalFolders: Starting directory READ:", rep.path);
+            let files = await IOUtils.getChildren(rep.path);
+            if (files.length) {
+                console.log("LocalFolders: Directory contains files");
+                files.forEach(file => {
+                    console.log(file)
+                });
+                console.log("LocalFolders: Directory READ passed", rep.path);
+            }
+        } catch (ex) {
+            console.log("LocalFolders: Directory READ failed", rep.path);
+            bValid = false;
+            return bValid;
+        }
+
+        try {
+            console.log("LocalFolders: Starting file WRITE (LFtest.txt):", rep.path);
+            let fname = `${rep.path}\\LFtest.txt`
+            let rv = await IOUtils.writeUTF8(fname, "Test LF write");
+            console.log("LocalFolders: File WRITE passed", fname);
+
+
+        } catch (ex) {
+            console.log("LocalFolders: File WRITE failed", fname);
+
+            bValid = false;
+            return bValid;
+        }
+
+
         // cleidigh - handle storage type, empty trash
         var storeID = document.getElementById("server.storeTypeMenulist").value;
         var emptyTrashOnExit = document.getElementById("server.emptyTrashOnExit").checked;
@@ -405,7 +442,7 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
  *	@return	true si ok, false si erreur
  *
  */
-eu.philoux.localfolder.SelectChemin = function () {
+eu.philoux.localfolder.SelectChemin = async function () {
     try {
 
         let winCtx = window;
@@ -660,6 +697,8 @@ var FolderListener = {
 eu.philoux.localfolder.ValidRepLocal = function (rep) {
     try {
         var bValid = true;
+        return bValid
+
         var item = null;
         var iter = rep.directoryEntries;
         while (iter.hasMoreElements()) {
