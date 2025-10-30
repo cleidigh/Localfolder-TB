@@ -456,7 +456,6 @@ eu.philoux.localfolder.SelectChemin = async function () {
                     srv = serveurs[i];
                 }
 
-                console.log(srv)
                 var chemin = srv.localPath.path;
                 if (fp.file.path.toLowerCase() == chemin.toLowerCase()) {
 
