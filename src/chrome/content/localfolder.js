@@ -640,9 +640,7 @@ var FolderListener = {
     OnItemUnicharPropertyChanged() { },
     OnItemPropertyFlagChanged() { },
     OnItemEvent() { },
-    OnFolderEvent() {
-        console.log("evt")
-     },
+    OnFolderEvent() { },
     
 };
 
