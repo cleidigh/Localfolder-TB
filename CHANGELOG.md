@@ -4,8 +4,8 @@
 
 4.2.3 Update for v140-v146 - October 31, 2025
 - v140-v146 compatibility
-- add localized folder names to_locales, eliminate
-  messenger.properties
+- add localized folder names to _locales, eliminate messenger.properties
+- rename _locales to use standard dash
 
 4.2.2 Update for v140-v144 - September 4, 2025
 - v140-v144 compatibility 
