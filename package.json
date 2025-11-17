@@ -1,7 +1,7 @@
 {
 	"title": "localfolders",
 	"name": "localfolders",
-	"version": "4.2.3",
+	"version": "4.2.4-b1",
 	"description": "Add additional local folders",
 	"main": "./content/overlay.js",
 	"author": "l'Abbé Christian-Philippe Chanut (philoux) - Christopher Leidigh",
