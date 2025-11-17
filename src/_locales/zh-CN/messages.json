@@ -1,38 +1,38 @@
 {
     "addLocalFolder": {
-        "message": "Lokale map toevoegen"
+        "message": "添加本地文件夹"
     },
     "archivesFolderName": {
-        "message": "Archieven"
+        "message": "归档"
     },
     "draftsFolderName": {
-        "message": "Concepten"
+        "message": "草稿"
     },
     "extensionDescription": {
-        "message": "Voeg zo veel mogelijk mappen toe als nodig, inclusief toegewezen mappen."
+        "message": "根据需要添加任意数量的本地文件夹，包括映射目录。"
     },
     "extensionName": {
         "message": "LocalFolders"
     },
     "inboxFolderName": {
-        "message": "Postvak IN"
+        "message": "收件箱"
     },
     "junkFolderName": {
-        "message": "Ongewenst"
+        "message": "垃圾"
     },
     "outboxFolderName": {
-        "message": "Postvak UIT"
+        "message": "发件箱"
     },
     "removeLocalFolder": {
-        "message": "Lokale map verwijderen"
+        "message": "删除本地文件夹"
     },
     "sentFolderName": {
-        "message": "Verzonden"
+        "message": "已发送消息"
     },
     "templatesFolderName": {
-        "message": "Sjablonen"
+        "message": "模板"
     },
     "trashFolderName": {
-        "message": "Prullenbak"
+        "message": "废件箱"
     }
 }

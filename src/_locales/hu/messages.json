@@ -1,18 +1,38 @@
-
 {
-	"extensionName": {
-		"message": "LocalFolders"
-	},
-	"extensionDescription": {
-		"message": "Adjon hozzá annyi helyi mappát, amennyire szüksége van, beleértve a leképezett könyvtárakat."
-	},
-
-	"addLocalFolder": {
-		"message": "Helyi mappa hozzáadása"
-	},
-
-	"removeLocalFolder": {
-		"message": "Helyi mappa eltávolítása"
-	}
-
+    "addLocalFolder": {
+        "message": "Helyi mappa hozzáadása"
+    },
+    "archivesFolderName": {
+        "message": "Archívum"
+    },
+    "draftsFolderName": {
+        "message": "Piszkozatok"
+    },
+    "extensionDescription": {
+        "message": "Adjon hozzá annyi helyi mappát, amennyire szüksége van, beleértve a leképezett könyvtárakat."
+    },
+    "extensionName": {
+        "message": "LocalFolders"
+    },
+    "inboxFolderName": {
+        "message": "Beérkezett üzenetek"
+    },
+    "junkFolderName": {
+        "message": "Szemét"
+    },
+    "outboxFolderName": {
+        "message": "Postázandó üzenetek"
+    },
+    "removeLocalFolder": {
+        "message": "Helyi mappa eltávolítása"
+    },
+    "sentFolderName": {
+        "message": "Elküldött elemek"
+    },
+    "templatesFolderName": {
+        "message": "Sablonok"
+    },
+    "trashFolderName": {
+        "message": "Kuka"
+    }
 }

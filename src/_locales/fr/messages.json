@@ -1,18 +1,38 @@
-
 {
-	"extensionName": {
-		"message": "LocalFolders"
-	},
-	"extensionDescription": {
-		"message": "Ajoutez autant de dossiers locaux que vous voulez."
-	},
-
-	"addLocalFolder": {
-		"message": "Ajouter un dossier local"
-	},
-
-	"removeLocalFolder": {
-		"message": "Supprimer le dossier local"
-	}
-
+    "addLocalFolder": {
+        "message": "Ajouter un dossier local"
+    },
+    "archivesFolderName": {
+        "message": "Archives"
+    },
+    "draftsFolderName": {
+        "message": "Brouillons"
+    },
+    "extensionDescription": {
+        "message": "Ajoutez autant de dossiers locaux que vous voulez."
+    },
+    "extensionName": {
+        "message": "LocalFolders"
+    },
+    "inboxFolderName": {
+        "message": "Courrier entrant"
+    },
+    "junkFolderName": {
+        "message": "Indésirables"
+    },
+    "outboxFolderName": {
+        "message": "Messages en attente"
+    },
+    "removeLocalFolder": {
+        "message": "Supprimer le dossier local"
+    },
+    "sentFolderName": {
+        "message": "Envoyés"
+    },
+    "templatesFolderName": {
+        "message": "Modèles"
+    },
+    "trashFolderName": {
+        "message": "Corbeille"
+    }
 }

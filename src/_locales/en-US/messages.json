@@ -1,38 +1,38 @@
 {
     "addLocalFolder": {
-        "message": "Lokale map toevoegen"
+        "message": "Add Local Folder"
     },
     "archivesFolderName": {
-        "message": "Archieven"
+        "message": "Archives"
     },
     "draftsFolderName": {
-        "message": "Concepten"
+        "message": "Drafts"
     },
     "extensionDescription": {
-        "message": "Voeg zo veel mogelijk mappen toe als nodig, inclusief toegewezen mappen."
+        "message": "Add as many local folders as you require including mapped directories."
     },
     "extensionName": {
         "message": "LocalFolders"
     },
     "inboxFolderName": {
-        "message": "Postvak IN"
+        "message": "Inbox"
     },
     "junkFolderName": {
-        "message": "Ongewenst"
+        "message": "Junk"
     },
     "outboxFolderName": {
-        "message": "Postvak UIT"
+        "message": "Outbox"
     },
     "removeLocalFolder": {
-        "message": "Lokale map verwijderen"
+        "message": "Remove Local Folder"
     },
     "sentFolderName": {
-        "message": "Verzonden"
+        "message": "Sent"
     },
     "templatesFolderName": {
-        "message": "Sjablonen"
+        "message": "Templates"
     },
     "trashFolderName": {
-        "message": "Prullenbak"
+        "message": "Trash"
     }
 }

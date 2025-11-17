@@ -1,0 +1,38 @@
+{
+    "addLocalFolder": {
+        "message": "Agregar carpeta local"
+    },
+    "archivesFolderName": {
+        "message": "Archivos"
+    },
+    "draftsFolderName": {
+        "message": "Borradores"
+    },
+    "extensionDescription": {
+        "message": "Agregue tantas carpetas locales como necesite, incluidos los directorios asignados."
+    },
+    "extensionName": {
+        "message": "LocalFolders"
+    },
+    "inboxFolderName": {
+        "message": "Bandeja de entrada"
+    },
+    "junkFolderName": {
+        "message": "Correo no deseado"
+    },
+    "outboxFolderName": {
+        "message": "Bandeja de salida"
+    },
+    "removeLocalFolder": {
+        "message": "Eliminar carpeta local"
+    },
+    "sentFolderName": {
+        "message": "Enviados"
+    },
+    "templatesFolderName": {
+        "message": "Plantillas"
+    },
+    "trashFolderName": {
+        "message": "Papelera"
+    }
+}

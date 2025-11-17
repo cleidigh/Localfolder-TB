@@ -1,4 +1,6 @@
-// cleidigh - update for TB 145.*
+// cleidigh - update for TB 68.*
+
+// v2.0.0 - add option to change store type, empty trash on exit, creation of mail folders
 
 
 // encapsulation objet
@@ -79,6 +81,7 @@ eu.philoux.localfolder.addSpecialFolders = async function (aParentFolder, aParen
     // eu.philoux.localfolder.LocalFolderTrace("Add special folders : " + aParentFolderPath);
     let addFolderElements = document.querySelectorAll("[id^='add_folder_']");
 
+    var bundle = Services.strings.createBundle("chrome://messenger/locale/messenger.properties");
     msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
 
     for (let index = 0; index < addFolderElements.length; index++) {
@@ -131,10 +134,12 @@ eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder, storeID) {
         rootMsgFolder.addSubfolder(folder);
         //eu.philoux.localfolder.LocalFolderTrace(`added existing ${folder}`)
         var newFolder;
+        var bundle = Services.strings.createBundle("chrome://messenger/locale/messenger.properties");
 
         if (eu.philoux.localfolder.existingSpecialFolders.includes(folder)) {
             var localizedFolder = eu.philoux.localfolder.specialFolders[folder].localizedFolderName;
-            var localizedFolderString = eu.philoux.localfolder.localizeMsg(localizedFolder);
+            console.log(localizedFolder)
+            var localizedFolderString = bundle.GetStringFromName(localizedFolder);
 
             try {
                 newFolder = rootMsgFolder.getChildNamed(localizedFolderString);
@@ -146,7 +151,7 @@ eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder, storeID) {
         }
 
         // This is synchronous for LocalFolders so no listener required
-        newFolder.createStorageIfMissing(null);
+        //newFolder.createStorageIfMissing(null);
         // so far this appears to not be required anymore 
         if (storeID == "@mozilla.org/msgstore/maildirstore;1") {
             //eu.philoux.localfolder.rebuildSummary(newFolder)
@@ -253,6 +258,7 @@ eu.philoux.localfolder.initDlg = function () {
 
     document.getElementById("localfolder").setAttribute("title", `${title} - v${LFVersion}`);
 
+    // var localizedHomepageString = bundle2.GetStringFromName("tooltip.url");
     var localizedHomepageString = "tooltip";
     localizedHomepageString = `LocalFolders ${localizedHomepageString}`;
     document.getElementById("localfolder-icon-image").setAttribute("tooltiptext", localizedHomepageString);
@@ -269,6 +275,8 @@ eu.philoux.localfolder.initDlg = function () {
         if (os.indexOf("win") > -1) {
             element.previousElementSibling.classList.add("folder-image-win");
         }
+
+        console.log(eu.philoux.localfolder.specialFolders[folder].localizedFolderName)
 
         var localizedFolderString = eu.philoux.localfolder.localizeMsg(eu.philoux.localfolder.specialFolders[folder].localizedFolderName);
         element.setAttribute("value", localizedFolderString);
@@ -403,7 +411,7 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
  *	@return	true si ok, false si erreur
  *
  */
-eu.philoux.localfolder.SelectChemin = async function () {
+eu.philoux.localfolder.SelectChemin = function () {
     try {
 
         let winCtx = window;
@@ -640,7 +648,9 @@ var FolderListener = {
     OnItemUnicharPropertyChanged() { },
     OnItemPropertyFlagChanged() { },
     OnItemEvent() { },
-    OnFolderEvent() { },
+    OnFolderEvent() {
+        console.log("evt")
+     },
     
 };
 

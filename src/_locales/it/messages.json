@@ -1,18 +1,38 @@
-
 {
-	"extensionName": {
-		"message": "LocalFolders"
-	},
-	"extensionDescription": {
-		"message": "Aggiungi tutte le cartelle locali necessarie, comprese le directory mappate."
-	},
-
-	"addLocalFolder": {
-		"message": "Aggiungi cartella locale"
-	},
-
-	"removeLocalFolder": {
-		"message": "Rimuovi cartella locale"
-	}
-
+    "addLocalFolder": {
+        "message": "Aggiungi cartella locale"
+    },
+    "archivesFolderName": {
+        "message": "Archivi"
+    },
+    "draftsFolderName": {
+        "message": "Bozze"
+    },
+    "extensionDescription": {
+        "message": "Aggiungi tutte le cartelle locali necessarie, comprese le directory mappate."
+    },
+    "extensionName": {
+        "message": "LocalFolders"
+    },
+    "inboxFolderName": {
+        "message": "Posta in arrivo"
+    },
+    "junkFolderName": {
+        "message": "Indesiderata"
+    },
+    "outboxFolderName": {
+        "message": "Posta in uscita"
+    },
+    "removeLocalFolder": {
+        "message": "Rimuovi cartella locale"
+    },
+    "sentFolderName": {
+        "message": "Posta inviata"
+    },
+    "templatesFolderName": {
+        "message": "Modelli"
+    },
+    "trashFolderName": {
+        "message": "Cestino"
+    }
 }

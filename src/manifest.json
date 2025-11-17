@@ -2,13 +2,13 @@
 	"manifest_version": 2,
 	"name": "__MSG_extensionName__",
 	"description": "__MSG_extensionDescription__",
-	"version": "4.2.2",
-	"author": "l'Abbé Christian-Philippe Chanut (philoux), Christopher Leidigh",
+	"version": "4.2.3",
+	"author": "l'Abbé Christian-Philippe Chanut (philoux)- Christopher Leidigh",
 	"applications": {
 		"gecko": {
 			"id": "localfolder@philoux.eu",
 			"strict_min_version": "140.0",
-			"strict_max_version": "144.*"
+			"strict_max_version": "146.*"
 		}
 	},
 	"browser_action": {
@@ -58,5 +58,5 @@
 		"64": "chrome/skin/classic/LocalFolders-64px.png",
 		"32": "chrome/skin/classic/LocalFolders-32px.png"
 	},
-	"default_locale": "en_US"
+	"default_locale": "en-US"
 }

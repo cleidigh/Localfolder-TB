@@ -1,18 +1,0 @@
-
-{
-	"extensionName": {
-		"message": "Lokala mappar (LocalFolders)"
-	},
-	"extensionDescription": {
-		"message": "Lägg till så många lokala mappar som krävs"
-	},
-
-	"addLocalFolder": {
-		"message": "Lägg till lokal mapp"
-	},
-
-	"removeLocalFolder": {
-		"message": "Ta bort lokal mapp"
-	}
-
-}
