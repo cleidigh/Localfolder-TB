@@ -650,7 +650,6 @@ var FolderListener = {
                 aItem.setFlag(sf);
                 //eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} set flags (${sf} : ${aItem.flags}`);
             }
-
         }
     },
 
