@@ -1,7 +1,7 @@
 // cleidigh - update for TB 68.*
 
 // v2.0.0 - add option to change store type, empty trash on exit, creation of mail folders
-
+// create unique LocalFolders hostnames
 
 // encapsulation objet
 if (!eu) var eu = {};
@@ -499,14 +499,14 @@ eu.philoux.localfolder.SelectChemin = function () {
 eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, emptyTrashOnExit) {
 
     try {
-        //var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
-        // while account/hostnames can have spaces, the api
-        // throughs errors when spaces are used. You can add 
-        // spaces in the ui, but how is unknown. So we just 
-        // use the prettyName.
+        // we will now decouple the account name from 
+        // the hostname which cannot include spaces
+        // and other URI like items
+        // use "LocalFolders_nnn"
 
-        let tempNom = nom.replace(' ', '0');
-        var srv = MailServices.accounts.createIncomingServer("nobody", tempNom, "none");
+        let lfHostname = eu.philoux.localfolder.createUniqueLFHostname();
+
+        var srv = MailServices.accounts.createIncomingServer("nobody", lfHostname, "none");
 
         srv = srv.QueryInterface(Ci.nsIMsgIncomingServer);
 
@@ -570,6 +570,9 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
     return false;
 }
 
+eu.philoux.localfolder.createUniqueLFHostname = function () {
+
+}
 
 eu.philoux.localfolder.fixupSubfolder = async function (parentName, folderName, removeFileFolder, storeID) {
 
