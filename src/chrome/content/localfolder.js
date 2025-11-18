@@ -616,11 +616,11 @@ eu.philoux.localfolder.fixupSubfolder = async function (parentName, folderName, 
     }
 
     if (storeID === "@mozilla.org/msgstore/maildirstore;1") {
-        filespec.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
+        filespec.create(Ci.nsIFile.DIRECTORY_TYPE, 0o755);
         //eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder done - CREATED DIRECTORY`);
 
     } else {
-        filespec.create(Ci.nsIFile.NORMAL_FILE_TYPE, 0644);
+        filespec.create(Ci.nsIFile.NORMAL_FILE_TYPE, 0o644);
         //eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder done - create file`);
     }
 }
