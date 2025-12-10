@@ -192,9 +192,10 @@ async function onLoad() {
 
 			if (storeID == "@mozilla.org/msgstore/berkeleystore;1") {
 				if (children.includes(aItem.filePath.path)) {
-					//console.log("mbox create missing mbox, rmv dir", aItem.name)
+					console.log("mbox create missing mbox, rmv dir", aItem.name)
 					await IOUtils.remove(aItem.filePath.path);
 					await IOUtils.write(aItem.filePath.path, new Uint8Array(), { mode: "overwrite" });
+					await window.eu.philoux.localfolder.rebuildSummary(aItem)
 				}
 			} else {
 				if (!children.includes(aItem.filePath.path)) {
