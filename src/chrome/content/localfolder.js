@@ -516,6 +516,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         srv.setStringValue("storeContractID", storeID);
         srv.emptyTrashOnExit = emptyTrashOnExit;
         
+        
         //eu.philoux.localfolder.LocalFolderTrace("CreateLocal  folder: " + chemin + "\neTrash : " + emptyTrashOnExit);
 
         eu.philoux.localfolder.lastFolder = chemin;
@@ -531,6 +532,10 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         srv.valid = true;
         account.incomingServer = account.incomingServer;
         
+        MailServices.accounts.notifyServerLoaded(srv)
+        console.log(srv)
+        console.log(account)
+
         msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
 
         // Fix trash and unsent messages subfolders created by createAccount
@@ -554,7 +559,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         // "import"/index all existing folders
         eu.philoux.localfolder.addExistingFolders(srv.rootMsgFolder, storeID);
 
-        srv.rootMsgFolder.AddFolderListener(mainWindow.localfolders.tmpFolderListener, notifyFlags);
+        //srv.rootMsgFolder.AddFolderListener(mainWindow.localfolders.tmpFolderListener, notifyFlags);
 
         return account;
     } catch (ex) {
