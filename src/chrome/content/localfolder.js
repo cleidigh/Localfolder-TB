@@ -9,11 +9,11 @@ if (!eu.philoux) eu.philoux = {};
 if (!eu.philoux.localfolder) eu.philoux.localfolder = {};
 
 var { ExtensionParent } = ChromeUtils.importESModule(
-	"resource://gre/modules/ExtensionParent.sys.mjs"
+    "resource://gre/modules/ExtensionParent.sys.mjs"
 );
 
 var localfoldersExtension = ExtensionParent.GlobalManager.getExtension(
-	"localfolder@philoux.eu"
+    "localfolder@philoux.eu"
 );
 
 var { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs");
@@ -233,7 +233,7 @@ eu.philoux.localfolder.getMail3Pane = function () {
 }
 
 eu.philoux.localfolder.localizeMsg = function (msgName) {
-		return localfoldersExtension.localeData.localizeMessage(msgName);
+    return localfoldersExtension.localeData.localizeMessage(msgName);
 }
 
 /**
@@ -493,14 +493,14 @@ eu.philoux.localfolder.SelectChemin = async function () {
 eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, emptyTrashOnExit) {
 
     try {
-        
+
         // we will now decouple the account name from 
         // the hostname which cannot include spaces
         // and other URI like items
         // use "LocalFolders_nnn"
 
         let lfHostname = eu.philoux.localfolder.createUniqueLFHostname();
-        if(!lfHostname) {
+        if (!lfHostname) {
             throw new Error("Maximum of 100 Local Folders exeeded");
         }
         var srv = MailServices.accounts.createIncomingServer("nobody", lfHostname, "none");
@@ -515,8 +515,8 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         let defaultStoreID = Services.prefs.getCharPref("mail.serverDefaultStoreContractID");
         srv.setStringValue("storeContractID", storeID);
         srv.emptyTrashOnExit = emptyTrashOnExit;
-        
-        
+
+
         //eu.philoux.localfolder.LocalFolderTrace("CreateLocal  folder: " + chemin + "\neTrash : " + emptyTrashOnExit);
 
         eu.philoux.localfolder.lastFolder = chemin;
@@ -531,11 +531,21 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         account.incomingServer = srv;
         srv.valid = true;
         account.incomingServer = account.incomingServer;
-        
+
         MailServices.accounts.notifyServerLoaded(srv)
         console.log(srv)
-        console.log(account)
+        Object.entries(srv).forEach(([key, value]) => {
+            console.log(`${key}: ${value}`);
+        });
 
+        /*
+        Object.entries(srv.rootMsgFolder).forEach(([key, value]) => {
+            if (key != "messages") {
+            console.log(`${key}: ${value}`);
+            }
+        });
+
+*/
         msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
 
         // Fix trash and unsent messages subfolders created by createAccount
@@ -666,7 +676,7 @@ var FolderListener = {
     OnItemPropertyFlagChanged() { },
     OnItemEvent() { },
     OnFolderEvent() { },
-    
+
 };
 
 
