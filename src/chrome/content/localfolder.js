@@ -499,14 +499,17 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         //await IOUtils.remove(PathUtils.join(chemin, "Trash"), { ignoreAbsent: true, recursive: true });
         //await IOUtils.remove(PathUtils.join(chemin, "Unsent Messages"), { ignoreAbsent: true, recursive: true });
 
-        srv.valid = false;
+        //srv.valid = false;
 
         var account = MailServices.accounts.createAccount();
         account.incomingServer = srv;
-        srv.valid = true;
-        account.incomingServer = account.incomingServer;
+        //srv.valid = true;
+        //account.incomingServer = account.incomingServer;
 
-        MailServices.accounts.notifyServerLoaded(srv)
+        MailServices.accounts.saveAccountInfo();
+        Services.prefs.savePrefFile(null);
+
+        //MailServices.accounts.notifyServerLoaded(srv)
         
         //await eu.philoux.localfolder.rebuildSummary(srv.rootMsgFolder)
         /*console.log(srv)
@@ -558,7 +561,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         // "import"/index all existing folders
         eu.philoux.localfolder.addExistingFolders(srv.rootMsgFolder, storeID);
 
-        srv.rootMsgFolder.AddFolderListener(mainWindow.localfolders.tmpFolderListener, notifyFlags);
+        //srv.rootMsgFolder.AddFolderListener(mainWindow.localfolders.tmpFolderListener, notifyFlags);
 
 
         return account;
