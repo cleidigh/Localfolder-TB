@@ -160,57 +160,31 @@ eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder, storeID) {
 
 eu.philoux.localfolder.rebuildSummary = async function (folder) {
 
-    if (folder.locked) {
-        folder.throwAlertMsg("operationFailedFolderBusy", window.msgWindow);
-        return;
+if (folder.locked) {
+      folder.throwAlertMsg("operationFailedFolderBusy", this.top.msgWindow);
+      return;
     }
     if (folder.supportsOffline) {
-        // Remove the offline store, if any.
-        await IOUtils.remove(folder.filePath.path, { recursive: true }).catch(
-            console.error
-        );
+      // Remove the offline store, if any.
+      await IOUtils.remove(folder.filePath.path, { recursive: true }).catch(
+      );
     }
 
     // Send a notification that we are triggering a database rebuild.
     MailServices.mfn.notifyFolderReindexTriggered(folder);
 
-    folder.msgDatabase.summaryValid = false;
-
-    const msgDB = folder.msgDatabase;
-    msgDB.summaryValid = false;
     try {
-        folder.closeAndBackupFolderDB("");
+      const msgDB = folder.msgDatabase;
+      msgDB.summaryValid = false;
+      folder.closeAndBackupFolderDB("");
     } catch (e) {
-        // In a failure, proceed anyway since we're dealing with problems
-        folder.ForceDBClosed();
+      // In a failure, proceed anyway since we're dealing with problems
+      folder.ForceDBClosed();
     }
 
-    // we can use this for parseFolder
-    var dbDone;
-    // @implements {nsIUrlListener}
-    let urlListener = {
-        OnStartRunningUrl(url) {
-            dbDone = false;
-        },
-        OnStopRunningUrl(url, status) {
-            dbDone = true;
-        }
-    };
+    let top = Services.wm.getMostRecentWindow("mail:3pane");
+    folder.updateFolder(top.msgWindow);
 
-
-    var msgLocalFolder = folder.QueryInterface(Ci.nsIMsgLocalMailFolder);
-    msgLocalFolder.parseFolder(window.msgWindow, urlListener);
-    while (!dbDone) {
-        await new Promise(r => window.setTimeout(r, 100));
-    }
-
-    // things we do to get folder to be included in global  search
-    // toggling global search inclusion works, but throws
-    // async tracker errors
-    // we won't do these automatically for now
-
-    //this._toggleGlobalSearchEnable(folder);
-    //await this._touchCopyFolderMsg(folder);
     return;
 }
 
@@ -522,8 +496,8 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         eu.philoux.localfolder.lastFolder = chemin;
 
         // maildir will not setup without Trash & Unsent Messages being removed, mbox op is non issue
-        await IOUtils.remove(PathUtils.join(chemin, "Trash"), { ignoreAbsent: true, recursive: true });
-        await IOUtils.remove(PathUtils.join(chemin, "Unsent Messages"), { ignoreAbsent: true, recursive: true });
+        //await IOUtils.remove(PathUtils.join(chemin, "Trash"), { ignoreAbsent: true, recursive: true });
+        //await IOUtils.remove(PathUtils.join(chemin, "Unsent Messages"), { ignoreAbsent: true, recursive: true });
 
         srv.valid = false;
 
@@ -533,10 +507,21 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         account.incomingServer = account.incomingServer;
 
         MailServices.accounts.notifyServerLoaded(srv)
-        console.log(srv)
+        
+        //await eu.philoux.localfolder.rebuildSummary(srv.rootMsgFolder)
+        /*console.log(srv)
         Object.entries(srv).forEach(([key, value]) => {
             console.log(`${key}: ${value}`);
         });
+
+        console.log("\nLocal Folders\n\n")
+        Object.entries(MailServices.accounts.localFoldersServer).forEach(([key, value]) => {
+            console.log(`${key}: ${value}`);
+        });
+*/
+        console.log(srv.rootMsgFolder)
+
+        console.log(MailServices.accounts.localFoldersServer.rootMsgFolder)
 
         /*
         Object.entries(srv.rootMsgFolder).forEach(([key, value]) => {
@@ -548,10 +533,14 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
 */
         msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
 
+        
         // Fix trash and unsent messages subfolders created by createAccount
         // the not usable until empty folders and file are created/deleted based on storage type
         await eu.philoux.localfolder.fixupSubfolder(chemin, "Trash", false, storeID);
         await eu.philoux.localfolder.fixupSubfolder(chemin, "Unsent Messages", false, storeID);
+
+        await eu.philoux.localfolder.rebuildSummary(srv.rootMsgFolder)
+
 
         // keep track of new folders for subfolder fixes
         eu.philoux.localfolder.pendingFolders.push(chemin);
@@ -569,7 +558,8 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         // "import"/index all existing folders
         eu.philoux.localfolder.addExistingFolders(srv.rootMsgFolder, storeID);
 
-        //srv.rootMsgFolder.AddFolderListener(mainWindow.localfolders.tmpFolderListener, notifyFlags);
+        srv.rootMsgFolder.AddFolderListener(mainWindow.localfolders.tmpFolderListener, notifyFlags);
+
 
         return account;
     } catch (ex) {
