@@ -160,26 +160,26 @@ eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder, storeID) {
 
 eu.philoux.localfolder.rebuildSummary = async function (folder) {
 
-if (folder.locked) {
-      folder.throwAlertMsg("operationFailedFolderBusy", this.top.msgWindow);
-      return;
+    if (folder.locked) {
+        folder.throwAlertMsg("operationFailedFolderBusy", this.top.msgWindow);
+        return;
     }
     if (folder.supportsOffline) {
-      // Remove the offline store, if any.
-      await IOUtils.remove(folder.filePath.path, { recursive: true }).catch(
-      );
+        // Remove the offline store, if any.
+        await IOUtils.remove(folder.filePath.path, { recursive: true }).catch(
+        );
     }
 
     // Send a notification that we are triggering a database rebuild.
     MailServices.mfn.notifyFolderReindexTriggered(folder);
 
     try {
-      const msgDB = folder.msgDatabase;
-      msgDB.summaryValid = false;
-      folder.closeAndBackupFolderDB("");
+        const msgDB = folder.msgDatabase;
+        msgDB.summaryValid = false;
+        folder.closeAndBackupFolderDB("");
     } catch (e) {
-      // In a failure, proceed anyway since we're dealing with problems
-      folder.ForceDBClosed();
+        // In a failure, proceed anyway since we're dealing with problems
+        folder.ForceDBClosed();
     }
 
     let top = Services.wm.getMostRecentWindow("mail:3pane");
@@ -467,6 +467,7 @@ eu.philoux.localfolder.SelectChemin = async function () {
 eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, emptyTrashOnExit) {
 
     try {
+        eu.philoux.localfolder.lastFolder = chemin;
 
         // we will now decouple the account name from 
         // the hostname which cannot include spaces
@@ -486,31 +487,47 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         srv.prettyName = nom;
         srv.localPath = filespec;
 
-        let defaultStoreID = Services.prefs.getCharPref("mail.serverDefaultStoreContractID");
         srv.setStringValue("storeContractID", storeID);
         srv.emptyTrashOnExit = emptyTrashOnExit;
 
+        // maildir will not setup without Trash & Unsent Messages being removed, mbox op is non issue
+        await IOUtils.remove(PathUtils.join(chemin, "Trash"), { ignoreAbsent: true, recursive: true });
+        await IOUtils.remove(PathUtils.join(chemin, "Unsent Messages"), { ignoreAbsent: true, recursive: true });
 
         //eu.philoux.localfolder.LocalFolderTrace("CreateLocal  folder: " + chemin + "\neTrash : " + emptyTrashOnExit);
 
-        eu.philoux.localfolder.lastFolder = chemin;
-
-        // maildir will not setup without Trash & Unsent Messages being removed, mbox op is non issue
-        //await IOUtils.remove(PathUtils.join(chemin, "Trash"), { ignoreAbsent: true, recursive: true });
-        //await IOUtils.remove(PathUtils.join(chemin, "Unsent Messages"), { ignoreAbsent: true, recursive: true });
-
-        //srv.valid = false;
-
         var account = MailServices.accounts.createAccount();
         account.incomingServer = srv;
-        //srv.valid = true;
-        //account.incomingServer = account.incomingServer;
+
+
+        // At this point to the account creation is
+        // complete, but with the incorrect default
+        // Trash and Unsent folders creation
+        // A directory is created for each as well as
+        // an msf file. The correct formation would 
+        // include the two empty mbox files, not
+        // empty directories.
+        // The "fixup" of removing the directories,
+        // creating the empty mbox files has been 
+        // sufficient since TB68
+        // With TB140+ subsequent folder creation 
+        // under this new local folder account now
+        // does the same behavior and creates an
+        // msf file and a directory. Using a folder
+        // listener to fix any folder creation 
+        // has worked, but there are questions about 
+        // side affects.
+        // Note the folder creation fixup is not
+        // necessary after a TB restart.
+        // Also the server object has no distinguing
+        // differences from the default Local Folders
+        // account.
 
         MailServices.accounts.saveAccountInfo();
         Services.prefs.savePrefFile(null);
 
-        //MailServices.accounts.notifyServerLoaded(srv)
-        
+        alert("After account creation, before fixup")
+
         //await eu.philoux.localfolder.rebuildSummary(srv.rootMsgFolder)
         /*console.log(srv)
         Object.entries(srv).forEach(([key, value]) => {
@@ -522,28 +539,22 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
             console.log(`${key}: ${value}`);
         });
 */
-        console.log(srv.rootMsgFolder)
-
-        console.log(MailServices.accounts.localFoldersServer.rootMsgFolder)
-
-        /*
-        Object.entries(srv.rootMsgFolder).forEach(([key, value]) => {
-            if (key != "messages") {
-            console.log(`${key}: ${value}`);
-            }
-        });
-
-*/
         msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
 
-        
+
+        // Fixup phase
+
         // Fix trash and unsent messages subfolders created by createAccount
         // the not usable until empty folders and file are created/deleted based on storage type
         await eu.philoux.localfolder.fixupSubfolder(chemin, "Trash", false, storeID);
         await eu.philoux.localfolder.fixupSubfolder(chemin, "Unsent Messages", false, storeID);
 
-        await eu.philoux.localfolder.rebuildSummary(srv.rootMsgFolder)
+        alert("After fixup")
+        //await eu.philoux.localfolder.rebuildSummary(srv.rootMsgFolder)
 
+        // **** Everything after here is adding special 
+        // **** or user folders and is not relevant to the problem
+        // **** except the new folder fixup listener
 
         // keep track of new folders for subfolder fixes
         eu.philoux.localfolder.pendingFolders.push(chemin);
@@ -561,8 +572,8 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         // "import"/index all existing folders
         eu.philoux.localfolder.addExistingFolders(srv.rootMsgFolder, storeID);
 
-        //srv.rootMsgFolder.AddFolderListener(mainWindow.localfolders.tmpFolderListener, notifyFlags);
-
+        // New folder fixup listener for TB140+
+        srv.rootMsgFolder.AddFolderListener(mainWindow.localfolders.tmpFolderListener, notifyFlags);
 
         return account;
     } catch (ex) {
