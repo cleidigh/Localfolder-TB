@@ -195,7 +195,7 @@ async function onLoad() {
 					console.log("mbox create missing mbox, rmv dir", aItem.name)
 					await IOUtils.remove(aItem.filePath.path);
 					await IOUtils.write(aItem.filePath.path, new Uint8Array(), { mode: "overwrite" });
-					await window.eu.philoux.localfolder.rebuildSummary(aItem)
+					await rebuildSummary(aItem)
 				}
 			} else {
 				if (!children.includes(aItem.filePath.path)) {
@@ -216,6 +216,38 @@ async function onLoad() {
 	};
 
 }
+
+
+async function rebuildSummary(folder) {
+    let top = Services.wm.getMostRecentWindow("mail:3pane");
+
+    if (folder.locked) {
+        folder.throwAlertMsg("operationFailedFolderBusy", top.msgWindow);
+        return;
+    }
+    if (folder.supportsOffline) {
+        // Remove the offline store, if any.
+        await IOUtils.remove(folder.filePath.path, { recursive: true }).catch(
+        );
+    }
+
+    // Send a notification that we are triggering a database rebuild.
+    MailServices.mfn.notifyFolderReindexTriggered(folder);
+
+    try {
+        const msgDB = folder.msgDatabase;
+        msgDB.summaryValid = false;
+        folder.closeAndBackupFolderDB("");
+    } catch (e) {
+        // In a failure, proceed anyway since we're dealing with problems
+        folder.ForceDBClosed();
+    }
+
+    folder.updateFolder(top.msgWindow);
+
+    return;
+}
+
 
 function onUnload() {
 	window.localfolders.notifyTools.removeAllListeners();

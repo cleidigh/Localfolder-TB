@@ -539,7 +539,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
             console.log(`${key}: ${value}`);
         });
 */
-        msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
+        //msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
 
 
         // Fixup phase
@@ -550,7 +550,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         await eu.philoux.localfolder.fixupSubfolder(chemin, "Unsent Messages", false, storeID);
 
         alert("After fixup")
-        //await eu.philoux.localfolder.rebuildSummary(srv.rootMsgFolder)
+        await eu.philoux.localfolder.rebuildSummary(srv.rootMsgFolder)
 
         // **** Everything after here is adding special 
         // **** or user folders and is not relevant to the problem
