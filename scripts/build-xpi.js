@@ -1,10 +1,10 @@
 // cleidigh - build Thunderbird add-on - Use package configuration for XUL or hybrid with manifest
+// v2.0 - only use manifest for version, remove rdf stuff
+
 /* global process */
 
-const util = require('util');
 const fs = require('fs-extra');
 const _7z = require('7zip-min');
-const xml_util = require('./xml-util.js');
 
 // Configuration args
 
