@@ -479,41 +479,24 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
             throw new Error("Maximum of 100 Local Folders exeeded");
         }
         var srv = MailServices.accounts.createIncomingServer("nobody", lfHostname, "none");
-        srv.valid = false;
-
-        //alert("af srv")
-        //srv = srv.QueryInterface(Ci.nsIMsgIncomingServer);
+        srv = srv.QueryInterface(Ci.nsIMsgIncomingServer);
 
         var filespec = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
         filespec.initWithPath(chemin);
         srv.prettyName = nom;
-        //alert("bef lf")
-
         srv.localPath = filespec;
-			await new Promise(resolve => window.setTimeout(resolve, 500));
-
-        //alert("af lf")
 
         srv.setStringValue("storeContractID", storeID);
         srv.emptyTrashOnExit = emptyTrashOnExit;
 
         // maildir will not setup without Trash & Unsent Messages being removed, mbox op is non issue
-        //await IOUtils.remove(PathUtils.join(chemin, "Trash"), { ignoreAbsent: true, recursive: true });
-        //await IOUtils.remove(PathUtils.join(chemin, "Unsent Messages"), { ignoreAbsent: true, recursive: true });
+        await IOUtils.remove(PathUtils.join(chemin, "Trash"), { ignoreAbsent: true, recursive: true });
+        await IOUtils.remove(PathUtils.join(chemin, "Unsent Messages"), { ignoreAbsent: true, recursive: true });
 
         //eu.philoux.localfolder.LocalFolderTrace("CreateLocal  folder: " + chemin + "\neTrash : " + emptyTrashOnExit);
 
-        
-
-        console.log(srv.msgStore.storeType)
-
-        alert("bef acc")
         var account = MailServices.accounts.createAccount();
         account.incomingServer = srv;
-        account.incomingServer.valid = true;
-
-        account.incomingServer = account.incomingServer;
-
 
         // At this point to the account creation is
         // complete, but with the incorrect default
@@ -541,25 +524,6 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         MailServices.accounts.saveAccountInfo();
         Services.prefs.savePrefFile(null);
 
-        alert("After account creation, before fixup")
-
-        //await eu.philoux.localfolder.rebuildSummary(srv.rootMsgFolder)
-        /*console.log(srv)
-        Object.entries(srv).forEach(([key, value]) => {
-            console.log(`${key}: ${value}`);
-        });
-
-
-        console.log("\nLocal Folders\n\n")
-        Object.entries(MailServices.accounts.localFoldersServer).forEach(([key, value]) => {
-            console.log(`${key}: ${value}`);
-        });
-*/
-        console.log(MailServices.accounts.localFoldersServer.msgStore)
-
-        //msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
-
-
         // Fixup phase
 
         // Fix trash and unsent messages subfolders created by createAccount
@@ -567,12 +531,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         await eu.philoux.localfolder.fixupSubfolder(chemin, "Trash", false, storeID);
         await eu.philoux.localfolder.fixupSubfolder(chemin, "Unsent Messages", false, storeID);
 
-        alert("After fixup")
         //await eu.philoux.localfolder.rebuildSummary(srv.rootMsgFolder)
-
-        // **** Everything after here is adding special 
-        // **** or user folders and is not relevant to the problem
-        // **** except the new folder fixup listener
 
         // keep track of new folders for subfolder fixes
         eu.philoux.localfolder.pendingFolders.push(chemin);
