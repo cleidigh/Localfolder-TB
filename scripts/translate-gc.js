@@ -16,8 +16,9 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "addLocalFolder", text: "Add Local Folder"},
-	{ key: "removeLocalFolder", text: "Remove Local Folder"},
+	{ key: "restartMsg.title", text: "Restart required"},
+	{ key: "restartMsg.msg", text: "Thundirbird needs to be restarted for the new Local Folder to be configured correctly.\n\nDo not create any folders or copy messages in the Local Folder before restarting."},
+
 
 
 
