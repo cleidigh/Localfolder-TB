@@ -35,4 +35,14 @@
     "trashFolderName": {
         "message": "ごみ箱"
     }
+,
+
+	"restartMsg.title": {
+		"message": "再起動が必要です"
+	},
+
+	"restartMsg.msg": {
+		"message": "新しいローカルフォルダを正しく設定するには、Thundirbird を再起動する必要があります。\n\n再起動前に、ローカルフォルダにフォルダを作成したり、メッセージをコピーしたりしないでください。"
+	}
+
 }

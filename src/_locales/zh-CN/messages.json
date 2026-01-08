@@ -34,5 +34,14 @@
     },
     "trashFolderName": {
         "message": "废件箱"
-    }
+    },
+
+	"restartMsg.title": {
+		"message": "需要重启"
+	},
+
+	"restartMsg.msg": {
+		"message": "要使新的本地文件夹正确配置，需要重启 Thunderbird。重启前请勿在本地文件夹中创建任何文件夹或复制邮件。"
+	}
+
 }

@@ -459,8 +459,8 @@ let inputFiles = ["messages.json"];
 //'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
 // help
-var localeFolders = ['ja', 'de', 'en_US', 'es_ES', 'fr', 'hu',
-'it', 'nl', 'pt_BR', 'sv_SE', 'zh_CN'];
+var localeFolders = ['ja', 'de', 'en-US', 'es-ES', 'fr', 'hu',
+'it', 'nl', 'pt-BR', 'sv-SE', 'zh-CN'];
 
 //localeFolders = ['ca', 'da', 'el', 'en-US', 'es-ES', 'fi', 'gl-ES', 'hu',
 //'hy-AM', 'it', 'ko', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk', 'sl', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];

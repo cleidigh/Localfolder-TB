@@ -35,4 +35,14 @@
     "trashFolderName": {
         "message": "Papelera"
     }
+,
+
+	"restartMsg.title": {
+		"message": "Es necesario reiniciar"
+	},
+
+	"restartMsg.msg": {
+		"message": "Es necesario reiniciar Thundirbird para que la nueva carpeta local se configure correctamente.\n\nNo cree carpetas ni copie mensajes en la carpeta local antes de reiniciar."
+	}
+
 }

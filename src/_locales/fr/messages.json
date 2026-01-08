@@ -35,4 +35,14 @@
     "trashFolderName": {
         "message": "Corbeille"
     }
+,
+
+	"restartMsg.title": {
+		"message": "Redémarrage requis"
+	},
+
+	"restartMsg.msg": {
+		"message": "Thundirbird doit être redémarré pour que le nouveau dossier local soit correctement configuré.\n\nNe créez aucun dossier et ne copiez aucun message dans le dossier local avant le redémarrage."
+	}
+
 }

@@ -35,4 +35,14 @@
     "trashFolderName": {
         "message": "Cestino"
     }
+,
+
+	"restartMsg.title": {
+		"message": "Riavvio richiesto"
+	},
+
+	"restartMsg.msg": {
+		"message": "Thundirbird deve essere riavviato affinché la nuova cartella locale venga configurata correttamente.\n\nNon creare cartelle o copiare messaggi nella cartella locale prima del riavvio."
+	}
+
 }

@@ -35,4 +35,14 @@
     "trashFolderName": {
         "message": "Papperskorgen"
     }
+,
+
+	"restartMsg.title": {
+		"message": "Omstart krävs"
+	},
+
+	"restartMsg.msg": {
+		"message": "Thundirbird måste startas om för att den nya lokala mappen ska konfigureras korrekt.\n\nSkapa inga mappar eller kopiera meddelanden i den lokala mappen innan du startat om."
+	}
+
 }
