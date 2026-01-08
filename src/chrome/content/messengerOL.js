@@ -195,7 +195,6 @@ async function onLoad() {
 					console.log("mbox create missing mbox, rmv dir", aItem.name)
 					await IOUtils.remove(aItem.filePath.path);
 					await IOUtils.write(aItem.filePath.path, new Uint8Array(), { mode: "overwrite" });
-					await rebuildSummary(aItem)
 				}
 			} else {
 				if (!children.includes(aItem.filePath.path)) {
