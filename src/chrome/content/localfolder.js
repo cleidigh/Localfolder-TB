@@ -364,6 +364,8 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
 
         //création du dossier local
         await eu.philoux.localfolder.creeDossierLocal(nom, dossier, storeID, emptyTrashOnExit);
+        Services.prompt.alert(window, "Restart required", "Thundirbird needs to be restarted for the new Local Folder to be configured correctly.\n\nDo not create any folders or copy messages in the Local Folder before restarting.");
+        
     } catch (ex) {
         eu.philoux.localfolder.LocalFolderAfficheMsgId2("ErreurCreationDossier", ex);
         window.close();
