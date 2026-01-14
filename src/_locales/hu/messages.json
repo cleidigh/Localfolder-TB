@@ -35,4 +35,14 @@
     "trashFolderName": {
         "message": "Kuka"
     }
+,
+
+	"restartMsg.title": {
+		"message": "Újraindítás szükséges"
+	},
+
+	"restartMsg.msg": {
+		"message": "A Thundirbird újraindítása szükséges az új helyi mappa megfelelő konfigurálásához.\n\nAz újraindítás előtt ne hozzon létre új mappákat, és ne másolja az üzeneteket a helyi mappába."
+	}
+
 }

@@ -35,4 +35,14 @@
     "trashFolderName": {
         "message": "Lixeira"
     }
+,
+
+	"restartMsg.title": {
+		"message": "É necessário reiniciar."
+	},
+
+	"restartMsg.msg": {
+		"message": "O Thunderbird precisa ser reiniciado para que a nova Pasta Local seja configurada corretamente.\n\nNão crie pastas nem copie mensagens na Pasta Local antes de reiniciar."
+	}
+
 }

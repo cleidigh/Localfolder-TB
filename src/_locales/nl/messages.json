@@ -35,4 +35,14 @@
     "trashFolderName": {
         "message": "Prullenbak"
     }
+,
+
+	"restartMsg.title": {
+		"message": "Opnieuw opstarten vereist"
+	},
+
+	"restartMsg.msg": {
+		"message": "Thunderbird moet opnieuw worden opgestart om de nieuwe lokale map correct te configureren.\n\nMaak geen mappen aan en kopieer geen berichten naar de lokale map voordat u Thunderbird opnieuw opstart."
+	}
+
 }

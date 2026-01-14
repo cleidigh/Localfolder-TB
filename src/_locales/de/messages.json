@@ -35,4 +35,14 @@
     "trashFolderName": {
         "message": "Papierkorb"
     }
+,
+
+	"restartMsg.title": {
+		"message": "Neustart erforderlich"
+	},
+
+	"restartMsg.msg": {
+		"message": "Thunderbird muss neu gestartet werden, damit der neue lokale Ordner korrekt konfiguriert wird.\n\nErstellen Sie vor dem Neustart keine Ordner im lokalen Ordner und kopieren Sie keine Nachrichten hinein."
+	}
+
 }

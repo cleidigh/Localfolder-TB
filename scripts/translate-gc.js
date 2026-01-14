@@ -16,8 +16,9 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "addLocalFolder", text: "Add Local Folder"},
-	{ key: "removeLocalFolder", text: "Remove Local Folder"},
+	{ key: "restartMsg.title", text: "Restart required"},
+	{ key: "restartMsg.msg", text: "Thundirbird needs to be restarted for the new Local Folder to be configured correctly.\n\nDo not create any folders or copy messages in the Local Folder before restarting."},
+
 
 
 
@@ -458,8 +459,8 @@ let inputFiles = ["messages.json"];
 //'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
 // help
-var localeFolders = ['ja', 'de', 'en_US', 'es_ES', 'fr', 'hu',
-'it', 'nl', 'pt_BR', 'sv_SE', 'zh_CN'];
+var localeFolders = ['ja', 'de', 'en-US', 'es-ES', 'fr', 'hu',
+'it', 'nl', 'pt-BR', 'sv-SE', 'zh-CN'];
 
 //localeFolders = ['ca', 'da', 'el', 'en-US', 'es-ES', 'fi', 'gl-ES', 'hu',
 //'hy-AM', 'it', 'ko', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk', 'sl', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];

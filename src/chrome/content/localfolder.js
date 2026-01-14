@@ -1,5 +1,7 @@
 // cleidigh - update for TB 145.*
 
+// create unique LocalFolders hostnames
+
 
 // encapsulation objet
 if (!eu) var eu = {};
@@ -7,11 +9,11 @@ if (!eu.philoux) eu.philoux = {};
 if (!eu.philoux.localfolder) eu.philoux.localfolder = {};
 
 var { ExtensionParent } = ChromeUtils.importESModule(
-	"resource://gre/modules/ExtensionParent.sys.mjs"
+    "resource://gre/modules/ExtensionParent.sys.mjs"
 );
 
 var localfoldersExtension = ExtensionParent.GlobalManager.getExtension(
-	"localfolder@philoux.eu"
+    "localfolder@philoux.eu"
 );
 
 var { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs");
@@ -159,56 +161,30 @@ eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder, storeID) {
 eu.philoux.localfolder.rebuildSummary = async function (folder) {
 
     if (folder.locked) {
-        folder.throwAlertMsg("operationFailedFolderBusy", window.msgWindow);
+        folder.throwAlertMsg("operationFailedFolderBusy", this.top.msgWindow);
         return;
     }
     if (folder.supportsOffline) {
         // Remove the offline store, if any.
         await IOUtils.remove(folder.filePath.path, { recursive: true }).catch(
-            console.error
         );
     }
 
     // Send a notification that we are triggering a database rebuild.
     MailServices.mfn.notifyFolderReindexTriggered(folder);
 
-    folder.msgDatabase.summaryValid = false;
-
-    const msgDB = folder.msgDatabase;
-    msgDB.summaryValid = false;
     try {
+        const msgDB = folder.msgDatabase;
+        msgDB.summaryValid = false;
         folder.closeAndBackupFolderDB("");
     } catch (e) {
         // In a failure, proceed anyway since we're dealing with problems
         folder.ForceDBClosed();
     }
 
-    // we can use this for parseFolder
-    var dbDone;
-    // @implements {nsIUrlListener}
-    let urlListener = {
-        OnStartRunningUrl(url) {
-            dbDone = false;
-        },
-        OnStopRunningUrl(url, status) {
-            dbDone = true;
-        }
-    };
+    let top = Services.wm.getMostRecentWindow("mail:3pane");
+    folder.updateFolder(top.msgWindow);
 
-
-    var msgLocalFolder = folder.QueryInterface(Ci.nsIMsgLocalMailFolder);
-    msgLocalFolder.parseFolder(window.msgWindow, urlListener);
-    while (!dbDone) {
-        await new Promise(r => window.setTimeout(r, 100));
-    }
-
-    // things we do to get folder to be included in global  search
-    // toggling global search inclusion works, but throws
-    // async tracker errors
-    // we won't do these automatically for now
-
-    //this._toggleGlobalSearchEnable(folder);
-    //await this._touchCopyFolderMsg(folder);
     return;
 }
 
@@ -231,7 +207,7 @@ eu.philoux.localfolder.getMail3Pane = function () {
 }
 
 eu.philoux.localfolder.localizeMsg = function (msgName) {
-		return localfoldersExtension.localeData.localizeMessage(msgName);
+    return localfoldersExtension.localeData.localizeMessage(msgName);
 }
 
 /**
@@ -388,6 +364,11 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
 
         //création du dossier local
         await eu.philoux.localfolder.creeDossierLocal(nom, dossier, storeID, emptyTrashOnExit);
+        
+        let title = eu.philoux.localfolder.localizeMsg("restartMsg.title");
+        let restartMsg = eu.philoux.localfolder.localizeMsg("restartMsg.msg");
+        Services.prompt.alert(window, title, restartMsg);
+        
     } catch (ex) {
         eu.philoux.localfolder.LocalFolderAfficheMsgId2("ErreurCreationDossier", ex);
         window.close();
@@ -491,15 +472,18 @@ eu.philoux.localfolder.SelectChemin = async function () {
 eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, emptyTrashOnExit) {
 
     try {
-        //var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
-        // while account/hostnames can have spaces, the api
-        // throughs errors when spaces are used. You can add 
-        // spaces in the ui, but how is unknown. So we just 
-        // use the prettyName.
+        eu.philoux.localfolder.lastFolder = chemin;
 
-        let tempNom = nom.replace(' ', '0');
-        var srv = MailServices.accounts.createIncomingServer("nobody", tempNom, "none");
+        // we will now decouple the account name from 
+        // the hostname which cannot include spaces
+        // and other URI like items
+        // use "LocalFolders_nnn"
 
+        let lfHostname = eu.philoux.localfolder.createUniqueLFHostname();
+        if (!lfHostname) {
+            throw new Error("Maximum of 100 Local Folders exeeded");
+        }
+        var srv = MailServices.accounts.createIncomingServer("nobody", lfHostname, "none");
         srv = srv.QueryInterface(Ci.nsIMsgIncomingServer);
 
         var filespec = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
@@ -507,32 +491,52 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         srv.prettyName = nom;
         srv.localPath = filespec;
 
-        let defaultStoreID = Services.prefs.getCharPref("mail.serverDefaultStoreContractID");
         srv.setStringValue("storeContractID", storeID);
         srv.emptyTrashOnExit = emptyTrashOnExit;
-        
-        //eu.philoux.localfolder.LocalFolderTrace("CreateLocal  folder: " + chemin + "\neTrash : " + emptyTrashOnExit);
-
-        eu.philoux.localfolder.lastFolder = chemin;
 
         // maildir will not setup without Trash & Unsent Messages being removed, mbox op is non issue
         await IOUtils.remove(PathUtils.join(chemin, "Trash"), { ignoreAbsent: true, recursive: true });
         await IOUtils.remove(PathUtils.join(chemin, "Unsent Messages"), { ignoreAbsent: true, recursive: true });
 
-        srv.valid = false;
+        //eu.philoux.localfolder.LocalFolderTrace("CreateLocal  folder: " + chemin + "\neTrash : " + emptyTrashOnExit);
 
         var account = MailServices.accounts.createAccount();
         account.incomingServer = srv;
-        srv.valid = true;
-        account.incomingServer = account.incomingServer;
-        
-        msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
 
+        // At this point to the account creation is
+        // complete, but with the incorrect default
+        // Trash and Unsent folders creation
+        // A directory is created for each as well as
+        // an msf file. The correct formation would 
+        // include the two empty mbox files, not
+        // empty directories.
+        // The "fixup" of removing the directories,
+        // creating the empty mbox files has been 
+        // sufficient since TB68
+        // With TB140+ subsequent folder creation 
+        // under this new local folder account now
+        // does the same behavior and creates an
+        // msf file and a directory. Using a folder
+        // listener to fix any folder creation 
+        // has worked, but there are questions about 
+        // side affects.
+        // Note the folder creation fixup is not
+        // necessary after a TB restart.
+        // Also the server object has no distinguing
+        // differences from the default Local Folders
+        // account.
+
+        MailServices.accounts.saveAccountInfo();
+        Services.prefs.savePrefFile(null);
+
+        // Fixup phase
 
         // Fix trash and unsent messages subfolders created by createAccount
         // the not usable until empty folders and file are created/deleted based on storage type
         await eu.philoux.localfolder.fixupSubfolder(chemin, "Trash", false, storeID);
         await eu.philoux.localfolder.fixupSubfolder(chemin, "Unsent Messages", false, storeID);
+
+        //await eu.philoux.localfolder.rebuildSummary(srv.rootMsgFolder)
 
         // keep track of new folders for subfolder fixes
         eu.philoux.localfolder.pendingFolders.push(chemin);
@@ -550,6 +554,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         // "import"/index all existing folders
         eu.philoux.localfolder.addExistingFolders(srv.rootMsgFolder, storeID);
 
+        // New folder fixup listener for TB140+
         srv.rootMsgFolder.AddFolderListener(mainWindow.localfolders.tmpFolderListener, notifyFlags);
 
         return account;
@@ -562,6 +567,23 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
     return false;
 }
 
+eu.philoux.localfolder.createUniqueLFHostname = function () {
+    const accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
+    const servers = accountmanager.allServers;
+
+    const hostnames = servers.map(server => server.hostName);
+
+    let lfIndex = 0;
+    while (lfIndex++ < 100) {
+        let lfHostname = `LocalFolders_${lfIndex}`;
+        if (!hostnames.includes(lfHostname)) {
+            return lfHostname;
+        }
+    }
+    // some nutso using more than 100 local folders??
+    // sorry amigo
+    return false;
+}
 
 eu.philoux.localfolder.fixupSubfolder = async function (parentName, folderName, removeFileFolder, storeID) {
 
@@ -595,11 +617,11 @@ eu.philoux.localfolder.fixupSubfolder = async function (parentName, folderName, 
     }
 
     if (storeID === "@mozilla.org/msgstore/maildirstore;1") {
-        filespec.create(Ci.nsIFile.DIRECTORY_TYPE, 0755);
+        filespec.create(Ci.nsIFile.DIRECTORY_TYPE, 0o755);
         //eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder done - CREATED DIRECTORY`);
 
     } else {
-        filespec.create(Ci.nsIFile.NORMAL_FILE_TYPE, 0644);
+        filespec.create(Ci.nsIFile.NORMAL_FILE_TYPE, 0o644);
         //eu.philoux.localfolder.LocalFolderTrace(`fixupSubfolder done - create file`);
     }
 }
@@ -625,11 +647,10 @@ var FolderListener = {
 
             if (aItem.name in eu.philoux.localfolder.specialFolders) {
                 var sf = eu.philoux.localfolder.specialFolders[aItem.name].flags
-                eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} get flags ${aItem.flags}`);
+                //eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} get flags ${aItem.flags}`);
                 aItem.setFlag(sf);
-                eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} set flags (${sf} : ${aItem.flags}`);
+                //eu.philoux.localfolder.LocalFolderTrace(`${aItem.name} set flags (${sf} : ${aItem.flags}`);
             }
-
         }
     },
 
@@ -641,7 +662,7 @@ var FolderListener = {
     OnItemPropertyFlagChanged() { },
     OnItemEvent() { },
     OnFolderEvent() { },
-    
+
 };
 
 
