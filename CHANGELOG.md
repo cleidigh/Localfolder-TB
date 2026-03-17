@@ -2,6 +2,10 @@
 
 ## Versions
 
+4.2.5 Update for v140-v150 - March 17, 2026
+
+4.2.4 Update for v140-v148 - January 13, 2026
+
 4.2.3 Update for v140-v146 - October 31, 2025
 - v140-v146 compatibility
 - add localized folder names to _locales, eliminate messenger.properties
