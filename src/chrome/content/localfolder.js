@@ -483,6 +483,7 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
         if (!lfHostname) {
             throw new Error("Maximum of 100 Local Folders exeeded");
         }
+
         var srv = MailServices.accounts.createIncomingServer("nobody", lfHostname, "none");
         srv = srv.QueryInterface(Ci.nsIMsgIncomingServer);
 
@@ -568,10 +569,9 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
 }
 
 eu.philoux.localfolder.createUniqueLFHostname = function () {
-    const accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
-    const servers = accountmanager.allServers;
-
-    const hostnames = servers.map(server => server.hostName);
+    
+    // use new MailServices.accounts.allServers
+    const hostnames = MailServices.accounts.allServers.map(server => server.hostname);
 
     let lfIndex = 0;
     while (lfIndex++ < 100) {
