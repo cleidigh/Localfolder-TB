@@ -364,11 +364,11 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
 
         //création du dossier local
         await eu.philoux.localfolder.creeDossierLocal(nom, dossier, storeID, emptyTrashOnExit);
-        
+
         let title = eu.philoux.localfolder.localizeMsg("restartMsg.title");
         let restartMsg = eu.philoux.localfolder.localizeMsg("restartMsg.msg");
         Services.prompt.alert(window, title, restartMsg);
-        
+
     } catch (ex) {
         eu.philoux.localfolder.LocalFolderAfficheMsgId2("ErreurCreationDossier", ex);
         window.close();
@@ -568,10 +568,10 @@ eu.philoux.localfolder.creeDossierLocal = async function (nom, chemin, storeID, 
 }
 
 eu.philoux.localfolder.createUniqueLFHostname = function () {
-    const accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
-    const servers = accountmanager.allServers;
 
-    const hostnames = servers.map(server => server.hostName);
+    // use new MailServices.accounts.allServers
+    // also have to change property hostName => hostname
+    const hostnames = MailServices.accounts.allServers.map(server => server.hostname);
 
     let lfIndex = 0;
     while (lfIndex++ < 100) {
