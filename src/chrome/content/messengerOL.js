@@ -177,7 +177,7 @@ async function onLoad() {
 	let extObj = ExtensionParent.GlobalManager.getExtension(ADDON_ID);
 
 	// Load notifyTools into our custom namespace, to prevent clashes with other add-ons.
-	Services.scriptloader.loadSubScript(extObj.rootURI.resolve("chrome/content/notifyTools.js"), window.localfolders, "UTF-8");
+	Services.scriptloader.loadSubScript("chrome://localfolder/content/notifyTools.js", window.localfolders, "UTF-8");
 
 	tabMonitor.registerTabMonitor();
 
