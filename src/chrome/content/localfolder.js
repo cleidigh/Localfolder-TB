@@ -53,7 +53,8 @@ eu.philoux.localfolder.addAllSpecialFolders = function () {
     const addAllCheckbox = document.getElementById("add_all_folders");
     let addFolderElements = document.querySelectorAll("[id^='add_folder_']");
 
-    if (!!addAllCheckbox.checked) {
+    console.log(addFolderElements)
+    if (!addAllCheckbox.checked) {
         for (let index = 0; index < addFolderElements.length; index++) {
             const element = addFolderElements[index];
             element.checked = true;
