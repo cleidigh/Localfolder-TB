@@ -2,7 +2,7 @@
 
 // create unique LocalFolders hostnames
 
-console.log("ooo")
+
 // encapsulation objet
 if (!eu) var eu = {};
 if (!eu.philoux) eu.philoux = {};
@@ -387,12 +387,17 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
 eu.philoux.localfolder.SelectChemin = async function () {
     try {
 
-        //var courant = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
+        let winCtx = window;
+        const tbVersion = this.getThunderbirdVersion();
+        if (tbVersion.major >= 120) {
+            winCtx = window.browsingContext;
+        }
+        var nsIFilePicker = Ci.nsIFilePicker;
+        var fp = Cc["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
+        var courant = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
         var selection = document.getElementById("localfolderchemin");
-       
-        /*
         fp.init(winCtx, document.getElementById("localfoldercheminbtsel").getAttribute("localfolderchemin.browsertitle"), nsIFilePicker.modeGetFolder);
-        fp.displayDirectory = courant;
+        //fp.displayDirectory = courant;
 
         // cleidigh - replace deprecated show with asynchronous open for TB 60.*
         fp.open(function (rv) {
@@ -406,17 +411,12 @@ eu.philoux.localfolder.SelectChemin = async function () {
             var file = fp.file;
             var path = fp.file.path;
             // work with returned nsILocalFile...
-*/
 
-            let res = eu.philoux.localfolder.openFileDialog(Ci.nsIFilePicker.modeGetFolder, document.getElementById("localfoldercheminbtsel").getAttribute("localfolderchemin.browsertitle"), null);
-            if (res.result != Ci.nsIFilePicker.returnOK) {
-                return false;
-            }
-            selection.value = res.folder;
+            selection.value = fp.file.path;
 
             //vérifier que le chemin est valide
             // eu.philoux.localfolder.LocalFolderTrace("eu.philoux.localfolder.SelectChemin appel eu.philoux.localfolder.ValidRepLocal:"+fp.file.path);
-            var bValid = eu.philoux.localfolder.ValidRepLocal(res.folderFile);
+            var bValid = eu.philoux.localfolder.ValidRepLocal(fp.file);
             // eu.philoux.localfolder.LocalFolderTrace("eu.philoux.localfolder.SelectChemin retour eu.philoux.localfolder.ValidRepLocal bValid:"+bValid);
 
             if (false == bValid) {
@@ -457,43 +457,6 @@ eu.philoux.localfolder.SelectChemin = async function () {
     return true;
 }
 
-eu.philoux.localfolder.openFileDialog = async function  (mode, title, filter) {
-    let winCtx = window.browsingContext;
-    let fp = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
-    let resultObj = {};
-    fp.init(winCtx, title, mode);
-    fp.appendFilters(filter);
-
-    let res = await new Promise(resolve => {
-      fp.open(resolve);
-    });
-
-    if (res != Ci.nsIFilePicker.returnOK && res != Ci.nsIFilePicker.returnReplace) {
-      resultObj.result = -1;
-      return resultObj;
-    }
-
-    // no fp.files on Linux if not modeOpenMultiple
-    if (mode == Ci.nsIFilePicker.modeOpenMultiple) {
-      var files = fp.files;
-      var paths = [];
-      while (files.hasMoreElements()) {
-        var arg = files.getNext().QueryInterface(Ci.nsIFile);
-        paths.push(arg.path);
-      }
-      resultObj.filesArray = paths;
-    } else {
-      resultObj.file = fp.file;
-    }
-
-    resultObj.result = res;
-
-    if (mode === Ci.nsIFilePicker.modeGetFolder) {
-      resultObj.folder = fp.file.path;
-      resultObj.folderFile = fp.file;
-    }
-    return resultObj;
-  }
 
 /**
  *	creation du compte de dossier local
@@ -759,8 +722,3 @@ eu.philoux.localfolder.isMboxFile = async function (filePath) {
     let rv = fromRegx.test(strBuffer);
     return rv;
 }
-
-window.addEventListener("load", function (event) {
-console.log("load")
-eu.philoux.localfolder.initDlg();
-});
