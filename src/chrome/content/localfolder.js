@@ -388,67 +388,45 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
 eu.philoux.localfolder.SelectChemin = async function () {
     try {
 
-        let winCtx = window;
-        const tbVersion = this.getThunderbirdVersion();
-        if (tbVersion.major >= 120) {
-            winCtx = window.browsingContext;
+        let res = await eu.philoux.localfolder.openFileDialog(Ci.nsIFilePicker.modeGetFolder, document.getElementById("localfoldercheminbtsel").getAttribute("localfolderchemin.browsertitle"), null)
+        if (res.result != Ci.nsIFilePicker.returnOK) {
+            // user canceled
+            return false;
         }
-        var nsIFilePicker = Ci.nsIFilePicker;
-        var fp = Cc["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
-        var courant = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
-        var selection = document.getElementById("localfolderchemin");
-        fp.init(winCtx, document.getElementById("localfoldercheminbtsel").getAttribute("localfolderchemin.browsertitle"), nsIFilePicker.modeGetFolder);
-        //fp.displayDirectory = courant;
 
-        // cleidigh - replace deprecated show with asynchronous open for TB 60.*
-        fp.open(function (rv) {
-            // eu.philoux.localfolder.LocalFolderTrace("eu.philoux.localfolder.SelectChemin appel eu.philoux.localfolder.ValidRepLocal:" + fp.file.path);
+        let file = res.folderFile;
+        let path = res.folderPath;
 
-            if (rv !== nsIFilePicker.returnOK) {
-                // user canceled
+        //vérifier que le chemin est valide
+        // eu.philoux.localfolder.LocalFolderTrace("eu.philoux.localfolder.SelectChemin appel eu.philoux.localfolder.ValidRepLocal:"+fp.file.path);
+        let bValid = eu.philoux.localfolder.ValidRepLocal(file);
+        // eu.philoux.localfolder.LocalFolderTrace("eu.philoux.localfolder.SelectChemin retour eu.philoux.localfolder.ValidRepLocal bValid:"+bValid);
+
+        if (bValid == false) {
+            eu.philoux.localfolder.LocalFolderAfficheMsgId("RepNonValide");
+            return false;
+        }
+
+        //vérifier que l'emplacement n'est pas déjà utilisé
+        let serveurs = MailServices.accounts.allServers;
+
+        for (let i = 0; i < serveurs.length; i++) // introduce with TB 20
+        {
+            let srv;
+            try {
+                srv = serveurs.queryElementAt(i, Ci.nsIMsgIncomingServer); // introduce with TB 20
+            } catch {
+                srv = serveurs[i];
+            }
+
+            let chemin = srv.localPath.path;
+            if (path.toLowerCase() == chemin.toLowerCase()) {
+                eu.philoux.localfolder.LocalFolderAfficheMsgId("RepertoireDejaUtilise");
                 return false;
             }
-
-            var file = fp.file;
-            var path = fp.file.path;
-            // work with returned nsILocalFile...
-
-            selection.value = fp.file.path;
-
-            //vérifier que le chemin est valide
-            // eu.philoux.localfolder.LocalFolderTrace("eu.philoux.localfolder.SelectChemin appel eu.philoux.localfolder.ValidRepLocal:"+fp.file.path);
-            var bValid = eu.philoux.localfolder.ValidRepLocal(fp.file);
-            // eu.philoux.localfolder.LocalFolderTrace("eu.philoux.localfolder.SelectChemin retour eu.philoux.localfolder.ValidRepLocal bValid:"+bValid);
-
-            if (false == bValid) {
-                eu.philoux.localfolder.LocalFolderAfficheMsgId("RepNonValide");
-                return false;
-            }
-
-            //vérifier que l'emplacement n'est pas déjà utilisé
-            var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
-            var serveurs = accountmanager.allServers;
-
-            for (var i = 0; i < serveurs.length; i++) // introduce with TB 20
-            {
-                var srv;
-                try {
-                    srv = serveurs.queryElementAt(i, Ci.nsIMsgIncomingServer); // introduce with TB 20
-                } catch {
-                    srv = serveurs[i];
-                }
-
-                var chemin = srv.localPath.path;
-                if (fp.file.path.toLowerCase() == chemin.toLowerCase()) {
-
-                    eu.philoux.localfolder.LocalFolderAfficheMsgId("RepertoireDejaUtilise");
-                    return false;
-                }
-                //else alert("'"+chemin+"'!='"+fp.file.path+"'");
-            }
-
-            selection.value = fp.file.path;
-        });
+        }
+        let selection = document.getElementById("localfolderchemin");
+        selection.value = path;
 
     } catch (ex) {
         alert(ex);
@@ -490,7 +468,7 @@ eu.philoux.localfolder.openFileDialog = async function (mode, title, filter) {
     resultObj.result = res;
 
     if (mode === Ci.nsIFilePicker.modeGetFolder) {
-        resultObj.folder = fp.file.path;
+        resultObj.folderPath = fp.file.path;
         resultObj.folderFile = fp.file;
     }
     return resultObj;
