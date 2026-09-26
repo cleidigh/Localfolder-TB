@@ -714,3 +714,8 @@ eu.philoux.localfolder.isMboxFile = async function (filePath) {
     let rv = fromRegx.test(strBuffer);
     return rv;
 }
+
+window.addEventListener("load", function (event) {
+console.log("load")
+eu.philoux.localfolder.initDlg();
+});

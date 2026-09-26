@@ -2,7 +2,7 @@
 
 // create unique LocalFolders hostnames
 
-
+console.log("ooo")
 // encapsulation objet
 if (!eu) var eu = {};
 if (!eu.philoux) eu.philoux = {};
@@ -759,3 +759,8 @@ eu.philoux.localfolder.isMboxFile = async function (filePath) {
     let rv = fromRegx.test(strBuffer);
     return rv;
 }
+
+window.addEventListener("load", function (event) {
+console.log("load")
+eu.philoux.localfolder.initDlg();
+});
