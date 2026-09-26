@@ -457,6 +457,43 @@ eu.philoux.localfolder.SelectChemin = async function () {
     return true;
 }
 
+eu.philoux.localfolder.openFileDialog = async function (mode, title, filter) {
+    let winCtx = window.browsingContext;
+    let fp = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
+    let resultObj = {};
+    fp.init(winCtx, title, mode);
+    fp.appendFilters(filter);
+
+    let res = await new Promise(resolve => {
+        fp.open(resolve);
+    });
+
+    if (res != Ci.nsIFilePicker.returnOK && res != Ci.nsIFilePicker.returnReplace) {
+        resultObj.result = -1;
+        return resultObj;
+    }
+
+    // no fp.files on Linux if not modeOpenMultiple
+    if (mode == Ci.nsIFilePicker.modeOpenMultiple) {
+        var files = fp.files;
+        var paths = [];
+        while (files.hasMoreElements()) {
+            var arg = files.getNext().QueryInterface(Ci.nsIFile);
+            paths.push(arg.path);
+        }
+        resultObj.filesArray = paths;
+    } else {
+        resultObj.file = fp.file;
+    }
+
+    resultObj.result = res;
+
+    if (mode === Ci.nsIFilePicker.modeGetFolder) {
+        resultObj.folder = fp.file.path;
+        resultObj.folderFile = fp.file;
+    }
+    return resultObj;
+}
 
 /**
  *	creation du compte de dossier local
