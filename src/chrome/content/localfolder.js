@@ -234,7 +234,6 @@ eu.philoux.localfolder.initDlg = function () {
     document.getElementById("localfolder-icon-image").setAttribute("tooltiptext", localizedHomepageString);
 
     var os = navigator.platform.toLowerCase();
-    const addAllCheckboxLabel = document.getElementById("add_all_folders_label");
 
     // Localize folder names
     let addFolderElements = document.querySelectorAll("[id^='add_folderlabel_']");
