@@ -1,9 +1,53 @@
 {
+    "ConfirmRemoveFolder": {
+        "message": "Are you sure you want to remove the local folder “$P1$”?\\n\\n(Note: Directories and contents will not be deleted.)",
+        "placeholders": {
+            "P1": {
+                "content": "$1"
+            }
+        }
+    },
+    "ConfirmRemoveTitle": {
+        "message": "Remove Local Folder"
+    },
+    "DossierExisteDeja": {
+        "message": "You have chosen a name that is currently in use.\\nPlease select another."
+    },
+    "DossierPasRenseigne": {
+        "message": "Directory required."
+    },
+    "ErreurAppelLocalFolder": {
+        "message": "Error calling the assistant."
+    },
+    "ErreurCreationDossier": {
+        "message": "An error occurred while creating the local folder."
+    },
+    "LocalFolderMajErreurEffCompte": {
+        "message": "Error deleting the selected account"
+    },
+    "NomPasRenseigne": {
+        "message": "Name required."
+    },
+    "RepNonValide": {
+        "message": "The directory is not valid. It must be empty or contain at least one “msf” file."
+    },
+    "RepertoireDejaUtilise": {
+        "message": "You have chosen a directory that is currently in use.\\nPlease select another."
+    },
     "addLocalFolder": {
         "message": "Add Local Folder"
     },
     "archivesFolderName": {
         "message": "Archives"
+    },
+    "confirmDirNotEmpty": {
+        "message": "Directory not empty, It contains these Special Folders:\\n\\n"
+    },
+    "confirmRetained": {
+        "message": "\\nThese will be retained as well as any other folders.\\n\\nNOTE: Trash and Unsent Messages will be deleted."
+    },
+    "deleteData": {
+        "message": "Delete All Subfolders and Data"
     },
     "draftsFolderName": {
         "message": "Drafts"
@@ -13,6 +57,9 @@
     },
     "extensionName": {
         "message": "LocalFolders"
+    },
+    "extensions.localfolder@philoux.eu.description": {
+        "message": "Add as many local folders as you require."
     },
     "inboxFolderName": {
         "message": "Inbox"
@@ -26,6 +73,12 @@
     "removeLocalFolder": {
         "message": "Remove Local Folder"
     },
+    "restartMsg.msg": {
+        "message": "Thundirbird needs to be restarted for the new Local Folder to be configured correctly.\n\nDo not create any folders or copy messages in the Local Folder before restarting."
+    },
+    "restartMsg.title": {
+        "message": "Restart required"
+    },
     "sentFolderName": {
         "message": "Sent"
     },
@@ -35,14 +88,4 @@
     "trashFolderName": {
         "message": "Trash"
     }
-,
-
-	"restartMsg.title": {
-		"message": "Restart required"
-	},
-
-	"restartMsg.msg": {
-		"message": "Thundirbird needs to be restarted for the new Local Folder to be configured correctly.\n\nDo not create any folders or copy messages in the Local Folder before restarting."
-	}
-
 }

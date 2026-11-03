@@ -1,9 +1,53 @@
 {
+    "ConfirmRemoveFolder": {
+        "message": "确认删除本地文件夹: $P1$\\n\\n（注意：目录和内容不会被删除。）",
+        "placeholders": {
+            "P1": {
+                "content": "$1"
+            }
+        }
+    },
+    "ConfirmRemoveTitle": {
+        "message": "删除本地文件夹"
+    },
+    "DossierExisteDeja": {
+        "message": "您选择的名称已在使用中。\\n请输入另一个名称。"
+    },
+    "DossierPasRenseigne": {
+        "message": "该目录是强制性的。"
+    },
+    "ErreurAppelLocalFolder": {
+        "message": "调用助手时出错。"
+    },
+    "ErreurCreationDossier": {
+        "message": "创建本地文件夹时出错了。"
+    },
+    "LocalFolderMajErreurEffCompte": {
+        "message": "删除选定帐户时出错"
+    },
+    "NomPasRenseigne": {
+        "message": "该名称是强制性的。"
+    },
+    "RepNonValide": {
+        "message": "该目录无效。它必须是个空的或包含至少一个“msf”文件。"
+    },
+    "RepertoireDejaUtilise": {
+        "message": "您选择的目录已在使用中。\\n请选择另一个路径。"
+    },
     "addLocalFolder": {
         "message": "添加本地文件夹"
     },
     "archivesFolderName": {
         "message": "归档"
+    },
+    "confirmDirNotEmpty": {
+        "message": "目录不为空，它包含以下特殊文件夹：\\n\\n"
+    },
+    "confirmRetained": {
+        "message": "\\n这些将与任何其他 文件夹一样被保留。注意\\n\\n垃圾邮件和未发送邮件将被删除。"
+    },
+    "deleteData": {
+        "message": "删除所有子文件夹和数据"
     },
     "draftsFolderName": {
         "message": "草稿"
@@ -13,6 +57,9 @@
     },
     "extensionName": {
         "message": "LocalFolders"
+    },
+    "extensions.localfolder@philoux.eu.description": {
+        "message": "根据需要添加任意数量的本地文件夹，包括映射目录。"
     },
     "inboxFolderName": {
         "message": "收件箱"
@@ -26,6 +73,12 @@
     "removeLocalFolder": {
         "message": "删除本地文件夹"
     },
+    "restartMsg.msg": {
+        "message": "要使新的本地文件夹正确配置，需要重启 Thunderbird。重启前请勿在本地文件夹中创建任何文件夹或复制邮件。"
+    },
+    "restartMsg.title": {
+        "message": "需要重启"
+    },
     "sentFolderName": {
         "message": "已发送消息"
     },
@@ -34,14 +87,5 @@
     },
     "trashFolderName": {
         "message": "废件箱"
-    },
-
-	"restartMsg.title": {
-		"message": "需要重启"
-	},
-
-	"restartMsg.msg": {
-		"message": "要使新的本地文件夹正确配置，需要重启 Thunderbird。重启前请勿在本地文件夹中创建任何文件夹或复制邮件。"
-	}
-
+    }
 }

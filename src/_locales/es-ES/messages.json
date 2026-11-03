@@ -1,9 +1,53 @@
 {
+    "ConfirmRemoveFolder": {
+        "message": "Confirme la eliminación de la carpeta local: $P1$\\n\\n(Nota: los directorios y contenidos no se eliminarán).",
+        "placeholders": {
+            "P1": {
+                "content": "$1"
+            }
+        }
+    },
+    "ConfirmRemoveTitle": {
+        "message": "Eliminar carpeta local"
+    },
+    "DossierExisteDeja": {
+        "message": "El nombre elegido ya está en uso.\\nPor favor introduzca otro nombre."
+    },
+    "DossierPasRenseigne": {
+        "message": "El directorio es obligatorio."
+    },
+    "ErreurAppelLocalFolder": {
+        "message": "Error al llamar al asistente."
+    },
+    "ErreurCreationDossier": {
+        "message": "Ocurrió un error durante la creación de la carpeta local."
+    },
+    "LocalFolderMajErreurEffCompte": {
+        "message": "Error al eliminar la cuenta seleccionada"
+    },
+    "NomPasRenseigne": {
+        "message": "El nombre es obligatorio."
+    },
+    "RepNonValide": {
+        "message": "El directorio es inválido. Debe estar vacío o contener al menos un archivo «msf»."
+    },
+    "RepertoireDejaUtilise": {
+        "message": "El directorio elegido ya está en uso.\\nPor favor seleccione otra ruta."
+    },
     "addLocalFolder": {
         "message": "Agregar carpeta local"
     },
     "archivesFolderName": {
         "message": "Archivos"
+    },
+    "confirmDirNotEmpty": {
+        "message": "El directorio no está vacío. Contiene estas carpetas especiales:\\n\\n"
+    },
+    "confirmRetained": {
+        "message": "\\nÉstas se conservarán, así como cualquier otra carpetas.\\n\\nNOTA: Se eliminarán la papelera y los mensajes no enviados."
+    },
+    "deleteData": {
+        "message": "Eliminar todas las subcarpetas y datos"
     },
     "draftsFolderName": {
         "message": "Borradores"
@@ -13,6 +57,9 @@
     },
     "extensionName": {
         "message": "LocalFolders"
+    },
+    "extensions.localfolder@philoux.eu.description": {
+        "message": "Añada tantas carpetas locales como quiera."
     },
     "inboxFolderName": {
         "message": "Bandeja de entrada"
@@ -26,6 +73,12 @@
     "removeLocalFolder": {
         "message": "Eliminar carpeta local"
     },
+    "restartMsg.msg": {
+        "message": "Es necesario reiniciar Thundirbird para que la nueva carpeta local se configure correctamente.\n\nNo cree carpetas ni copie mensajes en la carpeta local antes de reiniciar."
+    },
+    "restartMsg.title": {
+        "message": "Es necesario reiniciar"
+    },
     "sentFolderName": {
         "message": "Enviados"
     },
@@ -35,14 +88,4 @@
     "trashFolderName": {
         "message": "Papelera"
     }
-,
-
-	"restartMsg.title": {
-		"message": "Es necesario reiniciar"
-	},
-
-	"restartMsg.msg": {
-		"message": "Es necesario reiniciar Thundirbird para que la nueva carpeta local se configure correctamente.\n\nNo cree carpetas ni copie mensajes en la carpeta local antes de reiniciar."
-	}
-
 }

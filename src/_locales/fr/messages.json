@@ -1,9 +1,53 @@
 {
+    "ConfirmRemoveFolder": {
+        "message": "Confirmez la suppression du dossier local : $P1$\\n\\n(Remarque : les répertoires et le contenu ne seront pas supprimés.)",
+        "placeholders": {
+            "P1": {
+                "content": "$1"
+            }
+        }
+    },
+    "ConfirmRemoveTitle": {
+        "message": "Supprimer le dossier local"
+    },
+    "DossierExisteDeja": {
+        "message": "Le nom que vous avez saisi est déjà utilisé.\\nSaisir un autre nom."
+    },
+    "DossierPasRenseigne": {
+        "message": "Un emplacement doit être sélectionné"
+    },
+    "ErreurAppelLocalFolder": {
+        "message": "Erreur lors de l'appel de l'assistant LocalFolder."
+    },
+    "ErreurCreationDossier": {
+        "message": "Une erreur est survenue lors de la création du dossier local."
+    },
+    "LocalFolderMajErreurEffCompte": {
+        "message": "Erreur lors de l'effacement du compte sélectionné:"
+    },
+    "NomPasRenseigne": {
+        "message": "Le nom du dossier local doit être renseigné"
+    },
+    "RepNonValide": {
+        "message": "Le chemin n'est pas valide. Le répertoire doit être vide ou comporter au moins un fichier du type «&nbsp;msf&nbsp;»."
+    },
+    "RepertoireDejaUtilise": {
+        "message": "Le répertoire est déjà utilisé!\\nSélectionner un autre répertoire."
+    },
     "addLocalFolder": {
         "message": "Ajouter un dossier local"
     },
     "archivesFolderName": {
         "message": "Archives"
+    },
+    "confirmDirNotEmpty": {
+        "message": "Répertoire non vide, il contient ces dossiers spéciaux :\\n\\n"
+    },
+    "confirmRetained": {
+        "message": "\\nCeux-ci seront conservés ainsi que tous les autres dossiers.\\n\\nREMARQUE : La corbeille et les messages non envoyés seront supprimés."
+    },
+    "deleteData": {
+        "message": "Supprimer tous les sous-dossiers et données"
     },
     "draftsFolderName": {
         "message": "Brouillons"
@@ -13,6 +57,9 @@
     },
     "extensionName": {
         "message": "LocalFolders"
+    },
+    "extensions.localfolder@philoux.eu.description": {
+        "message": "Ajoutez autant de dossiers locaux que vous voulez."
     },
     "inboxFolderName": {
         "message": "Courrier entrant"
@@ -26,6 +73,12 @@
     "removeLocalFolder": {
         "message": "Supprimer le dossier local"
     },
+    "restartMsg.msg": {
+        "message": "Thundirbird doit être redémarré pour que le nouveau dossier local soit correctement configuré.\n\nNe créez aucun dossier et ne copiez aucun message dans le dossier local avant le redémarrage."
+    },
+    "restartMsg.title": {
+        "message": "Redémarrage requis"
+    },
     "sentFolderName": {
         "message": "Envoyés"
     },
@@ -35,14 +88,4 @@
     "trashFolderName": {
         "message": "Corbeille"
     }
-,
-
-	"restartMsg.title": {
-		"message": "Redémarrage requis"
-	},
-
-	"restartMsg.msg": {
-		"message": "Thundirbird doit être redémarré pour que le nouveau dossier local soit correctement configuré.\n\nNe créez aucun dossier et ne copiez aucun message dans le dossier local avant le redémarrage."
-	}
-
 }

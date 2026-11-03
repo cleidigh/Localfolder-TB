@@ -1,9 +1,53 @@
 {
+    "ConfirmRemoveFolder": {
+        "message": "Biztos benne, hogy el akarja távolítani ezt az helyi mappát: „$P1$”?\\n\\n(Megjegyzés: A könyvtárak és a tartalom nem törlődik.)",
+        "placeholders": {
+            "P1": {
+                "content": "$1"
+            }
+        }
+    },
+    "ConfirmRemoveTitle": {
+        "message": "Helyi mappa eltávolítása"
+    },
+    "DossierExisteDeja": {
+        "message": "A választott név már használatban van.\\nKérjük, hogy adjon meg egy másik nevet."
+    },
+    "DossierPasRenseigne": {
+        "message": "A könyvtár kötelező."
+    },
+    "ErreurAppelLocalFolder": {
+        "message": "Hiba történt az asszisztens hívásakor."
+    },
+    "ErreurCreationDossier": {
+        "message": "Hiba történt a helyi mappa létrehozása során."
+    },
+    "LocalFolderMajErreurEffCompte": {
+        "message": "Hiba törli a kiválasztott fiókot"
+    },
+    "NomPasRenseigne": {
+        "message": "A név kötelező."
+    },
+    "RepNonValide": {
+        "message": "A könyvtár nem érvényes. Legalább üresnek kell lennie, vagy tartalmaznia kell legalább egy MSF-fájlt."
+    },
+    "RepertoireDejaUtilise": {
+        "message": "A kiválasztott könyvtár már használatban van.\\Kérjük, hogy válasszon másik utat."
+    },
     "addLocalFolder": {
         "message": "Helyi mappa hozzáadása"
     },
     "archivesFolderName": {
         "message": "Archívum"
+    },
+    "confirmDirNotEmpty": {
+        "message": "A könyvtár nem üres, a következő speciális mappákat tartalmazza:\\n\\n"
+    },
+    "confirmRetained": {
+        "message": "\\nEzeket, valamint az összes többi mappát a rendszer megőrzi.\\n\\nMEGJEGYZÉS: A Kuka és az El nem küldött üzenetek törlődnek."
+    },
+    "deleteData": {
+        "message": "Törölje az összes almappát és adatot"
     },
     "draftsFolderName": {
         "message": "Piszkozatok"
@@ -13,6 +57,9 @@
     },
     "extensionName": {
         "message": "LocalFolders"
+    },
+    "extensions.localfolder@philoux.eu.description": {
+        "message": "Adjon hozzá annyi helyi mappát, amennyire szüksége van."
     },
     "inboxFolderName": {
         "message": "Beérkezett üzenetek"
@@ -26,6 +73,12 @@
     "removeLocalFolder": {
         "message": "Helyi mappa eltávolítása"
     },
+    "restartMsg.msg": {
+        "message": "A Thundirbird újraindítása szükséges az új helyi mappa megfelelő konfigurálásához.\n\nAz újraindítás előtt ne hozzon létre új mappákat, és ne másolja az üzeneteket a helyi mappába."
+    },
+    "restartMsg.title": {
+        "message": "Újraindítás szükséges"
+    },
     "sentFolderName": {
         "message": "Elküldött elemek"
     },
@@ -35,14 +88,4 @@
     "trashFolderName": {
         "message": "Kuka"
     }
-,
-
-	"restartMsg.title": {
-		"message": "Újraindítás szükséges"
-	},
-
-	"restartMsg.msg": {
-		"message": "A Thundirbird újraindítása szükséges az új helyi mappa megfelelő konfigurálásához.\n\nAz újraindítás előtt ne hozzon létre új mappákat, és ne másolja az üzeneteket a helyi mappába."
-	}
-
 }

@@ -1,9 +1,53 @@
 {
+    "ConfirmRemoveFolder": {
+        "message": "Conferma la rimozione della cartella locale: $P1$\\n\\n(Nota: le directory e i contenuti non verranno eliminati.)",
+        "placeholders": {
+            "P1": {
+                "content": "$1"
+            }
+        }
+    },
+    "ConfirmRemoveTitle": {
+        "message": "Rimuovi cartella locale"
+    },
+    "DossierExisteDeja": {
+        "message": "Il nome inserito \\u00e8 gi\\u00e0 in uso.\\nInserire un altro nome."
+    },
+    "DossierPasRenseigne": {
+        "message": "La cartella \\u00e8 necessaria."
+    },
+    "ErreurAppelLocalFolder": {
+        "message": "Errore di chiamata dell'assistente."
+    },
+    "ErreurCreationDossier": {
+        "message": "Errore nella creazione della cartella locale."
+    },
+    "LocalFolderMajErreurEffCompte": {
+        "message": "Errore nell'eliminazione dell'account selezionato."
+    },
+    "NomPasRenseigne": {
+        "message": "Il nome \\u00e8 necessario."
+    },
+    "RepNonValide": {
+        "message": "La cartella specificata non \\u00e8 valida. Deve essere vuota o contenere almeno un file «msf»."
+    },
+    "RepertoireDejaUtilise": {
+        "message": "La cartella scelta \\u00e8 gi\\u00e0 in uso.\\nSelezionare un'altra cartella."
+    },
     "addLocalFolder": {
         "message": "Aggiungi cartella locale"
     },
     "archivesFolderName": {
         "message": "Archivi"
+    },
+    "confirmDirNotEmpty": {
+        "message": "Directory non vuota, contiene queste cartelle speciali:\\n\\n"
+    },
+    "confirmRetained": {
+        "message": "\\nQuesti verranno conservati così come qualsiasi altra cartella.\\n\\nNOTA: il cestino e i messaggi non inviati verranno eliminati."
+    },
+    "deleteData": {
+        "message": "Elimina tutte le sottocartelle e i dati"
     },
     "draftsFolderName": {
         "message": "Bozze"
@@ -13,6 +57,9 @@
     },
     "extensionName": {
         "message": "LocalFolders"
+    },
+    "extensions.localfolder@philoux.eu.description": {
+        "message": "Aggiungi tutte le cartelle locali necessarie, comprese le directory mappate."
     },
     "inboxFolderName": {
         "message": "Posta in arrivo"
@@ -26,6 +73,12 @@
     "removeLocalFolder": {
         "message": "Rimuovi cartella locale"
     },
+    "restartMsg.msg": {
+        "message": "Thundirbird deve essere riavviato affinché la nuova cartella locale venga configurata correttamente.\n\nNon creare cartelle o copiare messaggi nella cartella locale prima del riavvio."
+    },
+    "restartMsg.title": {
+        "message": "Riavvio richiesto"
+    },
     "sentFolderName": {
         "message": "Posta inviata"
     },
@@ -35,14 +88,4 @@
     "trashFolderName": {
         "message": "Cestino"
     }
-,
-
-	"restartMsg.title": {
-		"message": "Riavvio richiesto"
-	},
-
-	"restartMsg.msg": {
-		"message": "Thundirbird deve essere riavviato affinché la nuova cartella locale venga configurata correttamente.\n\nNon creare cartelle o copiare messaggi nella cartella locale prima del riavvio."
-	}
-
 }

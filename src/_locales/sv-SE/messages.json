@@ -1,9 +1,53 @@
 {
+    "ConfirmRemoveFolder": {
+        "message": "Bekräfta borttagningen av lokal mapp: $P1$\\n\\n(Obs! Kataloger och innehåll kommer inte att raderas.)",
+        "placeholders": {
+            "P1": {
+                "content": "$1"
+            }
+        }
+    },
+    "ConfirmRemoveTitle": {
+        "message": "Ta bort lokal mapp"
+    },
+    "DossierExisteDeja": {
+        "message": "Namnet du har valt används redan.\\nVar vänlig ange ett annat namn."
+    },
+    "DossierPasRenseigne": {
+        "message": "Rotmappen är obligatorisk."
+    },
+    "ErreurAppelLocalFolder": {
+        "message": "Fel vid anrop av assistenten."
+    },
+    "ErreurCreationDossier": {
+        "message": "Ett fel uppstod när den lokala mappen skulle skapas."
+    },
+    "LocalFolderMajErreurEffCompte": {
+        "message": "Fel vid borttagning av det valda kontot"
+    },
+    "NomPasRenseigne": {
+        "message": "Namnet är obligatoriskt."
+    },
+    "RepNonValide": {
+        "message": "Rotmappen är inte giltig. Den måste vara tom eller innehålla åtminstone en MSF-fil."
+    },
+    "RepertoireDejaUtilise": {
+        "message": "Rotmappen du har valt används redan.\\nVar vänlig ange en annan sökväg."
+    },
     "addLocalFolder": {
         "message": "Lägg till lokal mapp"
     },
     "archivesFolderName": {
         "message": "Arkiv"
+    },
+    "confirmDirNotEmpty": {
+        "message": "Katalogen är inte tom, den innehåller dessa specialmappar:\\n\\n"
+    },
+    "confirmRetained": {
+        "message": "\\nDessa kommer att behållas liksom alla andra mappar.\\n\\nOBS: Papperskorgen och ej skickade meddelanden kommer att raderas."
+    },
+    "deleteData": {
+        "message": "Ta bort alla undermappar och data"
     },
     "draftsFolderName": {
         "message": "Utkast"
@@ -13,6 +57,9 @@
     },
     "extensionName": {
         "message": "Lokala mappar (LocalFolders)"
+    },
+    "extensions.localfolder@philoux.eu.description": {
+        "message": "Lägg till hur många mappar du vill."
     },
     "inboxFolderName": {
         "message": "Inkorgen"
@@ -26,6 +73,12 @@
     "removeLocalFolder": {
         "message": "Ta bort lokal mapp"
     },
+    "restartMsg.msg": {
+        "message": "Thundirbird måste startas om för att den nya lokala mappen ska konfigureras korrekt.\n\nSkapa inga mappar eller kopiera meddelanden i den lokala mappen innan du startat om."
+    },
+    "restartMsg.title": {
+        "message": "Omstart krävs"
+    },
     "sentFolderName": {
         "message": "Skickat"
     },
@@ -35,14 +88,4 @@
     "trashFolderName": {
         "message": "Papperskorgen"
     }
-,
-
-	"restartMsg.title": {
-		"message": "Omstart krävs"
-	},
-
-	"restartMsg.msg": {
-		"message": "Thundirbird måste startas om för att den nya lokala mappen ska konfigureras korrekt.\n\nSkapa inga mappar eller kopiera meddelanden i den lokala mappen innan du startat om."
-	}
-
 }

@@ -1,9 +1,53 @@
 {
+    "ConfirmRemoveFolder": {
+        "message": "Você tem certeza que deseja remover a Pasta Local \"$P1$\"\\n\\n(Nota: A pasta e os arquivos não serão apagados.)",
+        "placeholders": {
+            "P1": {
+                "content": "$1"
+            }
+        }
+    },
+    "ConfirmRemoveTitle": {
+        "message": "Remover Pasta Local"
+    },
+    "DossierExisteDeja": {
+        "message": "O nome escolhido já está em uso.\\nPor favor, escolha outro nome."
+    },
+    "DossierPasRenseigne": {
+        "message": "Pasta local é um campo obrigatório"
+    },
+    "ErreurAppelLocalFolder": {
+        "message": "Erro ao chamar o assistente."
+    },
+    "ErreurCreationDossier": {
+        "message": "Ocorreu um erro durante a criação da Pasta Local."
+    },
+    "LocalFolderMajErreurEffCompte": {
+        "message": "Erro ao remover a conta selecionada:"
+    },
+    "NomPasRenseigne": {
+        "message": "Nome é um campo obrigatório"
+    },
+    "RepNonValide": {
+        "message": "Pasta inválida. A pasta escolhida deve estar vazia ou conter ao menos um arquivo “msf”."
+    },
+    "RepertoireDejaUtilise": {
+        "message": "A pasta escolhida já está em uso.\\nPor favor, escolha outra pasta."
+    },
     "addLocalFolder": {
         "message": "Adicionar pasta local"
     },
     "archivesFolderName": {
         "message": "Arquivamento"
+    },
+    "confirmDirNotEmpty": {
+        "message": "Diretório não vazio, contém estas pastas especiais:\\n\\n"
+    },
+    "confirmRetained": {
+        "message": "\\nEles serão mantidos, assim como quaisquer outras pastas.\\n\\nNOTA: Lixeira e mensagens não enviadas serão excluídas."
+    },
+    "deleteData": {
+        "message": "Exclua todas as subpastas e dados"
     },
     "draftsFolderName": {
         "message": "Rascunhos"
@@ -13,6 +57,9 @@
     },
     "extensionName": {
         "message": "LocalFolders"
+    },
+    "extensions.localfolder@philoux.eu.description": {
+        "message": "Adicione quantas Pastas Locais desejar, incluindo diretórios mapeados."
     },
     "inboxFolderName": {
         "message": "Entrada"
@@ -26,6 +73,12 @@
     "removeLocalFolder": {
         "message": "Remover pasta local"
     },
+    "restartMsg.msg": {
+        "message": "O Thunderbird precisa ser reiniciado para que a nova Pasta Local seja configurada corretamente.\n\nNão crie pastas nem copie mensagens na Pasta Local antes de reiniciar."
+    },
+    "restartMsg.title": {
+        "message": "É necessário reiniciar."
+    },
     "sentFolderName": {
         "message": "Enviadas"
     },
@@ -35,14 +88,4 @@
     "trashFolderName": {
         "message": "Lixeira"
     }
-,
-
-	"restartMsg.title": {
-		"message": "É necessário reiniciar."
-	},
-
-	"restartMsg.msg": {
-		"message": "O Thunderbird precisa ser reiniciado para que a nova Pasta Local seja configurada corretamente.\n\nNão crie pastas nem copie mensagens na Pasta Local antes de reiniciar."
-	}
-
 }
