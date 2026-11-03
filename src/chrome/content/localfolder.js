@@ -736,3 +736,7 @@ eu.philoux.localfolder.isMboxFile = async function (filePath) {
     let rv = fromRegx.test(strBuffer);
     return rv;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    i18n.updateDocument({ extension: localfoldersExtension });
+}, { once: true });
