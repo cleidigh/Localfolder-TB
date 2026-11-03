@@ -52,6 +52,45 @@
     "draftsFolderName": {
         "message": "Drafts"
     },
+    "eu.philoux.localfolder.addMessageFolders": {
+        "message": "Add Message Folders"
+    },
+    "eu.philoux.localfolder.btQuitter": {
+        "message": "Cancel"
+    },
+    "eu.philoux.localfolder.btValider": {
+        "message": "OK"
+    },
+    "eu.philoux.localfolder.btdossier": {
+        "message": "Add Local Folder…"
+    },
+    "eu.philoux.localfolder.btdossier.racc": {
+        "message": "L"
+    },
+    "eu.philoux.localfolder.chemin.browsertitle": {
+        "message": "Select a Folder"
+    },
+    "eu.philoux.localfolder.chemin.btlib": {
+        "message": "Browse…"
+    },
+    "eu.philoux.localfolder.chemin.btlibcle": {
+        "message": "B"
+    },
+    "eu.philoux.localfolder.directoryAndMessageStore": {
+        "message": "Directory and Message Store"
+    },
+    "eu.philoux.localfolder.libchemin": {
+        "message": "Local directory:"
+    },
+    "eu.philoux.localfolder.libnom": {
+        "message": "Name:"
+    },
+    "eu.philoux.localfolder.libnom.accesskey": {
+        "message": "N"
+    },
+    "eu.philoux.localfolder.titre": {
+        "message": "Add Local Folder"
+    },
     "extensionDescription": {
         "message": "Add as many local folders as you require including mapped directories."
     },

@@ -52,6 +52,48 @@
     "draftsFolderName": {
         "message": "Bozze"
     },
+    "eu.philoux.localfolder.addMessageFolders": {
+        "message": "Aggiungi Cartelle di Messaggi"
+    },
+    "eu.philoux.localfolder.bandeau.titre": {
+        "message": "Configurazione cartella locale"
+    },
+    "eu.philoux.localfolder.btQuitter": {
+        "message": "Annulla"
+    },
+    "eu.philoux.localfolder.btValider": {
+        "message": "Ok"
+    },
+    "eu.philoux.localfolder.btdossier": {
+        "message": "Nuova cartella locale…"
+    },
+    "eu.philoux.localfolder.btdossier.racc": {
+        "message": "c"
+    },
+    "eu.philoux.localfolder.chemin.browsertitle": {
+        "message": "Seleziona una cartella"
+    },
+    "eu.philoux.localfolder.chemin.btlib": {
+        "message": "Sfoglia…"
+    },
+    "eu.philoux.localfolder.chemin.btlibcle": {
+        "message": "S"
+    },
+    "eu.philoux.localfolder.directoryAndMessageStore": {
+        "message": "Directory e Archivio Messaggi"
+    },
+    "eu.philoux.localfolder.libchemin": {
+        "message": "Cartella:"
+    },
+    "eu.philoux.localfolder.libnom": {
+        "message": "Nome:"
+    },
+    "eu.philoux.localfolder.libnom.accesskey": {
+        "message": "N"
+    },
+    "eu.philoux.localfolder.titre": {
+        "message": "Cartella locale aggiuntiva"
+    },
     "extensionDescription": {
         "message": "Aggiungi tutte le cartelle locali necessarie, comprese le directory mappate."
     },

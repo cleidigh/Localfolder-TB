@@ -52,6 +52,48 @@
     "draftsFolderName": {
         "message": "Utkast"
     },
+    "eu.philoux.localfolder.addMessageFolders": {
+        "message": "Lägg till e-postmapp"
+    },
+    "eu.philoux.localfolder.bandeau.titre": {
+        "message": "Konfiguration av lokal mapp"
+    },
+    "eu.philoux.localfolder.btQuitter": {
+        "message": "Avbryt"
+    },
+    "eu.philoux.localfolder.btValider": {
+        "message": "OK"
+    },
+    "eu.philoux.localfolder.btdossier": {
+        "message": "Ny lokal mapp…"
+    },
+    "eu.philoux.localfolder.btdossier.racc": {
+        "message": "l"
+    },
+    "eu.philoux.localfolder.chemin.browsertitle": {
+        "message": "Välj en mapp"
+    },
+    "eu.philoux.localfolder.chemin.btlib": {
+        "message": "Bläddra…"
+    },
+    "eu.philoux.localfolder.chemin.btlibcle": {
+        "message": "B"
+    },
+    "eu.philoux.localfolder.directoryAndMessageStore": {
+        "message": "Katalog och Meddelandelager"
+    },
+    "eu.philoux.localfolder.libchemin": {
+        "message": "Rotmapp:"
+    },
+    "eu.philoux.localfolder.libnom": {
+        "message": "Namn:"
+    },
+    "eu.philoux.localfolder.libnom.accesskey": {
+        "message": "N"
+    },
+    "eu.philoux.localfolder.titre": {
+        "message": "Lägg till en lokal mapp"
+    },
     "extensionDescription": {
         "message": "Lägg till så många lokala mappar som krävs"
     },

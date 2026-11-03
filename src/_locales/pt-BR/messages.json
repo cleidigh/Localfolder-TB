@@ -52,6 +52,48 @@
     "draftsFolderName": {
         "message": "Rascunhos"
     },
+    "eu.philoux.localfolder.addMessageFolders": {
+        "message": "Adicionar Pastas de Mensagens"
+    },
+    "eu.philoux.localfolder.bandeau.titre": {
+        "message": "Configuração de Pasta Local"
+    },
+    "eu.philoux.localfolder.btQuitter": {
+        "message": "Cancelar"
+    },
+    "eu.philoux.localfolder.btValider": {
+        "message": "OK"
+    },
+    "eu.philoux.localfolder.btdossier": {
+        "message": "Nova Pasta Local…"
+    },
+    "eu.philoux.localfolder.btdossier.racc": {
+        "message": "L"
+    },
+    "eu.philoux.localfolder.chemin.browsertitle": {
+        "message": "Selecione uma pasta"
+    },
+    "eu.philoux.localfolder.chemin.btlib": {
+        "message": "Procurar…"
+    },
+    "eu.philoux.localfolder.chemin.btlibcle": {
+        "message": "P"
+    },
+    "eu.philoux.localfolder.directoryAndMessageStore": {
+        "message": "Diretório e Armazenamento de mensagens"
+    },
+    "eu.philoux.localfolder.libchemin": {
+        "message": "Pasta local:"
+    },
+    "eu.philoux.localfolder.libnom": {
+        "message": "Nome:"
+    },
+    "eu.philoux.localfolder.libnom.accesskey": {
+        "message": "N"
+    },
+    "eu.philoux.localfolder.titre": {
+        "message": "Adicionar uma Pasta Local"
+    },
     "extensionDescription": {
         "message": "Adicione quantas Pastas Locais desejar, incluindo diretórios mapeados."
     },

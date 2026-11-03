@@ -52,6 +52,45 @@
     "draftsFolderName": {
         "message": "Concepten"
     },
+    "eu.philoux.localfolder.addMessageFolders": {
+        "message": "Berichtenmappen toevoegen"
+    },
+    "eu.philoux.localfolder.btQuitter": {
+        "message": "Annuleren"
+    },
+    "eu.philoux.localfolder.btValider": {
+        "message": "Oké"
+    },
+    "eu.philoux.localfolder.btdossier": {
+        "message": "Lokale map toevoegen…"
+    },
+    "eu.philoux.localfolder.btdossier.racc": {
+        "message": "L"
+    },
+    "eu.philoux.localfolder.chemin.browsertitle": {
+        "message": "Kies een map"
+    },
+    "eu.philoux.localfolder.chemin.btlib": {
+        "message": "Bladeren…"
+    },
+    "eu.philoux.localfolder.chemin.btlibcle": {
+        "message": "B"
+    },
+    "eu.philoux.localfolder.directoryAndMessageStore": {
+        "message": "Map en berichtopslag"
+    },
+    "eu.philoux.localfolder.libchemin": {
+        "message": "Lokale map:"
+    },
+    "eu.philoux.localfolder.libnom": {
+        "message": "Naam:"
+    },
+    "eu.philoux.localfolder.libnom.accesskey": {
+        "message": "N"
+    },
+    "eu.philoux.localfolder.titre": {
+        "message": "Lokale map toevoegen"
+    },
     "extensionDescription": {
         "message": "Voeg zo veel mogelijk mappen toe als nodig, inclusief toegewezen mappen."
     },

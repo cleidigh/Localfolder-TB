@@ -52,6 +52,48 @@
     "draftsFolderName": {
         "message": "Brouillons"
     },
+    "eu.philoux.localfolder.addMessageFolders": {
+        "message": "Ajouter des dossiers de messages"
+    },
+    "eu.philoux.localfolder.bandeau.titre": {
+        "message": "Paramétrage du nouveau dossier local"
+    },
+    "eu.philoux.localfolder.btQuitter": {
+        "message": "Annuler"
+    },
+    "eu.philoux.localfolder.btValider": {
+        "message": "Valider"
+    },
+    "eu.philoux.localfolder.btdossier": {
+        "message": "Ajouter un dossier local…"
+    },
+    "eu.philoux.localfolder.btdossier.racc": {
+        "message": "l"
+    },
+    "eu.philoux.localfolder.chemin.browsertitle": {
+        "message": "Sélectionner un dossier"
+    },
+    "eu.philoux.localfolder.chemin.btlib": {
+        "message": "Parcourir…"
+    },
+    "eu.philoux.localfolder.chemin.btlibcle": {
+        "message": "P"
+    },
+    "eu.philoux.localfolder.directoryAndMessageStore": {
+        "message": "Répertoire de messages et de messages"
+    },
+    "eu.philoux.localfolder.libchemin": {
+        "message": "Emplacement :"
+    },
+    "eu.philoux.localfolder.libnom": {
+        "message": "Nom :"
+    },
+    "eu.philoux.localfolder.libnom.accesskey": {
+        "message": "N"
+    },
+    "eu.philoux.localfolder.titre": {
+        "message": "Ajout d'un dossier local"
+    },
     "extensionDescription": {
         "message": "Ajoutez autant de dossiers locaux que vous voulez."
     },

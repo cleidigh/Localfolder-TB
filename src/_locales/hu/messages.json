@@ -52,6 +52,48 @@
     "draftsFolderName": {
         "message": "Piszkozatok"
     },
+    "eu.philoux.localfolder.addMessageFolders": {
+        "message": "Üzenetmappák hozzáadása"
+    },
+    "eu.philoux.localfolder.bandeau.titre": {
+        "message": "Helyi mappa beállításai"
+    },
+    "eu.philoux.localfolder.btQuitter": {
+        "message": "Mégse"
+    },
+    "eu.philoux.localfolder.btValider": {
+        "message": "OK"
+    },
+    "eu.philoux.localfolder.btdossier": {
+        "message": "Helyi mappa hozzáadása…"
+    },
+    "eu.philoux.localfolder.btdossier.racc": {
+        "message": "H"
+    },
+    "eu.philoux.localfolder.chemin.browsertitle": {
+        "message": "Mappa kiválasztása"
+    },
+    "eu.philoux.localfolder.chemin.btlib": {
+        "message": "Tallózás…"
+    },
+    "eu.philoux.localfolder.chemin.btlibcle": {
+        "message": "T"
+    },
+    "eu.philoux.localfolder.directoryAndMessageStore": {
+        "message": "Könyvtár és Üzenettároló típusa"
+    },
+    "eu.philoux.localfolder.libchemin": {
+        "message": "Helyi könyvtár:"
+    },
+    "eu.philoux.localfolder.libnom": {
+        "message": "Név:"
+    },
+    "eu.philoux.localfolder.libnom.accesskey": {
+        "message": "N"
+    },
+    "eu.philoux.localfolder.titre": {
+        "message": "Helyi mappa hozzáadása"
+    },
     "extensionDescription": {
         "message": "Adjon hozzá annyi helyi mappát, amennyire szüksége van, beleértve a leképezett könyvtárakat."
     },

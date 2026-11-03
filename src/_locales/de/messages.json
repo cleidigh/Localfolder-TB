@@ -52,6 +52,48 @@
     "draftsFolderName": {
         "message": "Entwürfe"
     },
+    "eu.philoux.localfolder.addMessageFolders": {
+        "message": "Nachrichtenordner hinzufügen"
+    },
+    "eu.philoux.localfolder.bandeau.titre": {
+        "message": "Lokale Ordner Einstellungen"
+    },
+    "eu.philoux.localfolder.btQuitter": {
+        "message": "Abbrechen"
+    },
+    "eu.philoux.localfolder.btValider": {
+        "message": "OK"
+    },
+    "eu.philoux.localfolder.btdossier": {
+        "message": "Neuer lokaler Ordner…"
+    },
+    "eu.philoux.localfolder.btdossier.racc": {
+        "message": "l"
+    },
+    "eu.philoux.localfolder.chemin.browsertitle": {
+        "message": "Wähle einen Ordner"
+    },
+    "eu.philoux.localfolder.chemin.btlib": {
+        "message": "Durchsuchen…"
+    },
+    "eu.philoux.localfolder.chemin.btlibcle": {
+        "message": "D"
+    },
+    "eu.philoux.localfolder.directoryAndMessageStore": {
+        "message": "Mail-Ordner und Speichermethode"
+    },
+    "eu.philoux.localfolder.libchemin": {
+        "message": "Verzeichnis:"
+    },
+    "eu.philoux.localfolder.libnom": {
+        "message": "Name:"
+    },
+    "eu.philoux.localfolder.libnom.accesskey": {
+        "message": "N"
+    },
+    "eu.philoux.localfolder.titre": {
+        "message": "Zusatz zum lokalen Ordner"
+    },
     "extensionDescription": {
         "message": "Fügen Sie beliebig viele lokale Ordner hinzu, einschließlich zugeordneter Verzeichnisse."
     },

@@ -47,6 +47,45 @@
     "draftsFolderName": {
         "message": "下書き"
     },
+    "eu.philoux.localfolder.addMessageFolders": {
+        "message": "メッセージフォルダの追加"
+    },
+    "eu.philoux.localfolder.btQuitter": {
+        "message": "キャンセル"
+    },
+    "eu.philoux.localfolder.btValider": {
+        "message": "OK"
+    },
+    "eu.philoux.localfolder.btdossier": {
+        "message": "ローカルフォルダを追加…"
+    },
+    "eu.philoux.localfolder.btdossier.racc": {
+        "message": "L"
+    },
+    "eu.philoux.localfolder.chemin.browsertitle": {
+        "message": "フォルダを選択"
+    },
+    "eu.philoux.localfolder.chemin.btlib": {
+        "message": "参照…"
+    },
+    "eu.philoux.localfolder.chemin.btlibcle": {
+        "message": "B"
+    },
+    "eu.philoux.localfolder.directoryAndMessageStore": {
+        "message": "ディレクトリとメッセージストア"
+    },
+    "eu.philoux.localfolder.libchemin": {
+        "message": "ローカルディレクトリ："
+    },
+    "eu.philoux.localfolder.libnom": {
+        "message": "Name："
+    },
+    "eu.philoux.localfolder.libnom.accesskey": {
+        "message": "N"
+    },
+    "eu.philoux.localfolder.titre": {
+        "message": "ローカルフォルダを追加"
+    },
     "extensionDescription": {
         "message": "マップされたディレクトリを含めて、必要な数のローカルフォルダを追加します。"
     },
