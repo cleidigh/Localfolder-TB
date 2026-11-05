@@ -553,5 +553,5 @@ localeFolders = ['en-US', 'de', 'es-ES', 'fr', 'hu', 'it', 'ja',
 translateAll(inputFiles, translationArray, options);
 
 /*
-node .\scripts\translate-gc2.js
+node .\scripts\translate2.js
 */
