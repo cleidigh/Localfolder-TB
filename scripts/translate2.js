@@ -20,9 +20,9 @@ const translate = new Translate({ projectId, key });
 */
 
 var translationArray = [
-	{ key: "allFolders.label", text: "All"},
-	{ key: "emptyTrashOnExit.label", text: "Empty Trash on Exit"},
-	{ key: "storeType.label", text: "Message Store Type"},
+	{ key: "mboxStoreType.label", text: "File per folder (mbox)"},
+	{ key: "maildirStoreType.label", text: "File per message (maildir)"},
+	{ key: "localDirectory.label", text: "Local Directory"},
 
 	
 

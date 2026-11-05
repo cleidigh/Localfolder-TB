@@ -38,29 +38,27 @@
 			<html:legend style="font-weight: 500; margin-top: 2px;">__MSG_eu.philoux.localfolder.directoryAndMessageStore__</html:legend>
 			<vbox align="start" style="padding-left: 8px">
 				<checkbox wsm_persist="true" id="server.emptyTrashOnExit"
-				label="#emptyTrashOnExit.label;"
-				accesskey="#emptyTrashOnExit.accesskey;"
+				label="__MSG_emptyTrashOnExit.label__"
 				prefattribute="value"
 				prefstring="mail.server.%serverkey%.empty_trash_on_exit"/>
 				<hbox align="center">
-					<label value="#storeType.label;"
-			   accesskey="storeType.accesskey;"
+					<label value="__MSG_storeType.label__"
 			   control="server.storeTypeMenulist"/>
 					<menulist id="server.storeTypeMenulist" style="background-colorX: #3a3a3a;">
 						<menupopup id="server.storeTypeMenupopup">
 							<menuitem id="server.mboxStore"
 					  value="@mozilla.org/msgstore/berkeleystore;1"
-					  label="__MSG_mboxStore2.label__"/>
+					  label="__MSg_mboxStoreType.label__"/>
 							<menuitem id="server.maildirStore"
 					  value="@mozilla.org/msgstore/maildirstore;1"
-					  label="__MSG_maildirStore.label__"/>
+					  label="__MSG_maildirStoreType.label__"/>
 						</menupopup>
 					</menulist>
 				</hbox>
 			</vbox>
 			<html:div style="height: 5px"></html:div>
 			<vbox align="start" style="padding-left: 8px" >
-				<label value="__MSG_localPath1.label__" control="server.localPath" height="18px" style="padding-bottom: 6px;"/>
+				<label value="__MSG_localDirectory.label__" control="server.localPath" height="18px" style="padding-bottom: 6px;"/>
 				<!-- <html:div style="height: 2px"></html:div> -->
 				<hbox height="32px" style="background-color2: yellow;" flex="0">
 					<hbox align="bottom" height="12px" flex="0" style="background-color2: green;">
