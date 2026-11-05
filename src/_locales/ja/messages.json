@@ -1,125 +1,134 @@
 {
-    "ConfirmRemoveFolder": {
-        "message": "ローカルフォルダ \"％S\"を削除してよろしいですか？\\ n \\ n（注：ディレクトリとコンテンツは削除されません。）"
-    },
-    "ConfirmRemoveTitle": {
-        "message": "ローカルフォルダを削除"
-    },
-    "DossierExisteDeja": {
-        "message": "現在使用されている名前を選択しました。\\ n別の名前を選択してください。"
-    },
-    "DossierPasRenseigne": {
-        "message": "ディレクトリが必要です。"
-    },
-    "ErreurAppelLocalFolder": {
-        "message": "アシスタントの呼び出し中にエラーが発生しました。"
-    },
-    "ErreurCreationDossier": {
-        "message": "ローカルフォルダの作成中にエラーが発生しました。"
-    },
-    "LocalFolderMajErreurEffCompte": {
-        "message": "選択したアカウントの削除中にエラーが発生しました"
-    },
-    "NomPasRenseigne": {
-        "message": "名前が必要です。"
-    },
-    "RepNonValide": {
-        "message": "ディレクトリが無効です。空であるか、少なくとも1つの“ msf”ファイルを含む必要があります。"
-    },
-    "RepertoireDejaUtilise": {
-        "message": "現在使用されているディレクトリを選択しました。\\ n別のディレクトリを選択してください。"
-    },
-    "addLocalFolder": {
-        "message": "ローカルフォルダを追加"
-    },
-    "archivesFolderName": {
-        "message": "アーカイブ"
-    },
-    "confirmDirNotEmpty": {
-        "message": "ディレクトリは空ではありません。次の特別なフォルダーが含まれています:\\n\\n"
-    },
-    "confirmRetained": {
-        "message": "\\nこれらは、他の フォルダーと同様に保持されます。注意:\\n\\nゴミ箱と未送信メッセージは削除されます。"
-    },
-    "deleteData": {
-        "message": "すべてのサブフォルダとデータを削除する"
-    },
-    "draftsFolderName": {
-        "message": "下書き"
-    },
-    "eu.philoux.localfolder.addMessageFolders": {
-        "message": "メッセージフォルダの追加"
-    },
-    "eu.philoux.localfolder.btQuitter": {
-        "message": "キャンセル"
-    },
-    "eu.philoux.localfolder.btValider": {
-        "message": "OK"
-    },
-    "eu.philoux.localfolder.btdossier": {
-        "message": "ローカルフォルダを追加…"
-    },
-    "eu.philoux.localfolder.btdossier.racc": {
-        "message": "L"
-    },
-    "eu.philoux.localfolder.chemin.browsertitle": {
-        "message": "フォルダを選択"
-    },
-    "eu.philoux.localfolder.chemin.btlib": {
-        "message": "参照…"
-    },
-    "eu.philoux.localfolder.chemin.btlibcle": {
-        "message": "B"
-    },
-    "eu.philoux.localfolder.directoryAndMessageStore": {
-        "message": "ディレクトリとメッセージストア"
-    },
-    "eu.philoux.localfolder.libchemin": {
-        "message": "ローカルディレクトリ："
-    },
-    "eu.philoux.localfolder.libnom": {
-        "message": "Name："
-    },
-    "eu.philoux.localfolder.libnom.accesskey": {
-        "message": "N"
-    },
-    "eu.philoux.localfolder.titre": {
-        "message": "ローカルフォルダを追加"
-    },
-    "extensionDescription": {
-        "message": "マップされたディレクトリを含めて、必要な数のローカルフォルダを追加します。"
-    },
-    "extensionName": {
-        "message": "LocalFolders"
-    },
-    "extensions.localfolder@philoux.eu.description": {
-        "message": "必要なだけローカルフォルダを追加してください。"
-    },
-    "inboxFolderName": {
-        "message": "受信トレイ"
-    },
-    "junkFolderName": {
-        "message": "迷惑メール"
-    },
-    "outboxFolderName": {
-        "message": "送信トレイ"
-    },
-    "removeLocalFolder": {
-        "message": "ローカルフォルダを削除"
-    },
-    "restartMsg.msg": {
-        "message": "新しいローカルフォルダを正しく設定するには、Thundirbird を再起動する必要があります。\n\n再起動前に、ローカルフォルダにフォルダを作成したり、メッセージをコピーしたりしないでください。"
-    },
-    "restartMsg.title": {
-        "message": "再起動が必要です"
-    },
-    "sentFolderName": {
-        "message": "送信済みトレイ"
-    },
-    "templatesFolderName": {
-        "message": "テンプレート"
-    },
-    "trashFolderName": {
-        "message": "ごみ箱"
-    }
+  "addLocalFolder": {
+    "message": "ローカルフォルダを追加"
+  },
+  "allFolders.label": {
+    "message": "全て"
+  },
+  "archivesFolderName": {
+    "message": "アーカイブ"
+  },
+  "confirmDirNotEmpty": {
+    "message": "ディレクトリは空ではありません。次の特別なフォルダーが含まれています:\\n\\n"
+  },
+  "ConfirmRemoveFolder": {
+    "message": "ローカルフォルダ \"％S\"を削除してよろしいですか？\\ n \\ n（注：ディレクトリとコンテンツは削除されません。）"
+  },
+  "ConfirmRemoveTitle": {
+    "message": "ローカルフォルダを削除"
+  },
+  "confirmRetained": {
+    "message": "\\nこれらは、他の フォルダーと同様に保持されます。注意:\\n\\nゴミ箱と未送信メッセージは削除されます。"
+  },
+  "deleteData": {
+    "message": "すべてのサブフォルダとデータを削除する"
+  },
+  "DossierExisteDeja": {
+    "message": "現在使用されている名前を選択しました。\\ n別の名前を選択してください。"
+  },
+  "DossierPasRenseigne": {
+    "message": "ディレクトリが必要です。"
+  },
+  "draftsFolderName": {
+    "message": "下書き"
+  },
+  "emptyTrashOnExit.label": {
+    "message": "出口でゴミ箱を空にしてください"
+  },
+  "ErreurAppelLocalFolder": {
+    "message": "アシスタントの呼び出し中にエラーが発生しました。"
+  },
+  "ErreurCreationDossier": {
+    "message": "ローカルフォルダの作成中にエラーが発生しました。"
+  },
+  "eu.philoux.localfolder.addMessageFolders": {
+    "message": "メッセージフォルダの追加"
+  },
+  "eu.philoux.localfolder.btdossier": {
+    "message": "ローカルフォルダを追加…"
+  },
+  "eu.philoux.localfolder.btdossier.racc": {
+    "message": "L"
+  },
+  "eu.philoux.localfolder.btQuitter": {
+    "message": "キャンセル"
+  },
+  "eu.philoux.localfolder.btValider": {
+    "message": "OK"
+  },
+  "eu.philoux.localfolder.chemin.browsertitle": {
+    "message": "フォルダを選択"
+  },
+  "eu.philoux.localfolder.chemin.btlib": {
+    "message": "参照…"
+  },
+  "eu.philoux.localfolder.chemin.btlibcle": {
+    "message": "B"
+  },
+  "eu.philoux.localfolder.directoryAndMessageStore": {
+    "message": "ディレクトリとメッセージストア"
+  },
+  "eu.philoux.localfolder.libchemin": {
+    "message": "ローカルディレクトリ："
+  },
+  "eu.philoux.localfolder.libnom": {
+    "message": "Name："
+  },
+  "eu.philoux.localfolder.libnom.accesskey": {
+    "message": "N"
+  },
+  "eu.philoux.localfolder.titre": {
+    "message": "ローカルフォルダを追加"
+  },
+  "extensionDescription": {
+    "message": "マップされたディレクトリを含めて、必要な数のローカルフォルダを追加します。"
+  },
+  "extensionName": {
+    "message": "LocalFolders"
+  },
+  "extensions.localfolder@philoux.eu.description": {
+    "message": "必要なだけローカルフォルダを追加してください。"
+  },
+  "inboxFolderName": {
+    "message": "受信トレイ"
+  },
+  "junkFolderName": {
+    "message": "迷惑メール"
+  },
+  "LocalFolderMajErreurEffCompte": {
+    "message": "選択したアカウントの削除中にエラーが発生しました"
+  },
+  "NomPasRenseigne": {
+    "message": "名前が必要です。"
+  },
+  "outboxFolderName": {
+    "message": "送信トレイ"
+  },
+  "removeLocalFolder": {
+    "message": "ローカルフォルダを削除"
+  },
+  "RepertoireDejaUtilise": {
+    "message": "現在使用されているディレクトリを選択しました。\\ n別のディレクトリを選択してください。"
+  },
+  "RepNonValide": {
+    "message": "ディレクトリが無効です。空であるか、少なくとも1つの“ msf”ファイルを含む必要があります。"
+  },
+  "restartMsg.msg": {
+    "message": "新しいローカルフォルダを正しく設定するには、Thundirbird を再起動する必要があります。\n\n再起動前に、ローカルフォルダにフォルダを作成したり、メッセージをコピーしたりしないでください。"
+  },
+  "restartMsg.title": {
+    "message": "再起動が必要です"
+  },
+  "sentFolderName": {
+    "message": "送信済みトレイ"
+  },
+  "storeType.label": {
+    "message": "メッセージストアの種類"
+  },
+  "templatesFolderName": {
+    "message": "テンプレート"
+  },
+  "trashFolderName": {
+    "message": "ごみ箱"
+  }
 }

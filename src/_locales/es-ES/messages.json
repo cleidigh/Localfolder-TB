@@ -1,133 +1,142 @@
 {
-    "ConfirmRemoveFolder": {
-        "message": "Confirme la eliminación de la carpeta local: $P1$\\n\\n(Nota: los directorios y contenidos no se eliminarán).",
-        "placeholders": {
-            "P1": {
-                "content": "$1"
-            }
-        }
-    },
-    "ConfirmRemoveTitle": {
-        "message": "Eliminar carpeta local"
-    },
-    "DossierExisteDeja": {
-        "message": "El nombre elegido ya está en uso.\\nPor favor introduzca otro nombre."
-    },
-    "DossierPasRenseigne": {
-        "message": "El directorio es obligatorio."
-    },
-    "ErreurAppelLocalFolder": {
-        "message": "Error al llamar al asistente."
-    },
-    "ErreurCreationDossier": {
-        "message": "Ocurrió un error durante la creación de la carpeta local."
-    },
-    "LocalFolderMajErreurEffCompte": {
-        "message": "Error al eliminar la cuenta seleccionada"
-    },
-    "NomPasRenseigne": {
-        "message": "El nombre es obligatorio."
-    },
-    "RepNonValide": {
-        "message": "El directorio es inválido. Debe estar vacío o contener al menos un archivo «msf»."
-    },
-    "RepertoireDejaUtilise": {
-        "message": "El directorio elegido ya está en uso.\\nPor favor seleccione otra ruta."
-    },
-    "addLocalFolder": {
-        "message": "Agregar carpeta local"
-    },
-    "archivesFolderName": {
-        "message": "Archivos"
-    },
-    "confirmDirNotEmpty": {
-        "message": "El directorio no está vacío. Contiene estas carpetas especiales:\\n\\n"
-    },
-    "confirmRetained": {
-        "message": "\\nÉstas se conservarán, así como cualquier otra carpetas.\\n\\nNOTA: Se eliminarán la papelera y los mensajes no enviados."
-    },
-    "deleteData": {
-        "message": "Eliminar todas las subcarpetas y datos"
-    },
-    "draftsFolderName": {
-        "message": "Borradores"
-    },
-    "eu.philoux.localfolder.addMessageFolders": {
-        "message": "Agregar carpetas de mensajes"
-    },
-    "eu.philoux.localfolder.bandeau.titre": {
-        "message": "Configuración de carpeta local"
-    },
-    "eu.philoux.localfolder.btQuitter": {
-        "message": "Cancelar"
-    },
-    "eu.philoux.localfolder.btValider": {
-        "message": "Aceptar"
-    },
-    "eu.philoux.localfolder.btdossier": {
-        "message": "Nueva carpeta local…"
-    },
-    "eu.philoux.localfolder.btdossier.racc": {
-        "message": "l"
-    },
-    "eu.philoux.localfolder.chemin.browsertitle": {
-        "message": "Elegir una carpeta"
-    },
-    "eu.philoux.localfolder.chemin.btlib": {
-        "message": "Examinar…"
-    },
-    "eu.philoux.localfolder.chemin.btlibcle": {
-        "message": "E"
-    },
-    "eu.philoux.localfolder.directoryAndMessageStore": {
-        "message": "Directorio y almacén de mensajes"
-    },
-    "eu.philoux.localfolder.libchemin": {
-        "message": "Directorio:"
-    },
-    "eu.philoux.localfolder.libnom": {
-        "message": "Nombre:"
-    },
-    "eu.philoux.localfolder.libnom.accesskey": {
-        "message": "N"
-    },
-    "eu.philoux.localfolder.titre": {
-        "message": "Añadir una carpeta local"
-    },
-    "extensionDescription": {
-        "message": "Agregue tantas carpetas locales como necesite, incluidos los directorios asignados."
-    },
-    "extensionName": {
-        "message": "LocalFolders"
-    },
-    "extensions.localfolder@philoux.eu.description": {
-        "message": "Añada tantas carpetas locales como quiera."
-    },
-    "inboxFolderName": {
-        "message": "Bandeja de entrada"
-    },
-    "junkFolderName": {
-        "message": "Correo no deseado"
-    },
-    "outboxFolderName": {
-        "message": "Bandeja de salida"
-    },
-    "removeLocalFolder": {
-        "message": "Eliminar carpeta local"
-    },
-    "restartMsg.msg": {
-        "message": "Es necesario reiniciar Thundirbird para que la nueva carpeta local se configure correctamente.\n\nNo cree carpetas ni copie mensajes en la carpeta local antes de reiniciar."
-    },
-    "restartMsg.title": {
-        "message": "Es necesario reiniciar"
-    },
-    "sentFolderName": {
-        "message": "Enviados"
-    },
-    "templatesFolderName": {
-        "message": "Plantillas"
-    },
-    "trashFolderName": {
-        "message": "Papelera"
+  "addLocalFolder": {
+    "message": "Agregar carpeta local"
+  },
+  "allFolders.label": {
+    "message": "Todo"
+  },
+  "archivesFolderName": {
+    "message": "Archivos"
+  },
+  "confirmDirNotEmpty": {
+    "message": "El directorio no está vacío. Contiene estas carpetas especiales:\\n\\n"
+  },
+  "ConfirmRemoveFolder": {
+    "message": "Confirme la eliminación de la carpeta local: $P1$\\n\\n(Nota: los directorios y contenidos no se eliminarán).",
+    "placeholders": {
+      "P1": {
+        "content": "$1"
+      }
     }
+  },
+  "ConfirmRemoveTitle": {
+    "message": "Eliminar carpeta local"
+  },
+  "confirmRetained": {
+    "message": "\\nÉstas se conservarán, así como cualquier otra carpetas.\\n\\nNOTA: Se eliminarán la papelera y los mensajes no enviados."
+  },
+  "deleteData": {
+    "message": "Eliminar todas las subcarpetas y datos"
+  },
+  "DossierExisteDeja": {
+    "message": "El nombre elegido ya está en uso.\\nPor favor introduzca otro nombre."
+  },
+  "DossierPasRenseigne": {
+    "message": "El directorio es obligatorio."
+  },
+  "draftsFolderName": {
+    "message": "Borradores"
+  },
+  "emptyTrashOnExit.label": {
+    "message": "Vaciar la papelera al salir"
+  },
+  "ErreurAppelLocalFolder": {
+    "message": "Error al llamar al asistente."
+  },
+  "ErreurCreationDossier": {
+    "message": "Ocurrió un error durante la creación de la carpeta local."
+  },
+  "eu.philoux.localfolder.addMessageFolders": {
+    "message": "Agregar carpetas de mensajes"
+  },
+  "eu.philoux.localfolder.bandeau.titre": {
+    "message": "Configuración de carpeta local"
+  },
+  "eu.philoux.localfolder.btdossier": {
+    "message": "Nueva carpeta local…"
+  },
+  "eu.philoux.localfolder.btdossier.racc": {
+    "message": "l"
+  },
+  "eu.philoux.localfolder.btQuitter": {
+    "message": "Cancelar"
+  },
+  "eu.philoux.localfolder.btValider": {
+    "message": "Aceptar"
+  },
+  "eu.philoux.localfolder.chemin.browsertitle": {
+    "message": "Elegir una carpeta"
+  },
+  "eu.philoux.localfolder.chemin.btlib": {
+    "message": "Examinar…"
+  },
+  "eu.philoux.localfolder.chemin.btlibcle": {
+    "message": "E"
+  },
+  "eu.philoux.localfolder.directoryAndMessageStore": {
+    "message": "Directorio y almacén de mensajes"
+  },
+  "eu.philoux.localfolder.libchemin": {
+    "message": "Directorio:"
+  },
+  "eu.philoux.localfolder.libnom": {
+    "message": "Nombre:"
+  },
+  "eu.philoux.localfolder.libnom.accesskey": {
+    "message": "N"
+  },
+  "eu.philoux.localfolder.titre": {
+    "message": "Añadir una carpeta local"
+  },
+  "extensionDescription": {
+    "message": "Agregue tantas carpetas locales como necesite, incluidos los directorios asignados."
+  },
+  "extensionName": {
+    "message": "LocalFolders"
+  },
+  "extensions.localfolder@philoux.eu.description": {
+    "message": "Añada tantas carpetas locales como quiera."
+  },
+  "inboxFolderName": {
+    "message": "Bandeja de entrada"
+  },
+  "junkFolderName": {
+    "message": "Correo no deseado"
+  },
+  "LocalFolderMajErreurEffCompte": {
+    "message": "Error al eliminar la cuenta seleccionada"
+  },
+  "NomPasRenseigne": {
+    "message": "El nombre es obligatorio."
+  },
+  "outboxFolderName": {
+    "message": "Bandeja de salida"
+  },
+  "removeLocalFolder": {
+    "message": "Eliminar carpeta local"
+  },
+  "RepertoireDejaUtilise": {
+    "message": "El directorio elegido ya está en uso.\\nPor favor seleccione otra ruta."
+  },
+  "RepNonValide": {
+    "message": "El directorio es inválido. Debe estar vacío o contener al menos un archivo «msf»."
+  },
+  "restartMsg.msg": {
+    "message": "Es necesario reiniciar Thundirbird para que la nueva carpeta local se configure correctamente.\n\nNo cree carpetas ni copie mensajes en la carpeta local antes de reiniciar."
+  },
+  "restartMsg.title": {
+    "message": "Es necesario reiniciar"
+  },
+  "sentFolderName": {
+    "message": "Enviados"
+  },
+  "storeType.label": {
+    "message": "Tipo de almacenamiento de mensajes"
+  },
+  "templatesFolderName": {
+    "message": "Plantillas"
+  },
+  "trashFolderName": {
+    "message": "Papelera"
+  }
 }

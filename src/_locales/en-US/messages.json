@@ -1,130 +1,139 @@
 {
-    "ConfirmRemoveFolder": {
-        "message": "Are you sure you want to remove the local folder “$P1$”?\\n\\n(Note: Directories and contents will not be deleted.)",
-        "placeholders": {
-            "P1": {
-                "content": "$1"
-            }
-        }
-    },
-    "ConfirmRemoveTitle": {
-        "message": "Remove Local Folder"
-    },
-    "DossierExisteDeja": {
-        "message": "You have chosen a name that is currently in use.\\nPlease select another."
-    },
-    "DossierPasRenseigne": {
-        "message": "Directory required."
-    },
-    "ErreurAppelLocalFolder": {
-        "message": "Error calling the assistant."
-    },
-    "ErreurCreationDossier": {
-        "message": "An error occurred while creating the local folder."
-    },
-    "LocalFolderMajErreurEffCompte": {
-        "message": "Error deleting the selected account"
-    },
-    "NomPasRenseigne": {
-        "message": "Name required."
-    },
-    "RepNonValide": {
-        "message": "The directory is not valid. It must be empty or contain at least one “msf” file."
-    },
-    "RepertoireDejaUtilise": {
-        "message": "You have chosen a directory that is currently in use.\\nPlease select another."
-    },
-    "addLocalFolder": {
-        "message": "Add Local Folder"
-    },
-    "archivesFolderName": {
-        "message": "Archives"
-    },
-    "confirmDirNotEmpty": {
-        "message": "Directory not empty, It contains these Special Folders:\\n\\n"
-    },
-    "confirmRetained": {
-        "message": "\\nThese will be retained as well as any other folders.\\n\\nNOTE: Trash and Unsent Messages will be deleted."
-    },
-    "deleteData": {
-        "message": "Delete All Subfolders and Data"
-    },
-    "draftsFolderName": {
-        "message": "Drafts"
-    },
-    "eu.philoux.localfolder.addMessageFolders": {
-        "message": "Add Message Folders"
-    },
-    "eu.philoux.localfolder.btQuitter": {
-        "message": "Cancel"
-    },
-    "eu.philoux.localfolder.btValider": {
-        "message": "OK"
-    },
-    "eu.philoux.localfolder.btdossier": {
-        "message": "Add Local Folder…"
-    },
-    "eu.philoux.localfolder.btdossier.racc": {
-        "message": "L"
-    },
-    "eu.philoux.localfolder.chemin.browsertitle": {
-        "message": "Select a Folder"
-    },
-    "eu.philoux.localfolder.chemin.btlib": {
-        "message": "Browse…"
-    },
-    "eu.philoux.localfolder.chemin.btlibcle": {
-        "message": "B"
-    },
-    "eu.philoux.localfolder.directoryAndMessageStore": {
-        "message": "Directory and Message Store"
-    },
-    "eu.philoux.localfolder.libchemin": {
-        "message": "Local directory:"
-    },
-    "eu.philoux.localfolder.libnom": {
-        "message": "Name:"
-    },
-    "eu.philoux.localfolder.libnom.accesskey": {
-        "message": "N"
-    },
-    "eu.philoux.localfolder.titre": {
-        "message": "Add Local Folder"
-    },
-    "extensionDescription": {
-        "message": "Add as many local folders as you require including mapped directories."
-    },
-    "extensionName": {
-        "message": "LocalFolders"
-    },
-    "extensions.localfolder@philoux.eu.description": {
-        "message": "Add as many local folders as you require."
-    },
-    "inboxFolderName": {
-        "message": "Inbox"
-    },
-    "junkFolderName": {
-        "message": "Junk"
-    },
-    "outboxFolderName": {
-        "message": "Outbox"
-    },
-    "removeLocalFolder": {
-        "message": "Remove Local Folder"
-    },
-    "restartMsg.msg": {
-        "message": "Thundirbird needs to be restarted for the new Local Folder to be configured correctly.\n\nDo not create any folders or copy messages in the Local Folder before restarting."
-    },
-    "restartMsg.title": {
-        "message": "Restart required"
-    },
-    "sentFolderName": {
-        "message": "Sent"
-    },
-    "templatesFolderName": {
-        "message": "Templates"
-    },
-    "trashFolderName": {
-        "message": "Trash"
+  "addLocalFolder": {
+    "message": "Add Local Folder"
+  },
+  "allFolders.label": {
+    "message": "All"
+  },
+  "archivesFolderName": {
+    "message": "Archives"
+  },
+  "confirmDirNotEmpty": {
+    "message": "Directory not empty, It contains these Special Folders:\\n\\n"
+  },
+  "ConfirmRemoveFolder": {
+    "message": "Are you sure you want to remove the local folder “$P1$”?\\n\\n(Note: Directories and contents will not be deleted.)",
+    "placeholders": {
+      "P1": {
+        "content": "$1"
+      }
     }
+  },
+  "ConfirmRemoveTitle": {
+    "message": "Remove Local Folder"
+  },
+  "confirmRetained": {
+    "message": "\\nThese will be retained as well as any other folders.\\n\\nNOTE: Trash and Unsent Messages will be deleted."
+  },
+  "deleteData": {
+    "message": "Delete All Subfolders and Data"
+  },
+  "DossierExisteDeja": {
+    "message": "You have chosen a name that is currently in use.\\nPlease select another."
+  },
+  "DossierPasRenseigne": {
+    "message": "Directory required."
+  },
+  "draftsFolderName": {
+    "message": "Drafts"
+  },
+  "emptyTrashOnExit.label": {
+    "message": "Empty Trash on Exit"
+  },
+  "ErreurAppelLocalFolder": {
+    "message": "Error calling the assistant."
+  },
+  "ErreurCreationDossier": {
+    "message": "An error occurred while creating the local folder."
+  },
+  "eu.philoux.localfolder.addMessageFolders": {
+    "message": "Add Message Folders"
+  },
+  "eu.philoux.localfolder.btdossier": {
+    "message": "Add Local Folder…"
+  },
+  "eu.philoux.localfolder.btdossier.racc": {
+    "message": "L"
+  },
+  "eu.philoux.localfolder.btQuitter": {
+    "message": "Cancel"
+  },
+  "eu.philoux.localfolder.btValider": {
+    "message": "OK"
+  },
+  "eu.philoux.localfolder.chemin.browsertitle": {
+    "message": "Select a Folder"
+  },
+  "eu.philoux.localfolder.chemin.btlib": {
+    "message": "Browse…"
+  },
+  "eu.philoux.localfolder.chemin.btlibcle": {
+    "message": "B"
+  },
+  "eu.philoux.localfolder.directoryAndMessageStore": {
+    "message": "Directory and Message Store"
+  },
+  "eu.philoux.localfolder.libchemin": {
+    "message": "Local directory:"
+  },
+  "eu.philoux.localfolder.libnom": {
+    "message": "Name:"
+  },
+  "eu.philoux.localfolder.libnom.accesskey": {
+    "message": "N"
+  },
+  "eu.philoux.localfolder.titre": {
+    "message": "Add Local Folder"
+  },
+  "extensionDescription": {
+    "message": "Add as many local folders as you require including mapped directories."
+  },
+  "extensionName": {
+    "message": "LocalFolders"
+  },
+  "extensions.localfolder@philoux.eu.description": {
+    "message": "Add as many local folders as you require."
+  },
+  "inboxFolderName": {
+    "message": "Inbox"
+  },
+  "junkFolderName": {
+    "message": "Junk"
+  },
+  "LocalFolderMajErreurEffCompte": {
+    "message": "Error deleting the selected account"
+  },
+  "NomPasRenseigne": {
+    "message": "Name required."
+  },
+  "outboxFolderName": {
+    "message": "Outbox"
+  },
+  "removeLocalFolder": {
+    "message": "Remove Local Folder"
+  },
+  "RepertoireDejaUtilise": {
+    "message": "You have chosen a directory that is currently in use.\\nPlease select another."
+  },
+  "RepNonValide": {
+    "message": "The directory is not valid. It must be empty or contain at least one “msf” file."
+  },
+  "restartMsg.msg": {
+    "message": "Thundirbird needs to be restarted for the new Local Folder to be configured correctly.\n\nDo not create any folders or copy messages in the Local Folder before restarting."
+  },
+  "restartMsg.title": {
+    "message": "Restart required"
+  },
+  "sentFolderName": {
+    "message": "Sent"
+  },
+  "storeType.label": {
+    "message": "Message Store Type"
+  },
+  "templatesFolderName": {
+    "message": "Templates"
+  },
+  "trashFolderName": {
+    "message": "Trash"
+  }
 }

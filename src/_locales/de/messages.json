@@ -1,133 +1,142 @@
 {
-    "ConfirmRemoveFolder": {
-        "message": "Bestätigen Sie die Entfernung des lokalen Ordners: $P1$\\n\\n(Hinweis: Verzeichnisse und Inhalte werden nicht gelöscht.)",
-        "placeholders": {
-            "P1": {
-                "content": "$1"
-            }
-        }
-    },
-    "ConfirmRemoveTitle": {
-        "message": "Lokalen Ordner entfernen"
-    },
-    "DossierExisteDeja": {
-        "message": "Der Name ist bereits vergeben.\\nBitte wählen Sie einen anderen Namen."
-    },
-    "DossierPasRenseigne": {
-        "message": "Das Verzeichnis ist erforderlich."
-    },
-    "ErreurAppelLocalFolder": {
-        "message": "Fehler beim Aufruf des Assistenten."
-    },
-    "ErreurCreationDossier": {
-        "message": "Während des erstellen des lokalen Ordners ist ein Fehler aufgetreten."
-    },
-    "LocalFolderMajErreurEffCompte": {
-        "message": "Fehler beim löschen des gewählten Kontos."
-    },
-    "NomPasRenseigne": {
-        "message": "Der Name ist erforderlich."
-    },
-    "RepNonValide": {
-        "message": "Das Verzeichnis ist nicht gültig. Es muss leer sein oder zumindest eine „msf“ Datei enthalten."
-    },
-    "RepertoireDejaUtilise": {
-        "message": "Das Verzeichnis das Sie gewählt haben wird bereits verwendet.\\nBitte wählen Sie ein anderes Verzeichnis."
-    },
-    "addLocalFolder": {
-        "message": "Lokalen Ordner hinzufügen"
-    },
-    "archivesFolderName": {
-        "message": "Archiv"
-    },
-    "confirmDirNotEmpty": {
-        "message": "Das Verzeichnis ist nicht leer. Es enthält diese speziellen Ordner:\\n\\n"
-    },
-    "confirmRetained": {
-        "message": "\\nDiese bleiben ebenso erhalten wie alle anderen Ordner.\\n\\nHINWEIS: Papierkorb und nicht gesendete Nachrichten werden gelöscht."
-    },
-    "deleteData": {
-        "message": "Alle Unterordner und Daten löschen"
-    },
-    "draftsFolderName": {
-        "message": "Entwürfe"
-    },
-    "eu.philoux.localfolder.addMessageFolders": {
-        "message": "Nachrichtenordner hinzufügen"
-    },
-    "eu.philoux.localfolder.bandeau.titre": {
-        "message": "Lokale Ordner Einstellungen"
-    },
-    "eu.philoux.localfolder.btQuitter": {
-        "message": "Abbrechen"
-    },
-    "eu.philoux.localfolder.btValider": {
-        "message": "OK"
-    },
-    "eu.philoux.localfolder.btdossier": {
-        "message": "Neuer lokaler Ordner…"
-    },
-    "eu.philoux.localfolder.btdossier.racc": {
-        "message": "l"
-    },
-    "eu.philoux.localfolder.chemin.browsertitle": {
-        "message": "Wähle einen Ordner"
-    },
-    "eu.philoux.localfolder.chemin.btlib": {
-        "message": "Durchsuchen…"
-    },
-    "eu.philoux.localfolder.chemin.btlibcle": {
-        "message": "D"
-    },
-    "eu.philoux.localfolder.directoryAndMessageStore": {
-        "message": "Mail-Ordner und Speichermethode"
-    },
-    "eu.philoux.localfolder.libchemin": {
-        "message": "Verzeichnis:"
-    },
-    "eu.philoux.localfolder.libnom": {
-        "message": "Name:"
-    },
-    "eu.philoux.localfolder.libnom.accesskey": {
-        "message": "N"
-    },
-    "eu.philoux.localfolder.titre": {
-        "message": "Zusatz zum lokalen Ordner"
-    },
-    "extensionDescription": {
-        "message": "Fügen Sie beliebig viele lokale Ordner hinzu, einschließlich zugeordneter Verzeichnisse."
-    },
-    "extensionName": {
-        "message": "LocalFolders"
-    },
-    "extensions.localfolder@philoux.eu.description": {
-        "message": "Füge so viele lokale Ordner hinzu wie du möchtest"
-    },
-    "inboxFolderName": {
-        "message": "Posteingang"
-    },
-    "junkFolderName": {
-        "message": "Junk"
-    },
-    "outboxFolderName": {
-        "message": "Postausgang"
-    },
-    "removeLocalFolder": {
-        "message": "Lokalen Ordner entfernen"
-    },
-    "restartMsg.msg": {
-        "message": "Thunderbird muss neu gestartet werden, damit der neue lokale Ordner korrekt konfiguriert wird.\n\nErstellen Sie vor dem Neustart keine Ordner im lokalen Ordner und kopieren Sie keine Nachrichten hinein."
-    },
-    "restartMsg.title": {
-        "message": "Neustart erforderlich"
-    },
-    "sentFolderName": {
-        "message": "Gesendet"
-    },
-    "templatesFolderName": {
-        "message": "Vorlagen"
-    },
-    "trashFolderName": {
-        "message": "Papierkorb"
+  "addLocalFolder": {
+    "message": "Lokalen Ordner hinzufügen"
+  },
+  "allFolders.label": {
+    "message": "Alle"
+  },
+  "archivesFolderName": {
+    "message": "Archiv"
+  },
+  "confirmDirNotEmpty": {
+    "message": "Das Verzeichnis ist nicht leer. Es enthält diese speziellen Ordner:\\n\\n"
+  },
+  "ConfirmRemoveFolder": {
+    "message": "Bestätigen Sie die Entfernung des lokalen Ordners: $P1$\\n\\n(Hinweis: Verzeichnisse und Inhalte werden nicht gelöscht.)",
+    "placeholders": {
+      "P1": {
+        "content": "$1"
+      }
     }
+  },
+  "ConfirmRemoveTitle": {
+    "message": "Lokalen Ordner entfernen"
+  },
+  "confirmRetained": {
+    "message": "\\nDiese bleiben ebenso erhalten wie alle anderen Ordner.\\n\\nHINWEIS: Papierkorb und nicht gesendete Nachrichten werden gelöscht."
+  },
+  "deleteData": {
+    "message": "Alle Unterordner und Daten löschen"
+  },
+  "DossierExisteDeja": {
+    "message": "Der Name ist bereits vergeben.\\nBitte wählen Sie einen anderen Namen."
+  },
+  "DossierPasRenseigne": {
+    "message": "Das Verzeichnis ist erforderlich."
+  },
+  "draftsFolderName": {
+    "message": "Entwürfe"
+  },
+  "emptyTrashOnExit.label": {
+    "message": "Müll beim Verlassen leeren"
+  },
+  "ErreurAppelLocalFolder": {
+    "message": "Fehler beim Aufruf des Assistenten."
+  },
+  "ErreurCreationDossier": {
+    "message": "Während des erstellen des lokalen Ordners ist ein Fehler aufgetreten."
+  },
+  "eu.philoux.localfolder.addMessageFolders": {
+    "message": "Nachrichtenordner hinzufügen"
+  },
+  "eu.philoux.localfolder.bandeau.titre": {
+    "message": "Lokale Ordner Einstellungen"
+  },
+  "eu.philoux.localfolder.btdossier": {
+    "message": "Neuer lokaler Ordner…"
+  },
+  "eu.philoux.localfolder.btdossier.racc": {
+    "message": "l"
+  },
+  "eu.philoux.localfolder.btQuitter": {
+    "message": "Abbrechen"
+  },
+  "eu.philoux.localfolder.btValider": {
+    "message": "OK"
+  },
+  "eu.philoux.localfolder.chemin.browsertitle": {
+    "message": "Wähle einen Ordner"
+  },
+  "eu.philoux.localfolder.chemin.btlib": {
+    "message": "Durchsuchen…"
+  },
+  "eu.philoux.localfolder.chemin.btlibcle": {
+    "message": "D"
+  },
+  "eu.philoux.localfolder.directoryAndMessageStore": {
+    "message": "Mail-Ordner und Speichermethode"
+  },
+  "eu.philoux.localfolder.libchemin": {
+    "message": "Verzeichnis:"
+  },
+  "eu.philoux.localfolder.libnom": {
+    "message": "Name:"
+  },
+  "eu.philoux.localfolder.libnom.accesskey": {
+    "message": "N"
+  },
+  "eu.philoux.localfolder.titre": {
+    "message": "Zusatz zum lokalen Ordner"
+  },
+  "extensionDescription": {
+    "message": "Fügen Sie beliebig viele lokale Ordner hinzu, einschließlich zugeordneter Verzeichnisse."
+  },
+  "extensionName": {
+    "message": "LocalFolders"
+  },
+  "extensions.localfolder@philoux.eu.description": {
+    "message": "Füge so viele lokale Ordner hinzu wie du möchtest"
+  },
+  "inboxFolderName": {
+    "message": "Posteingang"
+  },
+  "junkFolderName": {
+    "message": "Junk"
+  },
+  "LocalFolderMajErreurEffCompte": {
+    "message": "Fehler beim löschen des gewählten Kontos."
+  },
+  "NomPasRenseigne": {
+    "message": "Der Name ist erforderlich."
+  },
+  "outboxFolderName": {
+    "message": "Postausgang"
+  },
+  "removeLocalFolder": {
+    "message": "Lokalen Ordner entfernen"
+  },
+  "RepertoireDejaUtilise": {
+    "message": "Das Verzeichnis das Sie gewählt haben wird bereits verwendet.\\nBitte wählen Sie ein anderes Verzeichnis."
+  },
+  "RepNonValide": {
+    "message": "Das Verzeichnis ist nicht gültig. Es muss leer sein oder zumindest eine „msf“ Datei enthalten."
+  },
+  "restartMsg.msg": {
+    "message": "Thunderbird muss neu gestartet werden, damit der neue lokale Ordner korrekt konfiguriert wird.\n\nErstellen Sie vor dem Neustart keine Ordner im lokalen Ordner und kopieren Sie keine Nachrichten hinein."
+  },
+  "restartMsg.title": {
+    "message": "Neustart erforderlich"
+  },
+  "sentFolderName": {
+    "message": "Gesendet"
+  },
+  "storeType.label": {
+    "message": "Nachrichtenspeichertyp"
+  },
+  "templatesFolderName": {
+    "message": "Vorlagen"
+  },
+  "trashFolderName": {
+    "message": "Papierkorb"
+  }
 }

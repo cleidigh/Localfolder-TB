@@ -1,133 +1,142 @@
 {
-    "ConfirmRemoveFolder": {
-        "message": "Confirmez la suppression du dossier local : $P1$\\n\\n(Remarque : les répertoires et le contenu ne seront pas supprimés.)",
-        "placeholders": {
-            "P1": {
-                "content": "$1"
-            }
-        }
-    },
-    "ConfirmRemoveTitle": {
-        "message": "Supprimer le dossier local"
-    },
-    "DossierExisteDeja": {
-        "message": "Le nom que vous avez saisi est déjà utilisé.\\nSaisir un autre nom."
-    },
-    "DossierPasRenseigne": {
-        "message": "Un emplacement doit être sélectionné"
-    },
-    "ErreurAppelLocalFolder": {
-        "message": "Erreur lors de l'appel de l'assistant LocalFolder."
-    },
-    "ErreurCreationDossier": {
-        "message": "Une erreur est survenue lors de la création du dossier local."
-    },
-    "LocalFolderMajErreurEffCompte": {
-        "message": "Erreur lors de l'effacement du compte sélectionné:"
-    },
-    "NomPasRenseigne": {
-        "message": "Le nom du dossier local doit être renseigné"
-    },
-    "RepNonValide": {
-        "message": "Le chemin n'est pas valide. Le répertoire doit être vide ou comporter au moins un fichier du type «&nbsp;msf&nbsp;»."
-    },
-    "RepertoireDejaUtilise": {
-        "message": "Le répertoire est déjà utilisé!\\nSélectionner un autre répertoire."
-    },
-    "addLocalFolder": {
-        "message": "Ajouter un dossier local"
-    },
-    "archivesFolderName": {
-        "message": "Archives"
-    },
-    "confirmDirNotEmpty": {
-        "message": "Répertoire non vide, il contient ces dossiers spéciaux :\\n\\n"
-    },
-    "confirmRetained": {
-        "message": "\\nCeux-ci seront conservés ainsi que tous les autres dossiers.\\n\\nREMARQUE : La corbeille et les messages non envoyés seront supprimés."
-    },
-    "deleteData": {
-        "message": "Supprimer tous les sous-dossiers et données"
-    },
-    "draftsFolderName": {
-        "message": "Brouillons"
-    },
-    "eu.philoux.localfolder.addMessageFolders": {
-        "message": "Ajouter des dossiers de messages"
-    },
-    "eu.philoux.localfolder.bandeau.titre": {
-        "message": "Paramétrage du nouveau dossier local"
-    },
-    "eu.philoux.localfolder.btQuitter": {
-        "message": "Annuler"
-    },
-    "eu.philoux.localfolder.btValider": {
-        "message": "Valider"
-    },
-    "eu.philoux.localfolder.btdossier": {
-        "message": "Ajouter un dossier local…"
-    },
-    "eu.philoux.localfolder.btdossier.racc": {
-        "message": "l"
-    },
-    "eu.philoux.localfolder.chemin.browsertitle": {
-        "message": "Sélectionner un dossier"
-    },
-    "eu.philoux.localfolder.chemin.btlib": {
-        "message": "Parcourir…"
-    },
-    "eu.philoux.localfolder.chemin.btlibcle": {
-        "message": "P"
-    },
-    "eu.philoux.localfolder.directoryAndMessageStore": {
-        "message": "Répertoire de messages et de messages"
-    },
-    "eu.philoux.localfolder.libchemin": {
-        "message": "Emplacement :"
-    },
-    "eu.philoux.localfolder.libnom": {
-        "message": "Nom :"
-    },
-    "eu.philoux.localfolder.libnom.accesskey": {
-        "message": "N"
-    },
-    "eu.philoux.localfolder.titre": {
-        "message": "Ajout d'un dossier local"
-    },
-    "extensionDescription": {
-        "message": "Ajoutez autant de dossiers locaux que vous voulez."
-    },
-    "extensionName": {
-        "message": "LocalFolders"
-    },
-    "extensions.localfolder@philoux.eu.description": {
-        "message": "Ajoutez autant de dossiers locaux que vous voulez."
-    },
-    "inboxFolderName": {
-        "message": "Courrier entrant"
-    },
-    "junkFolderName": {
-        "message": "Indésirables"
-    },
-    "outboxFolderName": {
-        "message": "Messages en attente"
-    },
-    "removeLocalFolder": {
-        "message": "Supprimer le dossier local"
-    },
-    "restartMsg.msg": {
-        "message": "Thundirbird doit être redémarré pour que le nouveau dossier local soit correctement configuré.\n\nNe créez aucun dossier et ne copiez aucun message dans le dossier local avant le redémarrage."
-    },
-    "restartMsg.title": {
-        "message": "Redémarrage requis"
-    },
-    "sentFolderName": {
-        "message": "Envoyés"
-    },
-    "templatesFolderName": {
-        "message": "Modèles"
-    },
-    "trashFolderName": {
-        "message": "Corbeille"
+  "addLocalFolder": {
+    "message": "Ajouter un dossier local"
+  },
+  "allFolders.label": {
+    "message": "Tous"
+  },
+  "archivesFolderName": {
+    "message": "Archives"
+  },
+  "confirmDirNotEmpty": {
+    "message": "Répertoire non vide, il contient ces dossiers spéciaux :\\n\\n"
+  },
+  "ConfirmRemoveFolder": {
+    "message": "Confirmez la suppression du dossier local : $P1$\\n\\n(Remarque : les répertoires et le contenu ne seront pas supprimés.)",
+    "placeholders": {
+      "P1": {
+        "content": "$1"
+      }
     }
+  },
+  "ConfirmRemoveTitle": {
+    "message": "Supprimer le dossier local"
+  },
+  "confirmRetained": {
+    "message": "\\nCeux-ci seront conservés ainsi que tous les autres dossiers.\\n\\nREMARQUE : La corbeille et les messages non envoyés seront supprimés."
+  },
+  "deleteData": {
+    "message": "Supprimer tous les sous-dossiers et données"
+  },
+  "DossierExisteDeja": {
+    "message": "Le nom que vous avez saisi est déjà utilisé.\\nSaisir un autre nom."
+  },
+  "DossierPasRenseigne": {
+    "message": "Un emplacement doit être sélectionné"
+  },
+  "draftsFolderName": {
+    "message": "Brouillons"
+  },
+  "emptyTrashOnExit.label": {
+    "message": "Vider la poubelle à la sortie"
+  },
+  "ErreurAppelLocalFolder": {
+    "message": "Erreur lors de l'appel de l'assistant LocalFolder."
+  },
+  "ErreurCreationDossier": {
+    "message": "Une erreur est survenue lors de la création du dossier local."
+  },
+  "eu.philoux.localfolder.addMessageFolders": {
+    "message": "Ajouter des dossiers de messages"
+  },
+  "eu.philoux.localfolder.bandeau.titre": {
+    "message": "Paramétrage du nouveau dossier local"
+  },
+  "eu.philoux.localfolder.btdossier": {
+    "message": "Ajouter un dossier local…"
+  },
+  "eu.philoux.localfolder.btdossier.racc": {
+    "message": "l"
+  },
+  "eu.philoux.localfolder.btQuitter": {
+    "message": "Annuler"
+  },
+  "eu.philoux.localfolder.btValider": {
+    "message": "Valider"
+  },
+  "eu.philoux.localfolder.chemin.browsertitle": {
+    "message": "Sélectionner un dossier"
+  },
+  "eu.philoux.localfolder.chemin.btlib": {
+    "message": "Parcourir…"
+  },
+  "eu.philoux.localfolder.chemin.btlibcle": {
+    "message": "P"
+  },
+  "eu.philoux.localfolder.directoryAndMessageStore": {
+    "message": "Répertoire de messages et de messages"
+  },
+  "eu.philoux.localfolder.libchemin": {
+    "message": "Emplacement :"
+  },
+  "eu.philoux.localfolder.libnom": {
+    "message": "Nom :"
+  },
+  "eu.philoux.localfolder.libnom.accesskey": {
+    "message": "N"
+  },
+  "eu.philoux.localfolder.titre": {
+    "message": "Ajout d'un dossier local"
+  },
+  "extensionDescription": {
+    "message": "Ajoutez autant de dossiers locaux que vous voulez."
+  },
+  "extensionName": {
+    "message": "LocalFolders"
+  },
+  "extensions.localfolder@philoux.eu.description": {
+    "message": "Ajoutez autant de dossiers locaux que vous voulez."
+  },
+  "inboxFolderName": {
+    "message": "Courrier entrant"
+  },
+  "junkFolderName": {
+    "message": "Indésirables"
+  },
+  "LocalFolderMajErreurEffCompte": {
+    "message": "Erreur lors de l'effacement du compte sélectionné:"
+  },
+  "NomPasRenseigne": {
+    "message": "Le nom du dossier local doit être renseigné"
+  },
+  "outboxFolderName": {
+    "message": "Messages en attente"
+  },
+  "removeLocalFolder": {
+    "message": "Supprimer le dossier local"
+  },
+  "RepertoireDejaUtilise": {
+    "message": "Le répertoire est déjà utilisé!\\nSélectionner un autre répertoire."
+  },
+  "RepNonValide": {
+    "message": "Le chemin n'est pas valide. Le répertoire doit être vide ou comporter au moins un fichier du type «&nbsp;msf&nbsp;»."
+  },
+  "restartMsg.msg": {
+    "message": "Thundirbird doit être redémarré pour que le nouveau dossier local soit correctement configuré.\n\nNe créez aucun dossier et ne copiez aucun message dans le dossier local avant le redémarrage."
+  },
+  "restartMsg.title": {
+    "message": "Redémarrage requis"
+  },
+  "sentFolderName": {
+    "message": "Envoyés"
+  },
+  "storeType.label": {
+    "message": "Type de magasin de messages"
+  },
+  "templatesFolderName": {
+    "message": "Modèles"
+  },
+  "trashFolderName": {
+    "message": "Corbeille"
+  }
 }
