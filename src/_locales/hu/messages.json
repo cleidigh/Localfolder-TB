@@ -103,8 +103,17 @@
   "junkFolderName": {
     "message": "Szemét"
   },
+  "localDirectory.label": {
+    "message": "Helyi címtár"
+  },
   "LocalFolderMajErreurEffCompte": {
     "message": "Hiba törli a kiválasztott fiókot"
+  },
+  "maildirStoreType.label": {
+    "message": "Fájlok száma üzenetenként (maildir)"
+  },
+  "mboxStoreType.label": {
+    "message": "Fájlok száma mappánként (mbox)"
   },
   "NomPasRenseigne": {
     "message": "A név kötelező."

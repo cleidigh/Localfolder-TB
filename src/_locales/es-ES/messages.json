@@ -103,8 +103,17 @@
   "junkFolderName": {
     "message": "Correo no deseado"
   },
+  "localDirectory.label": {
+    "message": "Directorio local"
+  },
   "LocalFolderMajErreurEffCompte": {
     "message": "Error al eliminar la cuenta seleccionada"
+  },
+  "maildirStoreType.label": {
+    "message": "Archivo por mensaje (maildir)"
+  },
+  "mboxStoreType.label": {
+    "message": "Archivo por carpeta (mbox)"
   },
   "NomPasRenseigne": {
     "message": "El nombre es obligatorio."

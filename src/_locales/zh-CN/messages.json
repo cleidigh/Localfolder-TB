@@ -103,8 +103,17 @@
   "junkFolderName": {
     "message": "垃圾"
   },
+  "localDirectory.label": {
+    "message": "本地目录"
+  },
   "LocalFolderMajErreurEffCompte": {
     "message": "删除选定帐户时出错"
+  },
+  "maildirStoreType.label": {
+    "message": "每个邮件一个文件（邮件目录）"
+  },
+  "mboxStoreType.label": {
+    "message": "每个文件夹一个文件（mbox）"
   },
   "NomPasRenseigne": {
     "message": "该名称是强制性的。"

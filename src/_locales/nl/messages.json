@@ -100,8 +100,17 @@
   "junkFolderName": {
     "message": "Ongewenst"
   },
+  "localDirectory.label": {
+    "message": "Lokale map"
+  },
   "LocalFolderMajErreurEffCompte": {
     "message": "Er is een fout opgetreden tijdens het verwijderen van het account."
+  },
+  "maildirStoreType.label": {
+    "message": "Bestand per bericht (mailmap)"
+  },
+  "mboxStoreType.label": {
+    "message": "Bestand per map (mbox)"
   },
   "NomPasRenseigne": {
     "message": "Voer een naam in."

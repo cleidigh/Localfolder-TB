@@ -103,8 +103,17 @@
   "junkFolderName": {
     "message": "Skräp"
   },
+  "localDirectory.label": {
+    "message": "Lokal katalog"
+  },
   "LocalFolderMajErreurEffCompte": {
     "message": "Fel vid borttagning av det valda kontot"
+  },
+  "maildirStoreType.label": {
+    "message": "Fil per meddelande (maildir)"
+  },
+  "mboxStoreType.label": {
+    "message": "Fil per mapp (mbox)"
   },
   "NomPasRenseigne": {
     "message": "Namnet är obligatoriskt."

@@ -100,8 +100,17 @@
   "junkFolderName": {
     "message": "Junk"
   },
+  "localDirectory.label": {
+    "message": "Local Directory"
+  },
   "LocalFolderMajErreurEffCompte": {
     "message": "Error deleting the selected account"
+  },
+  "maildirStoreType.label": {
+    "message": "File per message (maildir)"
+  },
+  "mboxStoreType.label": {
+    "message": "File per folder (mbox)"
   },
   "NomPasRenseigne": {
     "message": "Name required."

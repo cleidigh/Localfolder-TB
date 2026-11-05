@@ -103,8 +103,17 @@
   "junkFolderName": {
     "message": "Junk"
   },
+  "localDirectory.label": {
+    "message": "Lokales Verzeichnis"
+  },
   "LocalFolderMajErreurEffCompte": {
     "message": "Fehler beim löschen des gewählten Kontos."
+  },
+  "maildirStoreType.label": {
+    "message": "Datei pro Nachricht (maildir)"
+  },
+  "mboxStoreType.label": {
+    "message": "Datei pro Ordner (mbox)"
   },
   "NomPasRenseigne": {
     "message": "Der Name ist erforderlich."

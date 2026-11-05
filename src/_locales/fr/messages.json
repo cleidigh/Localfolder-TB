@@ -103,8 +103,17 @@
   "junkFolderName": {
     "message": "Indésirables"
   },
+  "localDirectory.label": {
+    "message": "Annuaire local"
+  },
   "LocalFolderMajErreurEffCompte": {
     "message": "Erreur lors de l'effacement du compte sélectionné:"
+  },
+  "maildirStoreType.label": {
+    "message": "Fichier par message (maildir)"
+  },
+  "mboxStoreType.label": {
+    "message": "Fichier par dossier (mbox)"
   },
   "NomPasRenseigne": {
     "message": "Le nom du dossier local doit être renseigné"

@@ -103,8 +103,17 @@
   "junkFolderName": {
     "message": "Spam"
   },
+  "localDirectory.label": {
+    "message": "Diretório Local"
+  },
   "LocalFolderMajErreurEffCompte": {
     "message": "Erro ao remover a conta selecionada:"
+  },
+  "maildirStoreType.label": {
+    "message": "Arquivo por mensagem (maildir)"
+  },
+  "mboxStoreType.label": {
+    "message": "Arquivo por pasta (mbox)"
   },
   "NomPasRenseigne": {
     "message": "Nome é um campo obrigatório"

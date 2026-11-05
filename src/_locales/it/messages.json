@@ -103,8 +103,17 @@
   "junkFolderName": {
     "message": "Indesiderata"
   },
+  "localDirectory.label": {
+    "message": "Directory locale"
+  },
   "LocalFolderMajErreurEffCompte": {
     "message": "Errore nell'eliminazione dell'account selezionato."
+  },
+  "maildirStoreType.label": {
+    "message": "File per messaggio (maildir)"
+  },
+  "mboxStoreType.label": {
+    "message": "File per cartella (mbox)"
   },
   "NomPasRenseigne": {
     "message": "Il nome \\u00e8 necessario."
