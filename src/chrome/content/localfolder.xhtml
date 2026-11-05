@@ -11,7 +11,7 @@
 <!ENTITY % accountServerTopDTD SYSTEM "chrome://messenger/locale/am-server-top.dtd">%accountServerTopDTD;
 
 ]>
-<window id="localfolder" title="&eu.philoux.localfolder.titre;" 
+<window id="localfolder" title="__MSG_eu.philoux.localfolder.titre__" 
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	xmlns:html="http://www.w3.org/1999/xhtml" onload="eu.philoux.localfolder.initDlg();" styleX="width: 950px; height: 500px">
 	<script type="application/javascript" src="chrome://localfolder/content/i18n.js" />
@@ -23,7 +23,7 @@
 	</keyset>
 	<vbox class="lfdiv">
 		<hbox align="center" >
-			<label value="__MSG_eu.philoux.localfolder.libnom__" accesskey="&eu.philoux.localfolder.libnom.accesskey;" control="localfoldernom" />
+			<label value="__MSG_eu.philoux.localfolder.libnom__" accesskey="__MSG_eu.philoux.localfolder.libnom.accesskey__" control="localfoldernom" />
 			<hbox height="12px" flex="0">
 				<html:input type="text" wsm_persist="true" size="30" id="localfoldernom" style="height: 12px" />
 			</hbox>
@@ -35,7 +35,7 @@
 		</hbox>
 		<separator class="thin"/>
 		<html:fieldset style="border: 1.5px solid #d0d0d0; padding-right: 8px;">
-			<html:legend style="font-weight: 500; margin-top: 2px;">&eu.philoux.localfolder.directoryAndMessageStore;</html:legend>
+			<html:legend style="font-weight: 500; margin-top: 2px;">__MSG_eu.philoux.localfolder.directoryAndMessageStore__</html:legend>
 			<vbox align="start" style="padding-left: 8px">
 				<checkbox wsm_persist="true" id="server.emptyTrashOnExit"
 				label="#emptyTrashOnExit.label;"
@@ -50,27 +50,27 @@
 						<menupopup id="server.storeTypeMenupopup">
 							<menuitem id="server.mboxStore"
 					  value="@mozilla.org/msgstore/berkeleystore;1"
-					  label="&mboxStore2.label;"/>
+					  label="__MSG_mboxStore2.label__"/>
 							<menuitem id="server.maildirStore"
 					  value="@mozilla.org/msgstore/maildirstore;1"
-					  label="&maildirStore.label;"/>
+					  label="__MSG_maildirStore.label__"/>
 						</menupopup>
 					</menulist>
 				</hbox>
 			</vbox>
 			<html:div style="height: 5px"></html:div>
 			<vbox align="start" style="padding-left: 8px" >
-				<label value="&localPath1.label;" control="server.localPath" height="18px" style="padding-bottom: 6px;"/>
+				<label value="__MSG_localPath1.label__" control="server.localPath" height="18px" style="padding-bottom: 6px;"/>
 				<!-- <html:div style="height: 2px"></html:div> -->
 				<hbox height="32px" style="background-color2: yellow;" flex="0">
 					<hbox align="bottom" height="12px" flex="0" style="background-color2: green;">
 						<html:input type="text" id="localfolderchemin" readonly="true"   tabindex="-1" style="padding-top: -3px; padding-left: 10px; margin-left: 10px; height: 12px; padding-right: 8px;" size="61" class="o"/>,
 					</hbox>
 					<hbox>
-						<button label="&eu.philoux.localfolder.chemin.btlib;" 
+						<button label="__MSG_eu.philoux.localfolder.chemin.btlib__" 
 						id="localfoldercheminbtsel"
-						browsertitle="&eu.philoux.localfolder.chemin.browsertitle;"
-            			accesskey="&eu.philoux.localfolder.chemin.btlibcle;" oncommand="eu.philoux.localfolder.SelectChemin()" style="margin-top: 0px; padding-top: 0px; margin-bottom: 0px; height: 22px; max-height: 30px;"  flex="0" max-height="22px"/>
+						browsertitle="__MSG_eu.philoux.localfolder.chemin.browsertitle__"
+            			accesskey="__MSG_eu.philoux.localfolder.chemin.btlibcle__" oncommand="eu.philoux.localfolder.SelectChemin()" style="margin-top: 0px; padding-top: 0px; margin-bottom: 0px; height: 22px; max-height: 30px;"  flex="0" max-height="22px"/>
 					</hbox>
 				</hbox>
 			</vbox>
@@ -78,7 +78,7 @@
 		</html:fieldset>
 		<vbox height="5px"></vbox>
 		<html:fieldset style="border: 1.5px solid #d0d0d0; padding-right: 8px">
-			<html:legend style="font-weight: 500; margin-top: 2px;">&eu.philoux.localfolder.addMessageFolders;</html:legend>
+			<html:legend style="font-weight: 500; margin-top: 2px;">__MSG_eu.philoux.localfolder.addMessageFolders__</html:legend>
 			<vbox height="8px"></vbox>
 			<hbox flex="1" class="c1" >
 				<vbox class="c2" style="padding-left: 8px">
@@ -86,9 +86,8 @@
 						<hbox >
 							<checkbox id="add_all_folders" onclick="eu.philoux.localfolder.addAllSpecialFolders()"/>
 						</hbox>
-						<!-- <label id="add_all_folders_label"  accesskey="&allFolders.accesskey;"  control="add_all_folders" value="&allFolders.label;" /> -->
-						<!-- <label value="&allFolders.label;" /> -->
-						<html:div>All</html:div>
+						<!-- <label id="add_all_folders_label"  accesskey="__MSG_allFolders.accesskey__"  control="add_all_folders" value="__MSG_allFolders.label__" /> -->
+						<label value="__MSG_allFolders.label__" />
 					</hbox>
 					<label value="" />
 					<label value="" />
@@ -178,8 +177,8 @@
 		</html:fieldset>
 		<html:div style="height: 15px"></html:div>
 		<hbox align="right" pack="end">
-			<button id="localfolder.btQuitter" label="&eu.philoux.localfolder.btQuitter;" oncommand="window.close();"/>
-			<button id="localfolder.btValider" label="&eu.philoux.localfolder.btValider;" oncommand="eu.philoux.localfolder.btCreeDossierLocal();"/>
+			<button id="localfolder.btQuitter" label="__MSG_eu.philoux.localfolder.btQuitter__" oncommand="window.close();"/>
+			<button id="localfolder.btValider" label="__MSG_eu.philoux.localfolder.btValider__" oncommand="eu.philoux.localfolder.btCreeDossierLocal();"/>
 		</hbox>
 	</vbox>
 </window>
