@@ -8,7 +8,7 @@
 		"gecko": {
 			"id": "localfolder@philoux.eu",
 			"strict_min_version": "153.0",
-			"strict_max_version": "159.*"
+			"strict_max_version": "160.*"
 		}
 	},
 	"browser_action": {
