@@ -139,7 +139,7 @@ eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder, storeID) {
         if (eu.philoux.localfolder.existingSpecialFolders.includes(folder)) {
             var localizedFolder = eu.philoux.localfolder.specialFolders[folder].localizedFolderName;
             console.log(localizedFolder)
-            var localizedFolderString = bundle.GetStringFromName(localizedFolder);
+            var localizedFolderString = bundle.Name(localizedFolder);
 
             try {
                 newFolder = rootMsgFolder.getChildNamed(localizedFolderString);

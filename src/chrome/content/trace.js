@@ -3,6 +3,14 @@ if (!eu) var eu={};
 if (!eu.philoux) eu.philoux={};
 if (!eu.philoux.localfolder) eu.philoux.localfolder={};
 
+var { ExtensionParent } = ChromeUtils.importESModule(
+    "resource://gre/modules/ExtensionParent.sys.mjs"
+);
+
+var localfoldersExtension = ExtensionParent.GlobalManager.getExtension(
+    "localfolder@philoux.eu"
+);
+
 //liste des chaines localfolder.properties
 eu.philoux.localfolder.g_messages_localfolder=null;
 
@@ -31,7 +39,7 @@ eu.philoux.localfolder.ChargeMessagesLocalFolder();
 *	Retourne une cha�ne de message � partir de son identifiant dans le fichie localfolder.properties
 */
 eu.philoux.localfolder.LocalFolderMessageFromId = function(msgid){
-	return eu.philoux.localfolder.g_messages_localfolder.GetStringFromName(msgid);
+	return eu.philoux.localfolder.localizeMsgId(msgid);
 }
 
 /**
@@ -71,7 +79,9 @@ eu.philoux.localfolder.LocalFolderAfficheMsgIdGlobalErr = function(msgid){
  	Services.prompt.alert(window, "", msg);
 }
 
-
+eu.philoux.localfolder.localizeMsgId = function (msgid, substitutions = null) {
+    return localfoldersExtension.localeData.localizeMessage(msgid, substitutions);
+}
 
 /**
 *	G�n�ration de traces

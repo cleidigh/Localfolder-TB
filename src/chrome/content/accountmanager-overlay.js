@@ -65,10 +65,9 @@ eu.philoux.localfolder.onSupprimeCompte = async function () {
 			var type = server.type;
 			var prettyName = server.prettyName;
 
-			var bundle = Services.strings.createBundle("chrome://localfolder/locale/localfolder.properties");
-			var confirmTitle = bundle.GetStringFromName("ConfirmRemoveTitle");
-			var confirmRemoveAccount = bundle.formatStringFromName("ConfirmRemoveFolder", [prettyName], 1);
-			var deleteData = bundle.GetStringFromName("deleteData");
+			var confirmTitle = eu.philoux.localfolder.localizeMsgId("ConfirmRemoveTitle");
+			var confirmRemoveAccount = eu.philoux.localfolder.localizeMsgId("ConfirmRemoveFolder", [prettyName]);
+			var deleteData = eu.philoux.localfolder.localizeMsgId("deleteData");
 			var removeData = { value: false };
 
 			try {
