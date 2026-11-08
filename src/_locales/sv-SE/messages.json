@@ -1,151 +1,151 @@
 {
-  "addLocalFolder": {
-    "message": "Lägg till lokal mapp"
-  },
-  "allFolders.label": {
-    "message": "Alla"
-  },
-  "archivesFolderName": {
-    "message": "Arkiv"
-  },
-  "confirmDirNotEmpty": {
-    "message": "Katalogen är inte tom, den innehåller dessa specialmappar:\\n\\n"
-  },
-  "ConfirmRemoveFolder": {
-    "message": "Bekräfta borttagningen av lokal mapp: $P1$\\n\\n(Obs! Kataloger och innehåll kommer inte att raderas.)",
-    "placeholders": {
-      "P1": {
-        "content": "$1"
-      }
+    "ConfirmRemoveFolder": {
+        "message": "Bekräfta borttagningen av lokal mapp: $P1$\\n\\n(Obs! Kataloger och innehåll kommer inte att raderas.)",
+        "placeholders": {
+            "P1": {
+                "content": "$1"
+            }
+        }
+    },
+    "ConfirmRemoveTitle": {
+        "message": "Ta bort lokal mapp"
+    },
+    "DossierExisteDeja": {
+        "message": "Namnet du har valt används redan.\\nVar vänlig ange ett annat namn."
+    },
+    "DossierPasRenseigne": {
+        "message": "Rotmappen är obligatorisk."
+    },
+    "ErreurAppelLocalFolder": {
+        "message": "Fel vid anrop av assistenten."
+    },
+    "ErreurCreationDossier": {
+        "message": "Ett fel uppstod när den lokala mappen skulle skapas."
+    },
+    "LocalFolderMajErreurEffCompte": {
+        "message": "Fel vid borttagning av det valda kontot"
+    },
+    "NomPasRenseigne": {
+        "message": "Namnet är obligatoriskt."
+    },
+    "RepNonValide": {
+        "message": "Rotmappen är inte giltig. Den måste vara tom eller innehålla åtminstone en MSF-fil."
+    },
+    "RepertoireDejaUtilise": {
+        "message": "Rotmappen du har valt används redan.\\nVar vänlig ange en annan sökväg."
+    },
+    "addLocalFolder": {
+        "message": "Lägg till lokal mapp"
+    },
+    "allFolders.label": {
+        "message": "Alla"
+    },
+    "archivesFolderName": {
+        "message": "Arkiv"
+    },
+    "confirmDirNotEmpty": {
+        "message": "Katalogen är inte tom, den innehåller dessa specialmappar:\\n\\n"
+    },
+    "confirmRetained": {
+        "message": "\\nDessa kommer att behållas liksom alla andra mappar.\\n\\nOBS: Papperskorgen och ej skickade meddelanden kommer att raderas."
+    },
+    "deleteData": {
+        "message": "Ta bort alla undermappar och data"
+    },
+    "draftsFolderName": {
+        "message": "Utkast"
+    },
+    "emptyTrashOnExit.label": {
+        "message": "Töm papperskorgen vid utgång"
+    },
+    "eu.philoux.localfolder.addMessageFolders": {
+        "message": "Lägg till e-postmapp"
+    },
+    "eu.philoux.localfolder.bandeau.titre": {
+        "message": "Konfiguration av lokal mapp"
+    },
+    "eu.philoux.localfolder.btQuitter": {
+        "message": "Avbryt"
+    },
+    "eu.philoux.localfolder.btValider": {
+        "message": "OK"
+    },
+    "eu.philoux.localfolder.btdossier": {
+        "message": "Ny lokal mapp…"
+    },
+    "eu.philoux.localfolder.btdossier.racc": {
+        "message": "l"
+    },
+    "eu.philoux.localfolder.chemin.browsertitle": {
+        "message": "Välj en mapp"
+    },
+    "eu.philoux.localfolder.chemin.btlib": {
+        "message": "Bläddra…"
+    },
+    "eu.philoux.localfolder.chemin.btlibcle": {
+        "message": "B"
+    },
+    "eu.philoux.localfolder.directoryAndMessageStore": {
+        "message": "Katalog och Meddelandelager"
+    },
+    "eu.philoux.localfolder.libchemin": {
+        "message": "Rotmapp:"
+    },
+    "eu.philoux.localfolder.libnom": {
+        "message": "Namn:"
+    },
+    "eu.philoux.localfolder.libnom.accesskey": {
+        "message": "N"
+    },
+    "eu.philoux.localfolder.titre": {
+        "message": "Lägg till en lokal mapp"
+    },
+    "extensionDescription": {
+        "message": "Lägg till så många lokala mappar som krävs"
+    },
+    "extensionName": {
+        "message": "Lokala mappar (LocalFolders)"
+    },
+    "extensions.localfolder@philoux.eu.description": {
+        "message": "Lägg till hur många mappar du vill."
+    },
+    "inboxFolderName": {
+        "message": "Inkorgen"
+    },
+    "junkFolderName": {
+        "message": "Skräp"
+    },
+    "localDirectory.label": {
+        "message": "Lokal katalog"
+    },
+    "maildirStoreType.label": {
+        "message": "Fil per meddelande (maildir)"
+    },
+    "mboxStoreType.label": {
+        "message": "Fil per mapp (mbox)"
+    },
+    "outboxFolderName": {
+        "message": "Utkorgen"
+    },
+    "removeLocalFolder": {
+        "message": "Ta bort lokal mapp"
+    },
+    "restartMsg.msg": {
+        "message": "Thundirbird måste startas om för att den nya lokala mappen ska konfigureras korrekt.\n\nSkapa inga mappar eller kopiera meddelanden i den lokala mappen innan du startat om."
+    },
+    "restartMsg.title": {
+        "message": "Omstart krävs"
+    },
+    "sentFolderName": {
+        "message": "Skickat"
+    },
+    "storeType.label": {
+        "message": "Meddelandelagringstyp"
+    },
+    "templatesFolderName": {
+        "message": "Mallar"
+    },
+    "trashFolderName": {
+        "message": "Papperskorgen"
     }
-  },
-  "ConfirmRemoveTitle": {
-    "message": "Ta bort lokal mapp"
-  },
-  "confirmRetained": {
-    "message": "\\nDessa kommer att behållas liksom alla andra mappar.\\n\\nOBS: Papperskorgen och ej skickade meddelanden kommer att raderas."
-  },
-  "deleteData": {
-    "message": "Ta bort alla undermappar och data"
-  },
-  "DossierExisteDeja": {
-    "message": "Namnet du har valt används redan.\\nVar vänlig ange ett annat namn."
-  },
-  "DossierPasRenseigne": {
-    "message": "Rotmappen är obligatorisk."
-  },
-  "draftsFolderName": {
-    "message": "Utkast"
-  },
-  "emptyTrashOnExit.label": {
-    "message": "Töm papperskorgen vid utgång"
-  },
-  "ErreurAppelLocalFolder": {
-    "message": "Fel vid anrop av assistenten."
-  },
-  "ErreurCreationDossier": {
-    "message": "Ett fel uppstod när den lokala mappen skulle skapas."
-  },
-  "eu.philoux.localfolder.addMessageFolders": {
-    "message": "Lägg till e-postmapp"
-  },
-  "eu.philoux.localfolder.bandeau.titre": {
-    "message": "Konfiguration av lokal mapp"
-  },
-  "eu.philoux.localfolder.btdossier": {
-    "message": "Ny lokal mapp…"
-  },
-  "eu.philoux.localfolder.btdossier.racc": {
-    "message": "l"
-  },
-  "eu.philoux.localfolder.btQuitter": {
-    "message": "Avbryt"
-  },
-  "eu.philoux.localfolder.btValider": {
-    "message": "OK"
-  },
-  "eu.philoux.localfolder.chemin.browsertitle": {
-    "message": "Välj en mapp"
-  },
-  "eu.philoux.localfolder.chemin.btlib": {
-    "message": "Bläddra…"
-  },
-  "eu.philoux.localfolder.chemin.btlibcle": {
-    "message": "B"
-  },
-  "eu.philoux.localfolder.directoryAndMessageStore": {
-    "message": "Katalog och Meddelandelager"
-  },
-  "eu.philoux.localfolder.libchemin": {
-    "message": "Rotmapp:"
-  },
-  "eu.philoux.localfolder.libnom": {
-    "message": "Namn:"
-  },
-  "eu.philoux.localfolder.libnom.accesskey": {
-    "message": "N"
-  },
-  "eu.philoux.localfolder.titre": {
-    "message": "Lägg till en lokal mapp"
-  },
-  "extensionDescription": {
-    "message": "Lägg till så många lokala mappar som krävs"
-  },
-  "extensionName": {
-    "message": "Lokala mappar (LocalFolders)"
-  },
-  "extensions.localfolder@philoux.eu.description": {
-    "message": "Lägg till hur många mappar du vill."
-  },
-  "inboxFolderName": {
-    "message": "Inkorgen"
-  },
-  "junkFolderName": {
-    "message": "Skräp"
-  },
-  "localDirectory.label": {
-    "message": "Lokal katalog"
-  },
-  "LocalFolderMajErreurEffCompte": {
-    "message": "Fel vid borttagning av det valda kontot"
-  },
-  "maildirStoreType.label": {
-    "message": "Fil per meddelande (maildir)"
-  },
-  "mboxStoreType.label": {
-    "message": "Fil per mapp (mbox)"
-  },
-  "NomPasRenseigne": {
-    "message": "Namnet är obligatoriskt."
-  },
-  "outboxFolderName": {
-    "message": "Utkorgen"
-  },
-  "removeLocalFolder": {
-    "message": "Ta bort lokal mapp"
-  },
-  "RepertoireDejaUtilise": {
-    "message": "Rotmappen du har valt används redan.\\nVar vänlig ange en annan sökväg."
-  },
-  "RepNonValide": {
-    "message": "Rotmappen är inte giltig. Den måste vara tom eller innehålla åtminstone en MSF-fil."
-  },
-  "restartMsg.msg": {
-    "message": "Thundirbird måste startas om för att den nya lokala mappen ska konfigureras korrekt.\n\nSkapa inga mappar eller kopiera meddelanden i den lokala mappen innan du startat om."
-  },
-  "restartMsg.title": {
-    "message": "Omstart krävs"
-  },
-  "sentFolderName": {
-    "message": "Skickat"
-  },
-  "storeType.label": {
-    "message": "Meddelandelagringstyp"
-  },
-  "templatesFolderName": {
-    "message": "Mallar"
-  },
-  "trashFolderName": {
-    "message": "Papperskorgen"
-  }
 }

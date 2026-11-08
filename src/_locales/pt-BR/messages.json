@@ -1,151 +1,151 @@
 {
-  "addLocalFolder": {
-    "message": "Adicionar pasta local"
-  },
-  "allFolders.label": {
-    "message": "Todos"
-  },
-  "archivesFolderName": {
-    "message": "Arquivamento"
-  },
-  "confirmDirNotEmpty": {
-    "message": "Diretório não vazio, contém estas pastas especiais:\\n\\n"
-  },
-  "ConfirmRemoveFolder": {
-    "message": "Você tem certeza que deseja remover a Pasta Local \"$P1$\"\\n\\n(Nota: A pasta e os arquivos não serão apagados.)",
-    "placeholders": {
-      "P1": {
-        "content": "$1"
-      }
+    "ConfirmRemoveFolder": {
+        "message": "Você tem certeza que deseja remover a Pasta Local \"$P1$\"\\n\\n(Nota: A pasta e os arquivos não serão apagados.)",
+        "placeholders": {
+            "P1": {
+                "content": "$1"
+            }
+        }
+    },
+    "ConfirmRemoveTitle": {
+        "message": "Remover Pasta Local"
+    },
+    "DossierExisteDeja": {
+        "message": "O nome escolhido já está em uso.\\nPor favor, escolha outro nome."
+    },
+    "DossierPasRenseigne": {
+        "message": "Pasta local é um campo obrigatório"
+    },
+    "ErreurAppelLocalFolder": {
+        "message": "Erro ao chamar o assistente."
+    },
+    "ErreurCreationDossier": {
+        "message": "Ocorreu um erro durante a criação da Pasta Local."
+    },
+    "LocalFolderMajErreurEffCompte": {
+        "message": "Erro ao remover a conta selecionada:"
+    },
+    "NomPasRenseigne": {
+        "message": "Nome é um campo obrigatório"
+    },
+    "RepNonValide": {
+        "message": "Pasta inválida. A pasta escolhida deve estar vazia ou conter ao menos um arquivo “msf”."
+    },
+    "RepertoireDejaUtilise": {
+        "message": "A pasta escolhida já está em uso.\\nPor favor, escolha outra pasta."
+    },
+    "addLocalFolder": {
+        "message": "Adicionar pasta local"
+    },
+    "allFolders.label": {
+        "message": "Todos"
+    },
+    "archivesFolderName": {
+        "message": "Arquivamento"
+    },
+    "confirmDirNotEmpty": {
+        "message": "Diretório não vazio, contém estas pastas especiais:\\n\\n"
+    },
+    "confirmRetained": {
+        "message": "\\nEles serão mantidos, assim como quaisquer outras pastas.\\n\\nNOTA: Lixeira e mensagens não enviadas serão excluídas."
+    },
+    "deleteData": {
+        "message": "Exclua todas as subpastas e dados"
+    },
+    "draftsFolderName": {
+        "message": "Rascunhos"
+    },
+    "emptyTrashOnExit.label": {
+        "message": "Esvazie o lixo na saída."
+    },
+    "eu.philoux.localfolder.addMessageFolders": {
+        "message": "Adicionar Pastas de Mensagens"
+    },
+    "eu.philoux.localfolder.bandeau.titre": {
+        "message": "Configuração de Pasta Local"
+    },
+    "eu.philoux.localfolder.btQuitter": {
+        "message": "Cancelar"
+    },
+    "eu.philoux.localfolder.btValider": {
+        "message": "OK"
+    },
+    "eu.philoux.localfolder.btdossier": {
+        "message": "Nova Pasta Local…"
+    },
+    "eu.philoux.localfolder.btdossier.racc": {
+        "message": "L"
+    },
+    "eu.philoux.localfolder.chemin.browsertitle": {
+        "message": "Selecione uma pasta"
+    },
+    "eu.philoux.localfolder.chemin.btlib": {
+        "message": "Procurar…"
+    },
+    "eu.philoux.localfolder.chemin.btlibcle": {
+        "message": "P"
+    },
+    "eu.philoux.localfolder.directoryAndMessageStore": {
+        "message": "Diretório e Armazenamento de mensagens"
+    },
+    "eu.philoux.localfolder.libchemin": {
+        "message": "Pasta local:"
+    },
+    "eu.philoux.localfolder.libnom": {
+        "message": "Nome:"
+    },
+    "eu.philoux.localfolder.libnom.accesskey": {
+        "message": "N"
+    },
+    "eu.philoux.localfolder.titre": {
+        "message": "Adicionar uma Pasta Local"
+    },
+    "extensionDescription": {
+        "message": "Adicione quantas Pastas Locais desejar, incluindo diretórios mapeados."
+    },
+    "extensionName": {
+        "message": "LocalFolders"
+    },
+    "extensions.localfolder@philoux.eu.description": {
+        "message": "Adicione quantas Pastas Locais desejar, incluindo diretórios mapeados."
+    },
+    "inboxFolderName": {
+        "message": "Entrada"
+    },
+    "junkFolderName": {
+        "message": "Spam"
+    },
+    "localDirectory.label": {
+        "message": "Diretório Local"
+    },
+    "maildirStoreType.label": {
+        "message": "Arquivo por mensagem (maildir)"
+    },
+    "mboxStoreType.label": {
+        "message": "Arquivo por pasta (mbox)"
+    },
+    "outboxFolderName": {
+        "message": "Saída"
+    },
+    "removeLocalFolder": {
+        "message": "Remover pasta local"
+    },
+    "restartMsg.msg": {
+        "message": "O Thunderbird precisa ser reiniciado para que a nova Pasta Local seja configurada corretamente.\n\nNão crie pastas nem copie mensagens na Pasta Local antes de reiniciar."
+    },
+    "restartMsg.title": {
+        "message": "É necessário reiniciar."
+    },
+    "sentFolderName": {
+        "message": "Enviadas"
+    },
+    "storeType.label": {
+        "message": "Tipo de armazenamento de mensagens"
+    },
+    "templatesFolderName": {
+        "message": "Modelos"
+    },
+    "trashFolderName": {
+        "message": "Lixeira"
     }
-  },
-  "ConfirmRemoveTitle": {
-    "message": "Remover Pasta Local"
-  },
-  "confirmRetained": {
-    "message": "\\nEles serão mantidos, assim como quaisquer outras pastas.\\n\\nNOTA: Lixeira e mensagens não enviadas serão excluídas."
-  },
-  "deleteData": {
-    "message": "Exclua todas as subpastas e dados"
-  },
-  "DossierExisteDeja": {
-    "message": "O nome escolhido já está em uso.\\nPor favor, escolha outro nome."
-  },
-  "DossierPasRenseigne": {
-    "message": "Pasta local é um campo obrigatório"
-  },
-  "draftsFolderName": {
-    "message": "Rascunhos"
-  },
-  "emptyTrashOnExit.label": {
-    "message": "Esvazie o lixo na saída."
-  },
-  "ErreurAppelLocalFolder": {
-    "message": "Erro ao chamar o assistente."
-  },
-  "ErreurCreationDossier": {
-    "message": "Ocorreu um erro durante a criação da Pasta Local."
-  },
-  "eu.philoux.localfolder.addMessageFolders": {
-    "message": "Adicionar Pastas de Mensagens"
-  },
-  "eu.philoux.localfolder.bandeau.titre": {
-    "message": "Configuração de Pasta Local"
-  },
-  "eu.philoux.localfolder.btdossier": {
-    "message": "Nova Pasta Local…"
-  },
-  "eu.philoux.localfolder.btdossier.racc": {
-    "message": "L"
-  },
-  "eu.philoux.localfolder.btQuitter": {
-    "message": "Cancelar"
-  },
-  "eu.philoux.localfolder.btValider": {
-    "message": "OK"
-  },
-  "eu.philoux.localfolder.chemin.browsertitle": {
-    "message": "Selecione uma pasta"
-  },
-  "eu.philoux.localfolder.chemin.btlib": {
-    "message": "Procurar…"
-  },
-  "eu.philoux.localfolder.chemin.btlibcle": {
-    "message": "P"
-  },
-  "eu.philoux.localfolder.directoryAndMessageStore": {
-    "message": "Diretório e Armazenamento de mensagens"
-  },
-  "eu.philoux.localfolder.libchemin": {
-    "message": "Pasta local:"
-  },
-  "eu.philoux.localfolder.libnom": {
-    "message": "Nome:"
-  },
-  "eu.philoux.localfolder.libnom.accesskey": {
-    "message": "N"
-  },
-  "eu.philoux.localfolder.titre": {
-    "message": "Adicionar uma Pasta Local"
-  },
-  "extensionDescription": {
-    "message": "Adicione quantas Pastas Locais desejar, incluindo diretórios mapeados."
-  },
-  "extensionName": {
-    "message": "LocalFolders"
-  },
-  "extensions.localfolder@philoux.eu.description": {
-    "message": "Adicione quantas Pastas Locais desejar, incluindo diretórios mapeados."
-  },
-  "inboxFolderName": {
-    "message": "Entrada"
-  },
-  "junkFolderName": {
-    "message": "Spam"
-  },
-  "localDirectory.label": {
-    "message": "Diretório Local"
-  },
-  "LocalFolderMajErreurEffCompte": {
-    "message": "Erro ao remover a conta selecionada:"
-  },
-  "maildirStoreType.label": {
-    "message": "Arquivo por mensagem (maildir)"
-  },
-  "mboxStoreType.label": {
-    "message": "Arquivo por pasta (mbox)"
-  },
-  "NomPasRenseigne": {
-    "message": "Nome é um campo obrigatório"
-  },
-  "outboxFolderName": {
-    "message": "Saída"
-  },
-  "removeLocalFolder": {
-    "message": "Remover pasta local"
-  },
-  "RepertoireDejaUtilise": {
-    "message": "A pasta escolhida já está em uso.\\nPor favor, escolha outra pasta."
-  },
-  "RepNonValide": {
-    "message": "Pasta inválida. A pasta escolhida deve estar vazia ou conter ao menos um arquivo “msf”."
-  },
-  "restartMsg.msg": {
-    "message": "O Thunderbird precisa ser reiniciado para que a nova Pasta Local seja configurada corretamente.\n\nNão crie pastas nem copie mensagens na Pasta Local antes de reiniciar."
-  },
-  "restartMsg.title": {
-    "message": "É necessário reiniciar."
-  },
-  "sentFolderName": {
-    "message": "Enviadas"
-  },
-  "storeType.label": {
-    "message": "Tipo de armazenamento de mensagens"
-  },
-  "templatesFolderName": {
-    "message": "Modelos"
-  },
-  "trashFolderName": {
-    "message": "Lixeira"
-  }
 }

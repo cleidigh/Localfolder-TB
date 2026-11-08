@@ -1,151 +1,151 @@
 {
-  "addLocalFolder": {
-    "message": "Aggiungi cartella locale"
-  },
-  "allFolders.label": {
-    "message": "Tutto"
-  },
-  "archivesFolderName": {
-    "message": "Archivi"
-  },
-  "confirmDirNotEmpty": {
-    "message": "Directory non vuota, contiene queste cartelle speciali:\\n\\n"
-  },
-  "ConfirmRemoveFolder": {
-    "message": "Conferma la rimozione della cartella locale: $P1$\\n\\n(Nota: le directory e i contenuti non verranno eliminati.)",
-    "placeholders": {
-      "P1": {
-        "content": "$1"
-      }
+    "ConfirmRemoveFolder": {
+        "message": "Conferma la rimozione della cartella locale: $P1$\\n\\n(Nota: le directory e i contenuti non verranno eliminati.)",
+        "placeholders": {
+            "P1": {
+                "content": "$1"
+            }
+        }
+    },
+    "ConfirmRemoveTitle": {
+        "message": "Rimuovi cartella locale"
+    },
+    "DossierExisteDeja": {
+        "message": "Il nome inserito \\u00e8 gi\\u00e0 in uso.\\nInserire un altro nome."
+    },
+    "DossierPasRenseigne": {
+        "message": "La cartella \\u00e8 necessaria."
+    },
+    "ErreurAppelLocalFolder": {
+        "message": "Errore di chiamata dell'assistente."
+    },
+    "ErreurCreationDossier": {
+        "message": "Errore nella creazione della cartella locale."
+    },
+    "LocalFolderMajErreurEffCompte": {
+        "message": "Errore nell'eliminazione dell'account selezionato."
+    },
+    "NomPasRenseigne": {
+        "message": "Il nome \\u00e8 necessario."
+    },
+    "RepNonValide": {
+        "message": "La cartella specificata non \\u00e8 valida. Deve essere vuota o contenere almeno un file «msf»."
+    },
+    "RepertoireDejaUtilise": {
+        "message": "La cartella scelta \\u00e8 gi\\u00e0 in uso.\\nSelezionare un'altra cartella."
+    },
+    "addLocalFolder": {
+        "message": "Aggiungi cartella locale"
+    },
+    "allFolders.label": {
+        "message": "Tutto"
+    },
+    "archivesFolderName": {
+        "message": "Archivi"
+    },
+    "confirmDirNotEmpty": {
+        "message": "Directory non vuota, contiene queste cartelle speciali:\\n\\n"
+    },
+    "confirmRetained": {
+        "message": "\\nQuesti verranno conservati così come qualsiasi altra cartella.\\n\\nNOTA: il cestino e i messaggi non inviati verranno eliminati."
+    },
+    "deleteData": {
+        "message": "Elimina tutte le sottocartelle e i dati"
+    },
+    "draftsFolderName": {
+        "message": "Bozze"
+    },
+    "emptyTrashOnExit.label": {
+        "message": "Svuotare i cestini all&#39;uscita"
+    },
+    "eu.philoux.localfolder.addMessageFolders": {
+        "message": "Aggiungi Cartelle di Messaggi"
+    },
+    "eu.philoux.localfolder.bandeau.titre": {
+        "message": "Configurazione cartella locale"
+    },
+    "eu.philoux.localfolder.btQuitter": {
+        "message": "Annulla"
+    },
+    "eu.philoux.localfolder.btValider": {
+        "message": "Ok"
+    },
+    "eu.philoux.localfolder.btdossier": {
+        "message": "Nuova cartella locale…"
+    },
+    "eu.philoux.localfolder.btdossier.racc": {
+        "message": "c"
+    },
+    "eu.philoux.localfolder.chemin.browsertitle": {
+        "message": "Seleziona una cartella"
+    },
+    "eu.philoux.localfolder.chemin.btlib": {
+        "message": "Sfoglia…"
+    },
+    "eu.philoux.localfolder.chemin.btlibcle": {
+        "message": "S"
+    },
+    "eu.philoux.localfolder.directoryAndMessageStore": {
+        "message": "Directory e Archivio Messaggi"
+    },
+    "eu.philoux.localfolder.libchemin": {
+        "message": "Cartella:"
+    },
+    "eu.philoux.localfolder.libnom": {
+        "message": "Nome:"
+    },
+    "eu.philoux.localfolder.libnom.accesskey": {
+        "message": "N"
+    },
+    "eu.philoux.localfolder.titre": {
+        "message": "Cartella locale aggiuntiva"
+    },
+    "extensionDescription": {
+        "message": "Aggiungi tutte le cartelle locali necessarie, comprese le directory mappate."
+    },
+    "extensionName": {
+        "message": "LocalFolders"
+    },
+    "extensions.localfolder@philoux.eu.description": {
+        "message": "Aggiungi tutte le cartelle locali necessarie, comprese le directory mappate."
+    },
+    "inboxFolderName": {
+        "message": "Posta in arrivo"
+    },
+    "junkFolderName": {
+        "message": "Indesiderata"
+    },
+    "localDirectory.label": {
+        "message": "Directory locale"
+    },
+    "maildirStoreType.label": {
+        "message": "File per messaggio (maildir)"
+    },
+    "mboxStoreType.label": {
+        "message": "File per cartella (mbox)"
+    },
+    "outboxFolderName": {
+        "message": "Posta in uscita"
+    },
+    "removeLocalFolder": {
+        "message": "Rimuovi cartella locale"
+    },
+    "restartMsg.msg": {
+        "message": "Thundirbird deve essere riavviato affinché la nuova cartella locale venga configurata correttamente.\n\nNon creare cartelle o copiare messaggi nella cartella locale prima del riavvio."
+    },
+    "restartMsg.title": {
+        "message": "Riavvio richiesto"
+    },
+    "sentFolderName": {
+        "message": "Posta inviata"
+    },
+    "storeType.label": {
+        "message": "Tipo di negozio di messaggi"
+    },
+    "templatesFolderName": {
+        "message": "Modelli"
+    },
+    "trashFolderName": {
+        "message": "Cestino"
     }
-  },
-  "ConfirmRemoveTitle": {
-    "message": "Rimuovi cartella locale"
-  },
-  "confirmRetained": {
-    "message": "\\nQuesti verranno conservati così come qualsiasi altra cartella.\\n\\nNOTA: il cestino e i messaggi non inviati verranno eliminati."
-  },
-  "deleteData": {
-    "message": "Elimina tutte le sottocartelle e i dati"
-  },
-  "DossierExisteDeja": {
-    "message": "Il nome inserito \\u00e8 gi\\u00e0 in uso.\\nInserire un altro nome."
-  },
-  "DossierPasRenseigne": {
-    "message": "La cartella \\u00e8 necessaria."
-  },
-  "draftsFolderName": {
-    "message": "Bozze"
-  },
-  "emptyTrashOnExit.label": {
-    "message": "Svuotare i cestini all&#39;uscita"
-  },
-  "ErreurAppelLocalFolder": {
-    "message": "Errore di chiamata dell'assistente."
-  },
-  "ErreurCreationDossier": {
-    "message": "Errore nella creazione della cartella locale."
-  },
-  "eu.philoux.localfolder.addMessageFolders": {
-    "message": "Aggiungi Cartelle di Messaggi"
-  },
-  "eu.philoux.localfolder.bandeau.titre": {
-    "message": "Configurazione cartella locale"
-  },
-  "eu.philoux.localfolder.btdossier": {
-    "message": "Nuova cartella locale…"
-  },
-  "eu.philoux.localfolder.btdossier.racc": {
-    "message": "c"
-  },
-  "eu.philoux.localfolder.btQuitter": {
-    "message": "Annulla"
-  },
-  "eu.philoux.localfolder.btValider": {
-    "message": "Ok"
-  },
-  "eu.philoux.localfolder.chemin.browsertitle": {
-    "message": "Seleziona una cartella"
-  },
-  "eu.philoux.localfolder.chemin.btlib": {
-    "message": "Sfoglia…"
-  },
-  "eu.philoux.localfolder.chemin.btlibcle": {
-    "message": "S"
-  },
-  "eu.philoux.localfolder.directoryAndMessageStore": {
-    "message": "Directory e Archivio Messaggi"
-  },
-  "eu.philoux.localfolder.libchemin": {
-    "message": "Cartella:"
-  },
-  "eu.philoux.localfolder.libnom": {
-    "message": "Nome:"
-  },
-  "eu.philoux.localfolder.libnom.accesskey": {
-    "message": "N"
-  },
-  "eu.philoux.localfolder.titre": {
-    "message": "Cartella locale aggiuntiva"
-  },
-  "extensionDescription": {
-    "message": "Aggiungi tutte le cartelle locali necessarie, comprese le directory mappate."
-  },
-  "extensionName": {
-    "message": "LocalFolders"
-  },
-  "extensions.localfolder@philoux.eu.description": {
-    "message": "Aggiungi tutte le cartelle locali necessarie, comprese le directory mappate."
-  },
-  "inboxFolderName": {
-    "message": "Posta in arrivo"
-  },
-  "junkFolderName": {
-    "message": "Indesiderata"
-  },
-  "localDirectory.label": {
-    "message": "Directory locale"
-  },
-  "LocalFolderMajErreurEffCompte": {
-    "message": "Errore nell'eliminazione dell'account selezionato."
-  },
-  "maildirStoreType.label": {
-    "message": "File per messaggio (maildir)"
-  },
-  "mboxStoreType.label": {
-    "message": "File per cartella (mbox)"
-  },
-  "NomPasRenseigne": {
-    "message": "Il nome \\u00e8 necessario."
-  },
-  "outboxFolderName": {
-    "message": "Posta in uscita"
-  },
-  "removeLocalFolder": {
-    "message": "Rimuovi cartella locale"
-  },
-  "RepertoireDejaUtilise": {
-    "message": "La cartella scelta \\u00e8 gi\\u00e0 in uso.\\nSelezionare un'altra cartella."
-  },
-  "RepNonValide": {
-    "message": "La cartella specificata non \\u00e8 valida. Deve essere vuota o contenere almeno un file «msf»."
-  },
-  "restartMsg.msg": {
-    "message": "Thundirbird deve essere riavviato affinché la nuova cartella locale venga configurata correttamente.\n\nNon creare cartelle o copiare messaggi nella cartella locale prima del riavvio."
-  },
-  "restartMsg.title": {
-    "message": "Riavvio richiesto"
-  },
-  "sentFolderName": {
-    "message": "Posta inviata"
-  },
-  "storeType.label": {
-    "message": "Tipo di negozio di messaggi"
-  },
-  "templatesFolderName": {
-    "message": "Modelli"
-  },
-  "trashFolderName": {
-    "message": "Cestino"
-  }
 }

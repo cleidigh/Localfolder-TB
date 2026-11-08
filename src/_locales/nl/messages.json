@@ -1,148 +1,148 @@
 {
-  "addLocalFolder": {
-    "message": "Lokale map toevoegen"
-  },
-  "allFolders.label": {
-    "message": "Alle"
-  },
-  "archivesFolderName": {
-    "message": "Archieven"
-  },
-  "confirmDirNotEmpty": {
-    "message": "Directory is niet leeg. Deze bevat deze speciale mappen:\\n\\n"
-  },
-  "ConfirmRemoveFolder": {
-    "message": "Weet u zeker dat u de lokale map '$P1$' wilt verwijderen?\\n\\n(let op: de mappen en inhoud worden niet verwijderd.)",
-    "placeholders": {
-      "P1": {
-        "content": "$1"
-      }
+    "ConfirmRemoveFolder": {
+        "message": "Weet u zeker dat u de lokale map '$P1$' wilt verwijderen?\\n\\n(let op: de mappen en inhoud worden niet verwijderd.)",
+        "placeholders": {
+            "P1": {
+                "content": "$1"
+            }
+        }
+    },
+    "ConfirmRemoveTitle": {
+        "message": "Lokale map verwijderen"
+    },
+    "DossierExisteDeja": {
+        "message": "U heeft een naam ingevoerd die al in gebruik is.\\nVoer een andere naam in."
+    },
+    "DossierPasRenseigne": {
+        "message": "Kies een map."
+    },
+    "ErreurAppelLocalFolder": {
+        "message": "De assistent kan niet worden aangeroepen."
+    },
+    "ErreurCreationDossier": {
+        "message": "Er is een fout opgetreden tijdens het aanmaken van de lokale map."
+    },
+    "LocalFolderMajErreurEffCompte": {
+        "message": "Er is een fout opgetreden tijdens het verwijderen van het account."
+    },
+    "NomPasRenseigne": {
+        "message": "Voer een naam in."
+    },
+    "RepNonValide": {
+        "message": "Deze map is ongeldig. De map dient leeg te zijn of minimaal één 'msf'-bestand te bevatten."
+    },
+    "RepertoireDejaUtilise": {
+        "message": "U heeft een map gekozen die momenteel in gebruik is.\\nVoer een andere naam in."
+    },
+    "addLocalFolder": {
+        "message": "Lokale map toevoegen"
+    },
+    "allFolders.label": {
+        "message": "Alle"
+    },
+    "archivesFolderName": {
+        "message": "Archieven"
+    },
+    "confirmDirNotEmpty": {
+        "message": "Directory is niet leeg. Deze bevat deze speciale mappen:\\n\\n"
+    },
+    "confirmRetained": {
+        "message": "\\nDeze blijven behouden, evenals alle andere mappen.\\n\\nOPMERKING: Prullenbak en niet-verzonden berichten worden verwijderd."
+    },
+    "deleteData": {
+        "message": "Verwijder alle submappen en gegevens"
+    },
+    "draftsFolderName": {
+        "message": "Concepten"
+    },
+    "emptyTrashOnExit.label": {
+        "message": "Leeg de prullenbak bij het verlaten van de winkel."
+    },
+    "eu.philoux.localfolder.addMessageFolders": {
+        "message": "Berichtenmappen toevoegen"
+    },
+    "eu.philoux.localfolder.btQuitter": {
+        "message": "Annuleren"
+    },
+    "eu.philoux.localfolder.btValider": {
+        "message": "Oké"
+    },
+    "eu.philoux.localfolder.btdossier": {
+        "message": "Lokale map toevoegen…"
+    },
+    "eu.philoux.localfolder.btdossier.racc": {
+        "message": "L"
+    },
+    "eu.philoux.localfolder.chemin.browsertitle": {
+        "message": "Kies een map"
+    },
+    "eu.philoux.localfolder.chemin.btlib": {
+        "message": "Bladeren…"
+    },
+    "eu.philoux.localfolder.chemin.btlibcle": {
+        "message": "B"
+    },
+    "eu.philoux.localfolder.directoryAndMessageStore": {
+        "message": "Map en berichtopslag"
+    },
+    "eu.philoux.localfolder.libchemin": {
+        "message": "Lokale map:"
+    },
+    "eu.philoux.localfolder.libnom": {
+        "message": "Naam:"
+    },
+    "eu.philoux.localfolder.libnom.accesskey": {
+        "message": "N"
+    },
+    "eu.philoux.localfolder.titre": {
+        "message": "Lokale map toevoegen"
+    },
+    "extensionDescription": {
+        "message": "Voeg zo veel mogelijk mappen toe als nodig, inclusief toegewezen mappen."
+    },
+    "extensionName": {
+        "message": "LocalFolders"
+    },
+    "extensions.localfolder@philoux.eu.description": {
+        "message": "Voeg zo veel mogelijk lokale mappen toe als nodig."
+    },
+    "inboxFolderName": {
+        "message": "Postvak IN"
+    },
+    "junkFolderName": {
+        "message": "Ongewenst"
+    },
+    "localDirectory.label": {
+        "message": "Lokale map"
+    },
+    "maildirStoreType.label": {
+        "message": "Bestand per bericht (mailmap)"
+    },
+    "mboxStoreType.label": {
+        "message": "Bestand per map (mbox)"
+    },
+    "outboxFolderName": {
+        "message": "Postvak UIT"
+    },
+    "removeLocalFolder": {
+        "message": "Lokale map verwijderen"
+    },
+    "restartMsg.msg": {
+        "message": "Thunderbird moet opnieuw worden opgestart om de nieuwe lokale map correct te configureren.\n\nMaak geen mappen aan en kopieer geen berichten naar de lokale map voordat u Thunderbird opnieuw opstart."
+    },
+    "restartMsg.title": {
+        "message": "Opnieuw opstarten vereist"
+    },
+    "sentFolderName": {
+        "message": "Verzonden"
+    },
+    "storeType.label": {
+        "message": "Berichtenopslagtype"
+    },
+    "templatesFolderName": {
+        "message": "Sjablonen"
+    },
+    "trashFolderName": {
+        "message": "Prullenbak"
     }
-  },
-  "ConfirmRemoveTitle": {
-    "message": "Lokale map verwijderen"
-  },
-  "confirmRetained": {
-    "message": "\\nDeze blijven behouden, evenals alle andere mappen.\\n\\nOPMERKING: Prullenbak en niet-verzonden berichten worden verwijderd."
-  },
-  "deleteData": {
-    "message": "Verwijder alle submappen en gegevens"
-  },
-  "DossierExisteDeja": {
-    "message": "U heeft een naam ingevoerd die al in gebruik is.\\nVoer een andere naam in."
-  },
-  "DossierPasRenseigne": {
-    "message": "Kies een map."
-  },
-  "draftsFolderName": {
-    "message": "Concepten"
-  },
-  "emptyTrashOnExit.label": {
-    "message": "Leeg de prullenbak bij het verlaten van de winkel."
-  },
-  "ErreurAppelLocalFolder": {
-    "message": "De assistent kan niet worden aangeroepen."
-  },
-  "ErreurCreationDossier": {
-    "message": "Er is een fout opgetreden tijdens het aanmaken van de lokale map."
-  },
-  "eu.philoux.localfolder.addMessageFolders": {
-    "message": "Berichtenmappen toevoegen"
-  },
-  "eu.philoux.localfolder.btdossier": {
-    "message": "Lokale map toevoegen…"
-  },
-  "eu.philoux.localfolder.btdossier.racc": {
-    "message": "L"
-  },
-  "eu.philoux.localfolder.btQuitter": {
-    "message": "Annuleren"
-  },
-  "eu.philoux.localfolder.btValider": {
-    "message": "Oké"
-  },
-  "eu.philoux.localfolder.chemin.browsertitle": {
-    "message": "Kies een map"
-  },
-  "eu.philoux.localfolder.chemin.btlib": {
-    "message": "Bladeren…"
-  },
-  "eu.philoux.localfolder.chemin.btlibcle": {
-    "message": "B"
-  },
-  "eu.philoux.localfolder.directoryAndMessageStore": {
-    "message": "Map en berichtopslag"
-  },
-  "eu.philoux.localfolder.libchemin": {
-    "message": "Lokale map:"
-  },
-  "eu.philoux.localfolder.libnom": {
-    "message": "Naam:"
-  },
-  "eu.philoux.localfolder.libnom.accesskey": {
-    "message": "N"
-  },
-  "eu.philoux.localfolder.titre": {
-    "message": "Lokale map toevoegen"
-  },
-  "extensionDescription": {
-    "message": "Voeg zo veel mogelijk mappen toe als nodig, inclusief toegewezen mappen."
-  },
-  "extensionName": {
-    "message": "LocalFolders"
-  },
-  "extensions.localfolder@philoux.eu.description": {
-    "message": "Voeg zo veel mogelijk lokale mappen toe als nodig."
-  },
-  "inboxFolderName": {
-    "message": "Postvak IN"
-  },
-  "junkFolderName": {
-    "message": "Ongewenst"
-  },
-  "localDirectory.label": {
-    "message": "Lokale map"
-  },
-  "LocalFolderMajErreurEffCompte": {
-    "message": "Er is een fout opgetreden tijdens het verwijderen van het account."
-  },
-  "maildirStoreType.label": {
-    "message": "Bestand per bericht (mailmap)"
-  },
-  "mboxStoreType.label": {
-    "message": "Bestand per map (mbox)"
-  },
-  "NomPasRenseigne": {
-    "message": "Voer een naam in."
-  },
-  "outboxFolderName": {
-    "message": "Postvak UIT"
-  },
-  "removeLocalFolder": {
-    "message": "Lokale map verwijderen"
-  },
-  "RepertoireDejaUtilise": {
-    "message": "U heeft een map gekozen die momenteel in gebruik is.\\nVoer een andere naam in."
-  },
-  "RepNonValide": {
-    "message": "Deze map is ongeldig. De map dient leeg te zijn of minimaal één 'msf'-bestand te bevatten."
-  },
-  "restartMsg.msg": {
-    "message": "Thunderbird moet opnieuw worden opgestart om de nieuwe lokale map correct te configureren.\n\nMaak geen mappen aan en kopieer geen berichten naar de lokale map voordat u Thunderbird opnieuw opstart."
-  },
-  "restartMsg.title": {
-    "message": "Opnieuw opstarten vereist"
-  },
-  "sentFolderName": {
-    "message": "Verzonden"
-  },
-  "storeType.label": {
-    "message": "Berichtenopslagtype"
-  },
-  "templatesFolderName": {
-    "message": "Sjablonen"
-  },
-  "trashFolderName": {
-    "message": "Prullenbak"
-  }
 }
