@@ -1,6 +1,6 @@
 {
     "ConfirmRemoveFolder": {
-        "message": "Are you sure you want to remove the local folder “$P1$”?\\n\\n(Note: Directories and contents will not be deleted.)",
+        "message": "Are you sure you want to remove the local folder “$P1$”?\n\n(Note: Directories and contents will not be deleted.)",
         "placeholders": {
             "P1": {
                 "content": "$1"
@@ -11,7 +11,7 @@
         "message": "Remove Local Folder"
     },
     "DossierExisteDeja": {
-        "message": "You have chosen a name that is currently in use.\\nPlease select another."
+        "message": "You have chosen a name that is currently in use.\nPlease select another."
     },
     "DossierPasRenseigne": {
         "message": "Directory required."
@@ -32,7 +32,7 @@
         "message": "The directory is not valid. It must be empty or contain at least one “msf” file."
     },
     "RepertoireDejaUtilise": {
-        "message": "You have chosen a directory that is currently in use.\\nPlease select another."
+        "message": "You have chosen a directory that is currently in use.\nPlease select another."
     },
     "addLocalFolder": {
         "message": "Add Local Folder"
@@ -44,10 +44,10 @@
         "message": "Archives"
     },
     "confirmDirNotEmpty": {
-        "message": "Directory not empty, It contains these Special Folders:\\n\\n"
+        "message": "Directory not empty, It contains these Special Folders:\n\n"
     },
     "confirmRetained": {
-        "message": "\\nThese will be retained as well as any other folders.\\n\\nNOTE: Trash and Unsent Messages will be deleted."
+        "message": "\nThese will be retained as well as any other folders.\n\nNOTE: Trash and Unsent Messages will be deleted."
     },
     "deleteData": {
         "message": "Delete All Subfolders and Data"
