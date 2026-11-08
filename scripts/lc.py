@@ -28,10 +28,10 @@ def convert(source, destination, current = None, level = 0):
         path = os.path.join(dir, name)
         
         if os.path.isfile(path):
-            if path.endswith('localfolder.dtd'):
-                messages.extend(convert_dtd(path, dir))
-            #if path.endswith('localfolder.properties'):
-                #messages.extend(convert_prop(path, dir))
+            #if path.endswith('localfolder.dtd'):
+                #messages.extend(convert_dtd(path, dir))
+            if path.endswith('localfolder.properties'):
+                messages.extend(convert_prop(path, dir))
 
         else:
             messages.extend(convert(source, destination, path, level+1))
