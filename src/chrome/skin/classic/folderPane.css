@@ -19,6 +19,19 @@
 	-moz-context-properties: fill, fill-opacity, stroke;
 }
 
+:root {
+	--folder-pane-inbox:  url("resource://localfolder/inbox.svg");
+	--folder-pane-sent:  url("resource://localfolder/sent.svg");
+	--folder-pane-draft:  url("resource://localfolder/draft.svg");
+	--folder-pane-outbox:  url("resource://localfolder/outbox.svg");
+	--folder-pane-archive:  url("resource://localfolder/archive.svg");
+	--folder-pane-template:  url("resource://localfolder/template.svg");
+	--folder-pane-spam:  url("resource://localfolder/spam.svg");
+	--folder-pane-trash:  url("resource://localfolder/trash.svg");
+
+	-moz-context-propertiesX: null;
+}
+
 
 /* ::::: Tabmail ::::: */
 .tabmail-tab2,
@@ -197,7 +210,7 @@ treechildren::-moz-tree-cell-text(folderNameCol, isPaused) {
 }
 
 treechildren::-moz-tree-image(folderNameCol, isBusy) {
-  list-style-image: url("chrome://messenger/skin/icons/waiting.svg");
+  list-style-image: url("resource://localfolder/waiting.svg");
 }
 
 treechildren::-moz-tree-image(folderNameCol, hasError) {
@@ -306,7 +319,7 @@ treechildren::-moz-tree-cell-text(imapdeleted) {
 #folderTree treechildren::-moz-tree-cell-text(folderNameCol, newMessages-true) {
   margin-inline-start: -20px;
   padding-inline-start: 23px;
-  background-image: url("chrome://messenger/skin/icons/folder-new-indicator.svg");
+  background-image: url("resource://localfolder/folder-new-indicator.svg");
   background-repeat: no-repeat;
   background-position: left;
 }
