@@ -25,7 +25,7 @@
 	--folder-pane-draft:  url("chrome://messenger/skin/icons/file-item.svg");
 	--folder-pane-outbox:  url("chrome://messenger/skin/icons/outbox.svg");
 	--folder-pane-archive:  url("chrome://messenger/skin/icons/archive.svg");
-	--folder-pane-template:  url("chrome://localfolder/template.svg");
+	--folder-pane-template:  url("resource://localfolder/template.svg");
 	--folder-pane-spam:  url("chrome://messenger/skin/icons/junk.svg");
 	--folder-pane-trash:  url("chrome://messenger/skin/icons/delete.svg");
 
@@ -148,8 +148,8 @@ treechildren::-moz-tree-image(folderNameCol, specialFolder-Archive) {
 .tabmail-tab[type="folder"][SpecialFolder="Templates"],
 treechildren::-moz-tree-image(folderNameCol, specialFolder-Templates) {
   list-style-image: var(--folder-pane-template);
-  fill: color-mix(in srgb, var(--folder-color-archive) var(--folder-transparency), transparent);
-  stroke: var(--folder-color-archive);
+  fill: color-mix(in srgb, var(--folder-color-template) var(--folder-transparency), transparent);
+  stroke: var(--folder-color-template);
 }
 
 /* ..... Junk ..... */
