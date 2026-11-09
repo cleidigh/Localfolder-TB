@@ -159,7 +159,7 @@
   --icon-sync: url("chrome://messenger/skin/icons/new/compact/sync.svg");
   --icon-tag: url("chrome://messenger/skin/icons/new/compact/tag.svg");
   --icon-tasks: url("chrome://messenger/skin/icons/new/compact/tasks.svg");
-  --icon-template: url("chrome://messenger/skin/icons/new/compact/template.svg");
+  --icon-template: url("resource://localfolder/template.svg");
   --icon-tentative: url("chrome://messenger/skin/icons/new/compact/tentative.svg");
   --icon-thread: url("chrome://messenger/skin/icons/new/compact/thread.svg");
   --icon-thread-ignored: url("chrome://messenger/skin/icons/new/compact/thread-ignored.svg");
