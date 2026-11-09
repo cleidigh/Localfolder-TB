@@ -6,17 +6,6 @@ messenger.WindowListener.registerChromeUrl([
 	["content", "localfolder", "chrome/content/"],
 	["resource", "localfolder", "chrome/content/"],
 	["resource", "localfolder", "chrome/skin/classic/"],
-	["locale", "localfolder", "en-US", "chrome/locale/en-US/"],
-	["locale", "localfolder", "de", "chrome/locale/de/"],
-	["locale", "localfolder", "es-ES", "chrome/locale/es-ES/"],
-	["locale", "localfolder", "fr", "chrome/locale/fr/"],
-	["locale", "localfolder", "nl", "chrome/locale/nl/"],
-	["locale", "localfolder", "hu", "chrome/locale/hu/"],
-	["locale", "localfolder", "it", "chrome/locale/it/"],
-	["locale", "localfolder", "ja", "chrome/locale/ja/"],
-	["locale", "localfolder", "zh", "chrome/locale/zh-CN/"],
-	["locale", "localfolder", "pt-BR", "chrome/locale/pt-BR/"],
-	["locale", "localfolder", "sv-SE", "chrome/locale/sv-SE/"],
 ]);
 
 
