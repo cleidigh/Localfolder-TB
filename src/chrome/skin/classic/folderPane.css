@@ -19,6 +19,7 @@
 	-moz-context-properties: fill, fill-opacity, stroke;
 }
 
+/*
 :root[iconstyle="classic"] {
 	--folder-pane-inbox:  url("chrome://messenger/skin/icons/inbox.svg");
 	--folder-pane-sent:  url("chrome://messenger/skin/icons/sent.svg");
@@ -31,6 +32,8 @@
 
 	-moz-context-propertiesX: null;
 }
+*/
+
 /* ::::: Tabmail ::::: */
 .tabmail-tab2,
 #folderTree > treechildren::-moz-tree-image {
