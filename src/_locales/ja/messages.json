@@ -1,12 +1,17 @@
 {
     "ConfirmRemoveFolder": {
-        "message": "ローカルフォルダ \"％S\"を削除してよろしいですか？\\ n \\ n（注：ディレクトリとコンテンツは削除されません。）"
+        "message": "ローカルフォルダ “$P1$”を削除してよろしいですか？\n\n（注：ディレクトリとコンテンツは削除されません。）",
+        "placeholders": {
+            "P1": {
+                "content": "$1"
+            }
+        }
     },
     "ConfirmRemoveTitle": {
         "message": "ローカルフォルダを削除"
     },
     "DossierExisteDeja": {
-        "message": "現在使用されている名前を選択しました。\\ n別の名前を選択してください。"
+        "message": "現在使用されている名前を選択しました。\n別の名前を選択してください。"
     },
     "DossierPasRenseigne": {
         "message": "ディレクトリが必要です。"
@@ -27,7 +32,7 @@
         "message": "ディレクトリが無効です。空であるか、少なくとも1つの“ msf”ファイルを含む必要があります。"
     },
     "RepertoireDejaUtilise": {
-        "message": "現在使用されているディレクトリを選択しました。\\ n別のディレクトリを選択してください。"
+        "message": "現在使用されているディレクトリを選択しました。\n別のディレクトリを選択してください。"
     },
     "addLocalFolder": {
         "message": "ローカルフォルダを追加"
