@@ -1,0 +1,212 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+:host,
+:root {
+  --color-red-10: #fee2e2;
+  --color-red-30: #fca5a5;
+  --color-red-40: #f87171;
+  --color-red-50: #ef4444;
+  --color-red-60: #dc2626;
+  --color-red-70: #b91c1c;
+  --color-red-80: #991b1b;
+  --color-red-90: #7f1d1d;
+
+  --color-orange-30: #fdba74;
+  --color-orange-40: #fb923c;
+  --color-orange-50: #f97316;
+  --color-orange-60: #ea580c;
+
+  --color-amber-30: #fcd34d;
+  --color-amber-50: #f59e0b;
+  --color-amber-60: #d97706;
+
+  --color-yellow-30: #fde047;
+  --color-yellow-40: #facc15;
+  --color-yellow-50: #eab308;
+  --color-yellow-90: #713f12;
+
+  --color-green-40: #4ade80;
+  --color-green-50: #22c55e;
+  --color-green-60: #16a34a;
+
+  --color-teal-40: #27d3d6;
+  --color-teal-50: #0db7bd;
+
+  --color-blue-10: #ddeefe;
+  --color-blue-30: #88ccfc;
+  --color-blue-40: #4cb1f9;
+  --color-blue-50: #2493ef;
+  --color-blue-60: #1373d9;
+  --color-blue-70: #105bbc;
+
+  --color-purple-40: #c084fc;
+  --color-purple-50: #a855f7;
+  --color-purple-80: #6b21a8;
+
+  --color-magenta-50: #e247c4;
+  --color-magenta-60: #cd26a5;
+
+  --color-gray-05: #fafafa;
+  --color-gray-10: #f4f4f5;
+  --color-gray-20: #e4e4e7;
+  --color-gray-30: #d4d4d8;
+  --color-gray-40: #a1a1aa;
+  --color-gray-50: #71717a;
+  --color-gray-60: #52525b;
+  --color-gray-70: #3f3f46;
+  --color-gray-80: #27272a;
+  --color-gray-90: #18181b;
+
+  --color-ink-10: #f1f3fa;
+  --color-ink-20: #e3e5f2;
+  --color-ink-30: #cdd0e5;
+  --color-ink-40: #9b9ec2;
+  --color-ink-50: #6e6f9b;
+  --color-ink-60: #52507c;
+  --color-ink-70: #3e3c67;
+  --color-ink-80: #2a284b;
+  --color-ink-90: #1a1838;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-neutral-200: light-dark(#d9d9de, #4c4d58);
+
+  /*
+   * Bolt Colors
+   * https://bolt.thunderbird.net/8b179dbfd/p/61e4c7-color
+   */
+  --color-surface-base-light: #fcfcfd;
+  --color-surface-raised-light: #ffffff;
+  --color-surface-subtle-light: #efeff1;
+  --color-surface-lower-light: #f7f7f8;
+  --color-surface-deep-light: #e4e4e7;
+  --color-surface-border-light: #d9d9de;
+  --color-surface-border-intense-light: #a1a1aa;
+  --color-primary-soft-light: #f0f8ff;
+  --color-primary-default-light: #1373d9;
+  --color-primary-hover-light: #175fb6;
+  --color-primary-pressed-light: #19518f;
+  --color-secondary-soft-light: #faf5ff;
+  --color-secondary-default-light: #6b21a8;
+  --color-secondary-hover-light: #571c87;
+  --color-secondary-pressed-light: #3a0764;
+  --color-success-soft-light: #f4f9f4;
+  --color-success-default-light: #1d783b;
+  --color-success-hover-light: #1c5f32;
+  --color-success-pressed-light: #194e2c;
+  --color-warning-soft-light: #fefae8;
+  --color-warning-default-light: #facc15;
+  --color-warning-hover-light: #eabd08;
+  --color-warning-pressed-light: #caa204;
+  --color-critical-soft-light: #fef2f2;
+  --color-critical-hover-light: #7f1d1d;
+  --color-critical-default-light: #991b1b;
+  --color-critical-pressed-light: #450a0a;
+  --color-text-base-light: #18181b;
+  --color-text-base-inverted-light: #fcfcfd;
+  --color-text-secondary-light: #52525b;
+  --color-text-muted-light: #71717a;
+  --color-text-brand-light: #0b5cbd;
+  --color-text-highlight-light: #1373d9;
+  --color-text-warning-light: #713f12;
+  --color-text-critical-light: #b91c1c;
+  --color-text-success-light: #1c5f32;
+  --color-text-disabled-light: #a1a1aa;
+  --color-accent-teal-light: #25a6a0;
+  --color-accent-blue-light: #58c9ff;
+  --color-accent-purple-light: #ae55f7;
+  --color-accent-orange-light: #ea7308;
+  --color-accent-pink-light: #e247c4;
+  --color-accent-ink-light: #6e6f9b;
+
+  --color-surface-base-dark: #18181b;
+  --color-surface-raised-dark: #2b2b2f;
+  --color-surface-subtle-dark: #232326;
+  --color-surface-deep-dark: #3f3f46;
+  --color-surface-border-dark: #52525b;
+  --color-surface-border-intense-dark: #71717a;
+  --color-surface-lower-dark: #111113;
+  --color-primary-soft-dark: #262c40;
+  --color-primary-default-dark: #58c9ff;
+  --color-primary-hover-dark: #32aeff;
+  --color-primary-pressed-dark: #1b90f5;
+  --color-secondary-soft-dark: #3a0764;
+  --color-secondary-default-dark: #f5e8ff;
+  --color-secondary-hover-dark: #ecd5ff;
+  --color-secondary-pressed-dark: #ddb4fe;
+  --color-success-soft-dark: #082b16;
+  --color-success-default-dark: #defae7;
+  --color-success-hover-dark: #c0f2cf;
+  --color-success-pressed-dark: #8ee7aa;
+  --color-warning-soft-dark: #423606;
+  --color-warning-default-dark: #fef2c3;
+  --color-warning-hover-dark: #fee78a;
+  --color-warning-pressed-dark: #fdd847;
+  --color-critical-soft-dark: #7f1d1d;
+  --color-critical-hover-dark: #f87171;
+  --color-critical-default-dark: #fca5a5;
+  --color-critical-pressed-dark: #f05252;
+  --color-text-base-dark: #f7f7f8;
+  --color-text-base-inverted-dark: #18181b;
+  --color-text-secondary-dark: #d4d4d8;
+  --color-text-muted-dark: #a1a1aa;
+  --color-text-brand-dark: #32aeff;
+  --color-text-highlight-dark: #58c9ff;
+  --color-text-warning-dark: #fee78a;
+  --color-text-critical-dark: #f87171;
+  --color-text-success-dark: #55d37e;
+  --color-text-disabled-dark: #71717a;
+  --color-accent-teal-dark: #a3ece3;
+  --color-accent-blue-dark: #58c9ff;
+  --color-accent-purple-dark: #8022ce;
+  --color-accent-orange-dark: #fec18a;
+  --color-accent-pink-dark: #fbd3f6;
+  --color-accent-ink-dark: #c3cade;
+
+  --color-surface-base: light-dark(var(--color-surface-base-light), var(--color-surface-base-dark));
+  --color-surface-subtle: light-dark(var(--color-surface-subtle-light), var(--color-surface-subtle-dark));
+  --color-surface-border: light-dark(var(--color-surface-border-light), var(--color-surface-border-dark));
+  --color-surface-border-intense: light-dark(var(--color-surface-border-intense-light), var(--color-surface-border-intense-dark));
+  --color-surface-lower: light-dark(var(--color-surface-lower-light), var(--color-surface-lower-dark));
+  --color-surface-deep: light-dark(var(--color-surface-deep-light), var(--color-surface-deep-dark));
+  --color-surface-raised: light-dark(var(--color-surface-raised-light), var(--color-surface-raised-dark));
+  --color-primary-soft: light-dark(var(--color-primary-soft-light), var(--color-primary-soft-dark));
+  --color-primary-default: light-dark(var(--color-primary-default-light), var(--color-primary-default-dark));
+  --color-primary-hover: light-dark(var(--color-primary-hover-light), var(--color-primary-hover-dark));
+  --color-primary-pressed: light-dark(var(--color-primary-pressed-light), var(--color-primary-pressed-dark));
+  --color-secondary-soft: light-dark(var(--color-secondary-soft-light), var(--color-secondary-soft-dark));
+  --color-secondary-default: light-dark(var(--color-secondary-default-light), var(--color-secondary-default-dark));
+  --color-secondary-hover: light-dark(var(--color-secondary-hover-light), var(--color-secondary-hover-dark));
+  --color-secondary-pressed: light-dark(var(--color-secondary-pressed-light), var(--color-secondary-pressed-dark));
+  --color-success-soft: light-dark(var(--color-success-soft-light), var(--color-success-soft-dark));
+  --color-success-default: light-dark(var(--color-success-default-light), var(--color-success-default-dark));
+  --color-success-hover: light-dark(var(--color-success-hover-light), var(--color-success-hover-dark));
+  --color-success-pressed: light-dark(var(--color-success-pressed-light), var(--color-success-pressed-dark));
+  --color-warning-soft: light-dark(var(--color-warning-soft-light), var(--color-warning-soft-dark));
+  --color-warning-default: light-dark(var(--color-warning-default-light), var(--color-warning-default-dark));
+  --color-warning-hover: light-dark(var(--color-warning-hover-light), var(--color-warning-hover-dark));
+  --color-warning-pressed: light-dark(var(--color-warning-pressed-light), var(--color-warning-pressed-dark));
+  --color-critical-soft: light-dark(var(--color-critical-soft-light), var(--color-critical-soft-dark));
+  --color-critical-hover: light-dark(var(--color-critical-hover-light), var(--color-critical-hover-dark));
+  --color-critical-default: light-dark(var(--color-critical-default-light), var(--color-critical-default-dark));
+  --color-critical-pressed: light-dark(var(--color-critical-pressed-light), var(--color-critical-pressed-dark));
+  --color-text-base: light-dark(var(--color-text-base-light), var(--color-text-base-dark));
+  --color-text-base-inverted: light-dark(var(--color-text-base-inverted-light), var(--color-text-base-inverted-dark));
+  --color-text-secondary: light-dark(var(--color-text-secondary-light), var(--color-text-secondary-dark));
+  --color-text-muted: light-dark(var(--color-text-muted-light), var(--color-text-muted-dark));
+  --color-text-brand: light-dark(var(--color-text-brand-light), var(--color-text-brand-dark));
+  --color-text-highlight: light-dark(var(--color-text-highlight-light), var(--color-text-highlight-dark));
+  --color-text-warning: light-dark(var(--color-text-warning-light), var(--color-text-warning-dark));
+  --color-text-critical: light-dark(var(--color-text-critical-light), var(--color-text-critical-dark));
+  --color-text-success: light-dark(var(--color-text-success-light), var(--color-text-success-dark));
+  --color-text-disabled: light-dark(var(--color-text-disabled-light), var(--color-text-disabled-dark));
+  --color-accent-teal: light-dark(var(--color-accent-teal-light), var(--color-accent-teal-dark));
+  --color-accent-blue: light-dark(var(--color-accent-blue-light), var(--color-accent-blue-dark));
+  --color-accent-purple: light-dark(var(--color-accent-purple-light), var(--color-accent-purple-dark));
+  --color-accent-orange: light-dark(var(--color-accent-orange-light), var(--color-accent-orange-dark));
+  --color-accent-pink: light-dark(var(--color-accent-pink-light), var(--color-accent-pink-dark));
+  --color-accent-ink: light-dark(var(--color-accent-ink-light), var(--color-accent-ink-dark));
+}
