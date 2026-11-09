@@ -1,6 +1,6 @@
 {
     "ConfirmRemoveFolder": {
-        "message": "Weet u zeker dat u de lokale map '$P1$' wilt verwijderen?\\n\\n(let op: de mappen en inhoud worden niet verwijderd.)",
+        "message": "Weet u zeker dat u de lokale map '$P1$' wilt verwijderen?\n\n(let op: de mappen en inhoud worden niet verwijderd.)",
         "placeholders": {
             "P1": {
                 "content": "$1"
@@ -11,7 +11,7 @@
         "message": "Lokale map verwijderen"
     },
     "DossierExisteDeja": {
-        "message": "U heeft een naam ingevoerd die al in gebruik is.\\nVoer een andere naam in."
+        "message": "U heeft een naam ingevoerd die al in gebruik is.\nVoer een andere naam in."
     },
     "DossierPasRenseigne": {
         "message": "Kies een map."
@@ -32,7 +32,7 @@
         "message": "Deze map is ongeldig. De map dient leeg te zijn of minimaal één 'msf'-bestand te bevatten."
     },
     "RepertoireDejaUtilise": {
-        "message": "U heeft een map gekozen die momenteel in gebruik is.\\nVoer een andere naam in."
+        "message": "U heeft een map gekozen die momenteel in gebruik is.\nVoer een andere naam in."
     },
     "addLocalFolder": {
         "message": "Lokale map toevoegen"
@@ -44,10 +44,10 @@
         "message": "Archieven"
     },
     "confirmDirNotEmpty": {
-        "message": "Directory is niet leeg. Deze bevat deze speciale mappen:\\n\\n"
+        "message": "Directory is niet leeg. Deze bevat deze speciale mappen:\n\n"
     },
     "confirmRetained": {
-        "message": "\\nDeze blijven behouden, evenals alle andere mappen.\\n\\nOPMERKING: Prullenbak en niet-verzonden berichten worden verwijderd."
+        "message": "\nDeze blijven behouden, evenals alle andere mappen.\n\nOPMERKING: Prullenbak en niet-verzonden berichten worden verwijderd."
     },
     "deleteData": {
         "message": "Verwijder alle submappen en gegevens"

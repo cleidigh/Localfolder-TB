@@ -1,6 +1,6 @@
 {
     "ConfirmRemoveFolder": {
-        "message": "Bekräfta borttagningen av lokal mapp: $P1$\\n\\n(Obs! Kataloger och innehåll kommer inte att raderas.)",
+        "message": "Bekräfta borttagningen av lokal mapp: $P1$\n\n(Obs! Kataloger och innehåll kommer inte att raderas.)",
         "placeholders": {
             "P1": {
                 "content": "$1"
@@ -11,7 +11,7 @@
         "message": "Ta bort lokal mapp"
     },
     "DossierExisteDeja": {
-        "message": "Namnet du har valt används redan.\\nVar vänlig ange ett annat namn."
+        "message": "Namnet du har valt används redan.\nVar vänlig ange ett annat namn."
     },
     "DossierPasRenseigne": {
         "message": "Rotmappen är obligatorisk."
@@ -32,7 +32,7 @@
         "message": "Rotmappen är inte giltig. Den måste vara tom eller innehålla åtminstone en MSF-fil."
     },
     "RepertoireDejaUtilise": {
-        "message": "Rotmappen du har valt används redan.\\nVar vänlig ange en annan sökväg."
+        "message": "Rotmappen du har valt används redan.\nVar vänlig ange en annan sökväg."
     },
     "addLocalFolder": {
         "message": "Lägg till lokal mapp"
@@ -44,10 +44,10 @@
         "message": "Arkiv"
     },
     "confirmDirNotEmpty": {
-        "message": "Katalogen är inte tom, den innehåller dessa specialmappar:\\n\\n"
+        "message": "Katalogen är inte tom, den innehåller dessa specialmappar:\n\n"
     },
     "confirmRetained": {
-        "message": "\\nDessa kommer att behållas liksom alla andra mappar.\\n\\nOBS: Papperskorgen och ej skickade meddelanden kommer att raderas."
+        "message": "\nDessa kommer att behållas liksom alla andra mappar.\n\nOBS: Papperskorgen och ej skickade meddelanden kommer att raderas."
     },
     "deleteData": {
         "message": "Ta bort alla undermappar och data"

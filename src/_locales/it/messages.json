@@ -1,6 +1,6 @@
 {
     "ConfirmRemoveFolder": {
-        "message": "Conferma la rimozione della cartella locale: $P1$\\n\\n(Nota: le directory e i contenuti non verranno eliminati.)",
+        "message": "Conferma la rimozione della cartella locale: $P1$\n\n(Nota: le directory e i contenuti non verranno eliminati.)",
         "placeholders": {
             "P1": {
                 "content": "$1"
@@ -11,7 +11,7 @@
         "message": "Rimuovi cartella locale"
     },
     "DossierExisteDeja": {
-        "message": "Il nome inserito \\u00e8 gi\\u00e0 in uso.\\nInserire un altro nome."
+        "message": "Il nome inserito \\u00e8 gi\\u00e0 in uso.\nInserire un altro nome."
     },
     "DossierPasRenseigne": {
         "message": "La cartella \\u00e8 necessaria."
@@ -32,7 +32,7 @@
         "message": "La cartella specificata non \\u00e8 valida. Deve essere vuota o contenere almeno un file «msf»."
     },
     "RepertoireDejaUtilise": {
-        "message": "La cartella scelta \\u00e8 gi\\u00e0 in uso.\\nSelezionare un'altra cartella."
+        "message": "La cartella scelta \\u00e8 gi\\u00e0 in uso.\nSelezionare un'altra cartella."
     },
     "addLocalFolder": {
         "message": "Aggiungi cartella locale"
@@ -44,10 +44,10 @@
         "message": "Archivi"
     },
     "confirmDirNotEmpty": {
-        "message": "Directory non vuota, contiene queste cartelle speciali:\\n\\n"
+        "message": "Directory non vuota, contiene queste cartelle speciali:\n\n"
     },
     "confirmRetained": {
-        "message": "\\nQuesti verranno conservati così come qualsiasi altra cartella.\\n\\nNOTA: il cestino e i messaggi non inviati verranno eliminati."
+        "message": "\nQuesti verranno conservati così come qualsiasi altra cartella.\n\nNOTA: il cestino e i messaggi non inviati verranno eliminati."
     },
     "deleteData": {
         "message": "Elimina tutte le sottocartelle e i dati"

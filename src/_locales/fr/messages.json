@@ -1,6 +1,6 @@
 {
     "ConfirmRemoveFolder": {
-        "message": "Confirmez la suppression du dossier local : $P1$\\n\\n(Remarque : les répertoires et le contenu ne seront pas supprimés.)",
+        "message": "Confirmez la suppression du dossier local : $P1$\n\n(Remarque : les répertoires et le contenu ne seront pas supprimés.)",
         "placeholders": {
             "P1": {
                 "content": "$1"
@@ -11,7 +11,7 @@
         "message": "Supprimer le dossier local"
     },
     "DossierExisteDeja": {
-        "message": "Le nom que vous avez saisi est déjà utilisé.\\nSaisir un autre nom."
+        "message": "Le nom que vous avez saisi est déjà utilisé.\nSaisir un autre nom."
     },
     "DossierPasRenseigne": {
         "message": "Un emplacement doit être sélectionné"
@@ -32,7 +32,7 @@
         "message": "Le chemin n'est pas valide. Le répertoire doit être vide ou comporter au moins un fichier du type «&nbsp;msf&nbsp;»."
     },
     "RepertoireDejaUtilise": {
-        "message": "Le répertoire est déjà utilisé!\\nSélectionner un autre répertoire."
+        "message": "Le répertoire est déjà utilisé!\nSélectionner un autre répertoire."
     },
     "addLocalFolder": {
         "message": "Ajouter un dossier local"
@@ -44,10 +44,10 @@
         "message": "Archives"
     },
     "confirmDirNotEmpty": {
-        "message": "Répertoire non vide, il contient ces dossiers spéciaux :\\n\\n"
+        "message": "Répertoire non vide, il contient ces dossiers spéciaux :\n\n"
     },
     "confirmRetained": {
-        "message": "\\nCeux-ci seront conservés ainsi que tous les autres dossiers.\\n\\nREMARQUE : La corbeille et les messages non envoyés seront supprimés."
+        "message": "\nCeux-ci seront conservés ainsi que tous les autres dossiers.\n\nREMARQUE : La corbeille et les messages non envoyés seront supprimés."
     },
     "deleteData": {
         "message": "Supprimer tous les sous-dossiers et données"

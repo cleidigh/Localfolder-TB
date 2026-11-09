@@ -1,6 +1,6 @@
 {
     "ConfirmRemoveFolder": {
-        "message": "Confirme la eliminación de la carpeta local: $P1$\\n\\n(Nota: los directorios y contenidos no se eliminarán).",
+        "message": "Confirme la eliminación de la carpeta local: $P1$\n\n(Nota: los directorios y contenidos no se eliminarán).",
         "placeholders": {
             "P1": {
                 "content": "$1"
@@ -11,7 +11,7 @@
         "message": "Eliminar carpeta local"
     },
     "DossierExisteDeja": {
-        "message": "El nombre elegido ya está en uso.\\nPor favor introduzca otro nombre."
+        "message": "El nombre elegido ya está en uso.\nPor favor introduzca otro nombre."
     },
     "DossierPasRenseigne": {
         "message": "El directorio es obligatorio."
@@ -32,7 +32,7 @@
         "message": "El directorio es inválido. Debe estar vacío o contener al menos un archivo «msf»."
     },
     "RepertoireDejaUtilise": {
-        "message": "El directorio elegido ya está en uso.\\nPor favor seleccione otra ruta."
+        "message": "El directorio elegido ya está en uso.\nPor favor seleccione otra ruta."
     },
     "addLocalFolder": {
         "message": "Agregar carpeta local"
@@ -44,10 +44,10 @@
         "message": "Archivos"
     },
     "confirmDirNotEmpty": {
-        "message": "El directorio no está vacío. Contiene estas carpetas especiales:\\n\\n"
+        "message": "El directorio no está vacío. Contiene estas carpetas especiales:\n\n"
     },
     "confirmRetained": {
-        "message": "\\nÉstas se conservarán, así como cualquier otra carpetas.\\n\\nNOTA: Se eliminarán la papelera y los mensajes no enviados."
+        "message": "\nÉstas se conservarán, así como cualquier otra carpetas.\n\nNOTA: Se eliminarán la papelera y los mensajes no enviados."
     },
     "deleteData": {
         "message": "Eliminar todas las subcarpetas y datos"

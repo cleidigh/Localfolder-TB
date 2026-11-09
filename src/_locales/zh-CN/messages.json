@@ -1,6 +1,6 @@
 {
     "ConfirmRemoveFolder": {
-        "message": "确认删除本地文件夹: $P1$\\n\\n（注意：目录和内容不会被删除。）",
+        "message": "确认删除本地文件夹: $P1$\n\n（注意：目录和内容不会被删除。）",
         "placeholders": {
             "P1": {
                 "content": "$1"
@@ -11,7 +11,7 @@
         "message": "删除本地文件夹"
     },
     "DossierExisteDeja": {
-        "message": "您选择的名称已在使用中。\\n请输入另一个名称。"
+        "message": "您选择的名称已在使用中。\n请输入另一个名称。"
     },
     "DossierPasRenseigne": {
         "message": "该目录是强制性的。"
@@ -32,7 +32,7 @@
         "message": "该目录无效。它必须是个空的或包含至少一个“msf”文件。"
     },
     "RepertoireDejaUtilise": {
-        "message": "您选择的目录已在使用中。\\n请选择另一个路径。"
+        "message": "您选择的目录已在使用中。\n请选择另一个路径。"
     },
     "addLocalFolder": {
         "message": "添加本地文件夹"
@@ -44,10 +44,10 @@
         "message": "归档"
     },
     "confirmDirNotEmpty": {
-        "message": "目录不为空，它包含以下特殊文件夹：\\n\\n"
+        "message": "目录不为空，它包含以下特殊文件夹：\n\n"
     },
     "confirmRetained": {
-        "message": "\\n这些将与任何其他 文件夹一样被保留。注意\\n\\n垃圾邮件和未发送邮件将被删除。"
+        "message": "\n这些将与任何其他 文件夹一样被保留。注意\n\n垃圾邮件和未发送邮件将被删除。"
     },
     "deleteData": {
         "message": "删除所有子文件夹和数据"

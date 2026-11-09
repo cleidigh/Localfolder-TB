@@ -1,6 +1,6 @@
 {
     "ConfirmRemoveFolder": {
-        "message": "Biztos benne, hogy el akarja távolítani ezt az helyi mappát: „$P1$”?\\n\\n(Megjegyzés: A könyvtárak és a tartalom nem törlődik.)",
+        "message": "Biztos benne, hogy el akarja távolítani ezt az helyi mappát: „$P1$”?\n\n(Megjegyzés: A könyvtárak és a tartalom nem törlődik.)",
         "placeholders": {
             "P1": {
                 "content": "$1"
@@ -11,7 +11,7 @@
         "message": "Helyi mappa eltávolítása"
     },
     "DossierExisteDeja": {
-        "message": "A választott név már használatban van.\\nKérjük, hogy adjon meg egy másik nevet."
+        "message": "A választott név már használatban van.\nKérjük, hogy adjon meg egy másik nevet."
     },
     "DossierPasRenseigne": {
         "message": "A könyvtár kötelező."
@@ -32,7 +32,7 @@
         "message": "A könyvtár nem érvényes. Legalább üresnek kell lennie, vagy tartalmaznia kell legalább egy MSF-fájlt."
     },
     "RepertoireDejaUtilise": {
-        "message": "A kiválasztott könyvtár már használatban van.\\Kérjük, hogy válasszon másik utat."
+        "message": "A kiválasztott könyvtár már használatban van.\nKérjük, hogy válasszon másik utat."
     },
     "addLocalFolder": {
         "message": "Helyi mappa hozzáadása"
@@ -44,10 +44,10 @@
         "message": "Archívum"
     },
     "confirmDirNotEmpty": {
-        "message": "A könyvtár nem üres, a következő speciális mappákat tartalmazza:\\n\\n"
+        "message": "A könyvtár nem üres, a következő speciális mappákat tartalmazza:\n\n"
     },
     "confirmRetained": {
-        "message": "\\nEzeket, valamint az összes többi mappát a rendszer megőrzi.\\n\\nMEGJEGYZÉS: A Kuka és az El nem küldött üzenetek törlődnek."
+        "message": "\nEzeket, valamint az összes többi mappát a rendszer megőrzi.\n\nMEGJEGYZÉS: A Kuka és az El nem küldött üzenetek törlődnek."
     },
     "deleteData": {
         "message": "Törölje az összes almappát és adatot"
