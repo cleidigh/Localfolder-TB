@@ -117,8 +117,8 @@ eu.philoux.localfolder.addSpecialFolders = async function (aParentFolder, aParen
 }
 
 eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder, storeID) {
-    eu.philoux.localfolder.LocalFolderTrace(`add existing ${eu.philoux.localfolder.existingFolders}`);
-    eu.philoux.localfolder.LocalFolderTrace(`existingSpecialFolders ${eu.philoux.localfolder.existingSpecialFolders}`);
+    //eu.philoux.localfolder.LocalFolderTrace(`add existing ${eu.philoux.localfolder.existingFolders}`);
+    //eu.philoux.localfolder.LocalFolderTrace(`existingSpecialFolders ${eu.philoux.localfolder.existingSpecialFolders}`);
 
     eu.philoux.localfolder.existingFolders.forEach(folder => {
         if (folder == "Trash" || folder == "Unsent Messages") {
@@ -132,7 +132,7 @@ eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder, storeID) {
         // however, maildir requires a rebuildSummary 
 
         rootMsgFolder.addSubfolder(folder);
-        eu.philoux.localfolder.LocalFolderTrace(`added existing ${folder}`)
+        //eu.philoux.localfolder.LocalFolderTrace(`added existing ${folder}`)
         var newFolder;
 
         if (eu.philoux.localfolder.existingSpecialFolders.includes(folder)) {
@@ -141,19 +141,12 @@ eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder, storeID) {
                 let localizedFolder = eu.philoux.localfolder.specialFolders[folder]?.localizedFolderName;
                 let localizedFolderString = eu.philoux.localfolder.localizeMsg(localizedFolder);
 
-                console.log("localizedFolder", localizedFolder)
-                console.log("localizedFolderstr", localizedFolderString)
-
                 newFolder = rootMsgFolder.getChildNamed(localizedFolderString);
                 if (!newFolder) {
                     newFolder = rootMsgFolder.getChildNamed(folder);
-
                 }
-                console.log("loc", newFolder)
             } catch (ex) {
                 newFolder = rootMsgFolder.getChildNamed(folder);
-                console.log("reg", newFolder)
-
             }
         } else {
             newFolder = rootMsgFolder.getChildNamed(folder);
