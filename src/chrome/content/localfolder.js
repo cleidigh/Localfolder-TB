@@ -81,8 +81,6 @@ eu.philoux.localfolder.addSpecialFolders = async function (aParentFolder, aParen
     // eu.philoux.localfolder.LocalFolderTrace("Add special folders : " + aParentFolderPath);
     let addFolderElements = document.querySelectorAll("[id^='add_folder_']");
 
-    msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
-
     for (let index = 0; index < addFolderElements.length; index++) {
         const element = addFolderElements[index];
         if (!!element.checked) {
@@ -96,7 +94,7 @@ eu.philoux.localfolder.addSpecialFolders = async function (aParentFolder, aParen
             // Trash and unsent messages folders are added at account creation
             if (l !== "Trash" && l !== "Outbox" && !eu.philoux.localfolder.existingSpecialFolders.includes(l)) {
 
-                aParentFolder.createSubfolder(l, msgWindow);
+                aParentFolder.createSubfolder(l);
 
                 // eu.philoux.localfolder.LocalFolderTrace("Added subfolder : " + l);
                 var localizedFolderString = eu.philoux.localfolder.localizeMsg(ll);
