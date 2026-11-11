@@ -136,16 +136,17 @@ eu.philoux.localfolder.addExistingFolders = function (rootMsgFolder, storeID) {
         var newFolder;
 
         if (eu.philoux.localfolder.existingSpecialFolders.includes(folder)) {
-            var localizedFolder = eu.philoux.localfolder.specialFolders[folder].localizedFolderName;
-            var localizedFolderString = eu.philoux.localfolder.localizeMsg(localizedFolder);
-
-            console.log("localizedFolder", localizedFolder)
-            console.log("localizedFolderstr", localizedFolderString)
 
             try {
+                let localizedFolder = eu.philoux.localfolder.specialFolders[folder]?.localizedFolderName;
+                let localizedFolderString = eu.philoux.localfolder.localizeMsg(localizedFolder);
+
+                console.log("localizedFolder", localizedFolder)
+                console.log("localizedFolderstr", localizedFolderString)
+
                 newFolder = rootMsgFolder.getChildNamed(localizedFolderString);
                 if (!newFolder) {
-                newFolder = rootMsgFolder.getChildNamed(folder);
+                    newFolder = rootMsgFolder.getChildNamed(folder);
 
                 }
                 console.log("loc", newFolder)
