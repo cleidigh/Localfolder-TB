@@ -1,6 +1,6 @@
 {
     "ConfirmRemoveFolder": {
-        "message": "Bestätigen Sie die Entfernung des lokalen Ordners: $P1$\\n\\n(Hinweis: Verzeichnisse und Inhalte werden nicht gelöscht.)",
+        "message": "Bestätigen Sie die Entfernung des lokalen Ordners: $P1$\n\n(Hinweis: Verzeichnisse und Inhalte werden nicht gelöscht.)",
         "placeholders": {
             "P1": {
                 "content": "$1"
@@ -11,7 +11,7 @@
         "message": "Lokalen Ordner entfernen"
     },
     "DossierExisteDeja": {
-        "message": "Der Name ist bereits vergeben.\\nBitte wählen Sie einen anderen Namen."
+        "message": "Der Name ist bereits vergeben.\nBitte wählen Sie einen anderen Namen."
     },
     "DossierPasRenseigne": {
         "message": "Das Verzeichnis ist erforderlich."
@@ -32,7 +32,7 @@
         "message": "Das Verzeichnis ist nicht gültig. Es muss leer sein oder zumindest eine „msf“ Datei enthalten."
     },
     "RepertoireDejaUtilise": {
-        "message": "Das Verzeichnis das Sie gewählt haben wird bereits verwendet.\\nBitte wählen Sie ein anderes Verzeichnis."
+        "message": "Das Verzeichnis das Sie gewählt haben wird bereits verwendet.\nBitte wählen Sie ein anderes Verzeichnis."
     },
     "addLocalFolder": {
         "message": "Lokalen Ordner hinzufügen"
@@ -44,10 +44,10 @@
         "message": "Archiv"
     },
     "confirmDirNotEmpty": {
-        "message": "Das Verzeichnis ist nicht leer. Es enthält diese speziellen Ordner:\\n\\n"
+        "message": "Das Verzeichnis ist nicht leer. Es enthält diese speziellen Ordner:\n\n"
     },
     "confirmRetained": {
-        "message": "\\nDiese bleiben ebenso erhalten wie alle anderen Ordner.\\n\\nHINWEIS: Papierkorb und nicht gesendete Nachrichten werden gelöscht."
+        "message": "\nDiese bleiben ebenso erhalten wie alle anderen Ordner.\n\nHINWEIS: Papierkorb und nicht gesendete Nachrichten werden gelöscht."
     },
     "deleteData": {
         "message": "Alle Unterordner und Daten löschen"
