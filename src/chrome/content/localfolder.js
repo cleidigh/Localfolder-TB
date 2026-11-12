@@ -73,19 +73,9 @@ eu.philoux.localfolder.toggleSpecialFolder = function (specialFolder) {
 
     let addFolderElements = document.querySelectorAll("[id^='add_folder_']");
 
-    console.log("all", addAllCheckbox.checked)
-    console.log("addF", addFolderElement.checked)
-
     if (addAllCheckbox.checked && addFolderElement.checked) {
         addAllCheckbox.checked = false;
     } 
-    
-    /*
-    else if (!addAllCheckbox.checked && [...addFolderElements].every(e => e.checked)) {
-        addAllCheckbox.checked = true;
-    }
-        */
-
 }
 
 eu.philoux.localfolder.addSpecialFolders = async function (aParentFolder, aParentFolderPath) {
