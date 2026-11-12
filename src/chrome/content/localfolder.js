@@ -77,7 +77,7 @@ eu.philoux.localfolder.toggleSpecialFolder = function (specialFolder) {
 }
 
 eu.philoux.localfolder.addSpecialFolders = async function (aParentFolder, aParentFolderPath) {
-
+    let msgWindow = eu.philoux.localfolder.getMail3Pane().msgWindow;
     // eu.philoux.localfolder.LocalFolderTrace("Add special folders : " + aParentFolderPath);
     let addFolderElements = document.querySelectorAll("[id^='add_folder_']");
 
@@ -94,7 +94,7 @@ eu.philoux.localfolder.addSpecialFolders = async function (aParentFolder, aParen
             // Trash and unsent messages folders are added at account creation
             if (l !== "Trash" && l !== "Outbox" && !eu.philoux.localfolder.existingSpecialFolders.includes(l)) {
 
-                aParentFolder.createSubfolder(l);
+                aParentFolder.createSubfolder(l, msgWindow);
 
                 // eu.philoux.localfolder.LocalFolderTrace("Added subfolder : " + l);
                 var localizedFolderString = eu.philoux.localfolder.localizeMsg(ll);
@@ -203,7 +203,7 @@ eu.philoux.localfolder.urlLoad = function (url) {
 }
 
 eu.philoux.localfolder.getMail3Pane = function () {
-    return Services.wm.getMostRecentWindow("mail:3pane"),
+    return Services.wm.getMostRecentWindow("mail:3pane");
 }
 
 eu.philoux.localfolder.localizeMsg = function (msgName) {
