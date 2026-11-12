@@ -203,10 +203,7 @@ eu.philoux.localfolder.urlLoad = function (url) {
 }
 
 eu.philoux.localfolder.getMail3Pane = function () {
-    var w = Cc["@mozilla.org/appshell/window-mediator;1"]
-        .getService(Ci.nsIWindowMediator)
-        .getMostRecentWindow("mail:3pane");
-    return w;
+    return Services.wm.getMostRecentWindow("mail:3pane"),
 }
 
 eu.philoux.localfolder.localizeMsg = function (msgName) {
@@ -291,8 +288,7 @@ eu.philoux.localfolder.btCreeDossierLocal = async function () {
             return false;
         }
         //nom pas déjà utilisé
-        var accountmanager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager);
-        var serveurs = accountmanager.allServers;
+        var serveurs = MailServices.accounts.allServers;
 
         for (var i = 0; i < serveurs.length; i++) // introduce with TB 20
         {
