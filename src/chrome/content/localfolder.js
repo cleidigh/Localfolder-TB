@@ -58,6 +58,11 @@ eu.philoux.localfolder.addAllSpecialFolders = function () {
             const element = addFolderElements[index];
             element.checked = true;
         }
+    } else {
+        for (let index = 0; index < addFolderElements.length; index++) {
+            const element = addFolderElements[index];
+            element.checked = false;
+        }
     }
 }
 
@@ -68,11 +73,18 @@ eu.philoux.localfolder.toggleSpecialFolder = function (specialFolder) {
 
     let addFolderElements = document.querySelectorAll("[id^='add_folder_']");
 
-    if (!!addAllCheckbox.checked && !addFolderElement.checked) {
+    console.log("all", addAllCheckbox.checked)
+    console.log("addF", addFolderElement.checked)
+
+    if (addAllCheckbox.checked && addFolderElement.checked) {
         addAllCheckbox.checked = false;
-    } else if (!addAllCheckbox.checked && [...addFolderElements].every(e => e.checked)) {
+    } 
+    
+    /*
+    else if (!addAllCheckbox.checked && [...addFolderElements].every(e => e.checked)) {
         addAllCheckbox.checked = true;
     }
+        */
 
 }
 
